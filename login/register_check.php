@@ -9,7 +9,7 @@
   <body class="homepage">
   <?php
 
-    include('config.inc.php');
+    include('sqlconnect.php');
 
     $username = $_POST['username'];
     $password = sha1($_POST['password']);
