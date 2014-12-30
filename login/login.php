@@ -23,7 +23,7 @@
   <form method="POST" action="login_check.php">
     <div class="form-item">
       <label for="email"></label>
-      <input type="text" name="username" autofocus required placeholder="Username" />
+      <input type="text" name="username" id="username" autofocus required placeholder="Username" />
     </div>
     <div class="form-item">
       <label for="password"></label>
@@ -41,5 +41,9 @@
   </div>
 </div>
 
-  </body>
+<script>
+document.getElementById('username').select();
+</script>
+
+ </body>
 </html>
