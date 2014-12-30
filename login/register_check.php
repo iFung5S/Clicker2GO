@@ -9,7 +9,7 @@
   <body class="homepage">
   <?php
 
-    include('sqlconnect.php');
+    include('../sqlconnect.php');
 
     $username = $_POST['username'];
     $password = sha1($_POST['password']);
@@ -21,18 +21,16 @@
 
     if (mysqli_num_rows($result) != 0)
       {
-       echo "<script>window.location.assign('register.php?exist=1');";
+       echo "<script>window.location.assign('register.php?exist=1');</script>";
       }
-    else 
+    else
      {
-        $sql = "INSERT INTO user (username, password, name) VALUES ('$username','$password','$name')";
+        $sql = "INSERT INTO user (username, password, name, type) VALUES ('$username','$password','$name','student')";
 
        if (mysqli_query($conn, $sql))
         {
 
-        echo "Registration successfully"; 
-        echo '<br>';
-        echo '<a href="./login.php">Go to the login page</a>';
+        echo "<script>window.location.assign('login.php?register=1');</script>";
         }
        else
         {
