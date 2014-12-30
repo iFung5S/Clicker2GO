@@ -1,4 +1,4 @@
-<?ph
+<?php
 
 $database_host = "dbhost.cs.man.ac.uk";
 $database_user = "mbax4cf2";
