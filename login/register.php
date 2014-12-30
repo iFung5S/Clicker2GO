@@ -15,7 +15,7 @@
 		      <input type="text" name="username" placeholder="Username" id="username" class="name" onKeyUp="validate();" required />
 		      <input type="password" name="password" id="password1" placeholder="Password" class="email" onKeyUp="validate();" required />
 		      <input type="password" name="password2" id="password2" placeholder="Re-type Password" class="email" onKeyUp="validate();" required />
-            <p id="check" class="error"></p>
+            <p id="check" class="error"><?php if(isset($_GET['exist'] && $_GET['exist'] == 1) echo "Username already exist."; ?></p>
             <input type="submit" name="submit" id="submit" class="btn shadow animate grey" value="Register" disabled />
 
          </form>
