@@ -20,7 +20,7 @@
   <br>
   <br>
 
-  <form>
+  <form method="POST" action="login_check.php">
     <div class="form-item">
       <label for="email"></label>
       <input type="text" name="username" autofocus required placeholder="Username" />
