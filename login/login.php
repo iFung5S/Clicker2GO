@@ -7,7 +7,7 @@
   		<!-- <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'> -->
 		<link rel="stylesheet" href="http://www.mrubu.rvhost.com.ar/bootstrap/css/bootstrap.css">
     	<title>My Homepage</title>
-    	<link rel="stylesheet" href="style.css">
+    	<link rel="stylesheet" href="../style.css">
   </head>
 
 
