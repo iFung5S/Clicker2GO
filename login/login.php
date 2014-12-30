@@ -1,27 +1,45 @@
 <!DOCTYPE html>
+</html>
+
 <html>
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <title>Login | Clicker2GO</title>
-    <link rel="stylesheet" href="../style.css">
+  		<!-- <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'> -->
+		<link rel="stylesheet" href="http://www.mrubu.rvhost.com.ar/bootstrap/css/bootstrap.css">
+    	<title>My Homepage</title>
+    	<link rel="stylesheet" href="style.css">
   </head>
 
-  <body class="homepage">
-  <ul>
-         <form class="white" action="login_check.php" method="POST">
 
-            <li> <img class="center" src="../images/logo.png" width="70" height="70" /> CLICKER2GO</li>
-            <br />
-		      <input type="text" name="username" id="username" placeholder="Username" class="name" required />
-		      <input type="password" name="password" placeholder="Password" class="email" required />
-           <p> <?php if(isset($_GET['err']) && $_GET['err'] == 1) { echo "<span class='error'>Incorrect username or password.</span>"; }
+  <body class="homepage">
+<div class="form-wrapper">
+<br>
+  <h1><img src="../images/logo.png" alt="Couldn't load image" style="width:60px; height:60px"> CLICKER2GO </h1>
+  <div id=rectangle> </div>
+
+  <br>
+  <br>
+
+  <form>
+    <div class="form-item">
+      <label for="email"></label>
+      <input type="text" name="username" autofocus required placeholder="Username" />
+    </div>
+    <div class="form-item">
+      <label for="password"></label>
+      <input type="password" name="password" required="required" placeholder="Password" />
+    </div>
+<p> <?php if(isset($_GET['err']) && $_GET['err'] == 1) { echo "<span class='error'>Incorrect username or password.</span>"; }
                      if(isset($_GET['logout']) && $_GET['logout'] == 1) { echo "<span class='correct'>Logout successfully.</span>"; } ?> </p>
-            <input type="submit" name="submit" class="btn shadow animate green" value="Login" />
-         
-         </form>
-    <script>
-      document.getElementById('username').select();
-    </script>
+    <div class="button-panel">
+      <input type="submit" class="button" title="Login" value="Login" />
+    </div>
+  </form>
+  <div class="form-footer">
+    <p><a href="register.php">Register</a></p>
+    <p><a href="#">Forgot password?</a></p>
+  </div>
+</div>
+
   </body>
 </html>
