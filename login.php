@@ -9,14 +9,12 @@
 
   <body class="homepage">
   <ul>
-         <form class="white" action="action.php" method="POST">
+         <form class="white" action="login_check.php" method="POST">
 
-            <li> <img class="center" src="logo.png" width="70" height="70" /> CLICKER2GO</li>
+            <li> <img class="center" src="images/logo.png" width="70" height="70" /> CLICKER2GO</li>
             <br>
-            Name:
-		      <input type="text" name="name" placeholder="Write your username here..." class="name" required />
-            E-mail:
-		      <input type="text" name="emailaddress" placeholder="Write your password here..." class="email" type="email" required />
+		      <input type="text" name="username" placeholder="Username" class="name" required />
+		      <input type="password" name="password" placeholder="Password" class="email" required />
 
             <input type="submit" name="submit" class="btn shadow animate green" value="Login" />
          

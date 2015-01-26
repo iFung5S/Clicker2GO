@@ -1,7 +1,7 @@
 /* BACKGROUND FOR HOMEPAGE */
 body.homepage
 {  
-  background: url('studentsbg.jpg') no-repeat 50% 50% fixed;
+  background: url('images/studentsbg.jpg') no-repeat 50% 50% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
