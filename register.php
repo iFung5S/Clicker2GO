@@ -9,11 +9,11 @@
 
   <body class="homepage">
   <ul>
-         <form class="white" action="login_check.php" method="POST">
-            <li> <font size=14>Register</font></li>
+         <form class="white" action="register_check.php" method="POST">
+            <li> <font size=10>Register</font></li>
 		      <input type="text" name="username" placeholder="Username" class="name" required />
-		      <input type="password" name="password" id="pw1" placeholder="Password" onkeyup="validate()" class="email" required />
-		      <input type="password" name="repeat password" id="pw2" placeholder="Password" class="email" required /><span id="check"></span>
+		      <input type="password" name="password" id="pw2" placeholder="Password" onkeyup="validate()" class="email" required />
+		      <input type="password" name="repeat password" id="pw1" placeholder="Password" class="email" required /><span id="check"></span>
 		      <input type="text" name="name" placeholder="name" class="email" required />
 
             <input type="submit" name="submit" class="btn shadow animate green" value="register" />
