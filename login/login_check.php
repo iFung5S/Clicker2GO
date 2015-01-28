@@ -10,6 +10,9 @@
 
   <?php
 
+    // Initialize session
+    session_start();
+
     include_once('./config.inc.php');
 
     $username = $_POST['username'];
@@ -38,8 +41,6 @@
       echo "<script>window.location.assign('login.php?err=1');</script>";
     }
    
-    mysqli_close($conn);
-  
 ?>
 
 </body>
