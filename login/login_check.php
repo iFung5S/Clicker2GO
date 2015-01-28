@@ -13,7 +13,7 @@
     // Initialize session
     session_start();
 
-    include_once "../config.inc.php";
+    include_once ('../sqlconnect.php');
 
     echo $username = $_POST['username'];
     echo $password = $_POST['password'];
