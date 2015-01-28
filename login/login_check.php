@@ -13,7 +13,7 @@
     // Initialize session
     session_start();
 
-    include('../config.inc.php');
+    include_once "../config.inc.php";
 
     echo $username = $_POST['username'];
     echo $password = $_POST['password'];
