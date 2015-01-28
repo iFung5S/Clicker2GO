@@ -15,8 +15,8 @@
 
     include_once('./config.inc.php');
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    echo $username = $_POST['username'];
+    echo $password = $_POST['password'];
 
     $userValidate = "SELECT * FROM user WHERE username='$username'";  
 
@@ -27,18 +27,18 @@
       $row = mysqli_fetch_assoc($search);
       if ($password == $row['password'])
       {
-        echo "<script>window.location.assign('./temp_home.html');</script>";
+        echo "<script>window.location.assign('./');</script>";
         $_SESSION['username'] = $username;
         $_SESSION['name'] = $row['name'];
       }
       else
       {
-        echo "<script>window.location.assign('login.php?err=1');</script>";  
+ //       echo "<script>window.location.assign('login.php?err=1');</script>";  
       }
     }
     else 
     {
-      echo "<script>window.location.assign('login.php?err=1');</script>";
+   //   echo "<script>window.location.assign('login.php?err=1');</script>";
     }
    
 ?>
