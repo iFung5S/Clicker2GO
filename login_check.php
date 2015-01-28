@@ -20,7 +20,7 @@ $conn = mysqli_connect($database_host, $database_user, $database_pass, $group_db
      
     if (mysqli_num_rows($search)>0)
       {
-       $row = mysqli_fetch_assoc($userValidate);
+       $row = mysqli_fetch_assoc($search);
 
        if ($password == $row["password"])
          {
