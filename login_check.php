@@ -1,17 +1,19 @@
 <!DOCTYPE HTML>
 <html> 
-<head>
+  <head>
     <meta charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Login message | Clicker2GO</title>
-</head>
-<body>
-<?php
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="homepage">
+  <?php
 
     include_once('config.inc.php');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-$conn = mysqli_connect($database_host, $database_user, $database_pass, $group_dbnames[0]);
+    $conn = mysqli_connect($database_host, $database_user, $database_pass,$group_dbnames[0]);
 
     $userValidate = "SELECT * FROM user 
     WHERE username='$username'";  
@@ -29,18 +31,19 @@ $conn = mysqli_connect($database_host, $database_user, $database_pass, $group_db
        else
          {
            echo "Wrong password";
+           echo '<br>';
            echo '<a href="./login.php">Back to the login page</a>';  
          }
       }
     else 
      {
        echo "User not exist";
+       echo '<br>';
        echo '<a href="./login.php">Back to the login page</a>';
        
       }
 
    
-
     mysqli_close($conn);
   
 ?>
