@@ -16,23 +16,22 @@ $conn = mysqli_connect($database_host, $database_user, $database_pass, $group_db
     $userValidate = "SELECT * FROM user 
     WHERE username='$username'";  
 
-    $search = mysqli_query($userValidate);
+    $search = mysqli_query($conn, $userValidate);
      
     if (mysqli_num_rows($search)>0)
       {
-       $row = mysqli_fetch_array($userValidate);
-         
-         if ($password == $row["password"])
-           {
+       $row = mysqli_fetch_assoc($userValidate);
+
+       if ($password == $row["password"])
+         {
           echo "<script>location.href='./temp_home.html';</script>"; 
-           }
-         else
-           {
+         }
+       else
+         {
            echo "Wrong password";
            echo '<a href="./login.php">Back to the login page</a>';  
-           }
-         
-       }
+         }
+      }
     else 
      {
        echo "User not exist";
