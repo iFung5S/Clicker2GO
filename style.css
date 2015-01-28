@@ -196,4 +196,12 @@ input.email {
 }
 
 
+.error
+{
+	color: #FF0000;
+}
 
+.green
+{
+	color: #009900;
+}
