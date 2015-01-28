@@ -45,5 +45,6 @@ if (!isset($_SESSION['username'])) {
 </script>
 <?php echo $_SESSION['name'];?></a>!
 </p>
+<p><a href="login/logout.php">Logout</a></p>
   </body>
 </html>
