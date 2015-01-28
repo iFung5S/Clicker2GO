@@ -20,18 +20,19 @@ $conn = mysqli_connect($database_host, $database_user, $database_pass, $group_db
      
     if (mysqli_num_rows($search)>0)
       {
-       $row = mysqli_fetch_assoc($userValidate);
-
-       if ($password == $row["password"])
+       while ($row = mysqli_fetch_assoc($userValidate))
          {
+         if ($password == $row["password"])
+           {
           echo "<script>location.href='./temp_home.html';</script>"; 
-         }
-       else
-         {
+           }
+         else
+           {
            echo "Wrong password";
            echo '<a href="./login.php">Back to the login page</a>';  
+           }
          }
-      }
+       }
     else 
      {
        echo "User not exist";
