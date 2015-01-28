@@ -27,7 +27,8 @@
       {
        echo "User already existed";
        echo '<br>';
-       echo "<script type='javascript'>windowsetTimeout(\"window.location.href='register.php'\",2000);</script>"; 
+       echo '<a href="./register.php">Back to register page</a>';
+       /*echo "<script type='javascript'>windowsetTimeout(\"window.location.href='register.php'\",2000);</script>"; */
          
       }
     else 
