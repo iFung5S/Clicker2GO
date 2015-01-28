@@ -15,8 +15,8 @@
 
     include_once ('../sqlconnect.php');
 
-    echo $username = $_POST['username'];
-    echo $password = $_POST['password'];
+    $username = $_POST['username'];
+    $password = sha1($_POST['password']);
 
     $query = "SELECT * FROM user WHERE username='$username'";
 
@@ -33,12 +33,12 @@
       }
       else
       {
- //       echo "<script>window.location.assign('login.php?err=1');</script>";  
+        echo "<script>window.location.assign('login.php?err=1');</script>";  
       }
     }
     else 
     {
-   //   echo "<script>window.location.assign('login.php?err=1');</script>";
+      echo "<script>window.location.assign('login.php?err=1');</script>";
     }
    
 ?>
