@@ -13,21 +13,21 @@
     // Initialize session
     session_start();
 
-    include_once('./config.inc.php');
+    include_once('../config.inc.php');
 
     echo $username = $_POST['username'];
     echo $password = $_POST['password'];
 
-    $userValidate = "SELECT * FROM user WHERE username='$username'";  
+    $query = "SELECT * FROM user WHERE username='$username'";
 
-    $search = mysqli_query($conn, $userValidate);
+    $result = mysqli_query($query, $conn);
      
-    if (mysqli_num_rows($search) > 0)
+    if (mysqli_num_rows($result) > 0)
     {
-      $row = mysqli_fetch_assoc($search);
+      $row = mysqli_fetch_assoc($result);
       if ($password == $row['password'])
       {
-        echo "<script>window.location.assign('./');</script>";
+        echo "<script>window.location.assign('../');</script>";
         $_SESSION['username'] = $username;
         $_SESSION['name'] = $row['name'];
       }
