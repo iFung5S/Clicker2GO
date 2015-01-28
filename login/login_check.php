@@ -13,14 +13,14 @@
     // Initialize session
     session_start();
 
-    include_once('../config.inc.php');
+    include('../config.inc.php');
 
     echo $username = $_POST['username'];
     echo $password = $_POST['password'];
 
     $query = "SELECT * FROM user WHERE username='$username'";
 
-    $result = mysqli_query($query, $conn);
+    $result = mysqli_query($conn, $query);
      
     if (mysqli_num_rows($result) > 0)
     {
