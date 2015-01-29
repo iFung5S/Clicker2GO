@@ -11,7 +11,7 @@
   <ul>
          <form class="white" action="login_check.php" method="POST">
 
-            <li> <img class="center" src="images/logo.png" width="70" height="70" /> CLICKER2GO</li>
+            <li> <img class="center" src="../images/logo.png" width="70" height="70" /> CLICKER2GO</li>
             <br />
 		      <input type="text" name="username" id="username" placeholder="Username" class="name" required />
 		      <input type="password" name="password" placeholder="Password" class="email" required />
