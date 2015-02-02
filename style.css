@@ -1,214 +1,129 @@
 /* BACKGROUND FOR HOMEPAGE */
 body.homepage
 {  
-  background: url('images/studentsbg.jpg') no-repeat 50% 50% fixed;
+  background: url('images/studentsBg.jpg') no-repeat 50% 50% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
 }
 
-img.middle {
-    vertical-align: text-middle;
+.error
+{
+   color: #FF0000;
 }
-
-/* CLASS */
-.orange { color: orange; }
-
-/* CLASS */
-.black { color: black; }
-
-/* CLASS */
-.red { color: red; }
-
-/* CLASS */
-.yellow { color: yellow; }
-
-/* CLASS */
-.white {color: white;}
 
 .green
 {
-	background-color: #82BF56;
-	border-bottom: 5px solid #669644;
-	text-shadow: 0px -2px #669644;
-}
-
-.grey
-{
-        background-color: #989898;
-        border-bottom: 5px solid #989898;
-        text-shadow: 0px -2px #989898;
+   color: #009900;
 }
 
 
-/* unvisited link */
-a:link
-{
-   width: 200px;
-   color: #ffc78b;
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
 }
 
-/* visited link */
-a:visited
-{
-   width: 200px;
-   color: #ffc78b;
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+body {
+  background: #e9e9e9;
+  color: #5e5e5e;
+  font: 40000 87.5%/1.5em 'Open Sans', sans-serif;
 }
 
-/* mouse over link */
-a:hover
-{
-   width: 200px;
-   color: #ff9b31;
+/* Form Layout */
+.form-wrapper {
+  background: #fafafa;
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 370px;
+  box-shadow: -8px 8px 5px #8b8b8b;
 }
 
-/* selected link */
-a:active
-{
-   width: 200px;
-   color: #ff9b31;
-}
-
-/* LIST FOR MENU TO BE IN CENTER */
-ul
-{
-   list-style-type: none;
-   text-align: center;
-}
-
-/* LIST ITEM FOR MENU ITEMS TO BE IN ONE LINE */
-li
-{
-   display: inline;
+h1 {
+  text-align: center;
+  padding: 25px 0;
+    font-size: 35px;
+    color: #1c1c1c;
+    font-weight: 900;
+    font-family: "Myriad Pro"
 }
 
 form {
-    margin-left:auto;
-    margin-right:auto;
-    width: 343px;
-    height: 373px;
-    padding:30px;
-    border: 1px solid rgba(0,0,0,.2);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    background: rgba(0, 0, 0, 0.5); 
-    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
-    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
-    overflow: hidden; 
+  padding: 0 1.9em;
 }
 
-textarea{
-	  background: rgba(255, 255, 255, 0.4) url(http://luismruiz.com/img/gemicon_message.png) no-repeat scroll 16px 16px; 
-    width: 276px;
-    height: 110px;
-    border: 1px solid rgba(255,255,255,.6);
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box; 
-    display:block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size:18px;
-    color:#fff;
-    padding-left:45px;
-    padding-right:20px;
-    padding-top:12px;
-    margin-bottom:20px;
-    overflow:hidden;
+.form-item {
+  margin-bottom: 0.8em;
+  width: 100%;
 }
 
-input {
-    width: 210px;
-    height: 48px;
-    border: 1px solid rgba(255,255,255,.4);
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box; 
-    display:block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size:18px;
-    color:#fff;
-    padding-left:20px;
-    padding-right:20px;
-    margin-bottom:20px;
+.form-item input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  height: 40px;
+  transition: border-color 0.3s;
+  width: 100%;
 }
 
-/* Rodo pirsta kad paspaust */
-input[type=submit] {
-    cursor:pointer;
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
 }
 
-input.name {
-	  background: rgba(255, 255, 255, 0.4) url(http://luismruiz.com/img/gemicon_name.png) no-repeat scroll 16px 16px; 
-	  padding-left:45px;
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
 }
 
-input.email {
-	  background: rgba(255, 255, 255, 0.4) url(http://luismruiz.com/img/gemicon_email.png) no-repeat scroll 16px 20px;
-	  padding-left:45px;
+.button-panel .button {
+  background: #61eb68;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
 }
 
-::-webkit-input-placeholder {
-	  color: #fff;
+.button:hover {
+  background: #3acc45;
 }
 
-:-moz-placeholder{ 
-    color: #fff; 
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
 }
 
-::-moz-placeholder {
-    color: #fff;
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
 }
 
-:-ms-input-placeholder {  
-	  color: #fff; 
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
 }
 
-
-.animate
-{
-	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
-}
-
-.btn
-{
-	position: relative;
-	padding: 0px 40px;
-   margin: 0px 10px 10px 0px;
-   float: left;
-	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
-	font-size: 25px;
-	color: #FFF;
-	text-decoration: none;	
-}
-
-.btn:active
-{
-	transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
-}
-
-
-.error
-{
-	color: #FF0000;
-}
-
-.correct
-{
-	color: #009900;
+#rectangle {
+  width: 340px;
+  height: 2px;
+  background: #e4e4e4;
 }
