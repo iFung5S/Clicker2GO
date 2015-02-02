@@ -33,9 +33,10 @@
         for ($i=1; $i<=6; $i++) // answers are from index 4 to 9 
         {
           if (!empty($result_row['answer' . $i])) // only print if value not NULL
-          {
+          { 
+            $j=$result_row['answer' . $i];
             echo "<li>
-                    <input name='answer' type='radio' value='$i' /> $result_row['answer'.$i]
+                    <input name='answer' type='radio' value=$i /> $j
                   </li>";
           }
         }
