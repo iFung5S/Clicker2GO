@@ -56,9 +56,10 @@ if (!isset($_SESSION['username'])) {
   //list course user have
 
   $row = mysqli_fetch_assoc($result);
-  $courseName = $row['course'];
+  $course = $row['course'];
   for ($i=0;$i<count($courseName);$i++) {
-    echo '<li><a href="questions/datePage.php?courseName=$courseName[$i]">$courseName[$i]</a></li>';
+     $courseName = $course[$i];
+    echo '<li><a href="questions/datePage.php?courseName=$courseName">$courseName</a></li>';
     
   }
   ?>
