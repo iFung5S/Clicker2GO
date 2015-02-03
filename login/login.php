@@ -6,7 +6,7 @@
     <meta charset="utf-8">
   		<!-- <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'> -->
 		<link rel="stylesheet" href="http://www.mrubu.rvhost.com.ar/bootstrap/css/bootstrap.css">
-    	<title>My Homepage</title>
+    	<title>Login | Clicker2GO</title>
     	<link rel="stylesheet" href="../style.css">
   </head>
 
@@ -14,7 +14,7 @@
   <body class="homepage">
 <div class="form-wrapper">
 <br>
-  <h1><img src="../images/logo.png" alt="Couldn't load image" style="width:60px; height:60px"> CLICKER2GO </h1>
+  <h1><img src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px"><br />CLICKER2GO</h1>
   <div id=rectangle> </div>
 
   <br>
@@ -23,7 +23,7 @@
   <form method="POST" action="login_check.php">
     <div class="form-item">
       <label for="email"></label>
-      <input type="text" name="username" id="username" autofocus required placeholder="Username" />
+      <input type="text" name="username" id="username" required placeholder="Username" />
     </div>
     <div class="form-item">
       <label for="password"></label>

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include('../sqlconnect.php');
 
 $id = 1; // Just hardcoded 1 for now, should get from embedding page
