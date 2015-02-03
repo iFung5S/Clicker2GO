@@ -10,7 +10,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
         header('Location: login/login.php');
 }
-  include_once ('../sqlconnect.php');
+  include_once ('sqlconnect.php');
   $username = $_SESSION['username'];
   $query = "SELECT * FROM user WHERE username='$username'";
   $result = mysqli_query($conn, $query);
