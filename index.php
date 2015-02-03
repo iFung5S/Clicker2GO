@@ -63,7 +63,7 @@ if (!isset($_SESSION['username'])) {
   else {
     for ($i=0;$i<count($course);$i++) {
       $courseName = $course[$i];
-      echo '<li><a href="questions/datePage.php?courseName=$courseName">$courseName</a></li>';    
+      echo "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";    
       }
   }
   ?>
