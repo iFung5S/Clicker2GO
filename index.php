@@ -64,10 +64,10 @@ if (!isset($_SESSION['username'])) {
   ?>
   </ul>
   <!-- for student-->
-  <form method="POST" action="addCourseTaken.php" 
+  <form method="POST" action="questions/addCourseTaken.php" 
   <?php if($row['type'] != 'student') {
     echo 'style="visibility:hidden"'; }?> >
-  <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/>
+  <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
   <input type="text" name="courseName" /></br>
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
