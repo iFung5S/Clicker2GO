@@ -57,7 +57,7 @@ if (!isset($_SESSION['username'])) {
 
   $row = mysqli_fetch_assoc($result);
   $course = $row['course'];
-  for ($i=0;$i<count($courseName);$i++) {
+  for ($i=0;$i<count($course);$i++) {
      $courseName = $course[$i];
     echo '<li><a href="questions/datePage.php?courseName=$courseName">$courseName</a></li>';
     
