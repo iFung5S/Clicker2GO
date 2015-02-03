@@ -10,7 +10,10 @@ session_start();
 if (!isset($_SESSION['username'])) {
         header('Location: login/login.php');
 }
-
+  include_once ('../sqlconnect.php');
+  $username = $_SESSION['username'];
+  $query = "SELECT * FROM user WHERE username='$username'";
+  $result = mysqli_query($conn, $query);
 ?>
 
   <head>
@@ -46,5 +49,28 @@ if (!isset($_SESSION['username'])) {
 <?php echo $_SESSION['name'];?></a>!
 </p>
 <p><a href="login/logout.php">Logout</a></p>
+
+  <h2>Course</h2>
+  <ul>
+  <?php
+  //list course user have
+
+  $row = mysqli_fetch_assoc($result);
+  $courseName = $row['course'];
+  for ($i=0;$i<count($courseName);$i++) {
+    echo '<li><a href="questions/datePage.php?courseName=$courseName[$i]">$courseName[$i]</a></li>';
+    
+  }
+  ?>
+  </ul>
+  <!-- for student-->
+  <form method="POST" action="addCourseTaken.php" 
+  <?php if($row['type'] != 'student') {
+    echo 'style="visibility:hidden"'; }?> >
+  <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/>
+  <input type="text" name="courseName" /></br>
+  <input type="submit" class="button" value="ADD COURSE"/>
+  </form>
+
   </body>
 </html>
