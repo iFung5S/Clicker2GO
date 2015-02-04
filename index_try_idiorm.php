@@ -76,20 +76,17 @@ if (!isset($_SESSION['username'])) {
     $course_id = ORM::for_table('questions')
                  ->min('id')
                  ->group_by('course')
-                 ->find_many();
+                 ->find_array();
     $course = ORM::for_table('questions')
                         ->where_in('id',$course_id)
                         ->order_by_asc('course')
                         ->find_many();
-    if (empty($course)) {
+
       foreach ($course as $each_course) {
         $courseName = $each_course['course'];
         echo "<option value='$courseName'>$courseName</option>";
       } 
-    }
-    else {
-      echo "<option value=''>NONE</option>";
-    } 
+
     echo "</select></br>"; 
   }
   else {
