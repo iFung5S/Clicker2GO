@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 }
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
-
+  include_once ('sqlconnect.php');
 ?>
   <head>
     <meta charset="utf-8">
@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
   <?php
   //list course user have
 
-   $dateQuery = "SELECT * FROM question WHERE (id IN (select max(id) from question WHERE (course='$courseName') GROUP BY date)) ORDER BY id";
+  $dateQuery = "SELECT * FROM question WHERE (id IN (select max(id) from question WHERE (course='$courseName') GROUP BY date)) ORDER BY id";
   $result = mysqli_query($conn, $dateQuery);
   if (!empty($dateQuery)) {
   while($row = mysqli_fetch_assoc($result))
