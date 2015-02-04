@@ -33,11 +33,16 @@ if (!isset($_SESSION['username'])) {
   <ol>
   <?php
   $i=1;
+  if (mysqli_num_rows($result) != 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     $qid = $row['id'];
     echo "<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
     $i++;
-    }  ?>
+    }}
+  else {
+    echo "<li>No Question</br>(This date page will not be saved)</li>"; 
+  } 
+  ?>
   </ol>
 
   <form method="POST" action="createQuestion.php"

@@ -26,11 +26,11 @@ if (!isset($_SESSION['username'])) {
            <span><?php echo $courseName; ?></span></div>
   <ul>
   <?php
-  //list course user have
+  //list date
 
   $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions WHERE (course='$courseName') GROUP BY date)) ORDER BY date DESC ";
   $result = mysqli_query($conn, $dateQuery);
-  if (!empty($result)) {
+  if (mysqli_num_rows($result) != 0) {
   while($row_question = mysqli_fetch_assoc($result))
   {
     $date = $row_question['date'];
