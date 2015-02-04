@@ -74,7 +74,7 @@ if (!isset($_SESSION['username'])) {
   <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
   <select name="courseName" <?php if($row['type'] != 'student') {
     echo 'style="visibility:hidden"'; }?>>
-  <option>--select course--</option>
+  <option value=''>--select course--</option>
   <?php
 
   if($row['type'] == 'student') {
