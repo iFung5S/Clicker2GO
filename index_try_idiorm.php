@@ -73,10 +73,12 @@ if (!isset($_SESSION['username'])) {
   if($user['type'] == 'student') {
     echo "<select name='courseName' \>";
     echo "<option value=''>--select course--</option>";
+  echo "<option value='2'>2222</option>";
     $course_id = ORM::for_table('questions')
                  ->min('id')
                  ->group_by('course')
                  ->find_array();
+
     $course = ORM::for_table('questions')
                         ->where_in('id',$course_id)
                         ->order_by_asc('course')
@@ -84,6 +86,7 @@ if (!isset($_SESSION['username'])) {
   $num=$course->count();
   echo "<option value='$num'>$num</option>";
   $num2=$course_id->count();
+  echo "<option value='33'>3333</option>";
   echo "<option value='$num2'>$num2</option>";
       foreach ($course as $each_course) {
         $courseName = $each_course['course'];
