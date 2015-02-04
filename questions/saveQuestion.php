@@ -36,7 +36,7 @@ if (!isset($_SESSION['username'])) {
 
     if (mysqli_query($conn, $sql))
      {
-      echo "<script>window.location.assign('questionlist.php');</script>";
+      echo "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
      }
     else
      {
