@@ -72,9 +72,35 @@ if (!isset($_SESSION['username'])) {
 
   <form method="POST" action="questions/addCourseTaken.php" >
   <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
-  <input type="text" name="courseName" /></br>
+  <select id="courseSel"  <?php if($row['type'] != 'student') {
+    echo 'style="visibility:hidden"'; }?>>
+  <option value="-1">--select course--</option>
+  <?php
+
+  if($row['type'] == 'student') {
+    $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions GROUP BY course)) ORDER BY course ";
+    $course_result = mysqli_query($conn, $dateQuery);
+    if (mysqli_num_rows($course_result) != 0) {
+    while($row_course = mysqli_fetch_assoc($course_result))
+    {
+      $courseName = $row_course['course'];
+      echo "<option value='$courseName'>$courseName</option>";
+    } }
+   else {
+     echo "<option disabled>NONE</option>";
+    } }
+  ?>
+  </select>
+  <input type="text" name="courseName" id="course" 
+  <?php if($row['type'] == 'student') {
+    echo 'disabled'; }?> /></br>
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 
   </body>
+  <script type="text/javascript">
+    document.getElementByIdx_x('courseSel').onchange = function(){
+    if (this.options[0].value==-1)this.options[0]=null;
+    doucument.getElementByIdx_x('course').value = this.value };
+  </script>
 </html>
