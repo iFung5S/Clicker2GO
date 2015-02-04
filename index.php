@@ -72,7 +72,7 @@ if (!isset($_SESSION['username'])) {
 
   <form method="POST" action="questions/addCourseTaken.php" >
   <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
-  <select id="courseSel" name="courseName" <?php if($row['type'] != 'student') {
+  <select id="courseSel" <?php if($row['type'] != 'student') {
     echo 'style="visibility:hidden"'; }?>>
   <option value="-1">--select course--</option>
   <?php
@@ -93,10 +93,14 @@ if (!isset($_SESSION['username'])) {
   </select></br>
   <input type="text" name="courseName" id="course" 
   <?php if($row['type'] == 'student') {
-    echo 'style="visibility:hidden" disabled'; }?> /></br>
+    echo ' disabled'; }?> /></br>
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 
   </body>
-
+  <script type="text/javascript">
+  doucument.getElementById('courseSel').onchange = function() {
+  if(this.options[0].value== -1) this.options[0]=null;
+  doucument.getElementById('course').value = this.value };
+  </script>
 </html>
