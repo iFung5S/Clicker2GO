@@ -68,7 +68,6 @@ if (!isset($_SESSION['username'])) {
   </ul>
 
   <form method="POST" action="questions/addCourseTaken.php" >
-  <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
   <?php
   if($row['type'] == 'student') {
     echo "<select name='courseName' \>";

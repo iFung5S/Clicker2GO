@@ -69,7 +69,6 @@ if (!isset($_SESSION['username'])) {
   </ul>
 
   <form method="POST" action="questions/addCourseTaken.php" >
-  <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
   <?php
   if($user['type'] == 'student') {
     echo "<select name='courseName' \>";
@@ -79,13 +78,12 @@ if (!isset($_SESSION['username'])) {
                  ->group_by('course')
                  ->find_many();
     $course = ORM::for_table('questions')
-                        ->select('course')
                         ->where_in('id',$course_id)
                         ->order_by_asc('course')
                         ->find_many();
     if (!empty($course)) {
       foreach ($course as $course) {
-        $courseName = $course->text;
+        $courseName = $course['course']->text;
         echo "<option value='$courseName'>$courseName</option>";
       } 
     }

@@ -7,6 +7,8 @@ session_start();
 if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
 }
+  $username = $_SESSION['username'];
+  include_once ('../sqlconnect.php');
 ?>
 <html> 
   <head>
@@ -19,9 +21,6 @@ if (!isset($_SESSION['username'])) {
 
   <?php
 
-    include_once ('../sqlconnect.php');
-
-    $username = $_POST['username'];
     $courseName = $_POST['courseName'];
   if (!empty($courseName)) {
     $query = "SELECT * FROM user WHERE username='$username'";
