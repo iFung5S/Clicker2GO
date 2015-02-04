@@ -40,7 +40,7 @@ if (!isset($_SESSION['username'])) {
     $i++;
     }}
   else {
-    echo "<li>No Question</br>(This date page will not be saved)</li>"; 
+    echo "<li>No Question</br>(This date page will not be saved if no question added)</li>"; 
   } 
   ?>
   </ol>
