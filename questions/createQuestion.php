@@ -28,8 +28,6 @@ if (!isset($_SESSION['username'])) {
       <span>Create Question</span></div>
 
     <form method="POST" action="saveQuestion.php">
-      <div><span name="courseName"><?php echo $courseName; ?></span>>
-           <span name="date"><?php echo $date; ?></span></div>
       <div>Question:</div>
       <textarea rows="5" cols="50" name="question" autofocus required></textarea></br>
       <div>answer 1:</div>
