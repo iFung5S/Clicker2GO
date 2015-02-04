@@ -82,13 +82,13 @@ if (!isset($_SESSION['username'])) {
                         ->order_by_asc('course')
                         ->find_many();
     if (!empty($course)) {
-      while ($course) {
-        $courseName = $course['course']->text;
+      foreach ($course as $each_course) {
+        $courseName = $each_course['course'];
         echo "<option value='$courseName'>$courseName</option>";
       } 
     }
     else {
-      echo "<option disabled>NONE</option>";
+      echo "<option value=''>NONE</option>";
     } 
     echo "</select></br>"; 
   }
