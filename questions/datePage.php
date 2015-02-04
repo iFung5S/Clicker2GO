@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 }
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
-  include_once ('sqlconnect.php');
+  include_once ('../sqlconnect.php');
 ?>
   <head>
     <meta charset="utf-8">
