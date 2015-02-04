@@ -74,7 +74,7 @@ if (!isset($_SESSION['username'])) {
   <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
   <?php
   if($row['type'] == 'student') {
-    echo "<select id='input' name='courseName' onKeyUp='validate();'\>";
+    echo "<select name='courseName' \>";
     echo "<option value=''>--select course--</option>";
 
     $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions GROUP BY course)) ORDER BY course ";
@@ -90,15 +90,9 @@ if (!isset($_SESSION['username'])) {
     } 
   echo "</select></br>"; }
   else {
-  echo "<input type='text' id='input' name='courseName' onKeyUp='validate();'/></br>"; } ?>
-  <input type="submit" class="button" id="submit" value="ADD COURSE" disabled/>
+  echo "<input type='text' name='courseName'/></br>"; } ?>
+  <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 
- <script>
-    function validate() {
-    var input = document.getElementById("input").value != "";
-    if (input) {
-      document.getElementById("submit").disabled = false; } }
- </script>
   </body>
 </html>
