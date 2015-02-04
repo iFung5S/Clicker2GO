@@ -28,8 +28,7 @@ if (!isset($_SESSION['username'])) {
     $query = "SELECT course FROM user WHERE username='$username'";
     $result = mysqli_query($conn, $query);
     $course = mysqli_fetch_assoc($result); 
-    if (empty($course)){$course = array();}
-    array_push($course,$courseName);
+    $course = implode(array($course,$courseName));
     $sql = "UPDATE user SET course = '$course' WHERE username='$username'";
 
     if (mysqli_query($conn, $sql))
