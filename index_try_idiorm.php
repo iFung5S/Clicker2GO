@@ -74,7 +74,7 @@ if (!isset($_SESSION['username'])) {
     echo "<select name='courseName' \>";
     echo "<option value=''>--select course--</option>";
     $course_id = ORM::for_table('questions')
-                 ->select('id')
+                 ->min('id')
                  ->group_by('course')
                  ->find_many();
     $course = ORM::for_table('questions')
