@@ -55,6 +55,8 @@ if (!isset($_SESSION['username'])) {
       <input type="checkbox" name="correct[]" value="answer6" id="answer6"/>
       <label for="answer6">correct</label></br>
       <input type="submit" class="button" value="CREATE"/> 
+      <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
+      <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>
     </form>
 
   </body>

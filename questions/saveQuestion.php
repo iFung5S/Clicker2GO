@@ -32,7 +32,7 @@ if (!isset($_SESSION['username'])) {
 
     include('../sqlconnect.php');
 
-    $sql = "INSERT INTO question (course, date, question, answer1, answer2, answer3, answer4, answer5, answer6, correct) VALUES ('$course','$date','$question','$answer[1]','$answer[2]','$answer[3]','$answer[4]','$answer[5]','$answer[6]','$correct')";
+    $sql = "INSERT INTO questions (course, date, question, answer1, answer2, answer3, answer4, answer5, answer6, correct) VALUES ('$courseName','$date','$question','$answer[1]','$answer[2]','$answer[3]','$answer[4]','$answer[5]','$answer[6]','$correct')";
 
     if (mysqli_query($conn, $sql))
      {
