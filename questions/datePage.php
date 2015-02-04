@@ -26,11 +26,12 @@ if (!isset($_SESSION['username'])) {
   //list course user have
 
    $dateQuery = "SELECT * FROM question WHERE (id IN (select max(id) from question WHERE (course='$courseName') GROUP BY date)) ORDER BY id";
-  while($row = mysqli_fetch_assoc($result))
+  if (!empty($dateQuery)) {
+  while($row = mysqli_fetch_assoc($dateQuery))
   {
     $date = $row['date'];
     echo '<li><a href="questionlist.php?date=$date&courseName=$courseName">$date</a></li>';
-  }
+  } }
   ?>
 
 
