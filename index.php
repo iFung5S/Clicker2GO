@@ -74,7 +74,7 @@ if (!isset($_SESSION['username'])) {
   <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
   <?php
   if($row['type'] == 'student') {
-    echo "<select name='courseName' \>";
+    echo "<select name='courseName' size=5 \>";
     echo "<option value=''>--select course--</option>";
 
     $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions GROUP BY course)) ORDER BY course ";

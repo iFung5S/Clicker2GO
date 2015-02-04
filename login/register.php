@@ -11,6 +11,7 @@
   <ul>
          <form class="white" action="register_check.php" method="POST">
             <li> <font size=10>Register</font></li>
+            <span><a href='login.php'>Back to login</a></span></br>
 		      <input type="text" name="name" placeholder="Name" id="name" class="name" onKeyUp="validate();"required /></br>
 		      <input type="text" name="username" placeholder="Username" id="username" class="name" onKeyUp="validate();" required /></br>
 		      <input type="password" name="password" id="password1" placeholder="Password" class="email" onKeyUp="validate();" required /></br>
