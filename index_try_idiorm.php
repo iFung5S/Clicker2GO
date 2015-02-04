@@ -55,7 +55,7 @@ if (!isset($_SESSION['username'])) {
           ->where('username', $username)
           ->find_one();
     $course_id = ORM::for_table('questions')
-                 ->min('id')
+                 ->select('id')
                  ->group_by('course')
                  ->find_array();
 
