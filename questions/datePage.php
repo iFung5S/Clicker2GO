@@ -36,6 +36,8 @@ if (!isset($_SESSION['username'])) {
     $date = $row_question['date'];
     echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
   } }
+ else {
+   echo "<li>No content</li>
   ?>
 
 
@@ -44,7 +46,7 @@ if (!isset($_SESSION['username'])) {
   <?php if($row_user['type'] == 'student') {
     echo 'style="visibility:hidden"'; }?>>
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
-  <input type="text" name="date" value="date"/>
+  <input type="text" name="date" placeholder="yyyy-mm-dd"/>
   <input type="submit" class="button" value="add date"/>
   </form>
   </body>
