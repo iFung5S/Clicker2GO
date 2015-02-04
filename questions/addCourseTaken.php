@@ -28,8 +28,8 @@ if (!isset($_SESSION['username'])) {
     $query = "SELECT course FROM user WHERE username='$username'";
     $result = mysqli_query($conn, $query);
     $course = mysqli_fetch_assoc($result); 
-     echo $course;
-    $course = implode("|",array($course,$courseName));
+    $course = array($course,$courseName);
+    $course = implode("|",$course);
     $sql = "UPDATE user SET course = '$course' WHERE username='$username'";
 
     if (mysqli_query($conn, $sql))
