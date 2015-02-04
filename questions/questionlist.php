@@ -14,6 +14,8 @@ if (!isset($_SESSION['username'])) {
   include_once ('../sqlconnect.php');
   $query = "SELECT * FROM questions WHERE (course='$courseName' and date='$date')";
   $result = mysqli_query($conn, $query);
+  $query_user = "SELECT * FROM user WHERE username='$username'";
+  $row_user = mysqli_fetch_assoc(mysqli_query($conn, $query_user));
 ?>
   <head>
     <meta charset="utf-8">
@@ -37,7 +39,9 @@ if (!isset($_SESSION['username'])) {
     }  ?>
   </ol>
 
-  <form method="POST" action="createQuestion.php">
+  <form method="POST" action="createQuestion.php"
+  <?php if($row_user['type'] == 'student') {
+    echo 'style="visibility:hidden"'; }?> >
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
   <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>
   <input type="submit" class="button" value="creat new"/>

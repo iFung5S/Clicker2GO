@@ -11,6 +11,8 @@ if (!isset($_SESSION['username'])) {
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
   include_once ('../sqlconnect.php');
+  $query = "SELECT * FROM user WHERE username='$username'";
+  $row_user = mysqli_fetch_assoc(mysqli_query($conn, $query));
 ?>
   <head>
     <meta charset="utf-8">
@@ -29,16 +31,18 @@ if (!isset($_SESSION['username'])) {
   $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions WHERE (course='$courseName') GROUP BY date)) ORDER BY date DESC ";
   $result = mysqli_query($conn, $dateQuery);
   if (!empty($result)) {
-  while($row = mysqli_fetch_assoc($result))
+  while($row_question = mysqli_fetch_assoc($result))
   {
-    $date = $row['date'];
+    $date = $row_question['date'];
     echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
   } }
   ?>
 
 
   </ul>
-  <form method="GET" action="questionlist.php">
+  <form method="GET" action="questionlist.php"   
+  <?php if($row_user['type'] == 'student') {
+    echo 'style="visibility:hidden"'; }?>>
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
   <input type="text" name="date" value="date"/>
   <input type="submit" class="button" value="add date"/>
