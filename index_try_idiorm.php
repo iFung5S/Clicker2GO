@@ -85,7 +85,8 @@ if (!isset($_SESSION['username'])) {
                         ->find_many();
     if (!empty($course)) {
       foreach ($course as $course) {
-        echo "<option value='$course'>$course</option>";
+        $courseName = $course->text;
+        echo "<option value='$courseName'>$courseName</option>";
       } 
     }
     else {
