@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
 
   <body class="homepage">
       <div>
-      <span><a href='index.php'>Home</a></span>>
+      <span><a href='../index.php'>Home</a></span>>
       <span><a href="datePage.php?courseName=<?php echo $courseName; ?>"><?php echo $courseName; ?></a></span>>
       <span><?php echo $date; ?></span></div>
   <ol>
