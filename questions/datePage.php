@@ -20,7 +20,7 @@ if (!isset($_SESSION['username'])) {
   </head>
 
   <body class="homepage">
-    <div><span><a href='index.php'>Home</a></span>>
+    <div><span><a href='../index.php'>Home</a></span>>
            <span><?php echo $courseName; ?></span></div>
   <ul>
   <?php
