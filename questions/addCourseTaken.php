@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
 
     $username = $_POST['username'];
     $courseName = $_POST['courseName'];
-  if (!empty($courseName)) {
+
     $query = "SELECT * FROM user WHERE username='$username'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result); 
@@ -32,7 +32,8 @@ if (!isset($_SESSION['username'])) {
     if (empty($course)) {
     $course = $courseName; }
     else {
-    $course = implode("|",array($course,$courseName)); }
+       if (!empty($courseName)) {
+    $course = implode("|",array($course,$courseName)); }}
     $sql = "UPDATE user SET course = '$course' WHERE username='$username'";
 
     if (mysqli_query($conn, $sql))
@@ -40,12 +41,10 @@ if (!isset($_SESSION['username'])) {
       echo "<script>window.location.assign('../index.php');</script>";
      }
     else
-    {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-  } else {
-      echo "<script>window.location.assign('../index.php');</script>";
-  }
+     {
+     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+     }
+ 
    
 ?>
 
