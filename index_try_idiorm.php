@@ -81,7 +81,7 @@ if (!isset($_SESSION['username'])) {
                         ->where_in('id',$course_id)
                         ->order_by_asc('course')
                         ->find_many();
-    if (!empty($course)) {
+    if (empty($course)) {
       foreach ($course as $each_course) {
         $courseName = $each_course['course'];
         echo "<option value='$courseName'>$courseName</option>";
