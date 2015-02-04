@@ -61,6 +61,7 @@ if (!isset($_SESSION['username'])) {
    echo '<li>No course now</>';
   }
   else {
+   $course = explode("|",$course);
     for ($i=0;$i<count($course);$i++) {
       $courseName = $course[$i];
       echo "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";    
