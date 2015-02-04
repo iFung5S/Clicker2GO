@@ -31,7 +31,7 @@ if (!isset($_SESSION['username'])) {
   while($row = mysqli_fetch_assoc($result))
   {
     $date = $row['date'];
-    echo '<li><a href="questionlist.php?date=$date&courseName=$courseName">$date</a></li>';
+    echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
   } }
   ?>
 
