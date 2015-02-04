@@ -11,9 +11,9 @@
   <ul>
          <form class="white" action="register_check.php" method="POST">
             <li> <font size=10>Register</font></li>
-		      <input type="text" name="name" placeholder="Name" id="name" class="name" onKeyUp="validate();"required />
-		      <input type="text" name="username" placeholder="Username" id="username" class="name" onKeyUp="validate();" required />
-		      <input type="password" name="password" id="password1" placeholder="Password" class="email" onKeyUp="validate();" required />
+		      <input type="text" name="name" placeholder="Name" id="name" class="name" onKeyUp="validate();"required /></br>
+		      <input type="text" name="username" placeholder="Username" id="username" class="name" onKeyUp="validate();" required /></br>
+		      <input type="password" name="password" id="password1" placeholder="Password" class="email" onKeyUp="validate();" required /></br>
 		      <input type="password" name="password2" id="password2" placeholder="Re-type Password" class="email" onKeyUp="validate();" required />
             <p id="check" class="error"><?php if(isset($_GET['exist']) && $_GET['exist'] == 1) echo "Username already exist."; ?></p>
             <input type="submit" name="submit" id="submit" class="btn shadow animate grey" value="Register" disabled />
