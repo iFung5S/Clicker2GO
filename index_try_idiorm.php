@@ -54,6 +54,15 @@ if (!isset($_SESSION['username'])) {
   $user = ORM::for_table('user')
           ->where('username', $username)
           ->find_one();
+    $course_id = ORM::for_table('questions')
+                 ->min('id')
+                 ->group_by('course')
+                 ->find_array();
+
+    $questions_course = ORM::for_table('questions')
+                        ->where_in('id',$course_id)
+                        ->order_by_asc('course')
+                        ->find_many();
   $course = $user['course'];
   if (empty($course)){
    echo '<li>No course now</>';
@@ -74,21 +83,12 @@ if (!isset($_SESSION['username'])) {
     echo "<select name='courseName' \>";
     echo "<option value=''>--select course--</option>";
   echo "<option value='2'>2222</option>";
-    $course_id = ORM::for_table('questions')
-                 ->min('id')
-                 ->group_by('course')
-                 ->find_array();
-
-    $course = ORM::for_table('questions')
-                        ->where_in('id',$course_id)
-                        ->order_by_asc('course')
-                        ->find_many();
   $num=$course->count();
   echo "<option value='$num'>$num</option>";
   $num2=$course_id->count();
   echo "<option value='33'>3333</option>";
   echo "<option value='$num2'>$num2</option>";
-      foreach ($course as $each_course) {
+      foreach ($questions_course as $each_course) {
         $courseName = $each_course['course'];
         echo "<option value='$courseName'>$courseName</option>";
       } 
