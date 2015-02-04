@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-
 <?php
 
 // Initialize session
@@ -15,7 +13,7 @@ if (!isset($_SESSION['username'])) {
   $query = "SELECT * FROM user WHERE username='$username'";
   $result = mysqli_query($conn, $query);
 ?>
-
+<html>
   <head>
     <meta charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>

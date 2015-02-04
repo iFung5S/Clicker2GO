@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <?php
 // Initialize session
 session_start();
@@ -13,6 +12,7 @@ if (!isset($_SESSION['username'])) {
  $date = $_POST['date'];
   include_once ('../sqlconnect.php');
 ?>
+<html>
   <head>
     <meta charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>

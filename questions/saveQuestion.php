@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <?php
 // Initialize session
 session_start();
@@ -20,6 +19,7 @@ if (!isset($_SESSION['username'])) {
     }
 
 ?>
+<html>
   <head>
     <meta charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
