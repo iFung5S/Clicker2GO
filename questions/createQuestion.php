@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
       <div>
       <span><a href='../index.php'>Home</a></span>>
       <span><a href="datePage.php?courseName=<?php echo $courseName; ?>"><?php echo $courseName; ?></a></span>>
-      <span><a href="questionlist.php?date=<?php echo $date; ?>&courseName=<?php echo $courseName; ?>"><?php echo $date; ?></span>>
+      <span><a href="questionlist.php?date=<?php echo $date; ?>&courseName=<?php echo $courseName; ?>"><?php echo $date; ?></a></span>>
       <span>Create Question</span></div>
 
     <form method="POST" action="saveQuestion.php">
