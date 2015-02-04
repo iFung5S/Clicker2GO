@@ -37,7 +37,8 @@ if (!isset($_SESSION['username'])) {
     echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
   } }
  else {
-   echo "<li>No content</li>
+   echo "<li>No content</li>";
+  }
   ?>
 
 
