@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
   <?php
   //list course user have
 
-  $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions WHERE (course='$courseName') GROUP BY date)) ORDER BY id ";
+  $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions WHERE (course='$courseName') GROUP BY date)) ORDER BY date DESC ";
   $result = mysqli_query($conn, $dateQuery);
   if (!empty($result)) {
   while($row = mysqli_fetch_assoc($result))
