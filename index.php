@@ -93,7 +93,7 @@ if (!isset($_SESSION['username'])) {
   </select>
   <input type="text" name="courseName" id="course" 
   <?php if($row['type'] == 'student') {
-    echo 'disabled'; }?> /></br>
+    echo 'style="visibility:hidden" disabled'; }?> /></br>
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 
