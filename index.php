@@ -101,6 +101,6 @@ if (!isset($_SESSION['username'])) {
   <script type="text/javascript">
   doucument.getElementById('courseSel').onchange = function() {
   if(this.options[0].value== -1) this.options[0]=null;
-  doucument.getElementById('course').value = this.value };
+  doucument.getElementById('course').value = this.value; };
   </script>
 </html>
