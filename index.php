@@ -72,12 +72,11 @@ if (!isset($_SESSION['username'])) {
 
   <form method="POST" action="questions/addCourseTaken.php" >
   <input type="text" name="username" style="visibility:hidden" value="<?php echo $username;?>"/></br>
-  <select name="courseName" <?php if($row['type'] != 'student') {
-    echo 'style="visibility:hidden"'; }?>>
-  <option value=''>--select course--</option>
   <?php
-
   if($row['type'] == 'student') {
+    echo "<select name='courseName' \>";
+    echo "<option value=''>--select course--</option>";
+
     $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions GROUP BY course)) ORDER BY course ";
     $course_result = mysqli_query($conn, $dateQuery);
     if (mysqli_num_rows($course_result) != 0) {
@@ -88,12 +87,10 @@ if (!isset($_SESSION['username'])) {
     } }
    else {
      echo "<option disabled>NONE</option>";
-    } }
-  ?>
-  </select></br>
-  <input type="text" name="courseName"
-    <?php if($row['type'] == 'student') {
-    echo ' disabled style="visibility:hidden"'; }?> /></br>
+    } 
+  echo "</select></br>"; }
+  else {
+  echo "<input type='text' name='courseName'/></br>"; } ?>
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 
