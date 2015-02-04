@@ -82,7 +82,7 @@ if (!isset($_SESSION['username'])) {
                         ->order_by_asc('course')
                         ->find_many();
     if (!empty($course)) {
-      foreach ($course as $course) {
+      while ($course) {
         $courseName = $course['course']->text;
         echo "<option value='$courseName'>$courseName</option>";
       } 
@@ -95,6 +95,7 @@ if (!isset($_SESSION['username'])) {
   else {
     echo "<input type='text' name='courseName'/></br>"; 
   } ?>
+
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 
