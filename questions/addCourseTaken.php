@@ -30,7 +30,12 @@ if (!isset($_SESSION['username'])) {
     $row = mysqli_fetch_assoc($result); 
     $course = $row['course'];
     if (empty($course)) {
-    $course = $courseName; }
+      if (!empty($courseName)) {
+        $course = $courseName; }
+      else {
+        echo "<script>window.location.assign('../index.php');</script>";
+      }
+    }
     else {
     $course = implode("|",array($course,$courseName)); }
     $sql = "UPDATE user SET course = '$course' WHERE username='$username'";
