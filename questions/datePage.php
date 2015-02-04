@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
 
   $dateQuery = "SELECT * FROM question WHERE (id IN (select max(id) from question WHERE (course='$courseName') GROUP BY date)) ORDER BY id";
   $result = mysqli_query($conn, $dateQuery);
-  if (!empty($dateQuery)) {
+  if (!empty($result)) {
   while($row = mysqli_fetch_assoc($result))
   {
     $date = $row['date'];
