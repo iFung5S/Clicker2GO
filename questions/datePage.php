@@ -20,7 +20,8 @@ if (!isset($_SESSION['username'])) {
   </head>
 
   <body class="homepage">
-
+    <div><span><a href='index.php'>Home</a></span>>
+           <span><?php echo $courseName; ?></span></div>
   <ul>
   <?php
   //list course user have
