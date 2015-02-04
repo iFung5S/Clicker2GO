@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 }
 
   $courseName= $_GET['courseName'];
+  $username = $_SESSION['username'];
   $date=$_GET['date'];
   include_once ('../sqlconnect.php');
   $query = "SELECT * FROM questions WHERE (course='$courseName' and date='$date')";
