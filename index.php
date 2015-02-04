@@ -90,7 +90,7 @@ if (!isset($_SESSION['username'])) {
      echo "<option disabled>NONE</option>";
     } }
   ?>
-  </select>
+  </select></br>
   <input type="text" name="courseName" id="course" 
   <?php if($row['type'] == 'student') {
     echo 'style="visibility:hidden" disabled'; }?> /></br>
