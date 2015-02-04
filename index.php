@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) {
   <form method="POST" action="questions/addCourseTaken.php" >
   <?php
   if($row['type'] == 'student') {
-    echo "<select name='courseName' \>";
+    echo "<select name='courseName'>";
     echo "<option value=''>--select course--</option>";
 
     $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions GROUP BY course)) ORDER BY course ";
