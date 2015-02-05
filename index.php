@@ -80,7 +80,10 @@ if (!isset($_SESSION['username'])) {
                         ->find_many();
     foreach ($questions_course as $each_course) {
       $courseName = $each_course->course;
-      echo "<option value='$courseName'>$courseName</option>";
+      echo "<option value='$courseName'";
+      if (in_array($courseName,$course))
+        {echo " disabled";}
+      echo ">$courseName</option>";
     } 
     echo "</select></br>"; 
   }
