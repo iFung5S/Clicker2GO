@@ -24,14 +24,15 @@ if (!isset($_SESSION['username'])) {
     $courseName = $_POST['courseName'];
   if (!empty($courseName)) {
     $user = ORM::for_table('user')
-          ->find_one($username);
+          ->where('username', $username)
+          ->find_one();
     $course = $user->course;
     if (empty($course)) {
       $course = $courseName; }
     else {
       $course = implode("|",array($course,$courseName)); }
-    $user -> course = $course;
-    $user -> save();
+    $user->course = $course;
+    $user->save();
     echo "<script>window.location.assign('../index.php');</script>";
   } 
   else {
