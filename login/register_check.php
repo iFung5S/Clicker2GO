@@ -9,37 +9,30 @@
   <body class="homepage">
   <?php
 
-    include('../sqlconnect.php');
+  include_once ('../dbCon.php');
 
     $username = $_POST['username'];
     $password = sha1($_POST['password']);
     $name = $_POST['name'];
 
-    $userValidate = "SELECT * FROM user WHERE username='$username'";
-
-    $result = mysqli_query($conn, $userValidate);
-
-    if (mysqli_num_rows($result) != 0)
-      {
+    $user = ORM::for_table('user')->find_one($username);
+    if (!empty($user))
+    {
        echo "<script>window.location.assign('register.php?exist=1');</script>";
-      }
+    }
     else
-     {
-        $sql = "INSERT INTO user (username, password, name, type) VALUES ('$username','$password','$name','student')";
+    {
+      $user = ORM::for_table('user')->create();
+      $user->set(array(
+              'username'=>$username,
+              'password'=>$password,
+              'name'=>$name
+             ));
+      $user->save();
 
-       if (mysqli_query($conn, $sql))
-        {
-
-        echo "<script>window.location.assign('login.php?register=1');</script>";
-        }
-       else
-        {
-
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-      }
-
-?>
+      echo "<script>window.location.assign('login.php?register=1');</script>";
+     }
+  ?>
 
   </body>
 </html>

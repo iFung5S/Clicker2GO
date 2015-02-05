@@ -22,10 +22,7 @@ if (!isset($_SESSION['username'])) {
                      ->find_many();
   $questions_count = $questions_id -> count();
 
-  $user_type = ORM::for_table('user')
-          ->select('type')
-          ->where('username', $username)
-          ->find_one();
+  $user = ORM::for_table('user')->find_one($username);
 ?>
 <html>
   <head>
@@ -56,7 +53,7 @@ if (!isset($_SESSION['username'])) {
   </ol>
 
   <form method="POST" action="createQuestion.php"
-  <?php if($user_type == 'student') {
+  <?php if($user->type == 'student') {
     echo 'style="visibility:hidden"'; }?> >
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
   <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>

@@ -13,19 +13,15 @@
     // Initialize session
     session_start();
 
-    include_once ('../sqlconnect.php');
+  include_once ('../dbCon.php');
 
     $username = $_POST['username'];
     $password = sha1($_POST['password']);
 
-    $query = "SELECT * FROM user WHERE username='$username'";
-
-    $result = mysqli_query($conn, $query);
-     
-    if (mysqli_num_rows($result) > 0)
+    $user = ORM::for_table('user')->find_one($username);
+    if (!empty($user))
     {
-      $row = mysqli_fetch_assoc($result);
-      if ($password == $row['password'])
+      if ($password == $user->password)
       {
         echo "<script>window.location.assign('../');</script>";
         $_SESSION['username'] = $username;
