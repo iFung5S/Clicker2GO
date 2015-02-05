@@ -54,10 +54,6 @@ if (!isset($_SESSION['username'])) {
   $user = ORM::for_table('user')
           ->where('username', $username)
           ->find_one();
-    $questioni_course = ORM::for_table('questions')
-                 ->select('course')
-                 ->group_by('course')
-                 ->find_many();
 
   $course = $user->course;
   if (empty($course)){
@@ -76,18 +72,16 @@ if (!isset($_SESSION['username'])) {
   <form method="POST" action="questions/addCourseTaken.php" >
   <?php
   if($user['type'] == 'student') {
-    echo "<select name='courseName' \>";
+    echo "<select name='courseName'>";
     echo "<option value=''>--select course--</option>";
-  echo "<option value='2'>2222</option>";
-  $num=$questioni_course->count();
-
-  echo "<option value='33'>3333</option>";
-  echo "<option value='$num'>$num</option>";
-      foreach ($questions_course as $each_course) {
-        $courseName = $each_course->course;
-        echo "<option value='$courseName'>$courseName</option>";
-      } 
-
+    $questions_course = ORM::for_table('questions')
+                 ->select('course')
+                 ->group_by('course')
+                 ->find_many();
+    foreach ($questions_course as $each_course) {
+      $courseName = $each_course->course;
+      echo "<option value='$courseName'>$courseName</option>";
+    } 
     echo "</select></br>"; 
   }
   else {
