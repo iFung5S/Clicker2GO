@@ -16,7 +16,7 @@ if (!empty($time_s_e->starttime))
   $endtime = strtotime($time_s_e->endtime);
 
   $countdown = $endtime - $time;
-  
+
   echo str_replace("##time##", $countdown, file_get_contents('timer.html',TRUE));
 
 }
