@@ -12,12 +12,13 @@ if (!isset($_SESSION['username'])) {
   $question = $_POST['question'];
   for($i = 1;$i <= 6;$i++){
     $answer[$i] = $_POST['answer'.$i];
-   }
+  }
   if(isset($_POST['correct'])){
     $correct = $_POST['correct'];
     $correct = implode("|",$correct);
-    }
+  }
 
+  include_once ('dbCon.php');
 ?>
 <html>
   <head>
@@ -30,19 +31,24 @@ if (!isset($_SESSION['username'])) {
   <body class="homepage">
   <?php
 
-    include('../sqlconnect.php');
+    $questions = ORM::for_table('questions')
+                 ->create();
+    $questions -> set(array(
+                  'course' => $courseName, 
+                  'date' => $date, 
+                  'question' => $question, 
+                  'answer1' => $answer[1], 
+                  'answer2' => $answer[2], 
+                  'answer3' => $answer[3], 
+                  'answer4' => $answer[4], 
+                  'answer5' => $answer[5], 
+                  'answer6' => $answer[6], 
+                  'correct' => $correct
+                  ));
+    $questions -> save();
 
-    $sql = "INSERT INTO questions (course, date, question, answer1, answer2, answer3, answer4, answer5, answer6, correct) VALUES ('$courseName','$date','$question','$answer[1]','$answer[2]','$answer[3]','$answer[4]','$answer[5]','$answer[6]','$correct')";
+    echo "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
 
-    if (mysqli_query($conn, $sql))
-     {
-      echo "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
-     }
-    else
-     {
-     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-     }
- 
-?>
+  ?>
   </body>
 </html>

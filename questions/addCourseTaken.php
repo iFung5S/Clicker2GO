@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
 }
   $username = $_SESSION['username'];
-  include_once ('../sqlconnect.php');
+  include_once ('dbCon.php');
 ?>
 <html> 
   <head>
@@ -23,24 +23,16 @@ if (!isset($_SESSION['username'])) {
 
     $courseName = $_POST['courseName'];
   if (!empty($courseName)) {
-    $query = "SELECT * FROM user WHERE username='$username'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result); 
-    $course = $row['course'];
+    $user = ORM::for_table('user')
+          ->where('username', $username)
+          ->find_one();
+    $course = $user->course;
     if (empty($course)) {
-    $course = $courseName; }
+      $course = $courseName; }
     else {
-    $course = implode("|",array($course,$courseName)); }
-    $sql = "UPDATE user SET course = '$course' WHERE username='$username'";
-
-    if (mysqli_query($conn, $sql))
-     {
-      echo "<script>window.location.assign('../index.php');</script>";
-     }
-    else
-     {
-     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-     }
+      $course = implode("|",array($course,$courseName)); }
+    $user-> course = $course;
+    echo "<script>window.location.assign('../index.php');</script>";
   } else {
       echo "<script>window.location.assign('../index.php');</script>";
   }

@@ -7,10 +7,9 @@ session_start();
 if (!isset($_SESSION['username'])) {
         header('Location: login/login.php');
 }
-  include_once ('sqlconnect.php');
+  include_once ('dbCon.php');
   $username = $_SESSION['username'];
-  $query = "SELECT * FROM user WHERE username='$username'";
-  $result = mysqli_query($conn, $query);
+
 ?>
 <html>
   <head>
@@ -52,8 +51,11 @@ if (!isset($_SESSION['username'])) {
   <?php
   //list course user have
 
-  $row = mysqli_fetch_assoc($result);
-  $course = $row['course'];
+  $user = ORM::for_table('user')
+          ->where('username', $username)
+          ->find_one();
+
+  $course = $user->course;
   if (empty($course)){
    echo '<li>No course now</>';
   }
@@ -69,24 +71,24 @@ if (!isset($_SESSION['username'])) {
 
   <form method="POST" action="questions/addCourseTaken.php" >
   <?php
-  if($row['type'] == 'student') {
+  if($user->type == 'student') {
     echo "<select name='courseName'>";
     echo "<option value=''>--select course--</option>";
-
-    $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions GROUP BY course)) ORDER BY course ";
-    $course_result = mysqli_query($conn, $dateQuery);
-    if (mysqli_num_rows($course_result) != 0) {
-    while($row_course = mysqli_fetch_assoc($course_result))
-    {
-      $courseName = $row_course['course'];
+    $questions_course = ORM::for_table('questions')
+                        ->select('course')
+                        ->group_by('course')
+                        ->order_by_asc('course')
+                        ->find_many();
+    foreach ($questions_course as $each_course) {
+      $courseName = $each_course->course;
       echo "<option value='$courseName'>$courseName</option>";
-    } }
-   else {
-     echo "<option disabled>NONE</option>";
     } 
-  echo "</select></br>"; }
+    echo "</select></br>"; 
+  }
   else {
-  echo "<input type='text' name='courseName'/></br>"; } ?>
+    echo "<input type='text' name='courseName'/></br>"; 
+  } ?>
+
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
 

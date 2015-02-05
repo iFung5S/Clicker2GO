@@ -8,14 +8,24 @@ if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
 }
 
-  $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
+  $courseName= $_GET['courseName'];
   $date=$_GET['date'];
-  include_once ('../sqlconnect.php');
-  $query = "SELECT * FROM questions WHERE (course='$courseName' and date='$date')";
-  $result = mysqli_query($conn, $query);
-  $query_user = "SELECT * FROM user WHERE username='$username'";
-  $row_user = mysqli_fetch_assoc(mysqli_query($conn, $query_user));
+  include_once ('dbCon.php');
+
+  $questions_id = ORM::for_table('questions')
+                     ->select('id')
+                     ->where(array(
+                         'course' => $courseName,
+                         'date' => $date
+                       ))
+                     ->find_many();
+  $questions_count = $questions_id -> count();
+
+  $user_type = ORM::for_table('user')
+          ->select('type')
+          ->where('username', $username)
+          ->find_one();
 ?>
 <html>
   <head>
@@ -33,9 +43,8 @@ if (!isset($_SESSION['username'])) {
   <ol>
   <?php
   $i=1;
-  if (mysqli_num_rows($result) != 0) {
-  while ($row = mysqli_fetch_assoc($result)) {
-    $qid = $row['id'];
+  if ($questions_count != 0) {
+  foreach ($questions_id as $qid) {
     echo "<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
     $i++;
     }}
@@ -46,7 +55,7 @@ if (!isset($_SESSION['username'])) {
   </ol>
 
   <form method="POST" action="createQuestion.php"
-  <?php if($row_user['type'] == 'student') {
+  <?php if($user_type == 'student') {
     echo 'style="visibility:hidden"'; }?> >
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
   <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>

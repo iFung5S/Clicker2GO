@@ -9,9 +9,11 @@ if (!isset($_SESSION['username'])) {
 }
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
-  include_once ('../sqlconnect.php');
-  $query = "SELECT * FROM user WHERE username='$username'";
-  $row_user = mysqli_fetch_assoc(mysqli_query($conn, $query));
+  include_once ('dbCon.php');
+  $user_type = ORM::for_table('user')
+          ->select('type')
+          ->where('username', $username)
+          ->find_one();
 ?>
 <html>
   <head>
@@ -28,23 +30,26 @@ if (!isset($_SESSION['username'])) {
   <?php
   //list date
 
-  $dateQuery = "SELECT * FROM questions WHERE (id IN (SELECT min(id) FROM questions WHERE (course='$courseName') GROUP BY date)) ORDER BY date DESC ";
-  $result = mysqli_query($conn, $dateQuery);
-  if (mysqli_num_rows($result) != 0) {
-  while($row_question = mysqli_fetch_assoc($result))
-  {
-    $date = $row_question['date'];
-    echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
-  } }
- else {
-   echo "<li>No content</li>";
+  $all_date = ORM::for_table('questions')
+              ->select('date')
+              ->group_by('date')
+              ->order_by_desc('date')
+              ->find_many();
+  if ($all_date->count() != 0) {
+    foreach ($all_date as $date)
+    {
+      echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
+    } 
+  }
+  else {
+    echo "<li>No content</li>";
   }
   ?>
 
 
   </ul>
   <form method="GET" action="questionlist.php"   
-  <?php if($row_user['type'] == 'student') {
+  <?php if($user_type == 'student') {
     echo 'style="visibility:hidden"'; }?>>
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
   <input type="text" name="date" placeholder="yyyy-mm-dd"/>

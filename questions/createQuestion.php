@@ -8,9 +8,8 @@ if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
 }
 
- $courseName = $_POST['courseName'];
- $date = $_POST['date'];
-  include_once ('../sqlconnect.php');
+  $courseName = $_POST['courseName'];
+  $date = $_POST['date'];
 ?>
 <html>
   <head>
