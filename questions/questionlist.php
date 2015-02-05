@@ -59,8 +59,8 @@ if (!isset($_SESSION['username'])) {
   
   <?php if($user->type != 'student') {
     echo "<form method='POST' action='createQuestion.php'>";
-    echo "<input type='text' name='courseName' style='visibility:hidden' value=$courseName/>";
-    echo "<input type='text' name='date' style='visibility:hidden' value=$date/></br>";
+    echo "<input type='text' name='courseName' style='visibility:hidden' value='$courseName'/>";
+    echo "<input type='text' name='date' style='visibility:hidden' value='$date'/></br>";
     echo "<input type='submit' class='button' value='creat new'/></form>";
   } ?>   
   </body>
