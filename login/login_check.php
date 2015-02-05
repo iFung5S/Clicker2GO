@@ -25,7 +25,7 @@
       {
         echo "<script>window.location.assign('../');</script>";
         $_SESSION['username'] = $username;
-        $_SESSION['name'] = $row['name'];
+        $_SESSION['name'] = $user->name;
       }
       else
       {
