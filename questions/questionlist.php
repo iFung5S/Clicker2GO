@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {
   include_once ('../dbCon.php');
   if (!preg_match("/^20\d{2}[\/\-](0?\d|1[0-2])[\/\-]([0-2]?\d|3[01])$/",$date))
   {
-    //echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
+    echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
   }
   $date=preg_replace('/([\/\-])(\d)([\/\-])(\d)$/','-0$2-0$4',$date);
   
