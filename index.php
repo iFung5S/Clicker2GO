@@ -71,7 +71,7 @@ if (!isset($_SESSION['username'])) {
   <form method="POST" action="questions/addCourseTaken.php" >
   <?php
   if($user->type == 'student') {
-    echo "<select name='courseName'>";
+    echo "<select name='courseName' required>";
     echo "<option value=''>--select course--</option>";
     $questions_course = ORM::for_table('questions')
                         ->select('course')
