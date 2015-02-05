@@ -45,7 +45,7 @@ if (!isset($_SESSION['username'])) {
   $i=1;
   if ($questions_count != 0) {
   foreach ($questions_id as $each_qid) {
-    $qid = $each_qid->id
+    $qid = $each_qid->id;
     echo "<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
     $i++;
     }}
