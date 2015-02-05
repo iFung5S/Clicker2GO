@@ -12,7 +12,10 @@ if (!isset($_SESSION['username'])) {
   $courseName= $_GET['courseName'];
   $date=$_GET['date'];
   include_once ('../dbCon.php');
-
+  if (!preg_match("/^20\d\d/\(0\d|1[0-2])\/[([0-2]?\d|3[01])$/"))
+  {
+  echo "<script>window.location.assign('datePage.php?courseName=$courseName');</script>";
+  }
   $questions_id = ORM::for_table('questions')
                      ->select('id')
                      ->where(array(
