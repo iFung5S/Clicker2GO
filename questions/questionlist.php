@@ -22,7 +22,8 @@ if (!isset($_SESSION['username'])) {
                      ->find_many();
   $questions_count = $questions_id -> count();
 
-  $user = ORM::for_table('user')
+  $user_type = ORM::for_table('user')
+          ->select('type')
           ->where('username', $username)
           ->find_one();
 ?>
@@ -43,7 +44,8 @@ if (!isset($_SESSION['username'])) {
   <?php
   $i=1;
   if ($questions_count != 0) {
-  foreach ($questions_id as $qid) {
+  foreach ($questions_id as $each_qid) {
+    $qid = $each_qid->id
     echo "<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
     $i++;
     }}
@@ -54,7 +56,7 @@ if (!isset($_SESSION['username'])) {
   </ol>
 
   <form method="POST" action="createQuestion.php"
-  <?php if($user->type == 'student') {
+  <?php if($user_type == 'student') {
     echo 'style="visibility:hidden"'; }?> >
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
   <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>
