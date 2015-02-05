@@ -27,6 +27,6 @@
   }
 
 $placeholder = "##redirect##";
-echo str_replace($placeholder, $redirect, file_get_contents('login_check.html',TRUE));
+echo str_replace($placeholder, $redirect, file_get_contents('login_check',TRUE));
 
 ?>

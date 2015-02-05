@@ -9,7 +9,7 @@ include('../lib/sqlconnect.php');
 // Delete session
 session_unset();
 
-include('logout.html');
+include('logout');
 
 // Jump to login page
 header('Location: login.php?logout=1');
