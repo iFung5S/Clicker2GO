@@ -2,16 +2,22 @@
 if(isset($_GET['err']) && $_GET['err'] == 1)
 {
   $message = "<span class='error'>Incorrect username or password.</span>";
+  $select = "document.getElementById('username').select();";
 }
 else if(isset($_GET['logout']) && $_GET['logout'] == 1)
 {
   $message = "<span class='correct'>Logout successfully.</span>";
+  $select = "";
 }
 else
 {
   $message = "";
+  $select = "document.getElementById('username').select();";
 }
 
-echo str_replace("##message##", $message, file_get_contents('login.html',TRUE));
+$placeholder = array("##message##", "##select##");
+$replace = array($message, $select);
+
+echo str_replace($placeholder, $replace, file_get_contents('login.html',TRUE));
 
 ?>
