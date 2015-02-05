@@ -51,9 +51,7 @@ if (!isset($_SESSION['username'])) {
   <?php
   //list course user have
 
-  $user = ORM::for_table('user')
-          ->where('username', $username)
-          ->find_one();
+  $user = ORM::for_table('user')->find_one($username);
 
   $course = $user->course;
   if (empty($course)){
