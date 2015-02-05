@@ -32,6 +32,7 @@ if (!isset($_SESSION['username'])) {
 
   $all_date = ORM::for_table('questions')
               ->select('date')
+              ->where('course',$courseName)
               ->group_by('date')
               ->order_by_desc('date')
               ->find_many();
