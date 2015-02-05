@@ -40,7 +40,7 @@ if (!isset($_SESSION['username'])) {
     echo "<script>window.location.assign('../index.php');</script>";
   } 
   else {
-    echo "<script>window.location.assign('../index.php');</script>";
+    echo "<script>window.location.assign('../index.php?err=1');</script>";
   }  
 ?>
 
