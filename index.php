@@ -7,7 +7,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
         header('Location: login/login.php');
 }
-  include_once ('dbCon.php');
+  include_once ('lib/dbCon.php');
   $username = $_SESSION['username'];
 
 ?>
