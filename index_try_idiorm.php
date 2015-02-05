@@ -56,8 +56,9 @@ if (!isset($_SESSION['username'])) {
           ->find_one();
     $course_id = ORM::for_table('questions')
                  ->select('id')
+                 ->min('id')
                  ->group_by('course')
-                 ->find_many();
+                 ->find_array();
 
     $questions_course = ORM::for_table('questions')
                         ->where_in('id',$course_id)
