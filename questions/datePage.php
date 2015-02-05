@@ -48,7 +48,7 @@ if (!isset($_SESSION['username'])) {
   
   <?php if($user->type != 'student') {
     echo "<form method='GET' action='questionlist.php'>";
-    echo "<input type='text' name='courseName' style='visibility:hidden' value=$courseName/></br>";
+    echo "<input type='text' name='courseName' style='visibility:hidden' value='$courseName'/></br>";
     echo "<input type='text' name='date' placeholder='yyyy-mm-dd' required/>";
     echo "<input type='submit' class='button' value='add date'/>";
     echo "<p>"; 
