@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
   {
     echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
   }
-  $date=preg_replace('/([\/\-])(\d)([\/\-])(\d)$/','-0$2-0$4',$date);
+  $date=preg_replace('/([\/\-])(0?)(\d)([\/\-])(0?)(\d)$/','-0$3-0$6',$date);
   
   $questions_id = ORM::for_table('questions')
                      ->select('id')
@@ -32,7 +32,7 @@ if (!isset($_SESSION['username'])) {
 <html>
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Question List | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
@@ -56,14 +56,12 @@ if (!isset($_SESSION['username'])) {
   } 
   ?>
   </ol>
-
-  <form method="POST" action="createQuestion.php"
-  <?php if($user->type == 'student') {
-    echo 'style="visibility:hidden"'; }?> >
-  <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
-  <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>
-  <input type="submit" class="button" value="creat new"/>
-  </form>
-   
+  
+  <?php if($user->type != 'student') {
+    echo "<form method='POST' action='createQuestion.php'>";
+    echo "<input type='text' name='courseName' style='visibility:hidden' value=$courseName/>";
+    echo "<input type='text' name='date' style='visibility:hidden' value=$date/></br>";
+    echo "<input type='submit' class='button' value='creat new'/></form>";
+  } ?>   
   </body>
 </html>
