@@ -42,10 +42,7 @@ if (!isset($_SESSION['username'])) {
        //for student earliest access time is 9am at that date
       $min_time = implode(' ', array($date,'09:00:00'));
       if ($user->type == 'student' && time()<strtotime($min_time))
-      {
-        echo "<li><a href='#'>$date</a></li>";
-        echo "<span class='error'>session not start</span>";
-      }
+      {echo "<li><a href='#'>$date</a><span style="font-size:12px;color:grey;">  (Not Start)</span></li>"; }
       else
       {echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";}    
     } 
