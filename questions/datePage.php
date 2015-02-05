@@ -33,14 +33,24 @@ if (!isset($_SESSION['username'])) {
               ->group_by('date')
               ->order_by_desc('date')
               ->find_many();
-  if ($all_date->count() != 0) {
+
+  if ($all_date->count() != 0) 
+  {
     foreach ($all_date as $each_date)
     {
       $date = $each_date->date;
-      echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
+       //for student earliest access time is 9am at that date
+      if ($user->type == 'student' && time()<strtotime($date 09:00:00))
+      {
+        echo "<li><a href='#'>$date</a></li>";
+        echo "<span class='error'>session not start</span>";
+      }
+      else
+      {echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";}    
     } 
   }
-  else {
+  else 
+  {
     echo "<li>No content</li>";
   }
   ?>
