@@ -28,31 +28,31 @@ if (!isset($_SESSION['username'])) {
 
     <form method="POST" action="saveQuestion.php">
       <div>Question:</div>
-      <textarea rows="5" cols="50" name="question" autofocus required></textarea></br>
+      <textarea rows="4" cols="50" name="question" autofocus required></textarea></br>
       <div>answer 1:</div>
-      <input type="text" name="answer1" size="50" autofocus required>
+      <input type="text" name="answer1" size="35" autofocus required>
       <input type="checkbox" name="correct[]" value="answer1" id="answer1"/>
       <label for="answer1">correct</label></br>
       <div>answer 2:</div>
-      <input type="text" name="answer2" size="50" autofocus required>
+      <input type="text" name="answer2" size="35" autofocus required>
       <input type="checkbox" name="correct[]" value="answer2" id="answer2"/>
       <label for="answer2">correct</label></br>
       <div>answer 3:</div>
-      <input type="text" name="answer3" size="50">
+      <input type="text" name="answer3" size="35">
       <input type="checkbox" name="correct[]" value="answer3" id="answer3"/>
       <label for="answer3">correct</label></br>
       <div>answer 4:</div>
-      <input type="text" name="answer4" size="50">
+      <input type="text" name="answer4" size="35">
       <input type="checkbox" name="correct[]" value="answer4" id="answer4"/>
       <label for="answer4">correct</label></br>
       <div>answer 5:</div>
-      <input type="text" name="answer5" size="50">
+      <input type="text" name="answer5" size="35">
       <input type="checkbox" name="correct[]" value="answer5" id="answer5"/>
       <label for="answer5">correct</label></br>
       <div>answer 6:</div>
-      <input type="text" name="answer6" size="50">
+      <input type="text" name="answer6" size="35">
       <input type="checkbox" name="correct[]" value="answer6" id="answer6"/>
-      <label for="answer6">correct</label></br>
+      <label for="answer6">correct</label></br></br>
       <input type="submit" class="button" value="CREATE"/> 
       <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/>
       <input type="text" name="date" style="visibility:hidden" value="<?php echo $date;?>"/></br>
