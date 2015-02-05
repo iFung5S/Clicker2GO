@@ -24,8 +24,7 @@ if (!isset($_SESSION['username'])) {
     $courseName = $_POST['courseName'];
   if (!empty($courseName)) {
     $user = ORM::for_table('user')
-          ->where('username', $username)
-          ->find_one();
+          ->find_one($username);
     $course = $user->course;
     if (empty($course)) {
       $course = $courseName; }
