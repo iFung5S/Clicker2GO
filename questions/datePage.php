@@ -12,8 +12,7 @@ if (!isset($_SESSION['username'])) {
   include_once ('../dbCon.php');
   $user_type = ORM::for_table('user')
           ->select('type')
-          ->where('username', $username)
-          ->find_one();
+          ->find_one($username);
 ?>
 <html>
   <head>
