@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
 }
   $username = $_SESSION['username'];
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
 ?>
 <html> 
   <head>

@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 }
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
   $user = ORM::for_table('user')->find_one($username);
 ?>
 <html>

@@ -11,7 +11,7 @@
 
       // session start or not? add session after code completely working
       // connect to mysql
-      include_once ('../sqlconnect.php'); // include vs include_once vs require differences
+      include_once ('../lib/sqlconnect.php'); // include vs include_once vs require differences
 
       // get question data
       $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
