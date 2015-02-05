@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <body onLoad='timer();'>
 <span id='timer'></span>
