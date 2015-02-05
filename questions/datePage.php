@@ -40,7 +40,8 @@ if (!isset($_SESSION['username'])) {
     {
       $date = $each_date->date;
        //for student earliest access time is 9am at that date
-      if ($user->type == 'student' && time()<strtotime($date 09:00))
+      $min_time = implode(' ', array($date,'09:00:00'));
+      if ($user->type == 'student' && time()<strtotime($min_time))
       {
         echo "<li><a href='#'>$date</a></li>";
         echo "<span class='error'>session not start</span>";
