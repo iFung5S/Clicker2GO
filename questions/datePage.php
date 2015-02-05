@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
   include_once ('../dbCon.php');
-  $user = ORM::for_table('user')
+  $user_type = ORM::for_table('user')
           ->select('type')
           ->where('username', $username)
           ->find_one();
@@ -51,7 +51,7 @@ if (!isset($_SESSION['username'])) {
 
   </ul>
   <form method="GET" action="questionlist.php"   
-  <?php if($user == 'student') {
+  <?php if($user_type == 'student') {
     echo 'style="visibility:hidden"'; }?>>
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
   <input type="text" name="date" placeholder="yyyy-mm-dd"/>
