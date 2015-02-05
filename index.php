@@ -85,7 +85,7 @@ if (!isset($_SESSION['username'])) {
     echo "</select></br>"; 
   }
   else {
-    echo "<input type='text' name='courseName'/></br>"; 
+    echo "<input type='text' name='courseName' required/></br>"; 
   } ?>
 
   <input type="submit" class="button" value="ADD COURSE"/>
