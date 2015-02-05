@@ -33,8 +33,9 @@ if (!isset($_SESSION['username'])) {
       $course = implode("|",array($course,$courseName)); }
     $user-> course = $course;
     echo "<script>window.location.assign('../index.php');</script>";
-  } else {
-      echo "<script>window.location.assign('../index.php');</script>";
+  } 
+  else {
+    echo "<script>window.location.assign('../index.php');</script>";
   }
    
 ?>
