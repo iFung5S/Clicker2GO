@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 // Initialize session
 session_start();
@@ -10,69 +9,30 @@ if (!isset($_SESSION['username'])) {
   include_once ('lib/dbCon.php');
   $username = $_SESSION['username'];
 
-?>
-<html>
-  <head>
-    <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <title>Home | Clicker2GO</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body class="homepage">
-  <h1>HOME</h1>
-<script language='JavaScript'> 
-	var myDate = new Date(); 
-	/* 5:00 am - 11:59 am */
-	if ( myDate.getHours() >= 5 && myDate.getHours() < 12 )
-	{ 
-		document.write('Good morning, '); 
-	} 
-	else  /* 12:00 nn - 5:59 pm*/
-		if ( myDate.getHours() >= 12 && myDate.getHours() < 19 ) 
-		{ 
-			document.write('Good afternoon, '); 
-		} 
-		else  /* 6:00 pm - 12:00 mn OR 12:mn - 5:00 am */
-			if ( ( myDate.getHours() >= 19 && myDate.getHours() <= 24 ) || ( myDate.getHours() >= 0 && myDate.getHours() < 5 ) )
-			{ 
-				document.write('Good evening, '); 
-			} 
-			else  /* the hour is not between 0 and 24, so something is wrong */
-			{ 
-				document.write('Welcome, '); 
-			} 
-</script>
-<?php echo $_SESSION['name'];?></a>!
-</p>
-<p><a href="login/logout.php">Logout</a></p>
+  $name =  $_SESSION['name'];
 
-  <h2>Course</h2>
-  <ul>
-  <?php
   //list course user have
-
   $user = ORM::for_table('user')->find_one($username);
-
   $course = $user->course;
+  $list_course = "";
+
   if (empty($course)){
-   echo '<li>No course now</>';
+   $list_course = '<li>No course now</>';
   }
   else {
    $course = explode("|",$course);
    sort($course);
     for ($i=0;$i<count($course);$i++) {
       $courseName = $course[$i];
-      echo "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";    
+      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";    
       }
   }
-  ?>
-  </ul>
 
-  <form method="POST" action="questions/addCourseTaken.php" >
-  <?php
+  $add_course = "";
+
   if($user->type == 'student') {
-    echo "<select name='courseName' required>";
-    echo "<option value=''>--select course--</option>";
+    $add_course = $add_course . "<select name='courseName' required>";
+    $add_course = $add_course . "<option value='' disabled>--Select Course--</option>";
     $questions_course = ORM::for_table('questions')
                         ->select('course')
                         ->group_by('course')
@@ -80,21 +40,24 @@ if (!isset($_SESSION['username'])) {
                         ->find_many();
     foreach ($questions_course as $each_course) {
       $courseName = $each_course->course;
-      echo "<option value='$courseName'";
+      $add_course = "<option value='$courseName'";
       if (in_array($courseName,$course))
-        {echo " disabled";}
-      echo ">$courseName</option>";
-    } 
-    echo "</select></br>"; 
+      {
+        $add_course = $add_course . " disabled";
+      }
+      $add_course = $add_course . ">$courseName</option>";
+    }
+    $add_course = $add_course . "</select><br />";
   }
   else {
-    echo "<input type='text' name='courseName' required/></br>"; 
-    if(isset($_GET['err']) && $_GET['err'] == 1) { 
-      echo "<p><span class='error'>only letters and numbers</span></p>"; }
-  } ?>
+    $add_course = $add_course . "<input type='text' name='courseName' required/><br />";
+    if(isset($_GET['err']) && $_GET['err'] == 1) {
+      $add_course = $add_course . "<p><span class='error'>only letters and numbers</span></p>"; }
+  }
 
-  <input type="submit" class="button" value="ADD COURSE"/>
-  </form>
+$placeholder = array("##name##", "##list_course##", "##add_course##");
+$replace = array($name, $list_course, $add_course);
 
-  </body>
-</html>
+echo str_replace($placeholder, $replace, file_get_contents('index',TRUE));
+
+?>

@@ -9,7 +9,7 @@
   <body class="homepage">
   <?php
 
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
 
     $username = $_POST['username'];
     $password = sha1($_POST['password']);

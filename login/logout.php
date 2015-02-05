@@ -4,7 +4,7 @@
 session_start();
 
 // Include database connection settings
-include('../sqlconnect.php');
+include('../lib/sqlconnect.php');
 
 // Delete session
 session_unset();

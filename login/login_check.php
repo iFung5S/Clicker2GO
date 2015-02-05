@@ -2,7 +2,7 @@
   // Initialize session
   session_start();
 
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
 
   $username = $_POST['username'];
   $password = sha1($_POST['password']);
