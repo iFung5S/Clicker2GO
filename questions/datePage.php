@@ -51,8 +51,9 @@ if (!isset($_SESSION['username'])) {
   <?php if($user->type == 'student') {
     echo 'style="visibility:hidden"'; }?>>
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
-  <input type="text" name="date" placeholder="yyyy-mm-dd"/>
+  <input type="text" name="date" placeholder="yyyy-mm-dd" required/>
   <input type="submit" class="button" value="add date"/>
+  <p> <?php if(isset($_GET['err']) && $_GET['err'] == 1) { echo "<span class='error'>wrong date format</span>"; } ?> </p>
   </form>
   </body>
 </html>
