@@ -38,7 +38,7 @@ if (!isset($_SESSION['username'])) {
   if ($all_date->count() != 0) {
     foreach ($all_date as $each_date)
     {
-      $date = $each_date;
+      $date = $each_date->date;
       echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
     } 
   }
