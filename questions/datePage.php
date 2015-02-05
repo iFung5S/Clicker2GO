@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
 <html>
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Date List | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
@@ -44,16 +44,17 @@ if (!isset($_SESSION['username'])) {
     echo "<li>No content</li>";
   }
   ?>
-
-
   </ul>
-  <form method="GET" action="questionlist.php"   
-  <?php if($user->type == 'student') {
-    echo 'style="visibility:hidden"'; }?>>
-  <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
-  <input type="text" name="date" placeholder="yyyy-mm-dd" required/>
-  <input type="submit" class="button" value="add date"/>
-  <p> <?php if(isset($_GET['err']) && $_GET['err'] == 1) { echo "<span class='error'>wrong date format</span>"; } ?> </p>
-  </form>
+  
+  <?php if($user->type != 'student') {
+    echo "<form method='GET' action='questionlist.php'>";
+    echo "<input type='text' name='courseName' style='visibility:hidden' value=$courseName/></br>";
+    echo "<input type='text' name='date' placeholder='yyyy-mm-dd' required/>";
+    echo "<input type='submit' class='button' value='add date'/>";
+    echo "<p>"; 
+      if(isset($_GET['err']) && $_GET['err'] == 1) { 
+        echo "<span class='error'>wrong date format</span>"; }
+    echo "</p></form>";
+  } ?>
   </body>
 </html>
