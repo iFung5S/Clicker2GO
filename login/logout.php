@@ -4,10 +4,12 @@
 session_start();
 
 // Include database connection settings
-include('sql_connect.php');
+include('../sqlconnect.php');
 
 // Delete session
 session_unset();
+
+include('logout.html');
 
 // Jump to login page
 header('Location: login.php?logout=1');
