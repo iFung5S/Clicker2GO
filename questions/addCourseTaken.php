@@ -29,6 +29,9 @@ if (!isset($_SESSION['username'])) {
     if (empty($course)) {
       $course = $courseName; }
     else {
+      $course_arr = explode("|",$course);
+      if (in_array($courseName,$course_arr)) 
+        {echo "<script>window.location.assign('../index.php');</script>";}
       $course = implode("|",array($course,$courseName)); }
     $user->course = $course;
     $user->save();
