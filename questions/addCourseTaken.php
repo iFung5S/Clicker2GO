@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])) {
 
   <?php
 
-    $courseName = $_POST['courseName'];
+  $courseName = $_POST['courseName'];
   if (!empty($courseName)&&preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
     $user = ORM::for_table('user')
           ->find_one($username);
@@ -29,6 +29,10 @@ if (!isset($_SESSION['username'])) {
     if (empty($course)) {
       $course = $courseName; }
     else {
+      $course_arr = explode("|",$course);
+      sort($course_arr);
+      if (in_array($courseName,$course_arr))
+        {echo "<script>window.location.assign('../index.php');</script>";}
       $course = implode("|",array($course,$courseName)); }
     $user->course = $course;
     $user->save();
@@ -36,8 +40,7 @@ if (!isset($_SESSION['username'])) {
   } 
   else {
     echo "<script>window.location.assign('../index.php');</script>";
-  }
-   
+  }  
 ?>
 
 </body>
