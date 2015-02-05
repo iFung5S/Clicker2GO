@@ -11,6 +11,7 @@ if (!isset($_SESSION['username'])) {
   $username = $_SESSION['username'];
   include_once ('../dbCon.php');
   $user = ORM::for_table('user')
+          ->select('type')
           ->where('username', $username)
           ->find_one();
 ?>
@@ -35,8 +36,9 @@ if (!isset($_SESSION['username'])) {
               ->order_by_desc('date')
               ->find_many();
   if ($all_date->count() != 0) {
-    foreach ($all_date as $date)
+    foreach ($all_date as $each_date)
     {
+      $date = $each_date;
       echo "<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
     } 
   }
@@ -48,7 +50,7 @@ if (!isset($_SESSION['username'])) {
 
   </ul>
   <form method="GET" action="questionlist.php"   
-  <?php if($user->type == 'student') {
+  <?php if($user == 'student') {
     echo 'style="visibility:hidden"'; }?>>
   <input type="text" name="courseName" style="visibility:hidden" value="<?php echo $courseName;?>"/></br>
   <input type="text" name="date" placeholder="yyyy-mm-dd"/>
