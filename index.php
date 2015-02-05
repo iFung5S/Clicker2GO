@@ -89,6 +89,8 @@ if (!isset($_SESSION['username'])) {
   }
   else {
     echo "<input type='text' name='courseName' required/></br>"; 
+    if(isset($_GET['err']) && $_GET['err'] == 1) { 
+      echo "<p><span class='error'>only letters and numbers</span></p>"; }
   } ?>
 
   <input type="submit" class="button" value="ADD COURSE"/>
