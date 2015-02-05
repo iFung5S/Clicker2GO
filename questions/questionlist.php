@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
   $username = $_SESSION['username'];
   $courseName= $_GET['courseName'];
   $date=$_GET['date'];
-  include_once ('dbCon.php');
+  include_once ('../dbCon.php');
 
   $questions_id = ORM::for_table('questions')
                      ->select('id')

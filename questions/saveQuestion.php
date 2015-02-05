@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
     $correct = implode("|",$correct);
   }
 
-  include_once ('dbCon.php');
+  include_once ('../dbCon.php');
 ?>
 <html>
   <head>
