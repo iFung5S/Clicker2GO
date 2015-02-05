@@ -79,9 +79,8 @@ if (!isset($_SESSION['username'])) {
     echo "<select name='courseName' \>";
     echo "<option value=''>--select course--</option>";
   echo "<option value='2'>2222</option>";
-  $num=$course->count();
-  echo "<option value='$num'>$num</option>";
-  $num2=$course_id->count();
+  $num=$questioni_course->count();
+
   echo "<option value='33'>3333</option>";
   echo "<option value='$num2'>$num2</option>";
       foreach ($questions_course as $each_course) {
