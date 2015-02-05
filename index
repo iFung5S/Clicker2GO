@@ -8,8 +8,7 @@
   </head>
   <body class="homepage">
   <h1>HOME</h1>
-  <script>greetings();</script>##name##!
-</p>
+  <p id="greetings">##name##!</p>
 <p><a href="login/logout.php">Logout</a></p>
 
   <h2>Course</h2>
@@ -20,27 +19,31 @@
   </form>
 
 <script>
+
+var text = document.getElementById("greetings").innerHTML;
+document.getElementById("greetings").innerHTML = greetings() + text;
+
 function greetings()
 {
   var myDate = new Date(); 
   /* 5:00 am - 11:59 am */
   if ( myDate.getHours() >= 5 && myDate.getHours() < 12 )
   { 
-    return "Good morning, "; 
+    return "Good morning, ";
   } 
   /* 12:00 nn - 5:59 pm */
   else if ( myDate.getHours() >= 12 && myDate.getHours() < 19 ) 
   {
-    "Good afternoon, ";
+    return "Good afternoon, ";
   }
   /* 6:00 pm - 12:00 mn OR 12:00 mn - 5:00 am */
   else if ( ( myDate.getHours() >= 19 && myDate.getHours() <= 24 ) || ( myDate.getHours() >= 0 && myDate.getHours() < 5 ) )
   {
-    "Good evening, ";
+    return "Good evening, ";
   } 
   else  /* the hour is not between 0 and 24, so something is wrong */
   { 
-    "Welcome, ";
+    return "Welcome, ";
   }
 } 
 </script>
