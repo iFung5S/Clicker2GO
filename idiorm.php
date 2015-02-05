@@ -1895,7 +1895,7 @@
         /**
          * Get the primary key ID of this object.
          */
-        public function id($disallow_null = true) {
+        public function id($disallow_null = false) {
             $id = $this->get($this->_get_id_column_name());
 
             if ($disallow_null) {
