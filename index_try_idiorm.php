@@ -57,7 +57,7 @@ if (!isset($_SESSION['username'])) {
     $questioni_course = ORM::for_table('questions')
                  ->select('course')
                  ->group_by('course')
-                 ->find_array();
+                 ->find_many();
 
   $course = $user->course;
   if (empty($course)){
@@ -82,7 +82,7 @@ if (!isset($_SESSION['username'])) {
   $num=$questioni_course->count();
 
   echo "<option value='33'>3333</option>";
-  echo "<option value='$num2'>$num2</option>";
+  echo "<option value='$num'>$num</option>";
       foreach ($questions_course as $each_course) {
         $courseName = $each_course->course;
         echo "<option value='$courseName'>$courseName</option>";
