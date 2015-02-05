@@ -51,10 +51,9 @@ if (!isset($_SESSION['username'])) {
     echo "<input type='text' name='courseName' style='visibility:hidden' value='$courseName'/></br>";
     echo "<input type='text' name='date' placeholder='yyyy-mm-dd' required/>";
     echo "<input type='submit' class='button' value='add date'/>";
-    echo "<p>"; 
-      if(isset($_GET['err']) && $_GET['err'] == 1) { 
-        echo "<span class='error'>wrong date format</span>"; }
-    echo "</p></form>";
+    if(isset($_GET['err']) && $_GET['err'] == 1) { 
+      echo "<p><span class='error'>wrong date format</span></p>"; }
+    echo "</form>";
   } ?>
   </body>
 </html>
