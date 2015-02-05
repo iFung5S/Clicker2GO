@@ -22,7 +22,7 @@ if (!isset($_SESSION['username'])) {
   <?php
 
     $courseName = $_POST['courseName'];
-  if (!empty($courseName)||preg_match("/^[a-zA-Z0-9]*$/",$courseName) {
+  if (!empty($courseName)||preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
     $user = ORM::for_table('user')
           ->find_one($username);
     $course = $user->course;
