@@ -43,7 +43,7 @@ if (!isset($_SESSION['username'])) {
     foreach ($questions_course as $each_course) {
       $courseName = $each_course->course;
       $add_course = $add_course . "<option value='$courseName'";
-      if (in_array($courseName,$course))
+      if (!empty($course) && in_array($courseName,$course))
       {
         $add_course = $add_course . " disabled";
       }
