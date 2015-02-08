@@ -23,6 +23,6 @@ else
 $placeholder = array("##message##", "##select##");
 $replace = array($message, $select);
 
-echo str_replace($placeholder, $replace, file_get_contents('login',TRUE));
+echo str_replace($placeholder, $replace, file_get_contents('login'));
 
 ?>

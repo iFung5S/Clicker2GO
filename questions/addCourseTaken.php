@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
 }
   $username = $_SESSION['username'];
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
 
   $courseName = $_POST['courseName'];
   if (preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
@@ -21,23 +21,16 @@ if (!isset($_SESSION['username'])) {
       sort($course_arr);
       if (!in_array($courseName,$course_arr))
       { $course = implode("|",array($course,$courseName)); }
-    }
-      
+    }      
     $user->course = $course;
     $user->save();
-    echo "<script>window.location.assign('../index.php');</script>";
+
+    $redirect = "<script>window.location.assign('../index.php');</script>";
   } 
   else {
-    echo "<script>window.location.assign('../index.php?err=1');</script>";
+    $redirect = "<script>window.location.assign('../index.php?err=1');</script>";
   }  
-?>
 
-<!DOCTYPE HTML>
-<html> 
-  <head>
-    <meta charset="utf-8">
-    <title>Adding | Clicker2GO</title>
-  </head>
-  <body class="homepage">
-  </body>
-</html>
+  echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));
+
+?>

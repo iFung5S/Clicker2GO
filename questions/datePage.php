@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 }
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
   $user = ORM::for_table('user')->find_one($username);
 
   //list date
@@ -59,5 +59,5 @@ $replace = array($courseName,$date_list, "");
     $replace = array($courseName,$date_list,$button);
   } 
 
-echo str_replace($placeholder, $replace, file_get_contents('datePage',TRUE));
+echo str_replace($placeholder, $replace, file_get_contents('datePage'));
 ?>

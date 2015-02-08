@@ -1,11 +1,11 @@
 <?php
-// Initialize session
-session_start();
+  // Initialize session
+  session_start();
 
-// Jump to login page if username not set
-if (!isset($_SESSION['username'])) {
+  // Jump to login page if username not set
+  if (!isset($_SESSION['username'])) {
         header('Location: ../login/login.php');
-}
+  }
   $courseName = $_POST['courseName'];
   $date = $_POST['date'];
   $question = $_POST['question'];
@@ -17,35 +17,27 @@ if (!isset($_SESSION['username'])) {
     $correct = implode("|",$correct);
   }
 
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
 
+  $questions = ORM::for_table('questions')
+                ->create();
+  $questions -> set(array(
+                 'course' => $courseName, 
+                 'date' => $date, 
+                 'question' => $question, 
+                 'answer1' => $answer[1], 
+                 'answer2' => $answer[2], 
+                 'answer3' => $answer[3], 
+                 'answer4' => $answer[4], 
+                 'answer5' => $answer[5], 
+                 'answer6' => $answer[6], 
+                 'correct' => $correct
+                ));
+  $questions -> save();
 
-    $questions = ORM::for_table('questions')
-                 ->create();
-    $questions -> set(array(
-                  'course' => $courseName, 
-                  'date' => $date, 
-                  'question' => $question, 
-                  'answer1' => $answer[1], 
-                  'answer2' => $answer[2], 
-                  'answer3' => $answer[3], 
-                  'answer4' => $answer[4], 
-                  'answer5' => $answer[5], 
-                  'answer6' => $answer[6], 
-                  'correct' => $correct
-                  ));
-    $questions -> save();
+  $redirect = "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
 
-    echo "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
+  echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));
 
-  ?>
+?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Creating | Clicker2GO</title>
-  </head>
-  <body class="homepage">
-  </body>
-</html>

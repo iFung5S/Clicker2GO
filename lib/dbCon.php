@@ -1,6 +1,6 @@
 <?php
-require_once('config.inc.php');
-require_once('lib/idiorm.php');
+require_once(dirname(__FILE__).'/../config.inc.php');
+require_once('idiorm.php');
 ORM::configure('mysql:host=dbhost.cs.man.ac.uk;dbname=2014_comp10120_x4');
 ORM::configure('username', $database_user);
 ORM::configure('password', $database_pass);

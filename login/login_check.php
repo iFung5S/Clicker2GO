@@ -2,7 +2,7 @@
   // Initialize session
   session_start();
 
-  include_once ('../dbCon.php');
+  include_once ('../lib/dbCon.php');
 
   $username = $_POST['username'];
   $password = sha1($_POST['password']);
@@ -26,7 +26,7 @@
     $redirect = "<script>window.location.assign('login.php?err=1');</script>";
   }
 
-$placeholder = "##redirect##";
-echo str_replace($placeholder, $redirect, file_get_contents('login_check',TRUE));
+  $placeholder = "##redirect##";
+  echo str_replace($placeholder, $redirect, file_get_contents('page_only_title'));
 
 ?>

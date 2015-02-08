@@ -6,7 +6,7 @@ session_start();
 if (!isset($_SESSION['username'])) {
         header('Location: login/login.php');
 }
-  include_once ('dbCon.php');
+  include_once ('lib/dbCon.php');
   $username = $_SESSION['username'];
 
   $name =  $_SESSION['name'];
@@ -60,6 +60,6 @@ if (!isset($_SESSION['username'])) {
 $placeholder = array("##name##", "##list_course##", "##add_course##");
 $replace = array($name, $list_course, $add_course);
 
-echo str_replace($placeholder, $replace, file_get_contents('index',TRUE));
+echo str_replace($placeholder, $replace, file_get_contents('index'));
 
 ?>
