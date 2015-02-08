@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <title>Question List | Clicker2GO</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+
+  <body class="homepage">
+      <div>
+      <span><a href='../index.php'>Home</a></span>>
+      <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+      <span>##date##</span></div>
+  <ol>##questions_list##</ol>
+      ##create_question##
+  </body>
+</html>

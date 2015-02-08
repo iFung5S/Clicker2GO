@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 // Initialize session
 session_start();
@@ -19,17 +18,7 @@ if (!isset($_SESSION['username'])) {
   }
 
   include_once ('../dbCon.php');
-?>
-<html>
-  <head>
-    <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <title>Creating | Clicker2GO</title>
-    <link rel="stylesheet" href="../style.css">
-  </head>
 
-  <body class="homepage">
-  <?php
 
     $questions = ORM::for_table('questions')
                  ->create();
@@ -50,5 +39,13 @@ if (!isset($_SESSION['username'])) {
     echo "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
 
   ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Creating | Clicker2GO</title>
+  </head>
+  <body class="homepage">
   </body>
 </html>

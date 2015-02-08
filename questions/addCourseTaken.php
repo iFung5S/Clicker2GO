@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <?php
 // Initialize session
 session_start();
@@ -9,17 +8,6 @@ if (!isset($_SESSION['username'])) {
 }
   $username = $_SESSION['username'];
   include_once ('../dbCon.php');
-?>
-<html> 
-  <head>
-    <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <title>Adding | Clicker2GO</title>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body class="homepage">
-
-  <?php
 
   $courseName = $_POST['courseName'];
   if (preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
@@ -44,5 +32,12 @@ if (!isset($_SESSION['username'])) {
   }  
 ?>
 
-</body>
+<!DOCTYPE HTML>
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>Adding | Clicker2GO</title>
+  </head>
+  <body class="homepage">
+  </body>
 </html>

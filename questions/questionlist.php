@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 // Initialize session
 session_start();
@@ -29,40 +28,30 @@ if (!isset($_SESSION['username'])) {
   $questions_count = $questions_id -> count();
 
   $user = ORM::for_table('user')->find_one($username);
-?>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <title>Question List | Clicker2GO</title>
-    <link rel="stylesheet" href="../style.css">
-  </head>
 
-  <body class="homepage">
-      <div>
-      <span><a href='../index.php'>Home</a></span>>
-      <span><a href="datePage.php?courseName=<?php echo $courseName; ?>"><?php echo $courseName; ?></a></span>>
-      <span><?php echo $date; ?></span></div>
-  <ol>
-  <?php
+  $questions_list = "";
   $i=1;
   if ($questions_count != 0) {
   foreach ($questions_id as $each_qid) {
     $qid = $each_qid->id;
-    echo "<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
+    $questions_list = $questions_list."<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
     $i++;
     }}
   else {
-    echo "<li>No Question</br>(This date page will not be saved if no question added)</li>"; 
+    $questions_list = "<li>No Question</br>(This date page will not be saved if no question added)</li>"; 
   } 
-  ?>
-  </ol>
   
-  <?php if($user->type != 'student') {
-    echo "<form method='POST' action='createQuestion.php'>";
-    echo "<input type='text' name='courseName' style='visibility:hidden' value='$courseName'/>";
-    echo "<input type='text' name='date' style='visibility:hidden' value='$date'/></br>";
-    echo "<input type='submit' class='button' value='creat new'/></form>";
-  } ?>   
-  </body>
-</html>
+  $create_button = "<form method='POST' action='createQuestion.php'>
+                    <input type='text' name='courseName' style='visibility:hidden' value='$courseName'/>
+                    <input type='text' name='date' style='visibility:hidden' value='$date'/></br>
+                    <input type='submit' class='button' value='creat new'/></form>";
+
+  $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##");
+  $replace = array($courseName,$date,$questions_list, "");
+
+  if($user->type != 'student') {
+    $replace = array($courseName,$date,$questions_list,$create_button);
+  } 
+  echo str_replace($placeholder, $replace, file_get_contents('questionlist'));
+?>   
+
