@@ -32,15 +32,17 @@ if (!isset($_SESSION['username'])) {
 
   if($user->type == 'student') {
     $add_course = $add_course . "<select name='courseName' required>";
-    $add_course = $add_course . "<option value='' disabled>--Select Course--</option>";
+    $add_course = $add_course . "<option value='' >--Select Course--</option>";
+
     $questions_course = ORM::for_table('questions')
                         ->select('course')
                         ->group_by('course')
                         ->order_by_asc('course')
                         ->find_many();
+
     foreach ($questions_course as $each_course) {
       $courseName = $each_course->course;
-      $add_course = "<option value='$courseName'";
+      $add_course = $add_course . "<option value='$courseName'";
       if (in_array($courseName,$course))
       {
         $add_course = $add_course . " disabled";
