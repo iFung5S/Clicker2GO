@@ -11,7 +11,8 @@ if (!isset($_SESSION['username'])) {
   $username = $_SESSION['username'];
   $courseName= $_GET['courseName'];
   $date=$_GET['date'];
-  include_once ('../lib/dbCon.php');
+  include_once ('../dbCon.php');
+
   if (!preg_match("/^20\d{2}[\/\-](0?\d|1[0-2])[\/\-]([0-2]?\d|3[01])$/",$date))
   {
     echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";

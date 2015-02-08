@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 }
   $courseName= $_GET['courseName'];
   $username = $_SESSION['username'];
-  include_once ('../lib/dbCon.php');
+  include_once ('../dbCon.php');
   $user = ORM::for_table('user')->find_one($username);
 
   //list date
