@@ -9,7 +9,7 @@
 
 <body class="homepage">
   <div><span><a href='../index.php'>Home</a></span>>
-  <span>$courseName</span></div>
+  <span>##courseName##</span></div>
   <ul>##date_list##</ul>
       ##add_date##
 </body>

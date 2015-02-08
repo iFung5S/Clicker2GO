@@ -52,11 +52,11 @@ if (!isset($_SESSION['username'])) {
     $button = $button."<p><span class='error'>wrong date format</span></p>"; 
   }
 
-$placeholder = array("##date_list##", "##add_date##");
-$replace = array($date_list, "");
+$placeholder = array("##courseName##","##date_list##", "##add_date##");
+$replace = array($courseName,$date_list, "");
 
   if($user->type != 'student') {
-    $replace = array($date_list,$button);
+    $replace = array($courseName,$date_list,$button);
   } 
 
 echo str_replace($placeholder, $replace, file_get_contents('datePage',TRUE));
