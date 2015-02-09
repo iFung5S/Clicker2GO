@@ -1,4 +1,5 @@
 <?php
+
 require_once(dirname(__FILE__).'/../config.inc.php');
 require_once('idiorm.php');
 ORM::configure('mysql:host=dbhost.cs.man.ac.uk;dbname=2014_comp10120_x4');
@@ -9,4 +10,5 @@ ORM::configure('id_column_overrides', array(
     'user' => 'username'
 ));
 $db = ORM::get_db();
+
 ?>
