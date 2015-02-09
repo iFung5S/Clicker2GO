@@ -1,6 +1,6 @@
 <?php
 
-/*
+
   // Initialize session
   session_start();
 
@@ -8,7 +8,6 @@
   if (!isset($_SESSION['username'])) {
           header('Location: ../login/login.php');
   }
-*/
 
   // the id of the question to be displayed.
   $qid = $_GET['qid'];

@@ -1,16 +1,19 @@
 <?php
 
-/*
+
   // Initialize session
   session_start();
 
   // Jump to login page if username not set
-  if (!isset($_SESSION['username'])) {
+  if (!isset($_SESSION['username']))
+  {
           header('Location: ../login/login.php');
+  }
   else
+  {
     $username = $_SESSION['username'];
   }
-*/
+
   // get the time the answer was submitted
   $submission_time = time();
 
@@ -36,15 +39,17 @@
   $countdown = $result_row["countdown"]; // in seconds
 
   // calculate end time
-  $endtime = $starttime + $countdown * 1000;
+  $endtime = strtotime($result_row["endtime"]);
 
-  $username = 'test'; // hardcoded for now
+ // $username = "test"; // hardcoded for now
 
   if ($submission_time >= $starttime && $submission_time <= $endtime)
+  {
     // record the answer
-
-    $query = "INSERT INTO `answers` (`id`, `qid`, `username`, `answer`) VALUES (NULL, $qid, $username, $submitted_answer);";
+    $query = "INSERT INTO `answers` (`qid`, `username`, `answer`) VALUES ('$qid', '$username', '$submitted_answer');";
     $record_answer = mysqli_query($conn, $query); // to correct
+    echo "Success";
+  }
     // users should have a unique id int to call instead of user name
 
 /*
