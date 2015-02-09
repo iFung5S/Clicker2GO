@@ -16,7 +16,7 @@
 
 
   // get the answer submitted (this is string 1,2,3...)
-  $submitted_answer = "answer" . $POST['answer'];
+  $submitted_answer = "answer" . $_POST['answer'];
 
   // the id of the answerd question
   $qid = $_POST['qid'];
@@ -44,7 +44,7 @@
     // record the answer
 
     $query = "INSERT INTO `answers` (`id`, `qid`, `username`, `answer`) VALUES (NULL, $qid, $username, $submitted_answer);";
-    $record_answer = mysqli_query($conn, $query) // to correct
+    $record_answer = mysqli_query($conn, $query); // to correct
     // users should have a unique id int to call instead of user name
 
 /*
