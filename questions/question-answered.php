@@ -32,8 +32,8 @@
   // get the starttime and convert from mysql to php format
   $starttime = strtotime($result_row["starttime"]);
 
-  $countdown = 30; // hardcoded for now until i change database structure
-  //$countdown = $result_row["countdown"]; // in seconds
+  // $countdown = 30; // hardcoded for now until i change database structure
+  $countdown = $result_row["countdown"]; // in seconds
 
   // calculate end time
   $endtime = $starttime + $countdown * 1000;
@@ -86,5 +86,5 @@
   $replace = array($question,$answers);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 
-?*
+*/
 ?>
