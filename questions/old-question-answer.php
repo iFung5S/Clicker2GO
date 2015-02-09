@@ -16,24 +16,39 @@
       // get question data
       $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
       $result_row = mysqli_fetch_assoc($result);
-      $question = $result_row["question"]; // question is column with index 3
+      $question = $result_row["question"];
+      // when the lecturer presses the start button starttime is set to current time on the server
+      // otherwise is NULL
+      $starttime = $result_row["starttime"];
+      $countdown = 30; // hardcoded for now until i change database structure
+      //$countdown = $result_row["countdown"]; // in seconds
 
    ?>
 
   <body>
     <p>
-      <?= "$question" ?>
+      <?php
+      if ($starttime == NULL)
+        // for now use qid. To implement:it should return the question number within the lecture
+        echo "Question $qid";
+      else
+        echo "$question";
+      ?>
     </p>
     <br/>
     <form>
-      <ol type = A>
+      <ol type = A>  <!-- type A, B, C.. list -->
         <?php
         // use index i for the answer number
         for ($i=1; $i<=6; $i++) // 6 are the maximum allowed answers
         {
           $answer=$result_row['answer' . $i]; // get the specific answer
-          if (!empty($answer)) // only print if value not NULL
+          if (!empty($answer)) // only print the answer if it exists (its value not NULL)
           {
+            // if start button not pressed by lecturer do not show the actual questions
+            // only print the A, B, C... placeholders
+            if ($starttime == NULL)
+              $answer = "";
             echo "<li>
                     <input name='answer' type='radio' value=$i /> $answer
                   </li>";
@@ -87,6 +102,6 @@ DATABASE = for now correct answer(s) as text field(efficiency?, enum)
 
 
 
---!>
+-->
 
 
