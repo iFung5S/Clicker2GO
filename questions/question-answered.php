@@ -25,30 +25,52 @@
   $qid = $_POST['qid'];
 
   // connect to mysql
-  include_once ('../lib/sqlconnect.php');
+  include_once ('../lib/dbCon.php');
 
   // get question data
-  $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
-  $result_row = mysqli_fetch_assoc($result);
+  $question_row = ORM::for_table('questions')-> find_one($qid);
 
   // check if submission was in the time limits
   // get the starttime and convert from mysql to php format
-  $starttime = strtotime($result_row["starttime"]);
+  $starttime = strtotime($question_row->starttime);
 
   // $countdown = 30; // hardcoded for now until i change database structure
-  $countdown = $result_row["countdown"]; // in seconds
+  $countdown = $question_row->countdown; // in seconds
 
   // calculate end time
-  $endtime = strtotime($result_row["endtime"]);
+  $endtime = strtotime($question_row->endtime);
 
  // $username = "test"; // hardcoded for now
 
   if ($submission_time >= $starttime && $submission_time <= $endtime)
   {
-    // record the answer
-    $query = "INSERT INTO `answers` (`qid`, `username`, `answer`) VALUES ('$qid', '$username', '$submitted_answer');";
-    $record_answer = mysqli_query($conn, $query); // to correct
+    //check if user have already answered same question
+    $check_repeat = ORM::for_table('answers')
+                    ->where(array(
+                           'qid'=>$qid,
+                           'username'=>$username
+                     ))
+                    ->find_one();
+    if(empty($check_repeat))
+    {
+      // record the answer
+      $answer = ORM::for_table('answers')->create();
+      $answer->set(array(
+                   'qid'=>$qid,
+                   'username'=>$username,
+                   'answer'=>$submitted_answer
+                ));
+      $answer->save();			// to correct
     echo "Success";
+    }
+    else
+    {
+      echo "You have answered this question";
+    }
+  }
+  else
+  {
+     echo "Sorry, overtime now"; 	//print message to know what happened
   }
     // users should have a unique id int to call instead of user name
 

@@ -15,15 +15,14 @@
 
 
   // connect to mysql
-  include_once ('../lib/sqlconnect.php');
+  include_once ('../lib/dbCon.php');
 
   // get question data
-  $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
-  $result_row = mysqli_fetch_assoc($result);
+  $question_row = ORM::for_table('questions')-> find_one($qid);
 
   // when the lecturer presses the start button starttime is set to current time on the server
   // otherwise is NULL
-  $starttime = $result_row["starttime"];
+  $starttime = $question_row->starttime;
   $countStarted = !($starttime == NULL);  // ?should we compare with current time also?
   //$countStarted = (int) $_GET['started']; // for testing
   $countdown = 30; // hardcoded for now until i change database structure
@@ -32,7 +31,7 @@
 
   // build the question string
   if ($countStarted)
-    $question = $result_row['question'];
+    $question = $question_row-> question;
   else
   {
     // for now use qid. To implement:it should return the question number within the lecture
@@ -49,7 +48,7 @@
   // use index i for the answer number
   for ($i=1; $i<=6; $i++) // 6 are the maximum allowed answers
   {
-    $answer=$result_row['answer' . $i]; // get the specific answer
+    $answer = $question_row->get('answer'.$i); // get the specific answer
     if (!empty($answer)) // only print the answer if it exists (its value not NULL)
     {
       // if start button not pressed by lecturer do not show the actual questions

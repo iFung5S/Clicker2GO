@@ -12,10 +12,15 @@ if (!isset($_SESSION['username'])) {
   $date=$_GET['date'];
   include_once ('../lib/dbCon.php');
 
-  if (!preg_match("/^20\d{2}[\/\-](0?\d|1[0-2])[\/\-]([0-2]?\d|3[01])$/",$date))
+  $min_time = implode(' ', array($date,'09:00:00'));
+  $user = ORM::for_table('user')->find_one($username);
+  //check if date format right and avoid access by editing url when not reach the earliest time
+  if (!preg_match("/^20\d{2}[\/\-](0?\d|1[0-2])[\/\-]([0-2]?\d|3[01])$/",$date)
+      || $user->type == 'student' && time()<strtotime($min_time))
   {
     echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
   }
+
   $date=preg_replace('/([\/\-])(0?)(\d)([\/\-])(0?)(\d)$/','-0$3-0$6',$date);
   
   $questions_id = ORM::for_table('questions')
