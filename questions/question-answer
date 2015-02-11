@@ -13,7 +13,7 @@
     </p>
     <br/>
     <form action="question-answered.php" method="POST">
-      <ol type = A>  <!-- list of type A, B, C.. maybe can be made into variable later -->
+      <ol type = none>  <!-- list of type A, B, C.. maybe can be made into variable later -->
         ##answers##
       </ol>
       <input type="submit" value="Submit">

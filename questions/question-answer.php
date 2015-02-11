@@ -42,7 +42,7 @@
                 <input type='button' VALUE='Reload Question' onClick='history.go(0)'>";
   }
 
-
+  $a="ABCDEF";
   // build the answers string
   $answers = "<input name='qid' type='hidden' value=$qid />";
   // use index i for the answer number
@@ -55,10 +55,11 @@
       // instead only print the A, B, C... placeholders
       if (!$countStarted)
         $answer = " ";
-
+       
+       $N=$a[$i-1];
       $answers = $answers .
                   "<li>
-                    <input name='answer' type='radio' value=$i /> $answer
+                    <input name='answer' type='radio' value=$i /> $N. $answer
                   </li>";
     }
   }
