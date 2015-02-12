@@ -65,7 +65,7 @@
   }
 
 
-  $placeholder = array("##question##","##answers##",);
+  $placeholder = array("##question##","##answers##");
   $replace = array($question,$answers);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 

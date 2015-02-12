@@ -3,18 +3,13 @@
 <style>
 
 .bar {
-  fill: steelblue;
+  fill: #AA0000;
 }
 
-.bar:hover {
-  fill: brown;
-}
 
 .axis {
   font: 12px sans-serif;
 }
-
-
 
 .axis path,
 .axis line {
@@ -28,8 +23,8 @@
 }
 
 </style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<div>
+<script src="../lib/d3.js"></script>
 <script>
 
 var data = ##table##
@@ -39,7 +34,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     height = 200 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .5);
+    .rangeRoundBands([0, width], .4);
 
 
 var y = d3.scale.linear()
@@ -50,12 +45,19 @@ var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom");
 
+var tick = d3.max(data, function(d) { return d.count; });
+
+  if(d3.max(data, function(d) { return d.count; }) === 2)
+  {  tick = 2;}
+  else if (d3.max(data, function(d) { return d.count; }) > 2)
+  {  tick = 3;}
+
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .ticks(5);
+    .ticks(tick);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("div").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -90,7 +92,12 @@ var svg = d3.select("body").append("svg")
       .attr("y", function(d) { return y(d.count); })
       .attr("height", function(d) { return height - y(d.count); });
 
-
-
+  var correct = ##correct##
+  svg.selectAll(".bar")
+     .filter(function(d) { for (var i=0;i<correct.length;i++)
+                            {if(correct[i] == d.label) 
+                              {return true;} } })
+     .style("fill", "#00AA00");
+                     
 </script>
 
