@@ -2,6 +2,11 @@
 
 session_start();
 
+  // Jump to login page if username not set
+  if (!isset($_SESSION['username'])) {
+        header('Location: ../');
+  }
+
 include_once ('../lib/dbCon.php');
 
 $id = 1; // Just hardcoded 1 for now, should get from embedding page

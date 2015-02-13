@@ -3,6 +3,11 @@
   // Initialize session
   session_start();
 
+  // Jump to login page if username not set
+  if (!isset($_SESSION['username'])) {
+        header('Location: ../');
+  }
+
   include ('../lib/dbCon.php');
 
   $username = $_SESSION['username'];

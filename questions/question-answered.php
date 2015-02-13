@@ -7,7 +7,7 @@
   // Jump to login page if username not set
   if (!isset($_SESSION['username']))
   {
-          header('Location: ../login/login.php');
+          header('Location: ../');
   }
   else
   {
