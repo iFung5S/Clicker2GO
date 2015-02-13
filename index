@@ -8,7 +8,7 @@
   </head>
   <body class="homepage">
   <h1>HOME</h1>
-  <p id="greetings">##name##!</p>
+  <p id="greetings"><a href="profile.php">##name##</a>!</p>
 <p><a href="login/logout.php">Logout</a></p>
 
 <div class="form-wrapper">
