@@ -11,12 +11,16 @@
   <p id="greetings">##name##!</p>
 <p><a href="login/logout.php">Logout</a></p>
 
-  <h2>Course</h2>
+<div class="form-wrapper">
+<div id=rectangle> </div>
+  <h1>Course</h1>
   <ul>##list_course##</ul>
   <form method="POST" action="questions/addCourseTaken.php">
   ##add_course##
   <input type="submit" class="button" value="ADD COURSE"/>
   </form>
+</div>
+</div>
 
 <script>
 

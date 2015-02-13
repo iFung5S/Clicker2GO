@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
    sort($course);
     for ($i=0;$i<count($course);$i++) {
       $courseName = $course[$i];
-      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";    
+      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";
       }
   }
 
