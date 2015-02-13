@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="../style.css">
   </head>
 
-  <body class="homepage">
+  <body class="homepage" onLoad='timer();' >
+    <div>
+      ##reload##
+    </div>
     <p>
       ##question##
     </p>
     <br/>
+    <form id="answer_form" action="question-answered.php" method="POST">
       <ol type = none>  <!-- list of type A, B, C.. maybe can be made into variable later -->
         ##answers##
       </ol>
+    </form>
+    ##timer_script##
   </body>
 </html>

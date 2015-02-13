@@ -17,6 +17,7 @@
       $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
       $result_row = mysqli_fetch_assoc($result);
       $starttime = $result_row["starttime"];
+      $countdown = $result_row["countdown"];
       $currenttime = time();
 
       // check if countdown already started
@@ -45,7 +46,7 @@
       if (isset($_POST['startcountdown']) && $_POST['startcountdown'] == 1)
       {
         // set the starttime in the database to time=now
-        $query = "UPDATE `questions` SET `starttime`=now() WHERE id=$qid;";
+        $query = "UPDATE `questions` SET `starttime`=NOW(), `endtime`=NOW()+INTERVAL $countdown SECOND WHERE id=$qid;";
         $update_starttime = mysqli_query($conn, $query);
 
         // make a new query to get updated time results
