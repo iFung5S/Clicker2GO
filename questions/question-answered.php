@@ -131,7 +131,7 @@
         
         $answers = $answers .
                     "<li>
-                      <input name='answer' type='radio' value=$correct_answer_int disabled />$N. $answer  $isCorrect
+                      <input name='answer' type='radio' value=$correct_answer_int disabled >$N. $answer  $isCorrect
                     </li>";
       }
     }

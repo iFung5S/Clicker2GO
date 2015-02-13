@@ -71,7 +71,7 @@
       $N=$numbering_characters[$i-1];
       $answers = $answers .
                   "<li>
-                    <input name='answer' type='radio' value=$i /> $N. $answer
+                    <input name='answer' type='radio' value=$i > $N. $answer
                   </li>";
     }
   }
