@@ -38,7 +38,9 @@
   $countdown = $question_row->countdown; // in seconds
 
   // calculate end time
-  $endtime = strtotime($question_row->endtime);
+  //tmp
+  //$endtime = strtotime($question_row->endtime);
+  $endtime = $starttime + $countdown;
 
  // $username = "test"; // hardcoded for now
 
@@ -60,58 +62,59 @@
                    'username'=>$username,
                    'answer'=>$submitted_answer
                 ));
-      $answer->save();			// to correct
+      $answer->save();      // to correct
     echo "Success";
     }
     else
     {
-      echo "You have answered this question";
+      echo "You have already answered this question";
     }
   }
   else
   {
-     echo "Sorry, overtime now"; 	//print message to know what happened
+     echo "Sorry, overtime now";  //print message to know what happened
   }
     // users should have a unique id int to call instead of user name
 
-/*
+
   // to display if question is right or wrong
   // tokenize correct answers
-  $result_row('correct');
-
-  if ($submitted_answer ==
-    echo right
-  else
-    echo wrong..
-
-  $question = $result_row['question'];
-
-
+  //$result_row('correct');
 
   // build the answers string
-  $answers = "";
-  // use index i for the answer number
-  for ($i=1; $i<=6; $i++) // 6 are the maximum allowed answers
+  if ($submitted_answer == $question_row-> correct )
   {
-    $answer=$result_row['answer' . $i]; // get the specific answer
-    if (!empty($answer)) // only print the answer if it exists (its value not NULL)
-    {
-      // if start button not pressed by lecturer do not show the actual questions
-      // instead only print the A, B, C... placeholders
-      if (!$countStarted)
-        $answer = " ";
+    $answers = " You are correct!!<br>";
+  }
+  else
+    $answers = " You are wrong.<br>";
 
-      $answers = $answers .
-                  "<li>
-                    <input name='answer' type='radio' value=$i /> $answer
-                  </li>";
-    }
+
+    $a="ABCDEF";
+    // use index i for the answer number
+    for ($i=1; $i<=6; $i++) // 6 are the maximum allowed answers
+    {
+      $answer = $question_row->get('answer'.$i); // get the specific answer
+      if (!empty($answer)) // only print the answer if it exists (its value not NULL)
+      {
+        //if
+        //$isCorrect = "
+        $N=$a[$i-1];
+        $answers = $answers .
+                    "<li>
+                      $N. $answer
+                    </li>";
+
+
+
+
+
   }
 
 
   $placeholder = array("##question##","##answers##",);
   $replace = array($question,$answers);
-  echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
+  echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
 
-*/
+
 ?>
