@@ -20,7 +20,8 @@
 
   // get question data
   $question_row = ORM::for_table('questions')-> find_one($qid);
-
+  $courseName = $question_row->course;
+  $date = $question_row->date;
   $currenttime = time();
   // when the lecturer presses the start button starttime is set to current time on the server
   // otherwise is NULL
@@ -120,8 +121,9 @@
   }
 
 
-  $placeholder = array("##reload##", "##question##", "##answers##", "##timer_script##");
-  $replace = array($reload, $question, $answers, $timer_script);
+  $placeholder = array("##reload##", "##question##", "##answers##",
+                       "##timer_script##","##courseName##","##date##");
+  $replace = array($reload, $question, $answers, $timer_script,$courseName,$date);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
   
   

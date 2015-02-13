@@ -8,6 +8,10 @@
   </head>
 
   <body class="homepage" onLoad='timer();' >
+      <div>
+      <span><a href='../index.php'>Home</a></span>>
+      <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+      <span><a href="datePage.php?courseName=##courseName##">##date##</a></span></div>
     <div id='timer'>
       ##reload##
     </div>
