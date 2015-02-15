@@ -15,6 +15,7 @@
       $redirect = "<script>window.location.assign('../');</script>";
       $_SESSION['username'] = $username;
       $_SESSION['name'] = $user->name;
+      $_SESSION['type'] = $user->type;
     }
     else
     {

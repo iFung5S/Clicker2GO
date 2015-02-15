@@ -44,7 +44,7 @@ if (!isset($_SESSION['username'])) {
   }
 
   $button = "<form method='GET' action='questionlist.php'>
-             <input type='text' name='courseName' style='visibility:hidden' value='$courseName'/></br>
+             <input type='hidden' name='courseName' value='$courseName'/></br>
              <input type='text' name='date' placeholder='yyyy-mm-dd' required/>
              <input type='submit' class='button' value='add date'/></form>";
 

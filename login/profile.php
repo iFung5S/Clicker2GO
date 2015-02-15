@@ -12,9 +12,9 @@
 
   $username = $_SESSION['username'];
 
-  $user = ORM::for_table('user')->find_one($username);
+  $users = ORM::for_table('users')->find_one($username);
 
-  $course = $user->course;
+  // $course = $users->course;
   $list_course = "";
 
   if (empty($course)){
@@ -29,8 +29,10 @@
       }
   }
 
+  $type = ORM::for_table('type')->find_one($users->type);
+
   $placeholder = array("##name##", "##username##", "##type##", "##course##");
-  $replace = array($user->name, $user->username, $user->type, $list_course);
+  $replace = array($users->name, $username, $type->type, $list_course);
 
   echo str_replace($placeholder, $replace, file_get_contents('profile'));
 
