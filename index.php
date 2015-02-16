@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
   $list_course = "";
 
   if (empty($course)){
-   $list_course = '<li>No course now</>';
+   $list_course = '<li>No course now</li>';
   }
   else {
    $course = explode("|",$course);

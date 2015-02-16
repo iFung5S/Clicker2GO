@@ -7,6 +7,8 @@
 </head>
 <body class="homepage">
 <div class="form-wrapper">
+  <!-- may be better change this link to other  form,like icon?-->
+  <div><span><a href='../index.php'>Home</a></span>
 <h1>Profile</h1>
 <table>
 <tr>

@@ -1,84 +1,30 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
+
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Home | Clicker2GO</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="homepage">
-  <h1>HOME</h1>
-  <p id="greetings"><a href="profile.php">##name##</a>!</p>
-<p><a href="login/logout.php">Logout</a></p>
+    <div class="form-wrapper">
+    <h1>HOME</h1>
+    <p id="greetings"><a href="login/profile.php">##name##</a>!</p>
+    <p><a href="login/logout.php">Logout</a></p>
 
-<div class="form-wrapper">
-<div id=rectangle> </div>
-  <h1>Course</h1>
-  <ul>##list_course##</ul>
-  <form method="POST" action="questions/addCourseTaken.php">
-  ##add_course##
-  <input type="submit" class="button" value="ADD COURSE"/>
-  </form>
-</div>
-</div>
-
+    <div id=rectangle> </div>
+    <h2>Course</h2>
+    <ul>##list_course##</ul>
+    <form method="POST" action="questions/addCourseTaken.php">
+    ##add_course##
+    <input type="submit" class="button" value="ADD COURSE"/>
+    </form>
+  </div>
+  </div>
+  </body>
 <script>
 
-var text = document.getElementById("greetings").innerHTML;
-document.getElementById("greetings").innerHTML = greetings() + text;
-
-function greetings()
-{
-  var myDate = new Date(); 
-  /* 5:00 am - 11:59 am */
-  if ( myDate.getHours() >= 5 && myDate.getHours() < 12 )
-  { 
-    return "Good morning, ";
-  } 
-  /* 12:00 nn - 5:59 pm */
-  else if ( myDate.getHours() >= 12 && myDate.getHours() < 19 ) 
-  {
-    return "Good afternoon, ";
-  }
-  /* 6:00 pm - 12:00 mn OR 12:00 mn - 5:00 am */
-  else if ( ( myDate.getHours() >= 19 && myDate.getHours() <= 24 ) || ( myDate.getHours() >= 0 && myDate.getHours() < 5 ) )
-  {
-    return "Good evening, ";
-  } 
-  else  /* the hour is not between 0 and 24, so something is wrong */
-  { 
-    return "Welcome, ";
-  }
-} 
-</script>
-
-  </body>
-=======
-   <head>
-     <meta charset="utf-8">
-     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-     <title>Home | Clicker2GO</title>
-     <link rel="stylesheet" href="style.css" />
-   </head>
-
-
-   <body class="homepage">
-
-      <div id="rectangle"></div>
-
-      <h1>HOME</h1>
-      <p id="greetings">##name##!</p>
-      <p><a href="login/logout.php">Logout</a></p>
-
-      <h2>Course</h2>
-      <ul>##list_course##</ul>
-      <form method="POST" action="questions/addCourseTaken.php">
-      ##add_course##
-      <input type="submit" class="button" value="ADD COURSE"/>
-      </form>
-
-      <script>
          var text = document.getElementById("greetings").innerHTML;
          document.getElementById("greetings").innerHTML = greetings() + text;
 
@@ -105,8 +51,6 @@ function greetings()
              return "Welcome, ";
            }
          } 
-      </script>
+</script>
 
-   </body>
->>>>>>> 8c6b4b03f9877fd8c0238abad863c65851b8a970
 </html>
