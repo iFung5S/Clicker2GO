@@ -90,16 +90,18 @@
   }
 
   // load the Countdown timer script
-  $timer_script = "";
+
   if ($count_started && $currenttime < $endtime)
   {
-    $timer_script = "<iframe frameborder='0' width='85' height='30' scrolling='no' src='timer.php?qid=$qid'></iframe>";
+    include('timer.php'); //timer as variable $timer
   }
+  else
+    $timer= "";
 
 
   $placeholder = array("##reload##", "##question##", "##answers##",
                        "##timer_script##","##courseName##","##date##");
-  $replace = array($reload, $question, $answers, $timer_script,$courseName,$date);
+  $replace = array($reload, $question, $answers, $timer,$courseName,$date);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
   
 

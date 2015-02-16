@@ -16,7 +16,7 @@
 
   // get the time the answer was submitted
   $submission_time = time();
-
+  $currenttime = $submission_time;
   // get the answer submitted (this is string 1,2,3...)
   $submitted_answer = "answer" . $_POST['answer'];
 
@@ -80,10 +80,10 @@
     $answers = "<input name='qid' type='hidden' value=$qid />
                 <input name='submission_on_time' type='hidden' value=$submission_on_time />";
     
-    $timer_script = "<iframe frameborder='0' width='85' height='26' scrolling='no' src='timer.php?qid=$qid'></iframe>";
+    include('timer.php'); //timer as variable $timer
 
     // start a timer showing when the user is allowed to see the correct answer
-    $reload = $reload . "<br/>Please wait".$timer_script." seconds to see the answer";
+    $reload = $reload . "<br/>Please wait".$timer." seconds to see the answer";
     
   }
   // if submission is after the deadline (endtime) show message
