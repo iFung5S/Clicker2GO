@@ -146,13 +146,6 @@
     $answers = "";
 
 
-  // load the Countdown timer script
-  $timer_script = "";
-  if ($submission_on_time)
-  {
-
-  }
-
 
   $placeholder = array("##reload##", "##question##", "##answers##");
   $replace = array($reload, $question, $answers);
