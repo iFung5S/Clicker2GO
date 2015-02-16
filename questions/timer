@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body onLoad='timer();'>
-<span id='timer'></span>
+
+<span onLoad='timer();' id='timer'></span>
 <script>
   var count = ##time##;
   var counter = setInterval(timer, 1000);
@@ -37,5 +35,4 @@
   document.getElementById('timer').innerHTML = message;
   }
 </script>
-</body>
-</html>
+

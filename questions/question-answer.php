@@ -26,8 +26,9 @@
   // when the lecturer presses the start button starttime is set to current time on the server
   // otherwise is NULL
   $starttime = $question_row-> starttime;
-  $endtime = $question_row-> endtime;
+  $endtime = strtotime($question_row-> endtime);
   $count_started = !is_null($starttime);  // ?should we compare with current time also?
+  $starttime = strtotime($starttime);
   //$count_started = (int) $_GET['started']; // for testing
   //$countdown = 30; // hardcoded for now until i change database structure
   $countdown = $question_row-> countdown; // in seconds
@@ -72,52 +73,27 @@
       $N=$numbering_characters[$i-1];
       $answers = $answers .
                   "<li>
-                    <input name='answer' type='radio' value=$i > $N. $answer
+                    <input name='answer' type='radio' value=$i id=$N required>
+                    <label for=$N> $N. $answer</label></br>
                   </li>";
     }
   }
+  $answers = $answers."</ol><input type='submit' value='Submit' ";
 
+  if(!$count_started)
+  {
+   $answers = $answers."disabled>";
+  }
+  else
+  {
+    $answers = $answers.">";
+  }
 
   // load the Countdown timer script
   $timer_script = "";
   if ($count_started && $currenttime < $endtime)
   {
-    $timer_script = "<script type='text/javascript'>
-        var count = $countdown;
-        var counter = setInterval(timer, 1000);
-        var message = '';
-        function timer()
-        {
-          count -= 1;
-          if (count < 0)
-          {
-          clearInterval(counter);
-          message = 'Ended.';
-          document.getElementById('timer').innerHTML = message;
-          document.getElementById('answer_form').submit();
-          }
-          else
-          {
-            var seconds = count % 60;
-            var minutes = Math.floor(count / 60);
-            var hours = Math.floor(minutes / 60);
-            minutes %= 60;
-            hours %= 60;
-            if (seconds < 10) // Add leading zero if seconds is 1 digit
-              seconds = '0' + seconds;
-            if (minutes < 10) // Add leading zero if minutes is 1 digit
-              minutes = '0' + minutes;
-            message = minutes + ':' + seconds;
-            if (hours > 0)
-            {
-              if (hours < 10) // Add leading zero if hours is 1 digit but not 0
-                hours = '0' + hours;
-              message = hours + ':' + message; // Print hours only if > 0
-            }
-          }
-        document.getElementById('timer').innerHTML = message;
-        }
-      </script>";
+    $timer_script = "<iframe frameborder='0' width='85' height='30' scrolling='no' src='timer.php?qid=$qid'></iframe>";
   }
 
 
@@ -126,7 +102,5 @@
   $replace = array($reload, $question, $answers, $timer_script,$courseName,$date);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
   
-  
-      
 
 ?>

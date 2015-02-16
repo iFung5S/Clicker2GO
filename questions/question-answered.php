@@ -51,7 +51,7 @@
                          && $submission_time <= $endtime);
   if ($submission_on_time)
   {
-    
+    $check_answer = true;
     //check if user has already answered the same question
     $check_repeat = ORM::for_table('answers')
                     ->where(array(
@@ -80,8 +80,10 @@
     $answers = "<input name='qid' type='hidden' value=$qid />
                 <input name='submission_on_time' type='hidden' value=$submission_on_time />";
     
+    $timer_script = "<iframe frameborder='0' width='85' height='26' scrolling='no' src='timer.php?qid=$qid'></iframe>";
+
     // start a timer showing when the user is allowed to see the correct answer
-    $reload = $reload . "Please wait <span id='timer'></span> seconds to see the answer";
+    $reload = $reload . "<br/>Please wait".$timer_script." seconds to see the answer";
     
   }
   // if submission is after the deadline (endtime) show message
@@ -89,29 +91,33 @@
   {
      $reload = "Sorry, You have missed the deadline. <br>
                 Your answer is not taken into account in the statistics." ;
+     $check_answer = false;
   }
   
   
   // Display the results only if server's end time has passed
   // take the current(last) submission as valid -> do not check database for previous submitions
   // do not make changes to the database (only the original submission is stored)   
+   $question = "";//initialize
   if ($submission_time > $endtime)
   {
     // build the question string
     $question = $question_row-> question;
     
     // build the answers string
-    $correct_answer = $question_row-> correct;
+    $correct_answer = explode("|",$question_row-> correct);
     // convert correct answer to int (take only the last string digit with -1)
-    $correct_answer_int = (int) substr($correct_answer, -1);
-    
-    if ($submitted_answer == $correct_answer )
-    {
-      $answers =" You are correct!!<br>";
-    }
-    else
-      $answers =" You are wrong.<br>";
 
+    if ($check_answer){
+      if ($submitted_answer == $correct_answer )
+      {
+        $answers =" You are correct!!<br>";
+      }
+      else
+        $answers =" You are wrong.<br>";
+       }
+    else
+      $answers = "";
 
     $numbering_characters="ABCDEF";
     
@@ -125,64 +131,31 @@
       if (!empty($answer)) // only print the answer if it exists (its value not NULL)
       {
         $isCorrect = "";
-        if ('answer'.$i == $correct_answer)
-          $isCorrect = "Correct Answer";  // we nust decide how to show correct answer
+        if (in_array('answer'.$i, $correct_answer))
+          $isCorrect = "<span style='font-size:12px;color:green;'>  (Correct)</span>";  // we nust decide how to show correct answer
         $N=$numbering_characters[$i-1];
         
         $answers = $answers .
                     "<li>
-                      <input name='answer' type='radio' value=$correct_answer_int disabled >$N. $answer  $isCorrect
+                      $N. $answer  $isCorrect
                     </li>";
       }
     }
   }
+  else
+    $answers = "";
 
 
   // load the Countdown timer script
   $timer_script = "";
   if ($submission_on_time)
   {
-    $timer_script = "<script type='text/javascript'>
-        var count = $seconds_left;
-        var counter = setInterval(timer, 1000);
-        var message = '';
-        function timer()
-        {
-          count -= 1;
-          if (count < 0)
-          {
-          clearInterval(counter);
-          message = 'Ended.';
-          document.getElementById('timer').innerHTML = message;
-          document.getElementById('answer_form').submit();
-          }
-          else
-          {
-            var seconds = count % 60;
-            var minutes = Math.floor(count / 60);
-            var hours = Math.floor(minutes / 60);
-            minutes %= 60;
-            hours %= 60;
-            if (seconds < 10) // Add leading zero if seconds is 1 digit
-              seconds = '0' + seconds;
-            if (minutes < 10) // Add leading zero if minutes is 1 digit
-              minutes = '0' + minutes;
-            message = minutes + ':' + seconds;
-            if (hours > 0)
-            {
-              if (hours < 10) // Add leading zero if hours is 1 digit but not 0
-                hours = '0' + hours;
-              message = hours + ':' + message; // Print hours only if > 0
-            }
-          }
-        document.getElementById('timer').innerHTML = message;
-        }
-      </script>";
+
   }
 
 
-  $placeholder = array("##reload##", "##question##", "##answers##", "##timer_script##");
-  $replace = array($reload, $question, $answers, $timer_script);
+  $placeholder = array("##reload##", "##question##", "##answers##");
+  $replace = array($reload, $question, $answers);
   echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
   
 

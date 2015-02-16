@@ -24,7 +24,7 @@
 <td>##type##</td>
 </tr>
 <tr>
-<td>Courses:</td>
+<td VALIGN="top">Courses:</td>
 <td>##course##</td>
 </tr>
 </table>

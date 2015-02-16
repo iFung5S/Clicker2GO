@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style.css">
   </head>
 
-  <body class="homepage" onLoad='timer();' >
+  <body class="homepage" >
     <div>
       ##reload##
     </div>
@@ -20,6 +20,5 @@
         ##answers##
       </ol>
     </form>
-    ##timer_script##
   </body>
 </html>

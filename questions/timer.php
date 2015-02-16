@@ -9,12 +9,12 @@ session_start();
 
 include_once ('../lib/dbCon.php');
 
-$id = 1; // Just hardcoded 1 for now, should get from embedding page
+  $qid = $_GET['qid']; // Just hardcoded 1 for now, should get from embedding page
 
 $time_s_e = ORM::for_table('questions')
             ->select('starttime')
             ->select('endtime')
-            ->find_one($id);
+            ->find_one($qid);
 if (!empty($time_s_e->starttime))
 {
   $time = time();
