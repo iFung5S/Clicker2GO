@@ -11,8 +11,8 @@
       <div>
       <span><a href='../index.php'>Home</a></span>>
       <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-      <span><a href="datePage.php?courseName=##courseName##">##date##</a></span></div>
-    <div id='timer'>
+      <span><a href="questionlist.php?courseName=##courseName##&date=##date##">##date##</a></span></div>
+    <div >
       ##reload##
     </div>
     <p>
