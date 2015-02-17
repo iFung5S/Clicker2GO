@@ -4,8 +4,8 @@
   // Initialize session
   session_start();
 
-  // Jump to login page if username not set
-  if (!isset($_SESSION['username'])) {
+  // Jump to login page if uid not set
+  if (!isset($_SESSION['uid'])) {
           header('Location: ../');
   }
 
@@ -20,7 +20,8 @@
 
   // get question data
   $question_row = ORM::for_table('questions')-> find_one($qid);
-  $courseName = $question_row->course;
+  $cuid = $question_row->id_cu;
+  $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
   $date = $question_row->date;
   $currenttime = time();
   // when the lecturer presses the start button starttime is set to current time on the server

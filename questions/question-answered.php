@@ -4,14 +4,14 @@
   // Initialize session
   session_start();
 
-  // Jump to login page if username not set
-  if (!isset($_SESSION['username']))
+  // Jump to login page if uid not set
+  if (!isset($_SESSION['uid']))
   {
           header('Location: ../');
   }
   else
   {
-    $username = $_SESSION['username'];
+    $uid = $_SESSION['uid'];
   }
 
   // get the time the answer was submitted
@@ -58,7 +58,7 @@
     $check_repeat = ORM::for_table('answers')
                     ->where(array(
                            'qid'=>$qid,
-                           'username'=>$username
+                           'uid'=>$uid
                      ))
                     ->find_one();
     if(empty($check_repeat))
@@ -67,7 +67,7 @@
       $answer = ORM::for_table('answers')->create();
       $answer->set(array(
                    'qid'=>$qid,
-                   'username'=>$username,
+                   'uid'=>$uid,
                    'answer'=>$submitted_answer
                 ));
       $answer->save();      // to correct

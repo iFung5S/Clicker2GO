@@ -2,37 +2,38 @@
 // Initialize session
 session_start();
 
-// Jump to login page if username not set
-if (!isset($_SESSION['username'])) {
+// Jump to login page if uid not set
+if (!isset($_SESSION['uid'])) {
         header('Location: ../');
 }
 
-  $username = $_SESSION['username'];
+  $uid = $_SESSION['uid'];
   $courseName= $_GET['courseName'];
   $date=$_GET['date'];
   include_once ('../lib/dbCon.php');
 
   $min_time = implode(' ', array($date,'09:00:00'));
-  $user = ORM::for_table('user')->find_one($username);
+
   //check if date format right and avoid access by editing url when not reach the earliest time
   if (!preg_match("/^20\d{2}[\/\-](0?\d|1[0-2])[\/\-]([0-2]?\d|3[01])$/",$date)
-      || $user->type == 'student' && time()<strtotime($min_time))
+      || $_SESSION['type'] == 'student' && time()<strtotime($min_time))
   {
     echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
   }
 
   $date=preg_replace('/([\/\-])(0?)(\d)([\/\-])(0?)(\d)$/','-0$3-0$6',$date);
-  
+  $cuid = ORM::for_table('course_units')
+          ->where('course',$courseName)
+          ->find_one()->id;
+
   $questions_id = ORM::for_table('questions')
                      ->select('id')
                      ->where(array(
-                         'course' => $courseName,
+                         'id_cu' => $cuid,
                          'date' => $date
                        ))
                      ->find_many();
   $questions_count = $questions_id -> count();
-
-  $user = ORM::for_table('user')->find_one($username);
 
   $questions_list = "";
   $i=1;
@@ -54,7 +55,7 @@ if (!isset($_SESSION['username'])) {
   $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##");
   $replace = array($courseName,$date,$questions_list, "");
 
-  if($user->type != 'student') {
+  if($_SESSION['type'] != 'student') {
     $replace = array($courseName,$date,$questions_list,$create_button);
   } 
   echo str_replace($placeholder, $replace, file_get_contents('questionlist'));

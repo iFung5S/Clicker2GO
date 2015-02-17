@@ -2,29 +2,43 @@
 // Initialize session
 session_start();
 
-// Jump to login page if username not set
-if (!isset($_SESSION['username'])) {
+// Jump to login page if uid not set
+if (!isset($_SESSION['uid'])) {
         header('Location: ../');
 }
-  $username = $_SESSION['username'];
+  $uid = $_SESSION['uid'];
   include_once ('../lib/dbCon.php');
 
   $courseName = $_POST['courseName'];
-  if (preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
-    $user = ORM::for_table('user')->find_one($username);
-    $course = $user->course;
-    
-    if (empty($course)) {
-      $course = $courseName; }
-    else { 
-      $course_arr = explode("|",$course);
-      sort($course_arr);
-      if (!in_array($courseName,$course_arr))
-      { $course = implode("|",array($course,$courseName)); }
-    }      
-    $user->course = $course;
-    $user->save();
 
+  if (preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
+
+    $cuid = ORM::for_table('course_units')
+            ->where('course',$courseName)
+            ->find_one();
+
+    if (empty($cuid)){
+      $courseUnit = ORM::for_table('course_units')->create();
+      $courseUnit->course = $courseName;
+      $courseUnit->save();
+      $cuid = ORM::for_table('course_units')
+            ->where('course',$courseName)
+            ->find_one();
+    }
+
+    $user_courses = ORM::for_table('user_courses')
+                    ->where(array(
+                            'uid' => $uid,
+                            'id_cu' => $cuid->id
+                     ))
+                    ->find_one();
+   
+    if (empty($user_courses)) {
+      $u_course = ORM::for_table('user_courses')->create();
+      $u_course->uid = $uid;
+      $u_course->id_cu = $cuid->id;
+      $u_course->save();
+    }
     $redirect = "<script>window.location.assign('../index.php');</script>";
   } 
   else {

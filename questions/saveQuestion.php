@@ -2,8 +2,8 @@
   // Initialize session
   session_start();
 
-  // Jump to login page if username not set
-  if (!isset($_SESSION['username'])) {
+  // Jump to login page if uid not set
+  if (!isset($_SESSION['uid'])) {
         header('Location: ../');
   }
   $courseName = $_POST['courseName'];
@@ -19,10 +19,13 @@
 
   include_once ('../lib/dbCon.php');
 
+  $cuid = ORM::for_table('course_units')
+          ->where('course',$courseName)
+          ->find_one()->id;
   $questions = ORM::for_table('questions')
                 ->create();
   $questions -> set(array(
-                 'course' => $courseName, 
+                 'id_cu' => $cuid, 
                  'date' => $date, 
                  'question' => $question, 
                  'answer1' => $answer[1], 

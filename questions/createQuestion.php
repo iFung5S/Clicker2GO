@@ -2,8 +2,8 @@
   // Initialize session
   session_start();
 
-  // Jump to login page if username not set
-  if (!isset($_SESSION['username'])) {
+  // Jump to login page if uid not set
+  if (!isset($_SESSION['uid'])) {
         header('Location: ../');
   }
 

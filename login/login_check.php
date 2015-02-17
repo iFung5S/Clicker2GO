@@ -7,15 +7,22 @@
   $username = $_POST['username'];
   $password = sha1($_POST['password']);
 
-  $user = ORM::for_table('user')->find_one($username);
+  $user = ORM::for_table('users')->where('username',$username)->find_one();
   if (!empty($user))
   {
     if ($password == $user->password)
     {
       $redirect = "<script>window.location.assign('../');</script>";
-      $_SESSION['username'] = $username;
+
+      $_SESSION['uid'] = $user->id;
       $_SESSION['name'] = $user->name;
-      $_SESSION['type'] = $user->type;
+      $type = ORM::for_table('type')
+              ->join('u_type',array(
+                    'type.id','=','u_type.id_t'))
+              ->where('u_type.uid',$user->id)
+              ->find_one();
+      $_SESSION['type'] = $type->type;
+
     }
     else
     {
