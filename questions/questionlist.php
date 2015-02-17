@@ -55,7 +55,7 @@ if (!isset($_SESSION['uid'])) {
   $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##");
   $replace = array($courseName,$date,$questions_list, "");
 
-  if($_SESSION['type'] != 'student') {
+  if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date,$questions_list,$create_button);
   } 
   echo str_replace($placeholder, $replace, file_get_contents('questionlist'));

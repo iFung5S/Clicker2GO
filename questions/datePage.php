@@ -29,7 +29,7 @@ if (!isset($_SESSION['uid'])) {
       $date = $each_date->date;
        //for student earliest access time is 9am at that date
       $min_time = implode(' ', array($date,'09:00:00'));
-      if ($_SESSION['type'] == 'student' && time()<strtotime($min_time))
+      if ($_SESSION['type'] == 'Student' && time()<strtotime($min_time))
       {
         $date_list = $date_list."<li><a href='#'>$date</a><span style='font-size:12px;color:grey;'>  (Not Start)</span></li>"; 
       }
@@ -56,7 +56,7 @@ if (!isset($_SESSION['uid'])) {
 $placeholder = array("##courseName##","##date_list##", "##add_date##");
 $replace = array($courseName,$date_list, "");
 
-  if($_SESSION['type'] != 'student') {
+  if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date_list,$button);
   } 
 

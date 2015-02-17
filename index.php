@@ -35,7 +35,7 @@ if (!isset($_SESSION['uid'])) {
 
   $add_course = "";
 
-  if($_SESSION['type'] == 'student') {
+  if($_SESSION['type'] == 'Student') {
     $add_course = $add_course . "<select name='courseName' required>";
     $add_course = $add_course . "<option value='' >--Select Course--</option>";
 
