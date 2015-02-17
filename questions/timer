@@ -12,6 +12,7 @@
     clearInterval(counter);
     message = 'Ended.';
     document.getElementById('timer').innerHTML = message;
+     ##action##
     }
     else
     {

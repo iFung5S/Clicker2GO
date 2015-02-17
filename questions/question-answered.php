@@ -15,10 +15,11 @@
   }
 
   // get the time the answer was submitted
-  $submission_time = time();
-  $currenttime = $submission_time;
+  $currenttime = time();
+  $submission_time = $currenttime ;
   // get the answer submitted (this is string 1,2,3...)
-  $submitted_answer = "answer" . $_POST['answer'];
+  $answer = $_POST['answer'];
+  $submitted_answer = "answer" . $answer;
 
   // the id of the answerd question
   $qid = $_POST['qid'];
@@ -49,9 +50,10 @@
   // check if the submission is made within the defined time limits
   $submission_on_time = ($submission_time >= $starttime 
                          && $submission_time <= $endtime);
+  $check_answer = true;
   if ($submission_on_time)
   {
-    $check_answer = true;
+    
     //check if user has already answered the same question
     $check_repeat = ORM::for_table('answers')
                     ->where(array(
@@ -78,8 +80,10 @@
     
     // add a hidden form varible to pass to next page after re-submission when timer ends
     $answers = "<input name='qid' type='hidden' value=$qid />
+                <input name='answer' type='hidden' value=$answer />
                 <input name='submission_on_time' type='hidden' value=$submission_on_time />";
     
+    $action = "document.getElementById('answer_form').submit()";
     include('timer.php'); //timer as variable $timer
 
     // start a timer showing when the user is allowed to see the correct answer
@@ -142,8 +146,7 @@
       }
     }
   }
-  else
-    $answers = "";
+
 
 
 

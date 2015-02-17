@@ -78,7 +78,20 @@
                   </li>";
     }
   }
-  $answers = $answers."</ol><input type='submit' value='Submit' ";
+  $answers = $answers."</ol>";
+
+  // load the Countdown timer script
+
+  if ($count_started && $currenttime < $endtime)
+  {
+    $action = "document.getElementById('answer_form').submit()";
+    $answers = $answers."<input name='answer' type='hidden' value='' />";
+    include('timer.php'); //timer as variable $timer
+  }
+  else
+    $timer= "";
+
+  $answers = $answers."<input type='submit' value='Submit' ";
 
   if(!$count_started)
   {
@@ -88,16 +101,6 @@
   {
     $answers = $answers.">";
   }
-
-  // load the Countdown timer script
-
-  if ($count_started && $currenttime < $endtime)
-  {
-    include('timer.php'); //timer as variable $timer
-  }
-  else
-    $timer= "";
-
 
   $placeholder = array("##reload##", "##question##", "##answers##",
                        "##timer_script##","##courseName##","##date##");

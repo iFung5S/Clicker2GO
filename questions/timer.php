@@ -1,7 +1,8 @@
 <?php
 
   $countdown = $endtime - $currenttime;
-
-  $timer= str_replace("##time##", $countdown, file_get_contents('timer'));
+  $place = array("##time##","##action##");
+   $change = array($countdown,$action);
+  $timer= str_replace($place, $change, file_get_contents('timer'));
 
 ?>
