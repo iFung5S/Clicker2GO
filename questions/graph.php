@@ -1,15 +1,5 @@
 <?php
 
-  // Initialize session
-  session_start();
-
-  // Jump to login page if username not set
-  if (!isset($_SESSION['uid'])) {
-        header('Location: ../');
-  }
-
-  include_once ('../lib/dbCon.php');
-  $qid = 10;  //hardcoded now
   $counts = array();
   $correct = array();
   $labels =array("answer1"=>"A",
@@ -53,6 +43,6 @@
 
   $place = array("##table##", "##correct##");
   $change = array($table, $correct);
-  echo str_replace($place, $change, file_get_contents(dirname(__FILE__).'/graph'));
+  $graph = str_replace($place, $change, file_get_contents('graph'));
 
  ?>

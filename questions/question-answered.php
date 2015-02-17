@@ -51,6 +51,7 @@
   $submission_on_time = ($submission_time >= $starttime 
                          && $submission_time <= $endtime);
   $check_answer = true;
+  $graph = "";
   if ($submission_on_time)
   {
     
@@ -145,13 +146,14 @@
                     </li>";
       }
     }
+    include('graph.php');
   }
 
 
 
 
-  $placeholder = array("##reload##", "##question##", "##answers##");
-  $replace = array($reload, $question, $answers);
+  $placeholder = array("##reload##", "##question##", "##answers##","##graph##");
+  $replace = array($reload, $question, $answers,$graph);
   echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
   
 

@@ -40,7 +40,10 @@ if (!isset($_SESSION['uid'])) {
   if ($questions_count != 0) {
   foreach ($questions_id as $each_qid) {
     $qid = $each_qid->id;
-    $questions_list = $questions_list."<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";
+    if ($_SESSION['type'] == 'Student'){
+    $questions_list = $questions_list."<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";}
+    else {
+    $questions_list = $questions_list."<li><a href='question-lecture.php?qid=$qid'>Question $i</a></li>"; }
     $i++;
     }}
   else {
