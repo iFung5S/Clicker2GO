@@ -7,21 +7,27 @@
   $name = $_POST['name'];
   $redirect = "";
 
-  $user = ORM::for_table('user')->find_one($username);
+  $user = ORM::for_table('users')->where('username',$username)->find_one();
   if (!empty($user))
   {
      $redirect = "<script>window.location.assign('register.php?exist=1');</script>";
   }
   else
   {
-    $user = ORM::for_table('user')->create();
+    $user = ORM::for_table('users')->create();
     $user->set(array(
             'username'=>$username,
             'password'=>$password,
             'name'=>$name
            ));
     $user->save();
-
+    $type = ORM::for_table('u_type')->create();
+    $uid = ORM::for_table('users')->where('username',$username)->find_one()->id;
+    $type->set(array(
+              'uid' => $uid,
+              'id_t' => '1'
+              ));
+    $type->save();
     $redirect = "<script>window.location.assign('login.php?register=1');</script>";
    }
 
