@@ -2,48 +2,56 @@
 // Initialize session
 session_start();
 
-// Jump to login page if username not set
-if (!isset($_SESSION['username'])) {
+// Jump to login page if uid not set
+if (!isset($_SESSION['uid'])) {
         header('Location: login/login.php');
 }
   include_once ('lib/dbCon.php');
-  $username = $_SESSION['username'];
+  $uid = $_SESSION['uid'];
 
   $name =  $_SESSION['name'];
 
   //list course user have
-  $user = ORM::for_table('user')->find_one($username);
-  $course = $user->course;
-  $list_course = "";
+  $courses = ORM::for_table('course_units')
+             ->select('course_units.course')
+             ->join('user_courses',array(
+                    'course_units.id','=','user_courses.id_cu'))
+             ->where('user_courses.uid',$uid)
+             ->order_by_asc('course_units.course')
+             ->find_many();
 
-  if (empty($course)){
+  $list_course = "";
+  $exist = $courses->count();
+  if ($exist == 0){
    $list_course = '<li>No course now</li>';
   }
   else {
-   $course = explode("|",$course);
-   sort($course);
-    for ($i=0;$i<count($course);$i++) {
-      $courseName = $course[$i];
+
+    foreach ($courses as $course) {
+      $courseName = $course->course;
       $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";
       }
   }
 
   $add_course = "";
 
-  if($user->type == 'student') {
+  if($_SESSION['type'] == 'student') {
     $add_course = $add_course . "<select name='courseName' required>";
     $add_course = $add_course . "<option value='' >--Select Course--</option>";
 
-    $questions_course = ORM::for_table('questions')
+    $all_course = ORM::for_table('course_units')
                         ->select('course')
-                        ->group_by('course')
                         ->order_by_asc('course')
                         ->find_many();
 
-    foreach ($questions_course as $each_course) {
+    foreach ($all_course as $each_course) {
       $courseName = $each_course->course;
       $add_course = $add_course . "<option value='$courseName'";
-      if (!empty($course) && in_array($courseName,$course))
+      $check = false;
+    foreach ($courses as $course) {
+     if($course->course == $courseName)
+       $check = true; }
+      if (!empty($courses) && !empty($check))
       {
         $add_course = $add_course . " disabled";
       }
