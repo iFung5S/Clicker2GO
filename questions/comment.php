@@ -2,11 +2,10 @@
   include_once ('../lib/dbCon.php');
   $pagesize=10; 
   $qid = $_GET['qid'];
-  $comments = ORM::for_table('comments')
+  $rows = ORM::for_table('comments')
            ->where('qid',$qid)
            ->order_by_desc('time')
-           ->find_many();
-  $rows = $comments->count();
+           ->find_many()->count();
   if ($rows > 0)
     $pages=ceil($rows / $pagesize);
   else
@@ -24,7 +23,10 @@
   $last=$pages;
 
   $offset=$pagesize*($page - 1);
-  $comments = $comments
+  $comments = ORM::for_table('comments')
+              ->where('qid',$qid)
+              ->order_by_desc('time')
+              ->find_many()
               ->limit($pagesize)
               ->offset($offset)
               ->find_many();
