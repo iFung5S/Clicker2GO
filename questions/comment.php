@@ -34,25 +34,27 @@ if ($pages == 0)
   $comment=$comment."<div style = 'text-align:center;'>No comment</div>";
 else {
 
-  $comment = $comment." <div align='center'>";
+  $bar =" <div style = 'text-align:center;'>";
   if ($page > 1)
   {
-    $comment = $comment." <a href='comment.php?page=$first&qid=$qid'>first</a> 
+    $bar = $bar." <a href='comment.php?page=$first&qid=$qid'>first</a> 
                           <a href='comment.php?page=$prev&qid=$qid'>prev</a> ";
   }
-    $comment = $comment. "all $pages pages($page/$pages) ";
+    $bar = $bar. "all $pages pages($page/$pages) ";
     for ($i=1;$i< $page;$i++)
-     $comment = $comment. "<a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
-     $comment = $comment."[$page]";
+     $bar = $bar. "<a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
+     $bar = $bar."[$page]";
     for ($i=$page+1;$i<= $pages;$i++)
-     $comment = $comment. " <a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
+     $bar = $bar. " <a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
   if ($page < $pages)
   {
-    $comment = $comment." <a href='comment.php?page=$next&qid=$qid'>next</a>
+    $bar = $bar." <a href='comment.php?page=$next&qid=$qid'>next</a>
                           <a href='comment.php?page=$last&qid=$qid'>last</a> ";
   }
-   $comment = $comment. "</div>";
-
+   $bar = $bar. "</div>";
+   
+  $comment = $comment.$bar;
+  
   foreach ($comments as $each_comment) 
   {
   $uid=$each_comment->uid;
@@ -71,25 +73,7 @@ else {
            
   }
 
-  $comment = $comment." <div align='center'>";
-  if ($page > 1)
-  {
-    $comment = $comment." <a href='comment.php?page=$first&qid=$qid'>first</a> 
-                          <a href='comment.php?page=$prev&qid=$qid'>prev</a> ";
-  }
-    $comment = $comment. "all $pages pages($page/$pages) ";
-    for ($i=1;$i< $page;$i++)
-     $comment = $comment. "<a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
-     $comment = $comment."[$page]";
-    for ($i=$page+1;$i<= $pages;$i++)
-     $comment = $comment. " <a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
-  if ($page < $pages)
-  {
-    $comment = $comment." <a href='comment.php?page=$next&qid=$qid'>next</a>
-                          <a href='comment.php?page=$last&qid=$qid'>last</a> ";
-  }
-   $comment = $comment. "</div>";
+  $comment = $comment.$bar;
 }
   echo str_replace("##comment##", $comment, file_get_contents('comment'));
   ?>
-
