@@ -26,7 +26,6 @@
   $comments = ORM::for_table('comments')
               ->where('qid',$qid)
               ->order_by_desc('time')
-              ->find_many()
               ->limit($pagesize)
               ->offset($offset)
               ->find_many();
