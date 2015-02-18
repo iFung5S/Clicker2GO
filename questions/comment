@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <title>Comments | Clicker2GO</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+
+  <body class="homepage" >
+   <form method="POST" action="saveComment.php">
+   <div>Comment:</div>
+   <textarea placeholder="Write comment here" rows="3" cols="50" name="comment" autofocus required></textarea></br>
+    <div style = "text-align:right;"><input type="submit" class="button" value="Submit" /></div> 
+   
+   ##comment##
+  </body>
+</html>

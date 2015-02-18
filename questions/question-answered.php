@@ -150,10 +150,11 @@
   }
 
 
+  $comment = "<iframe frameborder='0' width='450' height='300'  src='comment.php?qid=$qid'></iframe>";
 
-
-  $placeholder = array("##reload##", "##question##", "##answers##","##graph##");
-  $replace = array($reload, $question, $answers,$graph);
+  $placeholder = array("##reload##", "##question##",
+                       "##answers##","##graph##","##comment##");
+  $replace = array($reload, $question, $answers,$graph,$comment);
   echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
   
 
