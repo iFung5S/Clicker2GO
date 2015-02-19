@@ -8,8 +8,9 @@
 <body class="homepage">
 <div class="form-wrapper">
   <!-- may be better change this link to other  form,like icon?-->
-  <div><span><a href='../index.php'>Home</a></span>
 <h1>Profile</h1>
+  <div><a href='../index.php'>Home</a></div>
+<div id=rectangle></div><br/>
 <table>
 <tr>
 <td>Name:</td>
@@ -24,11 +25,11 @@
 <td>##type##</td>
 </tr>
 <tr>
-<td VALIGN="top">Courses:</td>
+<td style='vertical-align:top;'>Courses:</td>
 <td>##course##</td>
 </tr>
 </table>
 <br />
-</div>
+  </div>
 </body>
 </html>

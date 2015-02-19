@@ -57,7 +57,7 @@
   $numbering_characters="ABCDEF";
   
   // add a hidden form varible to pass the qid to next page after submition
-  $answers = "<input name='qid' type='hidden' value=$qid />";
+  $answers = "<input name='qid' type='hidden' value=$qid /><ul style =' list-style-type:none'> ";
   
   // use a loop to generate html form radio buttons with the answers
   // use index i for the answer number
@@ -75,11 +75,11 @@
       $answers = $answers .
                   "<li>
                     <input name='answer' type='radio' value=$i id=$N required>
-                    <label for=$N> $N. $answer</label></br>
+                    <label for=$N> $N. $answer</label><br/>
                   </li>";
     }
   }
-  $answers = $answers."</ol>";
+  $answers = $answers."</ul>";
 
   // load the Countdown timer script
 

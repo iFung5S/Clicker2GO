@@ -35,7 +35,7 @@ if (!isset($_SESSION['uid'])) {
       }
       else
       {
-        $date_list = $date_list."<li><a href='questionlist.php?date=$date&courseName=$courseName'>$date</a></li>";
+        $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a></li>";
       }    
     } 
   }
@@ -45,7 +45,7 @@ if (!isset($_SESSION['uid'])) {
   }
 
   $button = "<form method='GET' action='questionlist.php'>
-             <input type='hidden' name='courseName' value='$courseName'/></br>
+             <input type='hidden' name='courseName' value='$courseName'/><br/>
              <input type='text' name='date' placeholder='yyyy-mm-dd' required/>
              <input type='submit' class='button' value='add date'/></form>";
 

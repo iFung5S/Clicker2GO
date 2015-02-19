@@ -32,25 +32,25 @@
   $comment="<input name='qid' type='hidden' value=$qid /></form>
            <div id=rectangle> </div>";
 if ($pages == 0)
-  $comment=$comment."<div style = 'text-align:center;'>No comment</div>";
+  $comment=$comment."<div style='text-align:center;'>No comment</div>";
 else {
 
   $bar =" <div style = 'text-align:center;'>";
   if ($page > 1)
   {
-    $bar = $bar." <a href='comment.php?page=$first&qid=$qid'>first</a> 
-                          <a href='comment.php?page=$prev&qid=$qid'>prev</a> ";
+    $bar = $bar." <a href='comment.php?page=$first&amp;qid=$qid'>first</a> 
+                          <a href='comment.php?page=$prev&amp;qid=$qid'>prev</a> ";
   }
     $bar = $bar. "all $pages pages($page/$pages) ";
     for ($i=1;$i< $page;$i++)
-      $bar = $bar. "<a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
+      $bar = $bar. "<a href='comment.php?page=$i&amp;qid=$qid'>[$i]</a> ";
     $bar = $bar."[$page]";
     for ($i=$page+1;$i<= $pages;$i++)
-      $bar = $bar. " <a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
+      $bar = $bar. " <a href='comment.php?page=$i&amp;qid=$qid'>[$i]</a> ";
   if ($page < $pages)
   {
-    $bar = $bar." <a href='comment.php?page=$next&qid=$qid'>next</a>
-                          <a href='comment.php?page=$last&qid=$qid'>last</a> ";
+    $bar = $bar." <a href='comment.php?page=$next&amp;qid=$qid'>next</a>
+                          <a href='comment.php?page=$last&amp;qid=$qid'>last</a> ";
   }
    $bar = $bar. "</div>";
    
@@ -71,14 +71,14 @@ else {
       $time = date("Y-m-d H:i",$time);
 
     $comment = $comment.
-              "<table border='0' width='98%'>
+              "<table style='width:98%'>
               <tr>
-　　　         <td width='25%' bgcolor='#E0E0E0' VALIGN='top'>$name</td>
-              <td width='75%' bgcolor='#E0E0E0' align='left'>$content</td>
+              <td bgcolor='#E0E0E0' style='vertical-align:top;width:25%'>$name</td>
+              <td bgcolor='#E0E0E0' style='text-align:left;width:75%'>$content</td>
               </tr>
-              <tr><td width='25%'></td>
-              <td width='75%' align='right' style='font-size:12px'>$time</td>
-              </tr></table>";
+              <tr><td style='width:25%'></td>
+              <td align='right' style='font-size:12px;width:75%'>$time</td>
+              </tr></table><br/>";
   }
 
   $comment = $comment.$bar;

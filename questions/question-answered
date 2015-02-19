@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Answer Question | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
@@ -16,9 +15,9 @@
     </p>
     <br/>
     <form id="answer_form" action="question-answered.php" method="POST">
-      <ol type = none>  <!-- list of type A, B, C.. maybe can be made into variable later -->
+      <ul style =" list-style-type:none">  <!-- list of type A, B, C.. maybe can be made into variable later -->
         ##answers##
-      </ol>
+      </ul>
     </form>
     <div>
       ##graph##

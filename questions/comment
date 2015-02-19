@@ -11,7 +11,7 @@
    <form method="POST" action="saveComment.php">
      <div>Comment:</div>
      <textarea placeholder="Write comment here" rows="3" cols="50" name="comment" autofocus required></textarea><br/>
-     <div style = "text-align:right;"><input type="submit" class="button" value="Submit" /></div> 
+     <div style = "text-align:right;"><input type="submit" class="button" value="Submit" required/></div> 
    
    ##comment##
   </body>

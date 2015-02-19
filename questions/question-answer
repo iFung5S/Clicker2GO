@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Answer Question | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
@@ -11,7 +10,7 @@
       <div>
       <span><a href='../index.php'>Home</a></span>>
       <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-      <span><a href="questionlist.php?courseName=##courseName##&date=##date##">##date##</a></span></div>
+      <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span></div>
     <div >
       ##reload##
     </div>
@@ -20,8 +19,7 @@
     </p>
     ##timer_script##
     <br/>
-    <form id="answer_form" action="question-answered.php" method="POST">
-      <ol type = none> 
+    <form id="answer_form" action="question-answered.php" method="POST">      
         ##answers##
     </form>
   </body>

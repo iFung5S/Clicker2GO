@@ -1,28 +1,5 @@
 
-<style>
-
-.bar {
-  fill: #AA0000;
-}
-
-
-.axis {
-  font: 12px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.y.axis line {
-  display: none;
-}
-
-</style>
-<div class="graph">
+<div class="graph"></div>
 <script src="../lib/d3.js"></script>
 <script>
 
