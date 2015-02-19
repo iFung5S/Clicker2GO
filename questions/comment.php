@@ -43,10 +43,10 @@ else {
   }
     $bar = $bar. "all $pages pages($page/$pages) ";
     for ($i=1;$i< $page;$i++)
-     $bar = $bar. "<a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
-     $bar = $bar."[$page]";
+      $bar = $bar. "<a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
+    $bar = $bar."[$page]";
     for ($i=$page+1;$i<= $pages;$i++)
-     $bar = $bar. " <a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
+      $bar = $bar. " <a href='comment.php?page=$i&qid=$qid'>[$i]</a> ";
   if ($page < $pages)
   {
     $bar = $bar." <a href='comment.php?page=$next&qid=$qid'>next</a>
@@ -58,20 +58,27 @@ else {
   
   foreach ($comments as $each_comment) 
   {
-  $uid=$each_comment->uid;
-  $name = ORM::for_table('users')->find_one($uid)->name;
-  $content = $each_comment->comment;
-  $time = $each_comment->time;
-  $comment = $comment.
-            "<table border='0' width='98%'>
-　　        <tr>
-　　　       <td width='25%' bgcolor='#E0E0E0' align='left'>$name</td>
-　　　　     <td width='75%' bgcolor='#E0E0E0' align='left'>$content</td>
-           </tr>
-            <tr><td width='25%'></td>
-           <td width='75%' align='right' style='font-size:12px'>$time</td>
-           </tr></table>";
-           
+    $uid=$each_comment->uid;
+    $name = ORM::for_table('users')->find_one($uid)->name;
+    $content = $each_comment->comment;
+    $time = strtotime($each_comment->time);
+
+    if (date("Y-m-d",$time) == date("Y-m-d"))
+      $time = "today ".date("H:i",$time);
+    else if (date("Y-m-d",$time) == date("Y-m-d",strtotime("-1 day")))
+      $time = "yesterday ".date("H:i",$time);
+    else
+      $time = date("Y-m-d H:i",$time);
+
+    $comment = $comment.
+              "<table border='0' width='98%'>
+              <tr>
+　　　         <td width='25%' bgcolor='#E0E0E0' align='left'>$name</td>
+              <td width='75%' bgcolor='#E0E0E0' align='left'>$content</td>
+              </tr>
+              <tr><td width='25%'></td>
+              <td width='75%' align='right' style='font-size:12px'>$time</td>
+              </tr></table>";
   }
 
   $comment = $comment.$bar;
