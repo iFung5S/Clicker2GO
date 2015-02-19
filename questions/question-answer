@@ -16,14 +16,13 @@
       ##reload##
     </div>
     <p>
-      ##question##
+      ##question## 
     </p>
     ##timer_script##
     <br/>
     <form id="answer_form" action="question-answered.php" method="POST">
-      <ol type = none>  <!-- list of type A, B, C.. maybe can be made into variable later -->
+      <ol type = none> 
         ##answers##
-
     </form>
   </body>
 </html>

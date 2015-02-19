@@ -73,7 +73,7 @@ else {
     $comment = $comment.
               "<table border='0' width='98%'>
               <tr>
-　　　         <td width='25%' bgcolor='#E0E0E0' align='left'>$name</td>
+　　　         <td width='25%' bgcolor='#E0E0E0' VALIGN='top'>$name</td>
               <td width='75%' bgcolor='#E0E0E0' align='left'>$content</td>
               </tr>
               <tr><td width='25%'></td>

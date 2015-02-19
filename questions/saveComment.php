@@ -7,8 +7,10 @@ if (!isset($_SESSION['uid'])) {
 }
   $uid = $_SESSION['uid'];
   include_once ('../lib/dbCon.php');
+
   $qid = $_POST['qid'];
-  $comment = $_POST['comment'];
+  $comment = str_replace("\n","<br/>",$_POST['comment']);
+
   $comments = ORM::for_table('comments')->create();
   $comments->set(array(
              'uid' => $uid,

@@ -8,7 +8,8 @@
   }
   $courseName = $_POST['courseName'];
   $date = $_POST['date'];
-  $question = $_POST['question'];
+  $question = str_replace("\n","<br/>",$_POST['question']);
+
   for($i = 1;$i <= 6;$i++){
     $answer[$i] = $_POST['answer'.$i];
   }
