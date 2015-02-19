@@ -7,11 +7,21 @@
         header('Location: ../');
   }
 
-  $courseName = $_POST['courseName'];
-  $date = $_POST['date'];
+  $courseName = $_GET['courseName'];
+  $date = $_GET['date'];
 
-  $placeholder = array("##courseName##","##date##");
-  $replace = array($courseName,$date);
+  if(isset($_GET['err']))
+  {
+    if($_GET['err'] == 1)
+      $message =  "Question cannot only have space.";
+    else if ($_GET['err'] == 2)
+      $message =  "Answer cannot only have space.";
+  }
+  else
+  $message = "<br/>";
+
+  $placeholder = array("##courseName##","##date##","##message##");
+  $replace = array($courseName,$date,$message);
   echo str_replace($placeholder, $replace, file_get_contents('createQuestion'));
 ?>
 

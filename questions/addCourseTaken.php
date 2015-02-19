@@ -11,7 +11,7 @@ if (!isset($_SESSION['uid'])) {
 
   $courseName = $_POST['courseName'];
 
-  if (preg_match("/^[a-zA-Z0-9]*$/",$courseName)) {
+  if (preg_match("/^[a-zA-Z0-9]+$/",$courseName)) {
 
     $cuid = ORM::for_table('course_units')
             ->where('course',$courseName)

@@ -12,6 +12,14 @@
   {
      $redirect = "<script>window.location.assign('register.php?exist=1');</script>";
   }
+  else if (!preg_match("/^[a-zA-Z]\w{4,15}$/",$username)) 
+  {
+     $redirect = "<script>window.location.assign('register.php?exist=2');</script>";
+  }
+  else if (!preg_match("/^[a-zA-Z_]+\s?[a-zA-Z_]+$/",$name)) 
+  {
+     $redirect = "<script>window.location.assign('register.php?exist=3');</script>";
+  }
   else
   {
     $user = ORM::for_table('users')->create();
