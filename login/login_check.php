@@ -12,8 +12,6 @@
   {
     if ($password == $user->password)
     {
-      $redirect = "<script>window.location.assign('../');</script>";
-
       $_SESSION['uid'] = $user->id;
       $_SESSION['name'] = $user->name;
       $type = ORM::for_table('type')
@@ -23,10 +21,12 @@
               ->find_one();
       $_SESSION['type'] = $type->type;
 
+      $redirect = "<script>window.location.assign('../');</script>";
+
     }
     else
     {
-      $redirect = "<script>window.location.assign('login.php?err=1');</script>";
+       $redirect = "<script>window.location.assign('login.php?err=1');</script>";
     }
   }
   else

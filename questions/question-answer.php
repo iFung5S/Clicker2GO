@@ -31,7 +31,7 @@
   $count_started = !is_null($starttime);  // ?should we compare with current time also?
   $starttime = strtotime($starttime);
   //$count_started = (int) $_GET['started']; // for testing
-  //$countdown = 30; // hardcoded for now until i change database structure
+  //$countdown = 30; // hardcoded for now until i change database structure // <-- who is the "I" here?
   $countdown = $question_row-> countdown; // in seconds
 
   // build the timer script -> not needed probably

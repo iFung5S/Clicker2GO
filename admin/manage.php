@@ -5,7 +5,11 @@
 
   include ('../lib/dbCon.php');
 
-  $username = $_SESSION['username'];
+  // Redirect if not administrator
+  if ($_SESSION['type'] != 'Administrator')
+    echo "<script>window.alert('You do not have permission to view.'); window.location.assign('../');</script>";
+
+  $username = $_SESSION['uid'];
 
   $users = ORM::for_table('users')->find_many();
 
@@ -13,30 +17,53 @@
 
   if (!empty($users))
   {
-    $table = "<table><tr><th>Username</th><th>Name</th><th>Account Type</th><th>Courses</th></tr>";
+    $table = $table . "<table>";
+    $table = $table . "<tr><th>Username</th><th>Name</th><th>Account Type</th><th>Courses</th></tr>";
   }
 
+  $type_list = "";
   $course_list = "";
 
   foreach ($users as $user)
   {
-    $type = ORM::for_table('type')->find_one($user->type);
-    $courses = ORM::for_table('user_courses')->where('uid', '$users->id')->find_many();
+    $table = $table . "<tr>";
+    $table = $table . "<td>" . $user->username . "</td>";
+    $table = $table . "<td>" . $user->name . "</td>";
+
+    $types = ORM::for_table('u_type')->where('uid', $user->id)->find_many();
+    $i = 1;
+    foreach ($types as $type)
+    {
+      $type_name = ORM::for_table('type')->find_one($type->id_t);
+      if ($i != 1)
+        $type_list = $type_list . ", ";
+      $type_list = $type_list . $type_name->type;
+      $i++;
+    }
+    $table = $table . "<td>" . $type_list . "</td>";
+    $type_list = "";
+
+    $courses = ORM::for_table('user_courses')->where('uid', $user->id)->find_many();
+    $i = 1;
     foreach ($courses as $course)
     {
-      $course_name = ORM::for_table('course_unit')->find_one('$course->id_cu');
-      $course_list = $course_list + ", " + $course_name;
+      $course_name = ORM::for_table('course_units')->where('id', $course->id_cu)->find_one();
+      if ($i != 1)
+        $course_list = $course_list . ", ";
+      $course_list = $course_list . $course_name->course;
+      $i++;
     }
-    $table = $table + "<tr><td>" + $user->username + "</td><td>" + $user->name + "</td><td>" + $type->type + "</td><td>" + $course_list + "</td></tr>";
+    $table = $table . "<td>" . $course_list . "</td>";
+    $course_list = "";
+
+    $table = $table . "</tr>";
   }
 
-  $table = $table + "</table>";
+  $table = $table . "</table>";
 
-echo $table;
+  $placeholder = array("##table##");
+  $replace = array($table);
 
-//  $placeholder = array("##name##", "##username##", "##type##", "##course##");
-//  $replace = array($users->name, $username, $type->type, $list_course);
-
-//  echo str_replace($placeholder, $replace, file_get_contents('manage'));
+  echo str_replace($placeholder, $replace, file_get_contents('manage'));
 
 ?>
