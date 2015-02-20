@@ -51,7 +51,7 @@ if (!isset($_SESSION['uid'])) {
     foreach ($courses as $course) {
      if($course->course == $courseName)
        $check = true; }
-      if (!empty($courses) && !empty($check))
+      if (!empty($courses) && $check)
       {
         $add_course = $add_course . " disabled";
       }
