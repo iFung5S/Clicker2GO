@@ -46,8 +46,8 @@ if (!isset($_SESSION['uid'])) {
 
   $button = "<form method='GET' action='questionlist.php'>
              <input type='hidden' name='courseName' value='$courseName'/><br/>
-             <input type='text' name='date' placeholder='yyyy-mm-dd' required/>
-             <input type='submit' class='button' value='add date'/></form>";
+             <input type='text' name='date' placeholder='YYYY-MM-DD' required/>
+             <input type='submit' class='button' value='Add Date'/></form>";
 
   if(isset($_GET['err']) && $_GET['err'] == 1) { 
     $button = $button."<p><span class='error'>wrong date format</span></p>"; 

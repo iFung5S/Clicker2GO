@@ -11,16 +11,17 @@
     <div class="form-wrapper">
     <h1>HOME</h1>
     <p id="greetings"><a href="login/profile.php">##name##</a>!</p>
+    <p>##admin_panel##</p>
     <p><a href="login/logout.php">Logout</a></p>
 
     <div id=rectangle> </div>
     <br/>
-    <h2>Course</h2>
+    <h2>Courses</h2>
     <ul>##list_course##</ul>
     <br/>
     <form method="POST" action="questions/addCourseTaken.php">
     ##add_course##
-    <input type="submit" class="button" value="ADD COURSE"/>
+    <input type="submit" class="button" value="Add Course"/>
     </form>
     <br/>
   </div>

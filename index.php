@@ -8,7 +8,7 @@ if (!isset($_SESSION['uid'])) {
 }
   include_once ('lib/dbCon.php');
   $uid = $_SESSION['uid'];
-
+  $type = $_SESSION['type'];
   $name =  $_SESSION['name'];
 
   //list course user have
@@ -23,7 +23,7 @@ if (!isset($_SESSION['uid'])) {
   $list_course = "";
   $exist = $courses->count();
   if ($exist == 0){
-   $list_course = '<li>No course now</li>';
+   $list_course = '<li>No courses now.</li>';
   }
   else {
 
@@ -62,11 +62,17 @@ if (!isset($_SESSION['uid'])) {
   else {
     $add_course = $add_course . "<input type='text' name='courseName' required/><br />";
     if(isset($_GET['err']) && $_GET['err'] == 1) {
-      $add_course = $add_course . "<p><span class='error'>only letters and numbers</span></p>"; }
+      $add_course = $add_course . "<p><span class='error'>Course Name must be alphanumeric.</span></p>"; }
   }
 
-$placeholder = array("##name##", "##list_course##", "##add_course##");
-$replace = array($name, $list_course, $add_course);
+if ($type == 'Administrator')
+  $admin = "<a href='admin/manage.php'>Administrator Management Panel</a>";
+else
+  $admin = "";
+
+
+$placeholder = array("##name##", "##list_course##", "##add_course##", "##admin_panel##");
+$replace = array($name, $list_course, $add_course, $admin);
 
 echo str_replace($placeholder, $replace, file_get_contents('index'));
 

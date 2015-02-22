@@ -43,7 +43,7 @@
     }
 
   include('graph.php');
-  $comment = "<iframe src='comment.php?qid=$qid'></iframe>";
+  $comment = "<iframe src='comment.php?qid=$qid' seamless></iframe>";
   $placeholder = array("##graph##", "##question##", "##answers##","##comment##");
   $replace = array($graph, $question, $answers,$comment);
   echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));

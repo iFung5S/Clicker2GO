@@ -16,7 +16,7 @@ if (!isset($_SESSION['uid'])) {
 
   //check if date format right and avoid access by editing url when not reach the earliest time
   if (!preg_match("/^20\d{2}[\/\-](0?\d|1[0-2])[\/\-]([0-2]?\d|3[01])$/",$date)
-      || $_SESSION['type'] == 'student' && time()<strtotime($min_time))
+      || $_SESSION['type'] == 'Student' && time()<strtotime($min_time))
   {
     echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
   }
@@ -47,13 +47,13 @@ if (!isset($_SESSION['uid'])) {
     $i++;
     }}
   else {
-    $questions_list = "<li>No Question<br/>(This date page will not be saved if no question added)</li>"; 
+    $questions_list = "<li>No Questions.<br/>(This page will not be saved if no question are added.)</li>"; 
   } 
   
   $create_button = "<form method='GET' action='createQuestion.php'>
                     <input type='text' name='courseName' style='visibility:hidden' value='$courseName'/>
                     <input type='text' name='date' style='visibility:hidden' value='$date'/><br/>
-                    <input type='submit' class='button' value='creat new'/></form>";
+                    <input type='submit' class='button' value='Create New Question'/></form>";
 
   $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##");
   $replace = array($courseName,$date,$questions_list, "");

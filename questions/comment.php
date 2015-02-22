@@ -36,12 +36,12 @@ if ($pages == 0)
 else {
 
   $bar =" <div style = 'text-align:center;'>";
+  $bar = $bar. "Page $page of $pages<br />";
   if ($page > 1)
   {
-    $bar = $bar." <a href='comment.php?page=$first&amp;qid=$qid'>first</a> 
-                          <a href='comment.php?page=$prev&amp;qid=$qid'>prev</a> ";
+    $bar = $bar." <a href='comment.php?page=$first&amp;qid=$qid'>First</a> 
+                          <a href='comment.php?page=$prev&amp;qid=$qid'>Prev</a> ";
   }
-    $bar = $bar. "all $pages pages($page/$pages) ";
     for ($i=1;$i< $page;$i++)
       $bar = $bar. "<a href='comment.php?page=$i&amp;qid=$qid'>[$i]</a> ";
     $bar = $bar."[$page]";
@@ -49,8 +49,8 @@ else {
       $bar = $bar. " <a href='comment.php?page=$i&amp;qid=$qid'>[$i]</a> ";
   if ($page < $pages)
   {
-    $bar = $bar." <a href='comment.php?page=$next&amp;qid=$qid'>next</a>
-                          <a href='comment.php?page=$last&amp;qid=$qid'>last</a> ";
+    $bar = $bar." <a href='comment.php?page=$next&amp;qid=$qid'>Next</a>
+                          <a href='comment.php?page=$last&amp;qid=$qid'>Last</a> ";
   }
    $bar = $bar. "</div>";
    
@@ -64,9 +64,9 @@ else {
     $time = strtotime($each_comment->time);
 
     if (date("Y-m-d",$time) == date("Y-m-d"))
-      $time = "today ".date("H:i",$time);
+      $time = "Today ".date("H:i",$time);
     else if (date("Y-m-d",$time) == date("Y-m-d",strtotime("-1 day")))
-      $time = "yesterday ".date("H:i",$time);
+      $time = "Yesterday ".date("H:i",$time);
     else
       $time = date("Y-m-d H:i",$time);
 
