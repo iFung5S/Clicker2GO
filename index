@@ -12,7 +12,7 @@
 
     <h1>HOME</h1>
 
-    <!-- GETS THE ID "greetings" in style.css and determines the style. -->
+    <!-- GETS THE ID "greetings" in style.css -->
     <p class="normalTextStyle" id="greetings"><a href="login/profile.php">##name##</a>!</p>
 
     <p>##admin_panel##</p>
