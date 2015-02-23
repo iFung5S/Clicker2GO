@@ -8,41 +8,41 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="homepage">
-    <div class="form-wrapper">
+       <div class="form-wrapper">
 
-    <h1>HOME</h1>
+          <h1>HOME</h1>
 
-    <!-- GETS THE ID "greetings" in style.css -->
-    <p class="normalTextStyle" id="greetings"><a href="login/profile.php">##name##</a>!</p>
+          <!-- GETS THE ID "greetings" in style.css -->
+          <p class="normalTextStyle" id="greetings"><a href="login/profile.php">##name##</a>!</p>
 
-    <p>##admin_panel##</p>
-    <p class="textMiddle"><a href="login/logout.php">Logout</a></p>
+          <p>##admin_panel##</p>
+          <p class="textMiddle"><a href="login/logout.php">Logout</a></p>
 
-    <br>
+          <br>
 
-    <div id=rectangle> </div>
-    <br/>
+          <div id=rectangle> </div>
+          <br/>
 
-    <h2>Courses</h2>
+          <h2>Courses</h2>
 
-    <br>
+          <br>
 
-    <!-- LIST OF ALL COURSES -->
-    <h2> <ul>##list_course##</ul> </h2>
-    <br/>
-    <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
+          <!-- LIST OF ALL COURSES -->
+          <h2> <ul>##list_course##</ul> </h2>
+          <br/>
+          <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
 
-    <!-- FOR STUDENT: SELECT COURSE -->
-    ##add_course##
+          <!-- FOR STUDENT: SELECT COURSE -->
+          ##add_course##
 
-    <!-- ADD COURSE BUTTON -->
-    <div class="button-panel">
-      <input type="submit" class="button" value="Add Course"/>
-    </div>
+          <!-- ADD COURSE BUTTON -->
+          <div class="button-panel">
+            <input type="submit" class="button" value="Add Course"/>
+          </div>
 
-    </form>
-    <br/>
-   </div>
+          </form>
+          <br/>
+      </div>
 
 <!-- SCRIPT FOR SAYING: GOOD EVENING OR GOOD AFTERNOON -->
 <script>
