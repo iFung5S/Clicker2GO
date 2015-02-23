@@ -208,10 +208,15 @@ li
    list-style-type: none;
 }
 
-ul
+.list
 {
+   font-weight:bolder;
+   text-indent:25%;
+   font-size: 24px;
    list-style-type: none;
+   font-family: "Myriad Pro";
 }
+
 .normalTextStyle {
   font-size: 1em;
   text-align: center;

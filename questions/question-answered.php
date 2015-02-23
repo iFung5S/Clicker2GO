@@ -14,21 +14,26 @@
     $uid = $_SESSION['uid'];
   }
 
+if(isset($_POST['qid'])){
+  // the id of the answerd question
+  $qid = $_POST['qid'];
+
   // get the time the answer was submitted
   $currenttime = time();
   $submission_time = $currenttime ;
+
+ if(isset($_POST['answer'])){
   // get the answer submitted (this is string 1,2,3...)
   $answer = $_POST['answer'];
   $submitted_answer = "answer" . $answer;
-
-  // the id of the answerd question
-  $qid = $_POST['qid'];
 
   // connect to mysql
   include_once ('../lib/dbCon.php');
 
   // get question data
   $question_row = ORM::for_table('questions')-> find_one($qid);
+
+ if (!empty($question_row)) {
 
   // check if submission was in the time limits
   // get the starttime and convert from mysql to php format
@@ -65,13 +70,13 @@
     if(empty($check_repeat))
     {
       // record the answer only if user answers for the first time
-      $answer = ORM::for_table('answers')->create();
-      $answer->set(array(
+      $answer_row = ORM::for_table('answers')->create();
+      $answer_row->set(array(
                    'qid'=>$qid,
                    'uid'=>$uid,
                    'answer'=>$submitted_answer
                 ));
-      $answer->save();      // to correct
+      $answer_row->save();      // to correct
       $reload = "Your answer has been recorded";
     }
     else
@@ -156,6 +161,22 @@
                        "##answers##","##graph##","##comment##");
   $replace = array($reload, $question, $answers,$graph,$comment);
   echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
-  
+
+//for errors
+ }
+ else {
+  $information = "The question with id '$qid' is not exist.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+ }
+}
+else {
+  $information = "Sorry, you haven't submit answer.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+ }
+}
+else {
+  $information = "The question id is empty.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+} 
 
 ?>

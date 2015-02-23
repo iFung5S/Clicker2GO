@@ -13,16 +13,16 @@
          <br>
 
       <div class="normalTextStyle">
-         <span><a href='../index.php'> <p> Home</a></span>>
+          <p> <span><a href='../index.php'>Home</a></span>>
          <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-         <span>##date## </p> </span>
+         <span>##date## </span></p> 
       </div>
   
-      <br>
+      <br/>
 
-      <h2> <ol>##questions_list##</ol> </h2>
+      <ol class='list'>##questions_list##</ol>
          ##create_question##
-
+      <br/>
       </div>
 
   </body>

@@ -28,7 +28,7 @@
           <br>
 
           <!-- LIST OF ALL COURSES -->
-          <h2> <ul>##list_course##</ul> </h2>
+          <ul class='list'>##list_course##</ul> 
           <br/>
           <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
 

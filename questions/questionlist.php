@@ -7,6 +7,10 @@ if (!isset($_SESSION['uid'])) {
         header('Location: ../');
 }
 
+if(isset($_GET['courseName'])){
+
+ if(isset($_GET['date'])){
+
   $uid = $_SESSION['uid'];
   $courseName= $_GET['courseName'];
   $date=$_GET['date'];
@@ -21,10 +25,14 @@ if (!isset($_SESSION['uid'])) {
     echo "<script>window.location.assign('datePage.php?courseName=$courseName&err=1');</script>";
   }
 
-  $date=preg_replace('/([\/\-])(0?)(\d)([\/\-])(0?)(\d)$/','-0$3-0$6',$date);
+  $date = preg_replace('/([\/\-])(0?)(\d)([\/\-])(0?)(\d)$/','-0$3-0$6',$date);
   $cuid = ORM::for_table('course_units')
-          ->where('course',$courseName)
-          ->find_one()->id;
+        ->where('course',$courseName)
+        ->find_one();
+
+ if (!empty($cuid)) {
+
+  $cuid = $cuid->id;
 
   $questions_id = ORM::for_table('questions')
                      ->select('id')
@@ -33,8 +41,10 @@ if (!isset($_SESSION['uid'])) {
                          'date' => $date
                        ))
                      ->find_many();
+
   $questions_count = $questions_id -> count();
 
+  $errorCheck = false;
   $questions_list = "";
   $i=1;
   if ($questions_count != 0) {
@@ -47,6 +57,11 @@ if (!isset($_SESSION['uid'])) {
     $i++;
     }}
   else {
+    //error for student if date not exist
+    if ($_SESSION['type'] == 'Student') {
+      $errorCheck = true;
+    }
+
     $questions_list = "<li>No Questions.<br/>(This page will not be saved if no question are added.)</li>"; 
   } 
   
@@ -61,6 +76,29 @@ if (!isset($_SESSION['uid'])) {
   if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date,$questions_list,$create_button);
   } 
-  echo str_replace($placeholder, $replace, file_get_contents('questionlist'));
+  if ($errorCheck) {
+    $information = "The date '$date' is not exist for '$courseName'.";
+    echo str_replace("##information##", $information, file_get_contents('error'));
+  } 
+  else {
+    echo str_replace($placeholder, $replace, file_get_contents('questionlist'));
+  }
+
+//for errors
+}
+ else {
+  $information = "The course '$courseName' is not exist.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+  }
+ }
+ else {
+  $information = "The date is empty.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+ }
+}
+else {
+  $information = "The course name is empty.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+}
 ?>   
 

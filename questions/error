@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Error | Clicker2GO</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+  <body class="homepage">
+
+     <div class="form-wrapper">
+        <br>
+        <h2>Error</h2>
+        <br>
+       
+        <div class="normalTextStyle"> <span><a href='../index.php'> <p> Home </a></span> >
+          <span>Error </p> </span>
+        </div>
+        <br>
+
+        <h2> Sorry! An Error has occurred</h2>
+        <br>
+        <p class="textMiddle"> ##information##  
+          <br><br>back to <a href='javascript:history.back()'>previous page</a>
+           or <a href='../index.php'>home page</a></p>
+     <br><br>
+     </div>
+
+</body>
+</html>

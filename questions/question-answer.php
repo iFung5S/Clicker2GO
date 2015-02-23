@@ -9,17 +9,17 @@
           header('Location: ../');
   }
 
+if(isset($_GET['qid'])){
   // the id of the question to be displayed.
   $qid = $_GET['qid'];
-  // $qid = 1;  // Hard coded value. uncomment for testing
-  // $qid = $_POST['qid'];
-
 
   // connect to mysql
   include_once ('../lib/dbCon.php');
 
   // get question data
   $question_row = ORM::for_table('questions')-> find_one($qid);
+ if (!empty($question_row)) {
+
   $cuid = $question_row->id_cu;
   $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
   $date = $question_row->date;
@@ -107,6 +107,16 @@
                        "##timer_script##","##courseName##","##date##");
   $replace = array($reload, $question, $answers, $timer,$courseName,$date);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
-  
 
+//for errors
+ }
+ else {
+  $information = "The question with id '$qid' is not exist.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+ }
+}
+else {
+  $information = "The question id is empty.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+}
 ?>

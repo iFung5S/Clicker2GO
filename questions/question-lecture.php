@@ -14,11 +14,15 @@
     $uid = $_SESSION['uid'];
   }
 
+if(isset($_GET['qid'])){
   // connect to mysql
   include_once ('../lib/dbCon.php');
 
     $qid = $_GET['qid'];
     $question_row = ORM::for_table('questions')-> find_one($qid);
+
+ if (!empty($question_row)) {
+
     $correct_answer = explode("|",$question_row-> correct);
     $question = $question_row-> question;
     $numbering_characters="ABCDEF";
@@ -48,4 +52,15 @@
   $replace = array($graph, $question, $answers,$comment);
   echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 
+//for errors
+ }
+ else {
+  $information = "The question with id '$qid' is not exist.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+ }
+}
+else {
+  $information = "The question id is empty.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+}
 ?>

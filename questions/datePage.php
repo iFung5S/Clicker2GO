@@ -6,6 +6,9 @@ session_start();
 if (!isset($_SESSION['uid'])) {
         header('Location: ../');
 }
+
+if(isset($_GET['courseName'])){
+
   $courseName= $_GET['courseName'];
 
   include_once ('../lib/dbCon.php');
@@ -13,7 +16,11 @@ if (!isset($_SESSION['uid'])) {
   //list date
   $cuid = ORM::for_table('course_units')
         ->where('course',$courseName)
-        ->find_one()->id;
+        ->find_one();
+
+ if (!empty($cuid)) {
+
+  $cuid = $cuid->id;
   $all_date = ORM::for_table('questions')
               ->select('date')
               ->where('id_cu',$cuid)
@@ -60,5 +67,18 @@ $replace = array($courseName,$date_list, "");
     $replace = array($courseName,$date_list,$button);
   } 
 
-echo str_replace($placeholder, $replace, file_get_contents('datePage'));
+  echo str_replace($placeholder, $replace, file_get_contents('datePage'));
+
+//for errors
+ }
+ else {
+  $information = "The course '$courseName' is not exist.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+ }
+}
+else {
+  $information = "The course name is empty.";
+  echo str_replace("##information##", $information, file_get_contents('error'));
+}
+
 ?>
