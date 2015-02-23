@@ -12,10 +12,11 @@
          <h2>##date##</h2>
          <br>
 
-      <div>
-      <span><a href='../index.php'>Home</a></span>>
-      <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-      <span>##date##</span></div>
+      <div class="normalTextStyle">
+         <span><a href='../index.php'> <p> Home</a></span>>
+         <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+         <span>##date## </p> </span>
+      </div>
   
       <br>
 

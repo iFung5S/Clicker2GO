@@ -6,24 +6,21 @@
   <link rel="stylesheet" href="../style.css">
  </head>
   <body class="homepage">
-       <div class="form-wrapper">
 
-         <br>
-         <h2>##courseName##</h2>
-         <br>
+     <div class="form-wrapper">
+        <br>
+        <h2>##courseName##</h2>
+        <br>
        
-         <div class="normalTextStyle"> <span><a href='../index.php'> <p> Home </a></span> >
-           <span>##courseName## </p> </span>
-         </div>
+        <div class="normalTextStyle"> <span><a href='../index.php'> <p> Home </a></span> >
+          <span>##courseName## </p> </span>
+        </div>
 
-         <br>
+        <br>
 
-         <h2> <ul>##date_list##</ul> </h2>
-             ##add_date##
-
-
-
-      </div>
+        <h2> <ul>##date_list##</ul> </h2>
+            ##add_date##
+     </div>
 
 </body>
 </html>

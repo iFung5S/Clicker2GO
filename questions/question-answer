@@ -7,20 +7,34 @@
   </head>
 
   <body class="homepage" >
-      <div>
-      <span><a href='../index.php'>Home</a></span>>
-      <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-      <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span></div>
-    <div >
-      ##reload##
-    </div>
-    <p>
-      ##question## 
-    </p>
-    ##timer_script##
-    <br/>
-    <form id="answer_form" action="question-answered.php" method="POST">      
-        ##answers##
-    </form>
+
+
+     <div class="form-wrapper">
+        <br>
+        <h2>QUESTIONS</h2>
+        <br>
+
+        <div>
+           <span><a href='../index.php'>Home</a></span>>
+           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>
+        </div>
+        
+        <div class="normalTextStyle">
+           ##reload##
+        </div>
+
+        <p class="normalTextStyle">
+          ##question## 
+        </p>
+        ##timer_script##
+
+        <br>
+
+        <form id="answer_form" action="question-answered.php" method="POST">      
+            ##answers##
+        </form>
+
+     </div>
   </body>
 </html>
