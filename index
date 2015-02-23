@@ -25,11 +25,11 @@
 
     <h2>Courses</h2>
 
-    <ul>##list_course##</ul>
+    <h2> <ul>##list_course##</ul> </h2>
     <br/>
     <form method="POST" action="questions/addCourseTaken.php">
 
-    <h2>##course##</h2>
+    ##course##
 
     <input class="textMiddle" type="submit" class="button" value="Add Course"/>
     </form>
