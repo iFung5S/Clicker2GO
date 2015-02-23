@@ -8,12 +8,15 @@
   <body class="homepage">
        <div class="form-wrapper">
 
-         <h1>DATES</h1>
+         <br>
+         <h2>##courseName##</h2>
+         <br>
+       
+             <div class="normalTextStyle"> <span><a href='../index.php'> <p> Home </a></span> >
+               <span>##courseName## </p> </span>
+             </div>
 
-         <div><span><a href='../index.php'>Home</a></span>>
-            <span>##courseName##</span>
-         </div>
-         <ul>##date_list##</ul>
+         <h2> <ul>##date_list##</ul> </h2>
              ##add_date##
 
 
