@@ -29,8 +29,6 @@
     <br/>
     <form method="POST" action="questions/addCourseTaken.php">
 
-    ##course##
-
     <input class="textMiddle" type="submit" class="button" value="Add Course"/>
     </form>
     <br/>
