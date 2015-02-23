@@ -17,7 +17,7 @@
 if(isset($_POST['qid'])){
   // the id of the answerd question
   $qid = $_POST['qid'];
-
+  $seq = $_POST['seq'];
   // get the time the answer was submitted
   $currenttime = time();
   $submission_time = $currenttime ;
@@ -32,6 +32,9 @@ if(isset($_POST['qid'])){
 
   // get question data
   $question_row = ORM::for_table('questions')-> find_one($qid);
+  $cuid = $question_row->id_cu;
+  $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
+  $date = $question_row->date;
 
  if (!empty($question_row)) {
 
@@ -157,9 +160,10 @@ if(isset($_POST['qid'])){
 
   $comment = "<iframe src='comment.php?qid=$qid'></iframe>";
 
-  $placeholder = array("##reload##", "##question##",
-                       "##answers##","##graph##","##comment##");
-  $replace = array($reload, $question, $answers,$graph,$comment);
+  $placeholder = array("##reload##", "##question##", "##answers##",
+         "##graph##","##comment##","##courseName##","##date##","##qnumber##");
+  $replace = array($reload, $question, $answers,$graph,$comment,
+                    $courseName,$date,$seq);
   echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
 
 //for errors

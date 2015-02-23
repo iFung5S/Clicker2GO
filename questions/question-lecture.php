@@ -14,14 +14,21 @@
     $uid = $_SESSION['uid'];
   }
 
-if(isset($_GET['qid'])){
+if(isset($_GET['qid'])) {
   // connect to mysql
   include_once ('../lib/dbCon.php');
+  if (isset($_GET['seq'])) {
+    $seq = $_GET['seq'];
+  } else { $seq = ""; }
 
     $qid = $_GET['qid'];
     $question_row = ORM::for_table('questions')-> find_one($qid);
 
  if (!empty($question_row)) {
+
+    $cuid = $question_row->id_cu;
+    $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
+    $date = $question_row->date;
 
     $correct_answer = explode("|",$question_row-> correct);
     $question = $question_row-> question;
@@ -48,8 +55,9 @@ if(isset($_GET['qid'])){
 
   include('graph.php');
   $comment = "<iframe src='comment.php?qid=$qid' seamless></iframe>";
-  $placeholder = array("##graph##", "##question##", "##answers##","##comment##");
-  $replace = array($graph, $question, $answers,$comment);
+  $placeholder = array("##graph##", "##question##", "##answers##",
+                 "##comment##","##courseName##","##date##","##qnumber##");
+  $replace = array($graph, $question, $answers,$comment,$courseName,$date,$seq);
   echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 
 //for errors

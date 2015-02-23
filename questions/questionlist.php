@@ -51,9 +51,11 @@ if(isset($_GET['courseName'])){
   foreach ($questions_id as $each_qid) {
     $qid = $each_qid->id;
     if ($_SESSION['type'] == 'Student'){
-    $questions_list = $questions_list."<li><a href='question-answer.php?qid=$qid'>Question $i</a></li>";}
+    $questions_list = $questions_list."<li><a href='question-answer.php?seq=$i&qid=$qid'>Question $i</a></li>";}
     else {
-    $questions_list = $questions_list."<li><a href='question-lecture.php?qid=$qid'>Question $i</a></li>"; }
+     $confirm = "javascript:if(confirm('Do you want to remove this question $i? (Rest questions will be re-rodered)'))location='removeQuestion.php?qid=$qid'";
+
+    $questions_list = $questions_list."<li><a href='question-lecture.php?seq=$i&qid=$qid'>Question $i</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li>"; }
     $i++;
     }}
   else {

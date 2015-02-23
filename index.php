@@ -29,7 +29,14 @@ if (!isset($_SESSION['uid'])) {
 
     foreach ($courses as $course) {
       $courseName = $course->course;
-      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a></li>";
+      //for remove course
+      if ($_SESSION['type'] == 'Student') {
+        $confirm = "javascript:if(confirm('Do you want to remove course unit $courseName?'))location='questions/removeCourse.php?courseName=$courseName'";
+      } else {
+        $confirm = "javascript:if(confirm('Do you want to delete course unit $courseName? (Also related questions)'))location='questions/removeCourse.php?courseName=$courseName'";
+      }
+
+      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li>";
       }
   }
 

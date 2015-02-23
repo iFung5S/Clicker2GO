@@ -12,7 +12,7 @@
 if(isset($_GET['qid'])){
   // the id of the question to be displayed.
   $qid = $_GET['qid'];
-
+  $seq = $_GET['seq'];
   // connect to mysql
   include_once ('../lib/dbCon.php');
 
@@ -57,7 +57,7 @@ if(isset($_GET['qid'])){
   $numbering_characters="ABCDEF";
   
   // add a hidden form varible to pass the qid to next page after submition
-  $answers = "<input name='qid' type='hidden' value=$qid /><ul style =' list-style-type:none'> ";
+  $answers = "<input name='qid' type='hidden' value=$qid /><input name='seq' type='hidden' value=$seq /><ul style =' list-style-type:none'> ";
   
   // use a loop to generate html form radio buttons with the answers
   // use index i for the answer number
@@ -104,8 +104,8 @@ if(isset($_GET['qid'])){
   }
 
   $placeholder = array("##reload##", "##question##", "##answers##",
-                       "##timer_script##","##courseName##","##date##");
-  $replace = array($reload, $question, $answers, $timer,$courseName,$date);
+                 "##timer_script##","##courseName##","##date##","##qnumber##");
+  $replace = array($reload, $question, $answers, $timer,$courseName,$date,$seq);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 
 //for errors

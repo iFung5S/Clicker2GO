@@ -16,7 +16,7 @@
           <p class="normalTextStyle" id="greetings"><a href="login/profile.php">##name##</a>!</p>
 
           <p>##admin_panel##</p>
-          <p class="textMiddle"><a href="login/logout.php">Logout</a></p>
+          <p class="textMiddle"><a href="javascript:void(0)" onclick="window.location.assign('login/logout.php')">Logout</a></p>
 
           <br>
 

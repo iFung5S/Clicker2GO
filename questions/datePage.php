@@ -36,7 +36,13 @@ if(isset($_GET['courseName'])){
       $date = $each_date->date;
        //for student earliest access time is 9am at that date
       $min_time = implode(' ', array($date,'09:00:00'));
-      if ($_SESSION['type'] == 'Student' && time()<strtotime($min_time))
+
+      //for remove date
+      if ($_SESSION['type'] != 'Student') {
+        $confirm = "javascript:if(confirm('Do you want to remove date $date? (Also related questions)'))location='removeQuestion.php?courseName=$courseName&date=$date'";
+        $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li>";
+      }
+      else if ($_SESSION['type'] == 'Student' && time()<strtotime($min_time))
       {
         $date_list = $date_list."<li><a href='#'>$date</a><span style='font-size:12px;color:grey;'>  (Not Start)</span></li>"; 
       }

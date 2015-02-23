@@ -7,6 +7,15 @@
   </head>
 
   <body class="homepage" >
+
+        <div>
+           <span><a href='../index.php'>Home</a></span>>
+           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
+           <span>Question ##qnumber## </span>
+        </div>
+     <br>
+
     <p>
       ##question##
     </p>
