@@ -18,16 +18,20 @@
     <p>##admin_panel##</p>
     <p class="textMiddle"><a href="login/logout.php">Logout</a></p>
 
+    <br>
+
     <div id=rectangle> </div>
     <br/>
 
-    <h1>Courses</h1>
+    <h2>Courses</h2>
 
     <ul>##list_course##</ul>
     <br/>
     <form method="POST" action="questions/addCourseTaken.php">
-    ##add_course##
-    <input type="submit" class="button" value="Add Course"/>
+
+    <h2>##course##</h2>
+
+    <input class="textMiddle" type="submit" class="button" value="Add Course"/>
     </form>
     <br/>
   </div>

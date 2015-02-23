@@ -51,6 +51,11 @@ h1 {
     font-family: "Myriad Pro"
 }
 
+h2 {
+  text-align: center;
+    font-family: "Myriad Pro"
+}
+
 form {
   padding: 0 1.9em;
 }
