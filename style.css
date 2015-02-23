@@ -203,7 +203,15 @@ iframe {
    text-align: center;
 }
 
-li {list-style-type: none;}
+li
+{
+   list-style-type: none;
+}
+
+ul
+{
+   list-style-type: none;
+}
 
 
 
