@@ -29,8 +29,8 @@
               ->limit($pagesize)
               ->offset($offset)
               ->find_many();
-  $comment="<input name='qid' type='hidden' value=$qid /></form>
-           <div id=rectangle> </div>";
+  $comment="<input name='qid' type='hidden' value=$qid /></form>";
+           //<div id=rectangle> </div>";
 if ($pages == 0)
   $comment=$comment."<div style='text-align:center;'>No comment</div>";
 else {
