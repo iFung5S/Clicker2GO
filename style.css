@@ -36,24 +36,32 @@ body.homepage
 /* Form Layout */
 .form-wrapper {
   background: #fafafa;
-  margin: 7em auto; /* WAS 2em auto */
+  margin: 10em auto; /* WAS 2em auto */
   padding: 0 1em;
-  max-width: 440px; /* WAS 370px */
+  max-width: 460px; /* WAS 370px */
   box-shadow: -8px 8px 5px #8b8b8b;
 }
 
 h1 {
   text-align: center;
   padding: 25px 0;
-    font-size: 35px;
-    color: #1c1c1c;
-    font-weight: 900;
-    font-family: "Myriad Pro"
+  font-size: 35px;
+  color: #1c1c1c;
+  font-weight: 900;
+  font-family: "Myriad Pro"
 }
 
 h2 {
   text-align: center;
-    font-family: "Myriad Pro"
+  font-family: "Myriad Pro"
+}
+
+h3 {
+  text-align: center;
+  font-size: 35px;
+  color: #1c1c1c;
+  font-weight: 900;
+  font-family: "Myriad Pro"
 }
 
 form {
@@ -220,6 +228,26 @@ li
 .normalTextStyle {
   font-size: 1em;
   text-align: center;
+}
+
+.rightStyle {
+  font-size: 5em;
+  float: right;
+}
+
+.leftStyle {
+  font-size: 5em;
+  float: left;
+}
+
+#banner
+{
+  position: fixed;
+  top: 0px;
+  min-width: 100%;
+  height: 90px;
+  background: #ffffff;
+  box-shadow: -8px 8px 5px #8b8b8b;
 }
 
 
