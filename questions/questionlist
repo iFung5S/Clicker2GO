@@ -14,7 +14,7 @@
 
       <div class="normalTextStyle">
           <p> <span><a href='../index.php'>Home</a></span>>
-         <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+         <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
          <span>##date## </span></p> 
       </div>
   
