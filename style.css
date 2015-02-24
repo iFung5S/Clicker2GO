@@ -36,9 +36,9 @@ body.homepage
 /* Form Layout */
 .form-wrapper {
   background: #fafafa;
-  margin: 2em auto;
+  margin: 7em auto; /* WAS 2em auto */
   padding: 0 1em;
-  max-width: 370px;
+  max-width: 440px; /* WAS 370px */
   box-shadow: -8px 8px 5px #8b8b8b;
 }
 
@@ -161,7 +161,7 @@ form {
 }
 
 #rectangle {
-  width: 340px;
+  width: 410px;
   height: 2px;
   background: #e4e4e4;
 }
