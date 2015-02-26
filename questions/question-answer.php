@@ -16,18 +16,43 @@ if(isset($_GET['qid'])){
   // connect to mysql
   include_once ('../lib/dbCon.php');
 
+
   // get question data
   $question_row = ORM::for_table('questions')-> find_one($qid);
  if (!empty($question_row)) {
 
-  $cuid = $question_row->id_cu;
-  $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
-  $date = $question_row->date;
   $currenttime = time();
   // when the lecturer presses the start button starttime is set to current time on the server
   // otherwise is NULL
   $starttime = $question_row-> starttime;
   $endtime = strtotime($question_row-> endtime);
+
+  //auto jump for student who has answered question
+  $uid = $_SESSION['uid'];
+  $check_answered = ORM::for_table('answers')
+                  ->where(array(
+                         'qid'=>$qid,
+                         'uid'=>$uid
+                   ))
+                  ->find_one();
+  if (!empty($check_answered)||!empty($endtime) && $currenttime > $endtime)
+  {
+    $answers = "<input name='qid' type='hidden' value=$qid />
+                <input name='seq' type='hidden' value=$seq />
+                <input name='answer' type='hidden' value='' />
+                <input type='submit' value='Submit' />
+                <script>document.getElementById('answer_form').submit()</script>";
+    $placeholder = array("##reload##", "##question##", "##answers##"
+      ,"##timer_script##","##courseName##","##date##","##qnumber##","##name##");
+    $replace = array("", "", $answers, ""
+                   ,$courseName,$date,$seq,"");
+    echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
+  }
+  else {
+  $cuid = $question_row->id_cu;
+  $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
+  $date = $question_row->date;
+
   $count_started = !is_null($starttime);  // ?should we compare with current time also?
   $starttime = strtotime($starttime);
   //$count_started = (int) $_GET['started']; // for testing
@@ -108,7 +133,7 @@ if(isset($_GET['qid'])){
   $replace = array($reload, $question, $answers, $timer
                    ,$courseName,$date,$seq,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
-
+ }
 //for errors
  }
  else {

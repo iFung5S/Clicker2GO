@@ -33,9 +33,9 @@
            <span>Question ##qnumber## </span>
         </div>
         <br>
-        <div style="border: 3px solid red;background-color: yellow" class="normalTextStyle">
+        <div style="border: 3px solid red;background-color: yellow" class="normalTextStyle" id="message_box" onclick="style='display:none;'">
            ##reload##
-        </div><br>
+        <p style='font-size:12px;color:grey;font-style:italic'>---Click to hide---</p></div>
         <p class="normalTextStyle">
            ##question##
         </p>

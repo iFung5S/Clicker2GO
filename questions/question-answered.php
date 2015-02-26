@@ -60,16 +60,17 @@ if(isset($_POST['qid'])){
                          && $submission_time <= $endtime);
   $check_answer = true;
   $graph = "";
+
+  //check if user has already answered the same question
+  $check_repeat = ORM::for_table('answers')
+                  ->where(array(
+                         'qid'=>$qid,
+                         'uid'=>$uid
+                   ))
+                  ->find_one();
   if ($submission_on_time)
   {
     
-    //check if user has already answered the same question
-    $check_repeat = ORM::for_table('answers')
-                    ->where(array(
-                           'qid'=>$qid,
-                           'uid'=>$uid
-                     ))
-                    ->find_one();
     if(empty($check_repeat))
     {
       // record the answer only if user answers for the first time
@@ -96,14 +97,18 @@ if(isset($_POST['qid'])){
     include('timer.php'); //timer as variable $timer
 
     // start a timer showing when the user is allowed to see the correct answer
-    $reload = $reload . "<br/>Please wait".$timer." seconds to see the answer";
+    $reload = $reload . "<br/>Please wait".$timer." to see the answer";
     
+  }
+  else if (!empty($check_repeat))
+  {
+    $reload = "You have answered this question";
+    $submitted_answer = $check_repeat->answer;
   }
   // if submission is after the deadline (endtime) show message
   else if (!isset($_POST['submission_on_time']))
   {
-     $reload = "Sorry, You have missed the deadline. <br>
-                Your answer is not taken into account in the statistics." ;
+     $reload = "Sorry, Question has closed." ;
      $check_answer = false;
   }
   
@@ -121,16 +126,7 @@ if(isset($_POST['qid'])){
     $correct_answer = explode("|",$question_row-> correct);
     // convert correct answer to int (take only the last string digit with -1)
 
-    if ($check_answer){
-      if ($submitted_answer == $correct_answer )
-      {
-        $answers =" You are correct!!<br>";
-      }
-      else
-        $answers =" You are wrong.<br>";
-       }
-    else
-      $answers = "";
+    $answers = "<p style='font-size:14px;color:grey;font-style:italic'>Your answer is in bold</p>";
 
     $numbering_characters="ABCDEF";
     
@@ -147,10 +143,12 @@ if(isset($_POST['qid'])){
         if (in_array('answer'.$i, $correct_answer))
           $isCorrect = "<span style='font-size:12px;color:green;'>  (Correct)</span>";  // we nust decide how to show correct answer
         $N=$numbering_characters[$i-1];
-        
+        if ('answer'.$i == $submitted_answer)
+          $answers = $answers ."<li style='font-weight:bold;'>";
+        else
+          $answers = $answers ."<li>";
         $answers = $answers .
-                    "<li>
-                      $N. $answer  $isCorrect
+                    "$N. $answer  $isCorrect
                     </li>";
       }
     }
