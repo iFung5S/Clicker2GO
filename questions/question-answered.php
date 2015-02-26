@@ -126,7 +126,7 @@ if(isset($_POST['qid'])){
     $correct_answer = explode("|",$question_row-> correct);
     // convert correct answer to int (take only the last string digit with -1)
 
-    $answers = "<span style='font-size:14px;color:grey;font-style:italic'>Your answer is in bold</span>";
+    $answers = "<li><p style='font-size:14px;color:grey;font-style:italic'>Your answer is in bold</p></li>";
 
     $numbering_characters="ABCDEF";
     
