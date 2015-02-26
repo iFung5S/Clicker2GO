@@ -73,7 +73,7 @@ if(isset($_GET['qid'])){
     // for now use qid. To implement:it should return the question number within the lecture
     // $reload = header("Location: /$_SERVER['PHP_SELF']");
     // $page = $_SERVER['PHP_SELF'];
-    $reload = "<input type='button' VALUE='Reload Question' onClick='history.go(0)'>";
+    $reload = "<input class="btn_shadow_animate_grey" type='button' VALUE='Reload Question' onClick='history.go(0)'>";
     $question = "Question $qid";
   }
 
