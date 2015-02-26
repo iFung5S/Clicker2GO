@@ -21,6 +21,10 @@
 <td>##username##</td>
 </tr>
 <tr>
+<td>Password:</td>
+<td style="align:left;"><button onClick="window.open('password.php','_blank','location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');">Change Password</button></td>
+</tr>
+<tr>
 <td>Account Type:</td>
 <td>##type##</td>
 </tr>
