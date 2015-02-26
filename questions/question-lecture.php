@@ -56,8 +56,9 @@ if(isset($_GET['qid'])) {
   include('graph.php');
   $comment = "<iframe src='comment.php?qid=$qid' seamless></iframe>";
   $placeholder = array("##graph##", "##question##", "##answers##",
-                 "##comment##","##courseName##","##date##","##qnumber##");
-  $replace = array($graph, $question, $answers,$comment,$courseName,$date,$seq);
+                 "##comment##","##courseName##","##date##","##qnumber##","##name##");
+  $replace = array($graph, $question, $answers,$comment,$courseName,$date
+                     ,$seq,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 
 //for errors

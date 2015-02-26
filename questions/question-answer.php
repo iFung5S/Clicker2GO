@@ -103,9 +103,10 @@ if(isset($_GET['qid'])){
     $answers = $answers."class='btn_shadow_animate_green'>";
   }
 
-  $placeholder = array("##reload##", "##question##", "##answers##",
-                 "##timer_script##","##courseName##","##date##","##qnumber##");
-  $replace = array($reload, $question, $answers, $timer,$courseName,$date,$seq);
+  $placeholder = array("##reload##", "##question##", "##answers##","##timer_script##"
+                    ,"##courseName##","##date##","##qnumber##","##name##");
+  $replace = array($reload, $question, $answers, $timer
+                   ,$courseName,$date,$seq,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 
 //for errors

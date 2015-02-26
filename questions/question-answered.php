@@ -160,10 +160,10 @@ if(isset($_POST['qid'])){
 
   $comment = "<iframe src='comment.php?qid=$qid'></iframe>";
 
-  $placeholder = array("##reload##", "##question##", "##answers##",
-         "##graph##","##comment##","##courseName##","##date##","##qnumber##");
+  $placeholder = array("##reload##", "##question##", "##answers##","##graph##"
+              ,"##comment##","##courseName##","##date##","##qnumber##","##name##");
   $replace = array($reload, $question, $answers,$graph,$comment,
-                    $courseName,$date,$seq);
+                    $courseName,$date,$seq,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
 
 //for errors

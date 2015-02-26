@@ -72,11 +72,11 @@ if(isset($_GET['courseName'])){
                     <input type='text' name='date' style='visibility:hidden' value='$date'/><br/>
                     <input type='submit' class='button' value='Create New Question'/></form>";
 
-  $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##");
-  $replace = array($courseName,$date,$questions_list, "");
+  $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##","##name##");
+  $replace = array($courseName,$date,$questions_list, "",$_SESSION['name']);
 
   if($_SESSION['type'] != 'Student') {
-    $replace = array($courseName,$date,$questions_list,$create_button);
+    $replace = array($courseName,$date,$questions_list,$create_button,$_SESSION['name']);
   } 
   if ($errorCheck) {
     $information = "The date '$date' is not exist for '$courseName'.";
