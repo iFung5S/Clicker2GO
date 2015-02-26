@@ -43,7 +43,7 @@ if (!isset($_SESSION['uid'])) {
   $add_course = "";
 
   if($_SESSION['type'] == 'Student') {
-    $add_course = $add_course . "<select name='courseName' required>";
+    $add_course = $add_course . "<select class='form-item' name='courseName' required>";
     $add_course = $add_course . "<option value='' >--Select Course--</option>";
 
     $all_course = ORM::for_table('course_units')

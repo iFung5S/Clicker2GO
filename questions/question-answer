@@ -45,6 +45,7 @@
         <form class="textMiddle" id="answer_form" action="question-answered.php" method="POST">      
             ##answers##
         </form>
+        <br />
 
      </div>
   </body>

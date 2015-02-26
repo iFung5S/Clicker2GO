@@ -92,15 +92,15 @@ if(isset($_GET['qid'])){
   else
     $timer= "";
 
-  $answers = $answers."<input type='submit' value='Submit' ";
+  $answers = $answers."<br /><input type='submit' value='Submit' ";
 
   if(!$count_started)
   {
-   $answers = $answers."disabled>";
+   $answers = $answers."class='btn_shadow_animate_grey' disabled>";
   }
   else
   {
-    $answers = $answers.">";
+    $answers = $answers."class='btn_shadow_animate_green'>";
   }
 
   $placeholder = array("##reload##", "##question##", "##answers##",

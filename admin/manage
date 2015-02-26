@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body class="homepage">
-    <div class="form-wrapper">
-    <h1>MANAGE</h1>
-##table##
-</div>
+    <div class="form-wrapper" style="max-width:1000px">
+    <h1>Administrator Management</h1>
+    ##table##
+    <br />
+    </div>
   </body>
 </html>
