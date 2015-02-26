@@ -1,7 +1,12 @@
 <?php
 if(isset($_GET['err']) && $_GET['err'] == 1)
 {
-  $message = "<span class='error'>Incorrect username or password.</span>";
+  $message = "<span class='error'>Incorrect email or password.</span>";
+  $select = "document.getElementById('username').select();";
+}
+else if(isset($_GET['err']) && $_GET['err'] == 1)
+{
+  $message = "<span class='error'>Invalid email.</span>";
   $select = "document.getElementById('username').select();";
 }
 else if(isset($_GET['logout']) && $_GET['logout'] == 1)
