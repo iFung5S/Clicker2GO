@@ -7,13 +7,20 @@
  </head>
   <body class="homepage">
 
+          <!-- WHITE BANNER -->
+          <div id=banner>
+             <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+             <h3 class="leftStyle"> CLICKER2GO </h3> 
+             <p class="rightStyle"> ##name## </p> 
+          </div>
+
      <div class="form-wrapper">
         <br>
         <h2>Error</h2>
         <br>
        
-        <div class="normalTextStyle"> <span><a href='../index.php'> <p> Home </a></span> >
-          <span>Error </p> </span>
+        <div class="normalTextStyle"> <p><span><a href='../index.php'>  Home </a></span> >
+          <span>Error</span></p> 
         </div>
         <br>
 
