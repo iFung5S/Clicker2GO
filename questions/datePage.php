@@ -67,7 +67,7 @@ if(isset($_GET['courseName'])){
   }
 
 $placeholder = array("##courseName##","##date_list##", "##add_date##","##name##");
-$replace = array($courseName,$date_list, "");
+$replace = array($courseName,$date_list, "",$_SESSION['name']);
 
   if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date_list,$button,$_SESSION['name']);
