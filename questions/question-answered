@@ -33,7 +33,7 @@
            <span>Question ##qnumber## </span>
         </div>
         <br>
-        <div class="normalTextStyle">
+        <div style="border: 3px solid red;background-color: yellow" class="normalTextStyle">
            ##reload##
         </div>
         <p class="normalTextStyle">
