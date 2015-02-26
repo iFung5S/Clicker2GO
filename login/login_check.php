@@ -7,10 +7,6 @@
   $username = $_POST['username'];
   $password = sha1($_POST['password']);
 
-  if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-    $redirect = "<script>window.location.assign('login.php?err=2');</script>";
-  }
-
   $user = ORM::for_table('users')->where('username',$username)->find_one();
   if (!empty($user))
   {
@@ -36,6 +32,10 @@
   else
   {
     $redirect = "<script>window.location.assign('login.php?err=1');</script>";
+  }
+
+  if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
+    $redirect = "<script>window.location.assign('login.php?err=2');</script>";
   }
 
   $placeholder = "##redirect##";
