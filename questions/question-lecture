@@ -4,11 +4,21 @@
     <meta charset="utf-8">
     <title>Answer Question | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
+       <!-- WHITE BANNER -->
+       <span id=banner>
+       <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+       <h3 class="leftStyle"> CLICKER2GO </h3>
+       <p class="rightStyle"> ##name## </p>
+       </span>
   </head>
 
   <body class="homepage" >
+        <div class="form-wrapper">
 
-        <div>
+        <br>
+        <h2>QUESTION ##qnumber##</h2>
+        <br>
+        <div  class="normalTextStyle">
            <span><a href='../index.php'>Home</a></span>>
            <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
            <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
@@ -16,7 +26,7 @@
         </div>
      <br>
 
-    <p>
+    <p class="normalTextStyle">
       ##question##
     </p>
     <br/>
@@ -25,11 +35,12 @@
         ##answers##
       </ul>
     </form>
-    <div>
+    <div class="normalTextStyle">
       ##graph##
     </div><br/>
-   <div>
-    ##comment##
-   </div>
+     <div class="normalTextStyle">
+      ##comment##
+     </div>
+  </div>
   </body>
 </html>
