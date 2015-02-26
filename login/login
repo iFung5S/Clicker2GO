@@ -21,7 +21,7 @@
        <form method="POST" action="login_check.php">
          <div class="form-item">
            <label for="username"></label>
-           <input type="text" name="username" id="username" required placeholder="Username" />
+           <input type="email" name="username" id="username" required placeholder="Email" />
          </div>
 
          <div class="form-item">
