@@ -7,7 +7,7 @@
 
           <!-- WHITE BANNER -->
           <span id=banner>
-             <img class="leftStyle" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+             <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
              <h3 class="leftStyle"> CLICKER2GO </h3> 
              <p class="rightStyle"> ##name## </p> 
           </span>
