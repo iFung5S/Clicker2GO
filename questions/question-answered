@@ -35,7 +35,7 @@
         <br>
         <div style="border: 3px solid red;background-color: yellow" class="normalTextStyle">
            ##reload##
-        </div>
+        </div><br>
         <p class="normalTextStyle">
            ##question##
         </p>
