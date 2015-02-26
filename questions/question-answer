@@ -32,7 +32,11 @@
         <br>
 
         <div class="normalTextStyle">
+
+        <form  id="answer_form" action="question-answered.php" method="POST"> 
            ##reload##
+        </form>
+
         </div>
 
         <p class="normalTextStyle">
