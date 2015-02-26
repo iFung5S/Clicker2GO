@@ -73,7 +73,7 @@ if (!isset($_SESSION['uid'])) {
   }
 
 if ($type == 'Administrator')
-  $admin = "<a href='admin/manage.php'>Administrator Management Panel</a>";
+  $admin = "<p class='normalTextStyle'><a href='admin/manage.php'>Administrator Management Panel</a></p>";
 else
   $admin = "";
 

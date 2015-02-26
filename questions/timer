@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<body>
+
 <span onLoad='timer();' id='timer'></span>
 <script>
   var count = ##time##;
@@ -38,5 +36,4 @@
   document.getElementById('timer').innerHTML = message;
   }
 </script>
-</body>
-</html>
+

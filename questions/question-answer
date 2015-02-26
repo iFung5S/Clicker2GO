@@ -5,16 +5,16 @@
     <title>Questions | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
 
-          <!-- WHITE BANNER -->
-          <span id=banner>
-             <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
-             <h3 class="leftStyle"> CLICKER2GO </h3> 
-             <p class="rightStyle"> ##name## </p> 
-          </span>
-
   </head>
 
   <body class="homepage" >
+
+          <!-- WHITE BANNER -->
+          <div id=banner>
+             <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+             <h3 class="leftStyle"> CLICKER2GO </h3> 
+             <p class="rightStyle"> ##name## </p> 
+          </div>
 
 
      <div class="form-wrapper">
@@ -45,7 +45,7 @@
         <form  id="answer_form" action="question-answered.php" method="POST">      
             ##answers##
         </form>
-        <br />
+        <br>
 
      </div>
   </body>

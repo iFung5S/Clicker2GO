@@ -8,8 +8,17 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body class="homepage">
+
+          <!-- WHITE BANNER -->
+          <div id=banner>
+             <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+             <h3 class="leftStyle"> CLICKER2GO </h3> 
+             <p class="rightStyle"> ##name## </p> 
+          </div>
+
     <div class="form-wrapper" style="max-width:1000px">
     <h1>Administrator Management</h1>
+    <div><a href='../index.php'>Home</a></div>
     ##table##
     <br />
     </div>

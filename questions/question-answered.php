@@ -108,7 +108,7 @@ if(isset($_POST['qid'])){
   // if submission is after the deadline (endtime) show message
   else if (!isset($_POST['submission_on_time']))
   {
-     $reload = "Sorry, Question has closed." ;
+     $reload = "Sorry! Question has closed." ;
      $check_answer = false;
   }
   
@@ -126,7 +126,7 @@ if(isset($_POST['qid'])){
     $correct_answer = explode("|",$question_row-> correct);
     // convert correct answer to int (take only the last string digit with -1)
 
-    $answers = "<p style='font-size:14px;color:grey;font-style:italic'>Your answer is in bold</p>";
+    $answers = "<span style='font-size:14px;color:grey;font-style:italic'>Your answer is in bold</span>";
 
     $numbering_characters="ABCDEF";
     

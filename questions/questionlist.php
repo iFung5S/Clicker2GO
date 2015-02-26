@@ -68,8 +68,8 @@ if(isset($_GET['courseName'])){
   } 
   
   $create_button = "<form method='GET' action='createQuestion.php'>
-                    <input type='text' name='courseName' style='visibility:hidden' value='$courseName'/>
-                    <input type='text' name='date' style='visibility:hidden' value='$date'/><br/>
+                    <input type='text' name='courseName' style='display:none' value='$courseName'/>
+                    <input type='text' name='date' style='display:none' value='$date'/><br/>
                     <input type='submit' class='button' value='Create New Question'/></form>";
 
   $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##","##name##");

@@ -61,8 +61,8 @@
 
   $table = $table . "</table>";
 
-  $placeholder = array("##table##");
-  $replace = array($table);
+  $placeholder = array("##table##","##name##");
+  $replace = array($table,$_SESSION['name']);
 
   echo str_replace($placeholder, $replace, file_get_contents('manage'));
 

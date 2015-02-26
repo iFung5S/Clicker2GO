@@ -20,8 +20,8 @@
   else
   $message = "<br/>";
 
-  $placeholder = array("##courseName##","##date##","##message##");
-  $replace = array($courseName,$date,$message);
+  $placeholder = array("##courseName##","##date##","##message##","##name##");
+  $replace = array($courseName,$date,$message,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('createQuestion'));
 ?>
 
