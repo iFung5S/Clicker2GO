@@ -17,7 +17,7 @@
 
          <div class="form-item">
 	   <input type="text" name="name" placeholder="Name" id="name" class="name" onKeyUp="validate();" required /><br/>
-           <input type="text" name="username" placeholder="Username" id="username" class="name" onKeyUp="validate();" required /><br/>
+           <input type="email" name="username" placeholder="Email" id="username" class="name" onKeyUp="validate();" required /><br/>
            <input type="password" name="password" id="password1" placeholder="Password" class="email" onKeyUp="validate();" required /><br/>
            <input type="password" name="password2" id="password2" placeholder="Re-type Password" class="email" onKeyUp="validate();" required />
          </div>
