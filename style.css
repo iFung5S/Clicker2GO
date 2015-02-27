@@ -73,7 +73,13 @@ h4 {
   font-family: Ubuntu, sans-serif;
   /*font-family: 'Ubuntu', Helvetica, Arial, sans-serif;*/
   /*font-family: "Arial"*/
+}
 
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ubuntu'), url(http://ubuntu.com/fonts/ubuntu.woff) format('woff');
 }
 
 form {
