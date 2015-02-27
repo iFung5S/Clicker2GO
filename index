@@ -11,8 +11,13 @@
      <!-- WHITE BANNER -->
      <div id=banner>
         <img class="leftStyle" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
-        <h3 class="leftStyle"> CLICKER2GO </h3> 
-        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none"> ##name## </a> <a href="javascript:void(0)" onclick="window.location.assign('login/logout.php')" class="button" style="text-decoration:none">Logout</a> </p> 
+        <h3 class="leftStyle"> CLICKER2GO </h3>
+        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none"> ##name## </a> </p>
+        <a href="javascript:void(0)" onclick="window.location.assign('login/logout.php')" style="text-decoration:none"> <div class="button-panel1"> <input type="submit" class="button1" value="Logout"> </input> </div> </a>
+
+               
+             
+
      </div>
 
      <h4>MY COURSES</h4>
@@ -34,7 +39,7 @@
 
           <!-- ADD COURSE BUTTON -->
           <div class="button-panel">
-            <input type="submit" class="button" value="Add Course"/>
+             <input type="submit" class="button" value="Add Course"/>
           </div>
 
           </form>

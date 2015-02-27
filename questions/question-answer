@@ -13,7 +13,7 @@
      <div id=banner>
         <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
         <h3 class="leftStyle"> CLICKER2GO </h3> 
-        <p class="rightStyle"> ##name## </p> 
+        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none"> ##name## </a> <a href="javascript:void(0)" onclick="window.location.assign('login/logout.php')" class="button" style="text-decoration:none">Logout</a> </p> 
      </div>
 
      <h4>QUESTIONS</h4>
@@ -23,17 +23,13 @@
      <div class="form-wrapper">
 
         <div class="normalTextStyle">
-           <span><a href='../index.php'>Home</a></span>>
-           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
+           <span><a href='../index.php'>Home</a></span> >
+           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
+           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span> >
            <span>Question ##qnumber## </span>
         </div>
 
         <br>
-
-        <div class="normalTextStyle">
-           ##reload##
-        </div>
 
         <p class="normalTextStyle">
           ##question## 
@@ -42,9 +38,14 @@
 
         <br>
 
-        <form  id="answer_form" action="question-answered.php" method="POST">      
+        <form class="normalTextStyle" id="answer_form" action="question-answered.php" method="POST">      
             ##answers##
         </form>
+
+        <div class="normalTextStyle">
+            ##reload##
+        </div>
+
         <br>
 
      </div>
