@@ -280,7 +280,6 @@ li
    text-indent: 27%; /* WAS 17 */
    font-size: 40px;
    list-style-type: none;
-   /*font-family: "Source Sans Pro",sans-serif;*//* WAS HELVETICA*/
    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
    text-decoration: none;
 }
