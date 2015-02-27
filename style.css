@@ -220,7 +220,7 @@ form {
 
 #rectangle {
   /*margin-left: 25px;*/
-  width: 5000px;
+  width: 500px;
   height: 2px;
   background: #e4e4e4;
 }
@@ -274,6 +274,7 @@ li
    font-size: 44px;
    list-style-type: none;
    font-family: "Myriad Pro";
+   text-decoration: none;
 }
 
 .normalTextStyle {
