@@ -33,7 +33,7 @@
     </p>
     <br/>
     <form id="answer_form" action="question-answered.php" method="POST">
-      <ul style =" list-style-type:none">  <!-- list of type A, B, C.. maybe can be made into variable later -->
+      <ul style ="list-style-type:none;word-wrap:break-word">  <!-- list of type A, B, C.. maybe can be made into variable later -->
         ##answers##
       </ul>
     </form>
