@@ -219,9 +219,9 @@ form {
 }
 
 #rectangle {
-  margin-left: 100px;
-  min-width: 500px;
-  height: 20px;
+  margin-left: 25px;
+  width: 500px;
+  height: 2px;
   background: #e4e4e4;
 }
 
