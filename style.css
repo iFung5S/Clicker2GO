@@ -272,9 +272,9 @@ li
 
 .list
 {
-   font-weight:bolder;
-   text-indent:17%; /* WAS 17 */
-   font-size: 44px;
+   font-weight: bolder;
+   text-indent: 24%; /* WAS 17 */
+   font-size: 34px;
    list-style-type: none;
    font-family: "Myriad Pro";
    text-decoration: none;
