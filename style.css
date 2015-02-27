@@ -48,13 +48,13 @@ h1 {
   font-size: 35px;
   color: #1c1c1c;
   font-weight: 900;
-  font-family: "Arial"
+  font-family: Ubuntu, sans-serif;
 }
 
 h2 {
   text-align: center;
   font-weight: 900;
-  font-family: "Arial"
+  font-family: Ubuntu, sans-serif;
 }
 
 h3 {
@@ -62,7 +62,7 @@ h3 {
   font-size: 35px;
   color: #1c1c1c;
   font-weight: 900;
-  font-family: "Arial"
+  font-family: Ubuntu, sans-serif;
 }
 
 h4 {
@@ -272,7 +272,6 @@ iframe {
 li
 {
    list-style-type: none;
-   text-decoration: none;
 }
 
 .list
@@ -281,8 +280,7 @@ li
    text-indent: 27%; /* WAS 17 */
    font-size: 40px;
    list-style-type: none;
-   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-   text-decoration: none;
+   font-family: Ubuntu, sans-serif;
 }
 
 /*@font-face {
