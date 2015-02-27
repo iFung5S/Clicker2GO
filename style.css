@@ -70,7 +70,8 @@ h4 {
   font-size: 43px;
   text-align: center;
   font-weight: 900;
-  font-family: "Arial"
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  /*font-family: "Arial"*/
 }
 
 form {
@@ -279,16 +280,16 @@ li
    font-size: 40px;
    list-style-type: none;
    /*font-family: "Source Sans Pro",sans-serif;*//* WAS HELVETICA*/
-   font-family: "Gill Sans MT", sans-serif;
+   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
    text-decoration: none;
 }
 
-@font-face {
+/*@font-face {
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 700;
   src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
-}
+}*/
 
 .normalTextStyle {
   font-size: 1em;

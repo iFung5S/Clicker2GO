@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <title>Home | Clicker2GO</title>
     <link rel="stylesheet" href="style.css" />
+
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+
   </head>
   <body class="homepage">
 
