@@ -48,12 +48,13 @@ h1 {
   font-size: 35px;
   color: #1c1c1c;
   font-weight: 900;
-  font-family: "Myriad Pro"
+  font-family: "Arial"
 }
 
 h2 {
   text-align: center;
-  font-family: "Myriad Pro"
+  font-weight: 900;
+  font-family: "Arial"
 }
 
 h3 {
@@ -61,14 +62,15 @@ h3 {
   font-size: 35px;
   color: #1c1c1c;
   font-weight: 900;
-  font-family: "Myriad Pro"
+  font-family: "Arial"
 }
 
 h4 {
   margin-top: 110px;
   font-size: 43px;
   text-align: center;
-  font-family: "Myriad Pro"
+  font-weight: 900;
+  font-family: "Arial"
 }
 
 form {
@@ -276,7 +278,7 @@ li
    text-indent: 27%; /* WAS 17 */
    font-size: 34px;
    list-style-type: none;
-   font-family: "Myriad Pro";
+   font-family: "Courier New";
    text-decoration: none;
 }
 
