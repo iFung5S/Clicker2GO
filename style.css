@@ -218,7 +218,7 @@ form {
   border-bottom: 1px dotted #8c8c8c;
 }
 
-#rectangle {
+.rectangle {
   margin-left: 25px;
   width: 500px;
   height: 2px;
