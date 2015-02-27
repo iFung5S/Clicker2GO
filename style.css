@@ -269,6 +269,7 @@ li
 
 .list
 {
+   text-decoration: none;
    font-weight:bolder;
    text-indent:17%;
    font-size: 10px; /* WAS 44px */
