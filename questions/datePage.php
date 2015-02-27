@@ -79,12 +79,16 @@ $replace = array($courseName,$date_list, "",$_SESSION['name']);
  }
  else {
   $information = "The course '$courseName' is not exist.";
-  echo str_replace("##information##", $information, file_get_contents('error'));
+  $placeholder = array("##information##","##name##");
+  $replace = array($information,$_SESSION['name']);
+  echo str_replace($placeholder, $replace, file_get_contents('error'));
  }
 }
 else {
   $information = "The course name is empty.";
-  echo str_replace("##information##", $information, file_get_contents('error'));
+  $placeholder = array("##information##","##name##");
+  $replace = array($information,$_SESSION['name']);
+  echo str_replace($placeholder, $replace, file_get_contents('error'));
 }
 
 ?>
