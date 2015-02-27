@@ -65,11 +65,15 @@ if(isset($_GET['qid'])) {
  }
  else {
   $information = "The question with id '$qid' is not exist.";
-  echo str_replace("##information##", $information, file_get_contents('error'));
+  $placeholder = array("##information##","##name##");
+  $replace = array($information,$_SESSION['name']);
+  echo str_replace($placeholder, $replace, file_get_contents('error'));
  }
 }
 else {
   $information = "The question id is empty.";
-  echo str_replace("##information##", $information, file_get_contents('error'));
+  $placeholder = array("##information##","##name##");
+  $replace = array($information,$_SESSION['name']);
+  echo str_replace($placeholder, $replace, file_get_contents('error'));
 }
 ?>
