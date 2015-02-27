@@ -14,10 +14,10 @@
              <h3 class="leftStyle"> CLICKER2GO </h3> 
             <p class="rightStyle"><a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button></p> 
           </div>
+         <br>
+         <h4>Create Question</h4>
 
    <div class="form-wrapper">
-         <br>
-         <h2>Create Question</h2>
          <br>
       <div class="normalTextStyle">
       <span><a href='../index.php'>Home</a></span>>
