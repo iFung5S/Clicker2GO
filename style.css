@@ -219,6 +219,7 @@ form {
 }
 
 #rectangle {
+  margin-top: 30px;
   margin-left: 25px;
   width: 500px;
   height: 2px;
