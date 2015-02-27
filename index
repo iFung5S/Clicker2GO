@@ -30,7 +30,7 @@
           <br>
 
           <!-- LIST OF ALL COURSES -->
-          <ul class='textMiddle'>##list_course##</ul> <!-- WAS class="list" -->
+          <ul class='list'>##list_course##</ul> <!-- WAS class="list" -->
           <br/>
           <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
 

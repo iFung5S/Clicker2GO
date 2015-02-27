@@ -219,7 +219,7 @@ form {
 }
 
 #rectangle {
-  padding: 30px;
+  padding: 100px;
   margin-left: 100px;
   width: 500px;
   height: 2px;
@@ -263,7 +263,7 @@ iframe {
    text-align: center;
 }
 
-/*li
+li
 {
    list-style-type: none;
 }
@@ -276,7 +276,7 @@ iframe {
    font-size: 14px;
    list-style-type: none;
    font-family: "Myriad Pro";
-}*/
+}
 
 .normalTextStyle {
   font-size: 1em;
