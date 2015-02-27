@@ -36,9 +36,9 @@ body.homepage
 /* Form Layout */
 .form-wrapper {
   background: #fafafa;
-  margin: 10em auto; /* WAS 2em auto */
+  margin: 0em auto; /* WAS margin: 10em auto; */
   padding: 0 1em;
-  max-width: 460px; /* WAS 370px */
+  max-width: 580px; /* WAS 370px */
   box-shadow: -8px 8px 5px #8b8b8b;
 }
 
@@ -61,6 +61,13 @@ h3 {
   font-size: 35px;
   color: #1c1c1c;
   font-weight: 900;
+  font-family: "Myriad Pro"
+}
+
+h4 {
+  margin-top: 110px;
+  font-size: 43px;
+  text-align: center;
   font-family: "Myriad Pro"
 }
 
@@ -231,12 +238,12 @@ li
 }
 
 .rightStyle {
-  font-size: 5em;
+  font-size: 50px;
   float: right;
 }
 
 .leftStyle {
-  font-size: 5em;
+  font-size: 38px;
   float: left;
 }
 

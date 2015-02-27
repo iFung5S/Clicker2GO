@@ -36,7 +36,7 @@ if (!isset($_SESSION['uid'])) {
         $confirm = "javascript:if(confirm('Do you want to delete course unit $courseName? (Also related questions)'))location='questions/removeCourse.php?courseName=$courseName'";
       }
 
-      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li>";
+      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li> <div id=rectangle> </div>";
       }
   }
 

@@ -8,32 +8,28 @@
   </head>
   <body class="homepage">
 
-          <!-- WHITE BANNER -->
-          <div id=banner>
-             <img class="leftStyle" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
-             <h3 class="leftStyle"> CLICKER2GO </h3> 
-             <p class="rightStyle"> ##name## </p> 
-          </div>
+     <!-- WHITE BANNER -->
+     <div id=banner>
+        <img class="leftStyle" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+        <h3 class="leftStyle"> CLICKER2GO </h3> 
+        <p class="rightStyle"> ##name## <a href="javascript:void(0)" onclick="window.location.assign('login/logout.php')">Logout</a></p> 
+     </div>
+
+     <h4>MY COURSES</h4>
+     <br>
 
        <div class="form-wrapper">
 
-          <h1>HOME</h1>
-
           <!-- GETS THE ID "greetings" in style.css -->
-          <p class="normalTextStyle" id="greetings"><a href="login/profile.php">##name##</a>!</p>
+          <p class="normalTextStyle"><a href="login/profile.php">##name##</a></p>
 
           <p>##admin_panel##</p>
-          <p class="textMiddle"><a href="javascript:void(0)" onclick="window.location.assign('login/logout.php')">Logout</a></p>
 
           <br>
 
           <!-- GREY RECTANGLE LINE -->
           <div id=rectangle> </div>
           <br/>
-
-          <h2>MY COURSES</h2>
-
-          <br>
 
           <!-- LIST OF ALL COURSES -->
           <ul class='list'>##list_course##</ul> 
@@ -52,35 +48,5 @@
           <br/>
       </div>
 
-<!-- SCRIPT FOR SAYING: GOOD EVENING OR GOOD AFTERNOON -->
-<script>
-
-         var text = document.getElementById("greetings").innerHTML;
-         document.getElementById("greetings").innerHTML = greetings() + text;
-
-         function greetings()
-         {
-           var myDate = new Date(); 
-           /* 5:00 am - 11:59 am */
-           if ( myDate.getHours() >= 5 && myDate.getHours() < 12 )
-           { 
-             return "Good morning, ";
-           } 
-           /* 12:00 nn - 5:59 pm */
-           else if ( myDate.getHours() >= 12 && myDate.getHours() < 19 ) 
-           {
-             return "Good afternoon, ";
-           }
-           /* 6:00 pm - 12:00 mn OR 12:00 mn - 5:00 am */
-           else if ( ( myDate.getHours() >= 19 && myDate.getHours() <= 24 ) || ( myDate.getHours() >= 0 && myDate.getHours() < 5 ) )
-           {
-             return "Good evening, ";
-           } 
-           else  /* the hour is not between 0 and 24, so something is wrong */
-           { 
-             return "Welcome, ";
-           }
-         } 
-</script>
   </body>
 </html>

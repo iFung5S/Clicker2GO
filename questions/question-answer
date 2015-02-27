@@ -9,20 +9,20 @@
 
   <body class="homepage" >
 
-          <!-- WHITE BANNER -->
-          <div id=banner>
-             <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
-             <h3 class="leftStyle"> CLICKER2GO </h3> 
-             <p class="rightStyle"> ##name## </p> 
-          </div>
+     <!-- WHITE BANNER -->
+     <div id=banner>
+        <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+        <h3 class="leftStyle"> CLICKER2GO </h3> 
+        <p class="rightStyle"> ##name## </p> 
+     </div>
 
+     <h4>QUESTIONS</h4>
+     <br>
 
+     <!-- WHITE FORM -->
      <div class="form-wrapper">
-        <br>
-        <h2>QUESTIONS</h2>
-        <br>
 
-        <div>
+        <div class="normalTextStyle">
            <span><a href='../index.php'>Home</a></span>>
            <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
            <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
