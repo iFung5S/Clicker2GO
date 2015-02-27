@@ -25,7 +25,7 @@
       <span><a href="questionlist.php?date=##date##&amp;courseName=##courseName##">##date##</a></span>>
       <span>Create Question</span></div>
     <br>
-    <form method="POST" action="saveQuestion.php">
+    <form method="POST" action="saveQuestion.php" style="margin-left:3em" >
       <div>Question:</div>
       <textarea rows="4" cols="50" name="question" autofocus required></textarea><br/>
       <div>Answer 1:</div>
