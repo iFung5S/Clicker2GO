@@ -13,7 +13,7 @@
      <div class="form-wrapper">
      <br>
        <h1><img src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px"> <br/> CLICKER2GO </h1>
-       <div class=rectangle> </div>
+       <div id="rectangle"> </div>
 
      <br>
      <br>
