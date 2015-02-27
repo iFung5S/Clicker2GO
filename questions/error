@@ -14,11 +14,12 @@
              <p class="rightStyle"> ##name## </p> 
           </div>
 
-     <div class="form-wrapper">
-        <br>
-        <h2>Error</h2>
+        <h4>Error</h4>
         <br>
        
+     <div class="form-wrapper">
+        <br>
+
         <div class="normalTextStyle"> <p><span><a href='../index.php'>  Home </a></span> >
           <span>Error</span></p> 
         </div>
