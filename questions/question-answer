@@ -39,10 +39,11 @@
 
         <br>
 
+        <div class="normalTextStyle">
+           ##reload##
+        </div>
+
         <form class="normalTextStyle" id="answer_form" action="question-answered.php" method="POST">      
-            <div class="normalTextStyle">
-               ##reload##
-            </div>
             ##answers##
         </form>
 
