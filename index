@@ -35,6 +35,8 @@
           <br/>
           <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
 
+          <br>
+
              <!-- FOR STUDENT: SELECT COURSE -->
              ##add_course##
 
