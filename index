@@ -6,7 +6,7 @@
     <title>Home | Clicker2GO</title>
     <link rel="stylesheet" href="style.css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"> 
 
   </head>
   <body class="homepage">
