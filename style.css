@@ -278,7 +278,7 @@ li
    text-indent: 27%; /* WAS 17 */
    font-size: 40px;
    list-style-type: none;
-   font-family: "Helvetica";
+   font-family: "Source Sans Pro",sans-serif;/* WAS HELVETICA*/
    text-decoration: none;
 }
 
