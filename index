@@ -28,6 +28,7 @@
           <p class="textMiddle">##admin_panel##</p>
 
           <br>
+          <br>
 
           <!-- LIST OF ALL COURSES -->
           <ul class='list'>##list_course##</ul>

@@ -221,7 +221,7 @@ form {
 #rectangle {
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 100px;
+  margin-left: 92px;
   width: 350px;
   height: 2px;
   background: #e4e4e4;
@@ -273,7 +273,7 @@ li
 .list
 {
    font-weight: bolder;
-   text-indent: 24%; /* WAS 17 */
+   text-indent: 34%; /* WAS 17 */
    font-size: 34px;
    list-style-type: none;
    font-family: "Myriad Pro";
