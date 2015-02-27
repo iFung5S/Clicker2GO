@@ -44,11 +44,11 @@ if(isset($_GET['courseName'])){
       }
       else if ($_SESSION['type'] == 'Student' && time()<strtotime($min_time))
       {
-        $date_list = $date_list."<li><a href='#'>$date</a><span style='font-size:12px;color:grey;'>  (Not Start)</span></li> <br> <div id=rectangle> </div> <br>"; 
+        $date_list = $date_list."<li><a href='#'>$date</a><span style='font-size:12px;color:grey;'>  (Not Start)</span></li><div id=rectangle> </div>"; 
       }
       else
       {
-        $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a></li> <br> <div id=rectangle> </div> <br>";
+        $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a></li><div id=rectangle> </div>";
       }    
     } 
   }
