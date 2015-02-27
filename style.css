@@ -219,6 +219,7 @@ form {
 }
 
 #rectangle {
+  padding: 30px;
   margin-left: 100px;
   width: 500px;
   height: 2px;
@@ -262,18 +263,17 @@ iframe {
    text-align: center;
 }
 
-li
+/*li
 {
-   padding: 4em 4em;
    list-style-type: none;
 }
 
-/*.list
+.list
 {
    text-decoration: none;
-   font-weight:bolder;*/
-   /*text-indent:17%;*/
-   /*font-size: 14px;
+   font-weight:bolder;
+   text-indent:17%;
+   font-size: 14px;
    list-style-type: none;
    font-family: "Myriad Pro";
 }*/
