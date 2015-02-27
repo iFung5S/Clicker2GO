@@ -100,7 +100,7 @@ if(isset($_GET['qid'])){
       $answers = $answers .
                   "<li>
                     <input name='answer' type='radio' value=$i id=$N required>
-                    <label for=$N> $N. $answer</label><br/>
+                    <label for=$N> $N. $answer</label>
                   </li>";
     }
   }

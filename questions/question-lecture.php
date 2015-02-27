@@ -47,9 +47,7 @@ if(isset($_GET['qid'])) {
         $N=$numbering_characters[$i-1];
         
         $answers = $answers .
-                    "<li>
-                      $N. $answer  $isCorrect
-                    </li>";
+                    "<li>$N. $answer  $isCorrect</li>";
       }
     }
 

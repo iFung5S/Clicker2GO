@@ -148,8 +148,7 @@ if(isset($_POST['qid'])){
         else
           $answers = $answers ."<li>";
         $answers = $answers .
-                    "$N. $answer  $isCorrect
-                    </li>";
+                    "$N. $answer  $isCorrect</li>";
       }
     }
     include('graph.php');

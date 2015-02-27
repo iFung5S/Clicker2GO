@@ -10,7 +10,7 @@
   <body>
    <form method="POST" action="saveComment.php">
      <div>Comments:</div>
-     <textarea placeholder="Your comments here" rows="3" cols="50" name="comment" autofocus required></textarea><br/>
+     <textarea placeholder="Your comments here" rows="3" cols="50" name="comment"  required></textarea><br/>
      <div style = "text-align:right;"><input type="submit" class="button" value="Submit" required/></div> 
    
    ##comment##
