@@ -185,7 +185,7 @@ form {
   width: 20%;
 }
 
-.button-panel1 .button1 {
+.button1 {
   background: #61eb68;
   border: none;
   color: #fff;
@@ -340,6 +340,3 @@ li
 .normalSize {
   font-size: 38px;
 }
-
-
-
