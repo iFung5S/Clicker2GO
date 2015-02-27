@@ -219,7 +219,7 @@ form {
 }
 
 #rectangle {
-  /*margin-left: 25px;*/
+  margin-left: 25px;
   width: 500px;
   height: 2px;
   background: #e4e4e4;
@@ -265,6 +265,7 @@ iframe {
 li
 {
    list-style-type: none;
+   text-decoration: none;
 }
 
 .list
