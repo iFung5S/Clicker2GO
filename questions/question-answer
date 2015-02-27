@@ -22,6 +22,10 @@
      <!-- WHITE FORM -->
      <div class="form-wrapper">
 
+        <br>
+        <h2>QUESTION ##qnumber##</h2>
+        <br>
+
         <div class="normalTextStyle">
            <span><a href='../index.php'>Home</a></span> >
            <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
@@ -31,18 +35,14 @@
 
         <br>
 
-        <p class="normalTextStyle">
-          ##question## 
-        </p>
         ##timer_script##
 
         <br>
 
-        <div class="normalTextStyle">
-            ##reload##
-        </div>
-
         <form class="normalTextStyle" id="answer_form" action="question-answered.php" method="POST">      
+            <div class="normalTextStyle">
+               ##reload##
+            </div>
             ##answers##
         </form>
 
