@@ -82,7 +82,7 @@ if(isset($_GET['qid'])){
   $numbering_characters="ABCDEF";
   
   // add a hidden form varible to pass the qid to next page after submition
-  $answers = "<input name='qid' type='hidden' value=$qid /><input name='seq' type='hidden' value=$seq /><ul style =' list-style-type:none'> ";
+  $answers = "<input name='qid' type='hidden' value=$qid /><input name='seq' type='hidden' value=$seq /><ul style ='list-style-type:none;word-wrap:break-word'> ";
   
   // use a loop to generate html form radio buttons with the answers
   // use index i for the answer number
