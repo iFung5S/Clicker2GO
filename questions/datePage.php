@@ -48,7 +48,7 @@ if(isset($_GET['courseName'])){
       }
       else
       {
-        $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a></li>";
+        $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a></li> <br> <div id=rectangle> </div> <br>";
       }    
     } 
   }
