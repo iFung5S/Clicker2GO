@@ -170,9 +170,6 @@ form {
   background: #3acc45;
 }
 
-
-
-
 /*register*/
 .r_button-panel1 {
   margin: 1em 0 0;
@@ -198,15 +195,6 @@ form {
 .button1:hover {
   background: #3acc45;
 }
-
-
-
-
-
-
-
-
-
 
 .form-footer {
   font-size: 1em;
@@ -261,10 +249,7 @@ iframe {
   width: 450px;
   height: 300px;
 }
-#greetings
-{
 
-}
 .textMiddle
 {
    text-align: center;
@@ -301,6 +286,45 @@ li
   float: right;
   margin-right:0.5em;
   margin-top:0.1em;
+  font-family: Ubuntu, sans-serif;
+}
+
+.rightStyle a:link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.rightStyle a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+.rightStyle a:hover {
+  text-decoration: none;
+}
+
+.rightStyle a:active {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+  color: #0000EE;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #0000EE;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0000EE;  
+}
+
+a:active {
+  text-decoration: underline;
+  color: #0000EE;
 }
 
 .leftStyle {
