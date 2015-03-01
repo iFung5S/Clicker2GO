@@ -9,8 +9,9 @@
 
           <!-- WHITE BANNER -->
           <div id=banner>
+             <a href="../index.php">
              <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
-             <h3 class="leftStyle"> CLICKER2GO </h3> 
+             <h3 class="leftStyle"> CLICKER2GO </h3> </a>
              <p class="rightStyle"> ##name## </p> 
           </div>
 
@@ -25,7 +26,7 @@
 <td>##name##</td>
 </tr>
 <tr>
-<td>Username:</td>
+<td>Email:</td>
 <td>##username##</td>
 </tr>
 <tr>
