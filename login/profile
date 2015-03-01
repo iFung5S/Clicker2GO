@@ -12,7 +12,7 @@
              <a href="../index.php">
              <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
              <h3 class="leftStyle"> CLICKER2GO </h3> </a>
-             <p class="rightStyle"> ##name## </p> 
+             <p class="rightStyle"> ##name## <button type="button" class="logoutButton" onclick="window.location.assign('login/logout.php')">Logout</button></p>
           </div>
 
 <div class="form-wrapper">
