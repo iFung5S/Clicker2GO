@@ -11,10 +11,10 @@
 
      <!-- WHITE BANNER -->
      <div id=banner>
-             <a href="../index.php">
+            <a href="../index.php">
         <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
         <h3 class="leftStyle"> CLICKER2GO </h3> </a>
-        <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button> </p> 
+        <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button> </p>
      </div>
 
      <h4>QUESTIONS</h4>
@@ -34,19 +34,17 @@
            <span>Question ##qnumber## </span>
         </div>
 
-        <br>
+        <p>
+          ##info##
+        </p>
 
-        ##timer_script##
+        <p>
+          ##question##
+        </p>
 
-        <br>
-
-        <form class="normalTextStyle" id="answer_form" action="question-answered.php" method="POST">      
-            ##answers##
-        </form>
-
-        <div class="normalTextStyle">
-           ##reload##
-        </div>
+        <p>
+          ##answers##
+        </p>
 
         <br>
 

@@ -1,7 +1,6 @@
-
 <span onLoad='timer();' id='timer'></span>
 <script>
-  var count = ##time##;
+  var count = ##time_left##;
   var counter = setInterval(timer, 1000);
   var message = '';
   function timer()
@@ -9,10 +8,10 @@
     count -= 1;
     if (count < 0)
     {
-    clearInterval(counter);
-    message = 'Ended.';
-    document.getElementById('timer').innerHTML = message;
-     ##action##
+      clearInterval(counter);
+      message = 'Ended.';
+      document.getElementById('timer').innerHTML = message;
+      ##timer_action##
     }
     else
     {

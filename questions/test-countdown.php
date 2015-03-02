@@ -10,6 +10,7 @@
 
       // get qid
       $qid = $_GET['qid'];
+      echo "Question $qid";
 
       // connect to mysql
       include_once ('../lib/sqlconnect.php');
@@ -74,7 +75,36 @@
         $postaction = 'startcountdown';
       }
 
+      // reset all given answers from all users for the specific question
+      if (isset($_POST['reset_answers']) && $_POST['reset_answers'] == 1)
+      {
+        $query = "DELETE FROM `answers` WHERE `qid`=$qid";
+        $reset_answers = mysqli_query($conn, $query);
+      }
+      
+      // set countdown in seconds for the specific question
+      if (isset($_POST['set_countdown']))
+      {
+        $new_countdown = (int) ($_POST['set_countdown']);
+        $query = "UPDATE `questions` SET `countdown`=$new_countdown WHERE id=$qid;";
+        $set_countdown = mysqli_query($conn, $query);
+        
+        if ($countdownstarted)
+        {
+          // set the starttime in the database to NULL
+          $query = "UPDATE `questions` SET `starttime`=NULL WHERE id=$qid;";
+          $update_starttime = mysqli_query($conn, $query);
 
+          // make a new query to get updated time results
+          $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
+          $result_row = mysqli_fetch_assoc($result);
+          $starttime = strtotime($result_row["starttime"]);
+          $countdownstarted = false;
+          $buttontext = "Start CountDown";
+          $postaction = 'startcountdown';
+        }
+      }
+      
       // this page url to refresh
       $thispage = "test-countdown.php?qid=$qid"
     ?>
@@ -101,7 +131,16 @@
       <input name='<?php echo "$postaction" ?>' type='hidden' value=1 />
       <input type="submit" value='<?php echo "$buttontext" ?>' >
     </form>
-
+    
+    <form action=<?php echo "$thispage"?> method="POST">
+      <input name='reset_answers' type='hidden' value=1 />
+      <input type="submit" value='Reset given answers to question' >
+    </form>
+    
+    <form action=<?php echo "$thispage"?> method="POST">
+      <input name='set_countdown' type='text' />
+      <input type="submit" value='Set question countdown' >
+    </form>
+    
   </body>
 </html>
-
