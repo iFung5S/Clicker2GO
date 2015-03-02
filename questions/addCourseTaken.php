@@ -20,6 +20,7 @@ if (!isset($_SESSION['uid'])) {
     if (empty($cuid)){
       $courseUnit = ORM::for_table('course_units')->create();
       $courseUnit->course = $courseName;
+      $courseUnit->owner_uid = $uid;
       $courseUnit->save();
       $cuid = ORM::for_table('course_units')
             ->where('course',$courseName)
