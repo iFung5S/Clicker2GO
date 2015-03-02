@@ -13,12 +13,11 @@
       echo "Question $qid";
 
       // connect to mysql
-      include_once ('../lib/sqlconnect.php');
+      include_once ('../lib/dbCon.php');
 
-      $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
-      $result_row = mysqli_fetch_assoc($result);
-      $starttime = $result_row["starttime"];
-      $countdown = $result_row["countdown"];
+      $question_row = ORM::for_table('questions')-> find_one($qid);
+      $starttime = $question_row->starttime;
+      $countdown = $question_row->countdown;
       $currenttime = time();
 
       // check if countdown already started
@@ -46,14 +45,13 @@
       // start countdown only if submitted by post
       if (isset($_POST['startcountdown']) && $_POST['startcountdown'] == 1)
       {
-        // set the starttime in the database to time=now
-        $query = "UPDATE `questions` SET `starttime`=NOW(), `endtime`=NOW()+INTERVAL $countdown SECOND WHERE id=$qid;";
-        $update_starttime = mysqli_query($conn, $query);
 
+        // set the starttime in the database to time=now
+        $question_row->starttime = date("Y-m-d H:i:s", time());
+        $question_row->endtime = date("Y-m-d H:i:s", time() + $countdown);
+        $question_row->save();
         // make a new query to get updated time results
-        $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
-        $result_row = mysqli_fetch_assoc($result);
-        $starttime = strtotime($result_row["starttime"]);
+        $starttime = strtotime($question_row->starttime);
         $countdownstarted = true;
         $buttontext = "Reset CountDown";
         $postaction = 'resetcountdown';
@@ -63,13 +61,10 @@
       else if (isset($_POST['resetcountdown']) && $_POST['resetcountdown'] == 1)
       {
         // set the starttime in the database to NULL
-        $query = "UPDATE `questions` SET `starttime`=NULL WHERE id=$qid;";
-        $update_starttime = mysqli_query($conn, $query);
-
+        $question_row->starttime = null;
+        $question_row->save();
         // make a new query to get updated time results
-        $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
-        $result_row = mysqli_fetch_assoc($result);
-        $starttime = strtotime($result_row["starttime"]);
+        $starttime = strtotime($question_row->starttime);
         $countdownstarted = false;
         $buttontext = "Start CountDown";
         $postaction = 'startcountdown';
@@ -78,27 +73,24 @@
       // reset all given answers from all users for the specific question
       if (isset($_POST['reset_answers']) && $_POST['reset_answers'] == 1)
       {
-        $query = "DELETE FROM `answers` WHERE `qid`=$qid";
-        $reset_answers = mysqli_query($conn, $query);
+        $reset_answers = ORM::for_table('answers')
+                         ->where('qid',$qid)
+                         ->delete_many();
       }
       
       // set countdown in seconds for the specific question
       if (isset($_POST['set_countdown']))
       {
         $new_countdown = (int) ($_POST['set_countdown']);
-        $query = "UPDATE `questions` SET `countdown`=$new_countdown WHERE id=$qid;";
-        $set_countdown = mysqli_query($conn, $query);
-        
+        $question_row->countdown = $new_countdown;
+        $question_row->save();       
         if ($countdownstarted)
         {
           // set the starttime in the database to NULL
-          $query = "UPDATE `questions` SET `starttime`=NULL WHERE id=$qid;";
-          $update_starttime = mysqli_query($conn, $query);
-
+          $question_row->starttime = null;
+          $question_row->save();
           // make a new query to get updated time results
-          $result = mysqli_query($conn, "SELECT * FROM `questions` WHERE id=$qid");
-          $result_row = mysqli_fetch_assoc($result);
-          $starttime = strtotime($result_row["starttime"]);
+          $starttime = strtotime($question_row->starttime);
           $countdownstarted = false;
           $buttontext = "Start CountDown";
           $postaction = 'startcountdown';
@@ -127,17 +119,17 @@
 
     </p>
     <br/>
-    <form action=<?php echo "$thispage"?> method="POST">
-      <input name='<?php echo "$postaction" ?>' type='hidden' value=1 />
-      <input type="submit" value='<?php echo "$buttontext" ?>' >
+    <form action="<?php echo $thispage ?>" method="POST">
+      <input name="<?php echo $postaction ?>" type='hidden' value=1 />
+      <input type="submit" value="<?php echo $buttontext ?>" >
     </form>
     
-    <form action=<?php echo "$thispage"?> method="POST">
+    <form action="<?php echo $thispage?>" method="POST">
       <input name='reset_answers' type='hidden' value=1 />
       <input type="submit" value='Reset given answers to question' >
     </form>
     
-    <form action=<?php echo "$thispage"?> method="POST">
+    <form action="<?php echo $thispage?>" method="POST">
       <input name='set_countdown' type='text' />
       <input type="submit" value='Set question countdown' >
     </form>
