@@ -23,6 +23,7 @@ body.homepage
 
 /* Fonts */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin);
 
 /* fontawesome */
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
@@ -171,13 +172,13 @@ form {
 }
 
 /*register*/
-.r_button-panel1 {
+.r_button-panel1 { 
   margin: 1em 0 0;
   width: 20%;
 }
 
 .logoutButton {
-  background: #61eb68;
+  background: #FFA500;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -190,6 +191,9 @@ form {
   font-size:20px;
   width:200px;
   vertical-align:middle;
+}
+.logoutButton:hover {
+  background: #E18700;
 }
 
 .button1:hover {
@@ -289,42 +293,24 @@ li
   font-family: Ubuntu, sans-serif;
 }
 
-.rightStyle a:link {
-  text-decoration: none;
-  color: #000000;
-}
-
-.rightStyle a:visited {
-  text-decoration: none;
-  color: #000000;
-}
-
-.rightStyle a:hover {
-  text-decoration: none;
-}
-
-.rightStyle a:active {
-  text-decoration: none;
-}
-
 a:link {
   text-decoration: none;
-  color: #0000EE;
+  color: #000000;
 }
 
 a:visited {
   text-decoration: none;
-  color: #0000EE;
+  color: #000000;
 }
 
 a:hover {
-  text-decoration: underline;
-  color: #0000EE;  
+  text-decoration: none;
+  color: #555555;  
 }
 
 a:active {
-  text-decoration: underline;
-  color: #0000EE;
+  text-decoration: none;
+  color: #555555;
 }
 
 .leftStyle {
@@ -354,3 +340,30 @@ a:active {
 .normalSize {
   font-size: 38px;
 }
+
+.redCross {
+  font-size: 28px;
+  color: #FF0000;
+  text-decoration: none;
+}
+
+.redCross a:link {
+  text-decoration: none;
+  color: #FF0000;
+}
+
+.redCross a:visited {
+  text-decoration: none;
+  color: #FF0000;
+}
+
+.redCross a:hover {
+  text-decoration: none;
+  color: #C00000;  
+}
+
+.redCross a:active {
+  text-decoration: none;
+  color: #C00000;
+}
+

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <title>Create Question | Clicker2GO</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
     <link rel="stylesheet" href="../style.css">
   </head>
 

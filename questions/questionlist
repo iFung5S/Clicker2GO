@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Questions | Clicker2GO</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
     <link rel="stylesheet" href="../style.css">
 
   </head>
@@ -24,7 +25,7 @@
          <br>
 
          <div class="normalTextStyle">
-            <p> <span><a href='../index.php'>Home</a></span>>
+            <p> <span><a href='../index.php'>Home</a></span> >
             <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
             <span>##date## </span></p> 
          </div>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Questions | Clicker2GO</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
     <link rel="stylesheet" href="../style.css">
 
   </head>
@@ -17,14 +18,12 @@
         <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button> </p>
      </div>
 
-     <h4>QUESTIONS</h4>
+     <h4>QUESTION ##qnumber##</h4>
      <br>
 
      <!-- WHITE FORM -->
      <div class="form-wrapper">
 
-        <br>
-        <h2>QUESTION ##qnumber##</h2>
         <br>
 
         <div class="normalTextStyle">

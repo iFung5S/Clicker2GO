@@ -76,10 +76,10 @@
       // vars required for generate_answers.php
       $show_given_answers = false;
       $show_correct_answers = false;
-      $hidden_post_vars = "<input name='qid' type='hidden' value=$qid />
-                           <input name='seq' type='hidden' value=$seq />
-                           <input name='num_answers' type='hidden' value=$num_answers />
-                           <input name='num_to_select' type='hidden' value=$num_to_select />";
+      $hidden_post_vars = "<input name='qid' type='hidden' value='$qid' />
+                           <input name='seq' type='hidden' value='$seq' />
+                           <input name='num_answers' type='hidden' value='$num_answers' />
+                           <input name='num_to_select' type='hidden' value='$num_to_select' />";
       $submit_button = "<input class='btn_shadow_animate_green' type='submit' value='Submit'>";
 
 
@@ -128,7 +128,7 @@
           // go directly to answered questions. No need to try to record the answer
           $form_action = 'question-answered.php';
           $info = "Browse and simulate answers - No record";
-          $submit_button = "<input class='btn_shadow_animate_green' type='submit' value='Show Answers'>";
+          $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Show Answers' /></div>";
         }
 
       }
