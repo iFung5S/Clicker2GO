@@ -151,6 +151,20 @@ form {
   width: 100%;
 }
 
+.btn_shadow_animate_grey_disabled {
+  background: #AAAAAA;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 .btn_shadow_animate_green {
   background: #61eb68;
   border: none;
@@ -367,3 +381,25 @@ a:active {
   color: #C00000;
 }
 
+.btn_shadow_animate_orange {
+  background: #FFA500;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn_shadow_animate_orange:hover {
+  background: #E18700;
+}
+
+.btn_shadow_animate_grey:hover {
+  background: #888888;
+}

@@ -80,7 +80,7 @@
                            <input name='seq' type='hidden' value='$seq' />
                            <input name='num_answers' type='hidden' value='$num_answers' />
                            <input name='num_to_select' type='hidden' value='$num_to_select' />";
-      $submit_button = "<input class='btn_shadow_animate_green' type='submit' value='Submit'>";
+      $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit'></div>";
 
 
       if (is_null($starttime))  // countdown has not been started yet by the lecturer
