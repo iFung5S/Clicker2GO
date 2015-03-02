@@ -1,6 +1,6 @@
 <?php
   include_once ('../lib/dbCon.php');
-  $pagesize=10; 
+  $pagesize = 10;
   $qid = $_GET['qid'];
   $rows = ORM::for_table('comments')
            ->where('qid',$qid)
@@ -13,7 +13,7 @@
   if (isset($_GET['page'])){
    $page = intval($_GET['page']);
   }
-  else{ 
+  else{
     $page = 1;
   }
 
@@ -29,13 +29,13 @@
               ->limit($pagesize)
               ->offset($offset)
               ->find_many();
-  $comment="<input name='qid' type='hidden' value=$qid /></form>";
+  $comment="<input name='qid' type='hidden' value='$qid' /></form>";
            //<div id=rectangle> </div>";
 if ($pages == 0)
-  $comment=$comment."<div style='text-align:center;'>No comment</div>";
+  $comment=$comment."<div style='text-align:center;'>No comments found.</div>";
 else {
 
-  $bar =" <div style = 'text-align:center;'>";
+  $bar =" <div style='text-align:center;'>";
   $bar = $bar. "Page $page of $pages<br />";
   if ($page > 1)
   {
@@ -53,10 +53,10 @@ else {
                           <a href='comment.php?page=$last&amp;qid=$qid'>Last</a> ";
   }
    $bar = $bar. "</div>";
-   
+
   $comment = $comment.$bar;
-  
-  foreach ($comments as $each_comment) 
+
+  foreach ($comments as $each_comment)
   {
     $uid=$each_comment->uid;
     $name = ORM::for_table('users')->find_one($uid)->name;
@@ -84,4 +84,4 @@ else {
   $comment = $comment.$bar;
 }
   echo str_replace("##comment##", $comment, file_get_contents('comment'));
-  ?>
+?>

@@ -77,7 +77,7 @@
     $N = $numbering_characters[$i-1];
     $answers = $answers .
                 "<li>
-                  <input name='answer[]' type=$input_type value=$current_answer id=$N $checked $disabled />
+                  <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled />
                   <label for=$N>$N. $answer $correct </label>
                 </li>";
   }

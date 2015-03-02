@@ -41,8 +41,8 @@
                       ->find_one();
       if (!empty($check_answered)||!empty($endtime) && $currenttime > $endtime)
       {
-        $answers = "<input name='qid' type='hidden' value=$qid />
-                    <input name='seq' type='hidden' value=$seq />
+        $answers = "<input name='qid' type='hidden' value='$qid' />
+                    <input name='seq' type='hidden' value='$seq' />
                     <input name='answer' type='hidden' value='' />
                     <input type='submit' value='Submit' />
                     <script>document.getElementById('answer_form').submit()</script>";
@@ -71,7 +71,7 @@
       // better add column to database where the lecturer decides this
       // depending on the type of question
       $num_to_select = count(explode("|",$question_row-> correct));
-      echo "number of answers to select: $num_to_select";
+      echo "Number of answers to select: $num_to_select";
 
       // vars required for generate_answers.php
       $show_given_answers = false;
@@ -88,8 +88,8 @@
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started
         $reload_button = "<input class='btn_shadow_animate_green' type='button' value='Reload Question' onClick='history.go(0)'>";
-        $info = "Please reload when the Lecturer has started the CountDown
-                <br>" .
+        $info = "Please reload when the lecturer starts the timer.
+                <br />" .
                 $reload_button;
         $question = "";
         $form_action = 'record_answer.php';
