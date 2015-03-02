@@ -5,11 +5,11 @@
   include_once ('../lib/dbCon.php');
 
   $username = $_POST['username'];
-  $password = sha1($_POST['password']);
 
   $user = ORM::for_table('users')->where('username',$username)->find_one();
   if (!empty($user))
   {
+    $password = sha1($_POST['password'] . $user->salt);
     if ($password == $user->password)
     {
       $_SESSION['uid'] = $user->id;

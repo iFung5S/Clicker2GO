@@ -155,7 +155,7 @@ form {
   background: #AAAAAA;
   border: none;
   color: #fff;
-  cursor: pointer;
+  cursor: default;
   height: 50px;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.2em;

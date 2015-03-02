@@ -24,8 +24,8 @@
            <input type="password" name="password2" id="password2" placeholder="Re-type Password" class="email" onKeyUp="validate();" required />
          </div>
             <div id="check" class="error">##message##</div>
-         <div class="r_button-panel">
-            <input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey" value="Register" disabled />
+         <div class="button-panel">
+            <input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled />
          </div>
          </form><br/><br/>
        </div>
@@ -39,16 +39,16 @@
               if(pw1 != pw2) {
                 document.getElementById("check").innerHTML="Passwords do not match!";
                 document.getElementById("submit").disabled = true;
-                document.getElementById("submit").className="btn_shadow_animate_grey";
+                document.getElementById("submit").className="btn_shadow_animate_grey_disabled";
               }
               else {
                 if(name && username && password) {
 		  document.getElementById("check").innerHTML="<br/ >";
                   document.getElementById("submit").disabled = false;
-                  document.getElementById("submit").className="btn_shadow_animate_green";
+                  document.getElementById("submit").className="button";
                 }
                 else {
-                  document.getElementById("submit").className="btn_shadow_animate_grey";
+                  document.getElementById("submit").className="btn_shadow_animate_grey_disabled";
                 }
              }
           }
