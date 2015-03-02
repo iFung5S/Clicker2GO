@@ -40,7 +40,7 @@ if (!isset($_SESSION['uid'])) {
         if ($owner == $uid) {
           $confirm = "javascript:if(confirm('Do you want to delete course unit $courseName? (Also related questions)'))location='questions/removeCourse.php?courseName=$courseName'";
         } else {
-          $confim = "javascript:if(confirm
+          $confirm = "javascript:if(confirm
                      ('Do you want to remove course unit $courseName?(Course unit and related questions will not be deleted as you are not the owner of this course)'))
                      location='questions/removeCourse.php?courseName=$courseName'";
         }
