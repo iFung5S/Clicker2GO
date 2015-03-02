@@ -67,10 +67,12 @@
       }
 
     include('graph.php');
+    include('setTimer.php');
+    
     $comment = "<iframe src='comment.php?qid=$qid' seamless></iframe>";
-    $placeholder = array("##graph##", "##question##", "##answers##",
+    $placeholder = array("##graph##", "##question##", "##answers##","##setTime##",
                    "##comment##","##courseName##","##date##","##qnumber##","##name##");
-    $replace = array($graph, $question, $answers,$comment,$courseName,$date
+    $replace = array($graph, $question, $answers,$set_timer,$comment,$courseName,$date
                        ,$seq,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 
