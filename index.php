@@ -33,7 +33,16 @@ if (!isset($_SESSION['uid'])) {
       if ($_SESSION['type'] == 'Student') {
         $confirm = "javascript:if(confirm('Do you want to remove course unit $courseName?'))location='questions/removeCourse.php?courseName=$courseName'";
       } else {
-        $confirm = "javascript:if(confirm('Do you want to delete course unit $courseName? (Also related questions)'))location='questions/removeCourse.php?courseName=$courseName'";
+        $owner = ORM::for_table('course_units')
+                 ->where('course',$courseName)
+                 ->find_one()
+                 ->owner_uid;
+        if ($owner == $uid) {
+          $confirm = "javascript:if(confirm('Do you want to delete course unit $courseName? (Also related questions)'))location='questions/removeCourse.php?courseName=$courseName'";
+        } else {
+          $confim = "javascript:if(confirm
+                     ('Do you want to remove course unit $courseName?(Course unit and related questions will not be deleted as you are not the owner of this course)'))
+                     location='questions/removeCourse.php?courseName=$courseName'";
       }
 
       $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <span class='redCross'><a href='#' onClick=\"$confirm\">x</a></span></li> <div id=rectangle> </div>";
