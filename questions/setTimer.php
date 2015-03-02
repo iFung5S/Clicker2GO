@@ -68,7 +68,8 @@
   if ($countdownstarted)
   {
     $time_left = strtotime($question_row->endtime) - time();
-    $timer_action = "";
+    $timer_action = "document.getElementById('correct').style.fontWeight='bold';
+                     document.getElementById('correct').style.color='green'";
     include('timer.php');
     $timer = "Timer ".$timer;
   }

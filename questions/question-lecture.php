@@ -58,11 +58,11 @@
         {
           $isCorrect = "";
           if (in_array('answer'.$i, $correct_answer))
-            $isCorrect = "<span style='font-size:12px;color:green;'>  (Correct)</span>";
+            $isCorrect = "id='correct'";
           $N=$numbering_characters[$i-1];
 
           $answers = $answers .
-                      "<li>$N. $answer  $isCorrect</li>";
+                      "<li $isCorrect>$N. $answer</li>";
         }
       }
 
