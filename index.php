@@ -43,6 +43,7 @@ if (!isset($_SESSION['uid'])) {
           $confim = "javascript:if(confirm
                      ('Do you want to remove course unit $courseName?(Course unit and related questions will not be deleted as you are not the owner of this course)'))
                      location='questions/removeCourse.php?courseName=$courseName'";
+        }
       }
 
       $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <span class='redCross'><a href='#' onClick=\"$confirm\">x</a></span></li> <div id=rectangle> </div>";
