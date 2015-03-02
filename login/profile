@@ -13,7 +13,7 @@
              <a href="../index.php">
              <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
              <h3 class="leftStyle"> CLICKER2GO </h3> </a>
-             <p class="rightStyle"> <a href="profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a><button type="button" class="logoutButton" onclick="window.location.assign('login/logout.php')">Logout</button></p>
+             <p class="rightStyle"> <a href="profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a><button type="button" class="logoutButton" onclick="window.location.assign('logout.php')">Logout</button></p>
           </div>
 <h4>PROFILE</h4>
 <br />

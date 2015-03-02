@@ -2,15 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
     <title>Register | Clicker2GO</title>
     <link rel="stylesheet" href="../style.css">
   </head>
 
   <body class="homepage">
+    <h4>REGISTER</h4>
+    <br />
      <div class="form-wrapper">
-          <h1>Register</h1>
-           <div><a href='login.php'>Back to login</a></div>
+     <br />
+           <div class="normalTextStyle"><a href='login.php'>< Back to Login</a></div>
           <div id=rectangle> </div><br/>
 
          <form class="white" action="register_check.php" method="POST">
