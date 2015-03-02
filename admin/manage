@@ -14,12 +14,18 @@
              <a href="../index.php">
              <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px" />
              <h3 class="leftStyle"> CLICKER2GO </h3> </a>
-             <p class="rightStyle"> ##name## </p> 
-          </div>
+            <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php');">Logout</button></p>
 
+          </div>
+    <h4>ADMINISTRATOR MANAGEMENT</h4>
+    <br />
     <div class="form-wrapper" style="max-width:1000px">
-    <h1>Administrator Management</h1>
-    <div><a href='../index.php'>Home</a></div>
+       <br />
+         <div class="normalTextStyle">
+            <p> <span><a href='../index.php'>Home</a></span> >
+            <span>Administrator Management</span>
+         </div>
+       <br />
     ##table##
     <br />
     </div>
