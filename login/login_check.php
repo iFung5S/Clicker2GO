@@ -31,7 +31,7 @@
   }
   else
   {
-    $redirect = "<script>window.location.assign('login.php?err=1');</script>";
+    $redirect = "<script>window.location.assign('login.php?err=1&username=$username');</script>";
   }
 
   if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {

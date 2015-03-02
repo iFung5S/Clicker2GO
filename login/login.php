@@ -25,8 +25,17 @@ else
   $select = "document.getElementById('username').select();";
 }
 
-$placeholder = array("##message##", "##select##");
-$replace = array($message, $select);
+if(isset($_GET['username']))
+{
+  $username = $_GET['username'];
+}
+else
+{
+  $username = "";
+}
+
+$placeholder = array("##message##", "##select##", "##username##");
+$replace = array($message, $select, $username);
 
 echo str_replace($placeholder, $replace, file_get_contents('login'));
 
