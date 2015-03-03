@@ -48,7 +48,7 @@
     for ($i=1; $i<=6; $i++)
     {
       if (!empty($answer[$i]))
-        $questions->answer.$i = $answer[$i];
+        $questions->set('answer'.$i,$answer[$i]);
     }
     $questions -> save();
  
