@@ -43,14 +43,13 @@
                   'id_cu' => $cuid, 
                   'date' => $date, 
                   'question' => $question, 
-                  'answer1' => $answer[1], 
-                  'answer2' => $answer[2], 
-                  'answer3' => $answer[3], 
-                  'answer4' => $answer[4], 
-                  'answer5' => $answer[5], 
-                  'answer6' => $answer[6], 
                   'correct' => $correct
                  ));
+    for ($i=1; $i<=$num_answers; $i++)
+    {
+      if (!empty($answer[$i]))
+        $questions->answer.$i = $answer[$i];
+    }
     $questions -> save();
  
     $redirect = "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
@@ -59,4 +58,3 @@
   echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));
 
 ?>
-
