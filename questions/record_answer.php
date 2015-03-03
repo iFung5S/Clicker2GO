@@ -24,7 +24,8 @@
 
     if(isset($_POST['answer']) || isset($_POST['no_answer']))
     {
-      $submitted_answer = $_POST['answer']; // this is an array
+      if(isset($_POST['answer']))
+        $submitted_answer = $_POST['answer']; // this is an array
 
       // connect to mysql
       include_once ('../lib/dbCon.php');

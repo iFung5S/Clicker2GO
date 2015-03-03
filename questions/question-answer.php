@@ -21,7 +21,7 @@
     // check for errors
     if (!empty($question_row))
     {
-      $currenttime = time(); // in php unixtimestamp format
+      //use time() for current time directly ,in php unixtimestamp format
       // when the lecturer presses the start button starttime is set to current time on the server
       // otherwise is NULL
       $starttime = $question_row-> starttime; // in mySql string format
@@ -108,12 +108,12 @@
         $visible = true;
 
         // also if endtime has not arrived yet -> load the timer script
-        if ($currenttime < $endtime)
+        if (time() < $endtime)
         {
           $form_action = "'record_answer.php'";
 
           // load the countdown timer
-          $time_left = $endtime - $currenttime; // until countdown ends
+          $time_left = $endtime - time(); // until countdown ends
           // the action to be performed when countdown ends -> submit the form
           $timer_action = "document.getElementById('answer_form').submit()";
           // $answers = $answers."<input name='answer' type='hidden' value='' />"; // ????

@@ -63,7 +63,11 @@
       $answer = $question_row->get($current_answer); // get the specific answer
       if ($show_given_answers)
       {
-        $is_given_answer = in_array($current_answer, $given_answer);
+        if (!empty($given_answer))
+          $is_given_answer = in_array($current_answer, $given_answer);
+        else
+          $is_given_answer = false;
+          
         if ($is_given_answer)
         {
           $checked = "checked";
