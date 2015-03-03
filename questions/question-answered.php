@@ -61,7 +61,7 @@
         $num_to_select = $_POST['num_to_select']; // from POST or database
         $hidden_post_vars = '';
         $visible = true;
-        $form_action = '';
+        $form_action = "'_blank'";
         $show_given_answers = true;
         $given_answer = $submitted_answer;
         $show_correct_answers = true;
@@ -74,7 +74,7 @@
         // Note: decision depends on lecturer and type of question
         // maybe add question types feature in the future
         $num_given_answers = count($given_answer);
-        if ($num_given_answers == 0)
+        if ($num_given_answers == 0 || empty($submitted_answer))
           $reload = " You have not given any answers!!! <br>";
         else
         {

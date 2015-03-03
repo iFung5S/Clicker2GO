@@ -30,10 +30,11 @@
 
   // echo "chosen input type is: $input_type"; // for debugging -> to remove
 
-
-  if ($show_given_answers)
+  //can change answer while wait for count down to see answer
+  //disabled at q-answered page
+  if ($show_given_answers && !isset($submission_on_time))
   {
-    $disabled = 'readonly';
+    $disabled = 'disabled';
     if ($show_correct_answers)
       $num_answered_correctly = 0;
   }
@@ -42,7 +43,7 @@
 
 
   // create the form, add the hidden_post_vars add start a list for the answers
-  $answers = "<form class='normalTextStyle' id='answer_form' action=$form_action method='POST'>
+  $answers = "<form id='answer_form' action=$form_action method='POST'>
                 $hidden_post_vars
                 <ul style ='list-style-type:none;word-wrap:break-word'>";
 
@@ -54,7 +55,9 @@
   {
     $correct = '';
     $checked = '';
+    $chosen_style = '';
     $current_answer = 'answer' . $i;
+    $empty_value = "<input name='no_answer' type='hidden' value='' />";
     if ($visible)
     {
       $answer = $question_row->get($current_answer); // get the specific answer
@@ -62,10 +65,14 @@
       {
         $is_given_answer = in_array($current_answer, $given_answer);
         if ($is_given_answer)
+        {
           $checked = "checked";
+          if ($current_time > $endtime)
+           { $chosen_style = "style='font-weight:bold;color:red'"; }
+        }
         if ($show_correct_answers && in_array($current_answer, $correct_answer))
         {
-          $correct = "<span style='color:green;'>  (Correct)</span>";
+          $correct = "<script>document.getElementById('$current_answer').style.color='green'</script>";
           if ($is_given_answer)
             $num_answered_correctly++;
         }
@@ -74,16 +81,18 @@
     else
       $answer = "";
 
+
     $N = $numbering_characters[$i-1];
     $answers = $answers .
-                "<li>
+                "<li  id='$current_answer' $chosen_style>
                   <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled />
-                  <label for=$N>$N. $answer $correct </label>
-                </li>";
+                  <label for=$N>$N. $answer </label>
+                </li>$correct";
   }
 
   // create a form submit button at the end and close the list and form tags
-  $answers = $answers . $submit_button . "  </ul>
-                                          </form>";
-
+  $answers = $answers . $empty_value . $submit_button . "</ul> </form>";
+  
+  if (!$visible) { $answers = "<div class='normalTextStyle'>".$answers."</div>"; }
+  
 ?>

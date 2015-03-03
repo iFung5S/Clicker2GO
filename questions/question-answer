@@ -41,9 +41,9 @@
           ##question##
         </p>
 
-        <p>
+        <div>
           ##answers##
-        </p>
+        </div>
 
         <br>
 

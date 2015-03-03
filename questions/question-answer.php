@@ -71,7 +71,8 @@
       // better add column to database where the lecturer decides this
       // depending on the type of question
       $num_to_select = count(explode("|",$question_row-> correct));
-      echo "Number of answers to select: $num_to_select";
+      //don't need tell student
+      //echo "Number of answers to select: $num_to_select";
 
       // vars required for generate_answers.php
       $show_given_answers = false;
@@ -92,7 +93,7 @@
                 <br />" .
                 $reload_button;
         $question = "";
-        $form_action = 'record_answer.php';
+        $form_action = "'record_answer.php'";
         $visible = false;
       }
       else // if countdown has started
@@ -109,7 +110,7 @@
         // also if endtime has not arrived yet -> load the timer script
         if ($currenttime < $endtime)
         {
-          $form_action = 'record_answer.php';
+          $form_action = "'record_answer.php'";
 
           // load the countdown timer
           $time_left = $endtime - $currenttime; // until countdown ends
@@ -126,7 +127,7 @@
         else // if currenttime > endttime, i.e revisiting already answered questions
         {
           // go directly to answered questions. No need to try to record the answer
-          $form_action = 'question-answered.php';
+          $form_action = "'question-answered.php'";
           $info = "Browse and simulate answers - No record";
           $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Show Answers' /></div>";
         }

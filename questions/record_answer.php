@@ -22,7 +22,7 @@
     // the current time is considered as the time that the answer was submitted
     $current_time = time();
 
-    if(isset($_POST['answer']))
+    if(isset($_POST['answer']) || isset($_POST['no_answer']))
     {
       $submitted_answer = $_POST['answer']; // this is an array
 
@@ -54,10 +54,10 @@
                              <input name='num_to_select' type='hidden' value=$num_to_select />";
         $submit_button = '';
 
-        // javascript to redirect to question-answered.php after 5 seconds timout
+        // javascript to redirect to question-answered.php after 3 seconds timout
         // passing all the variables through post
-        $redirection_script = "<span onLoad=setTimeout(redirection, 5000)></span>
-                               <script>
+        $redirection_script = "<script>
+                               setTimeout(redirection, 3000);
                                  function redirection()
                                  {
                                    document.getElementById('answer_form').submit();
@@ -86,7 +86,13 @@
                          ))
                         ->find_one();
 
-          if(empty($check_repeat))
+          //if only 'no_answer' has been set
+          if (isset($_POST['no_answer']) && !isset($_POST['answer']))
+          {
+            $info = "Time up, you didn't choose answer";
+            $submitted_answer = "";
+          }
+          else if(empty($check_repeat))
           {
             // record the answer only if user answers for the first time
             $answer_row = ORM::for_table('answers')->create();
@@ -144,7 +150,7 @@
 
             // define the variables required by generate_answers.php
             $visible = true;
-            $form_action = 'question-answered.php';
+            $form_action = "'question-answered.php'";
             $show_given_answers = true;
             $given_answer = $submitted_answer;
             $show_correct_answers = false;
@@ -164,17 +170,17 @@
             $info = $info .
                     "<br>
                      Please wait a moment. Redirecting to Answers ...
-                     <br>" . $redirection_script;
+                     <br>";
 
             // define the variables required by generate_answers.php
             $visible = true;
-            $form_action = 'question-answered.php';
+            $form_action = "'question-answered.php'";
             $show_given_answers = true;
             $given_answer = $submitted_answer;
             $show_correct_answers = false;
 
             include('generate_answers.php');
-
+            $answers = $answers . $redirection_script;
             // redirect (after a small timout to read the message)
             // to question-answered.php (if possible without javascript) - passing variables as POST
           }
@@ -193,7 +199,7 @@
                    cannot be taken into account for the statistics.
                    <br>
                    Please wait a moment. Redirecting to Answers ...
-                   <br>" . $redirection_script;
+                   <br>" ;
 
           // don't record answer (is like the user has not attended the lecture)
           // don't start timer
@@ -201,13 +207,13 @@
 
           // define the variables required by generate_answers.php
           $visible = true;
-          $form_action = 'question-answered.php';
+          $form_action = "'question-answered.php'";
           $show_given_answers = true;
           $given_answer = $submitted_answer;
           $show_correct_answers = false;
 
           include('generate_answers.php');
-
+          $answers = $answers . $redirection_script;
         }
 
         $placeholder = array("##info##", "##question##", "##answers##",
