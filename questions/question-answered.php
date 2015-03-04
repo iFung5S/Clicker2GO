@@ -99,11 +99,10 @@
       } // if $current_time > $endtime
 
 
-      $comment = "<iframe src='comment.php?qid=$qid'></iframe>";
 
       $placeholder = array("##reload##", "##question##", "##answers##","##graph##"
-                  ,"##comment##","##courseName##","##date##","##qnumber##","##name##");
-      $replace = array($reload, $question, $answers, $graph, $comment,
+                  ,"##qid##","##courseName##","##date##","##qnumber##","##name##");
+      $replace = array($reload, $question, $answers, $graph, $qid,
                         $courseName,$date,$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
 

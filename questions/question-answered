@@ -5,6 +5,27 @@
     <title>Answers | Clicker2GO</title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
     <link rel="stylesheet" href="../style.css">
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script language="javascript">
+    $(document).ready(function(){
+       changepage(1,##qid##);
+      $("#button").click(function(){
+        var comment = document.getElementById("comment").value;
+        $.post("saveComment.php",{comment:comment,qid:"##qid##"},function(){
+        changepage(1,##qid##);
+        $("#comment").val("");
+        });
+      });
+    });
+
+    function changepage(page,qid){
+        $.post("comment.php",{page:page,qid:qid},function(data){
+            $("#comment_list").html(data);
+        });
+    }
+
+
+</script>
   </head>
 
   <body class="homepage">
@@ -48,9 +69,18 @@
            ##graph##
         </div>
         <br/>
-        <div class="normalTextStyle">
-           ##comment##
-        </div>
+    <div class="normalTextStyle">
+     <div style="text-align:left;margin-left:3em">Comments:</div>
+     <div class="comm_input">
+     <textarea placeholder="Your comments here" rows="3" cols="57" name="comment"
+     id="comment"  ></textarea>
+     <div>
+     <div class="button-panel">
+     <button type="button" class="button" id="button" >Submit</button>
+     </div><br>
+     </div>
+     
+     <div id="comment_list"></div>
 
      </div>
   </body>
