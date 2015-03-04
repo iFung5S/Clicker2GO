@@ -1,16 +1,7 @@
 <?php
-session_start();
-
-// Jump to login page if uid not set
-if (!isset($_SESSION['uid'])) {
-        header('Location: ../');
-}
-  $uid = $_SESSION['uid'];
   include_once ('../lib/dbCon.php');
-  $qid = $_POST['qid'];
-  //this file only for include in other, $qid get from parent file
   $pagesize = 10;
-
+  $qid = $_GET['qid'];
   $rows = ORM::for_table('comments')
            ->where('qid',$qid)
            ->order_by_desc('time')
@@ -19,8 +10,8 @@ if (!isset($_SESSION['uid'])) {
     $pages=ceil($rows / $pagesize);
   else
     $pages=0;
-  if (isset($_POST['page'])){
-   $page = intval($_POST['page']);
+  if (isset($_GET['page'])){
+   $page = intval($_GET['page']);
   }
   else{
     $page = 1;
@@ -38,11 +29,8 @@ if (!isset($_SESSION['uid'])) {
               ->limit($pagesize)
               ->offset($offset)
               ->find_many();
-              
-  //form for write comment
-  $comment="";
-           
-           
+  $comment="<input name='qid' type='hidden' value='$qid' /></form>";
+           //<div id=rectangle> </div>";
 if ($pages == 0)
   $comment=$comment."<div style='text-align:center;'>No comments found.</div>";
 else {
@@ -51,20 +39,18 @@ else {
   $bar = $bar. "Page $page of $pages<br />";
   if ($page > 1)
   {
-    $bar = $bar.
-            "<a href='javascript:void(0)' onclick=changepage($first,$qid)>First</a> 
-             <a href='javascript:void(0)' onclick=changepage($prev,$qid)>Prev</a> ";
+    $bar = $bar." <a href='comment.php?page=$first&amp;qid=$qid'>First</a> 
+                          <a href='comment.php?page=$prev&amp;qid=$qid'>Prev</a> ";
   }
     for ($i=1;$i< $page;$i++)
-      $bar = $bar. "<a href='javascript:void(0)' onclick=changepage($i,$qid)>[$i]</a> ";
+      $bar = $bar. "<a href='comment.php?page=$i&amp;qid=$qid'>[$i]</a> ";
     $bar = $bar."[$page]";
     for ($i=$page+1;$i<= $pages;$i++)
-      $bar = $bar. " <a href='javascript:void(0)' onclick=changepage($i,$qid)>[$i]</a> ";
+      $bar = $bar. " <a href='comment.php?page=$i&amp;qid=$qid'>[$i]</a> ";
   if ($page < $pages)
   {
-    $bar = $bar.
-             "<a href='javascript:void(0)' onclick=changepage($next,$qid)>Next</a>
-              <a href='javascript:void(0)' onclick=changepage($last,$qid)>Last</a> ";
+    $bar = $bar." <a href='comment.php?page=$next&amp;qid=$qid'>Next</a>
+                          <a href='comment.php?page=$last&amp;qid=$qid'>Last</a> ";
   }
    $bar = $bar. "</div>";
 
@@ -84,7 +70,6 @@ else {
     else
       $time = date("Y-m-d H:i",$time);
 
-    //comments table -- edit style here
     $comment = $comment.
               "<table style='width:98%'>
               <tr>
@@ -98,5 +83,5 @@ else {
 
   $comment = $comment.$bar;
 }
-echo $comment;
+  echo str_replace("##comment##", $comment, file_get_contents('comment'));
 ?>

@@ -20,5 +20,5 @@ if (!isset($_SESSION['uid'])) {
              ));
   $comments->save();
  }
-  echo "<script>window.location.assign('comment.php?qid=$qid');</script>";
+
 ?>
