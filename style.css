@@ -84,7 +84,7 @@ h4 {
 }
 
 form {
-  padding: 0 1.9em;
+  padding: 0 2em;
 }
 
 .form-item {
@@ -270,6 +270,23 @@ form {
 li
 {
    list-style-type: none;
+}
+
+div
+{
+   margin-bottom:0.5em;
+}
+
+#message_box
+{
+  border: 3px solid #666666;
+  background-color:	#FFDD55;
+  cursor:pointer;
+  font-size: 1em;
+  text-align: center;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list

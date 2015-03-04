@@ -75,7 +75,7 @@
         // maybe add question types feature in the future
         $num_given_answers = count($given_answer);
         if ($num_given_answers == 0 || empty($submitted_answer))
-          $reload = " You have not given any answers!!! <br>";
+          $reload = " No answer submitted <br>";
         else
         {
           $num_correct_answers = count($correct_answer);
@@ -90,9 +90,9 @@
 
 
           if ($is_user_correct)
-            $reload = " You are correct!! <br>";
+            $reload = " Correct! <br>";
           else
-            $reload = " You are wrong. <br>";
+            $reload = " Wrong. <br>";
         }
 
         include('graph.php');

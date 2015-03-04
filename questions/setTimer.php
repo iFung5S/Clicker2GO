@@ -50,7 +50,7 @@
   else if (isset($_POST['extend_timer']))
   {
     $question_row->endtime = date("Y-m-d H:i:s"
-                        , strtotime($question_row->endtime) + $_POST['extend_timer']);
+                        ,strtotime($question_row->endtime) + $_POST['extend_timer']);
     $question_row->save();
   }
         

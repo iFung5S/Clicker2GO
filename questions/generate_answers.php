@@ -45,7 +45,7 @@
   // create the form, add the hidden_post_vars add start a list for the answers
   $answers = "<form id='answer_form' action=$form_action method='POST'>
                 $hidden_post_vars
-                <ul style ='list-style-type:none;word-wrap:break-word'>";
+                <ul>";
 
 
   $numbering_characters="ABCDEF"; // a string of answers numbering
@@ -72,7 +72,7 @@
         {
           $checked = "checked";
           if ($current_time > $endtime)
-           { $chosen_style = "style='font-weight:bold;color:red'"; }
+           { $chosen_style = "<script>document.getElementById('$current_answer').style.color='red';document.getElementById('$current_answer').style.fontWeight='bold'</script>"; }
         }
         if ($show_correct_answers && in_array($current_answer, $correct_answer))
         {
@@ -88,10 +88,10 @@
 
     $N = $numbering_characters[$i-1];
     $answers = $answers .
-                "<li  id='$current_answer' $chosen_style>
+                "<li  id='$current_answer' style='margin-bottom:0.5em'>
                   <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled />
                   <label for=$N>$N. $answer </label>
-                </li>$correct";
+                </li> $chosen_style $correct ";
   }
 
   // create a form submit button at the end and close the list and form tags

@@ -58,11 +58,11 @@
         {
           $isCorrect = "";
           if (in_array('answer'.$i, $correct_answer))
-            $isCorrect = "id='correct'";
+            $isCorrect = "name='correct'";
           $N=$numbering_characters[$i-1];
 
           $answers = $answers .
-                      "<li $isCorrect>$N. $answer</li>";
+                      "<li $isCorrect style='margin-bottom:0.5em'>$N. $answer</li>";
         }
       }
 
@@ -74,7 +74,9 @@
       $time_left = -1; 
     else
       $time_left = strtotime($question_row->endtime) - time(); 
-    $timer_action = "document.getElementById('correct').style.color='green'";
+    $timer_action = "var correct = document.getElementsByName('correct');
+                     for(var i=0;i<correct.length;i++){
+                       correct[i].style.color='green'; }";
     include('timer.php');
   }
   else

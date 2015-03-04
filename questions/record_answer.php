@@ -110,25 +110,16 @@
 
             $answer_row->save();      // to correct
 
-            $info = "Your answer has been recorded";
+            $info = "Answer has been recorded";
           }
           else
           {
-            $info = "You have already submitted an answer on time for this question.
+            $info = "You have already answered on time for this question.
                     <br>
-                    Your submitted answer cannot be modified after the initial submission.";
+                    Recorded answer cannot be changed now.";
             // update the submitted_answers variable to the one previously recorded in the database
             $submitted_answer = explode('|', $check_repeat->answer); // transform to array
 
-            /* alternative legacy mysql connection
-            // connect to mysql
-            include_once ('../lib/sqlconnect.php');
-
-            $query = "SELECT 'answer' FROM `answers` WHERE `qid` = $qid AND `uid` = $uid;";
-            $result = mysqli_query($conn, $query);
-            $result_row = mysqli_fetch_assoc($result);
-            $submitted_answer = explode('|', $result_row['answer']); // in array format
-            */
 
           }
 
@@ -194,10 +185,10 @@
         // but eventually submitted an answer, but after deadline.
         else if (current_time > $endtime + 2)
         {
-          $info = "You have submitted after the question deadline.
+          $info = "Submission after deadline.
                    <br>
-                   The answer you gave cannot be recorded and
-                   cannot be taken into account for the statistics.
+                   Submitted answer will not be recorded and
+                   not be taken into account for the statistics.
                    <br>
                    Please wait a moment. Redirecting to Answers ...
                    <br>" ;

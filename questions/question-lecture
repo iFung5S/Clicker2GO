@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../style.css">
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" >
+    var counter;
     $(document).ready(function(){
        changepage(1,##qid##);
       $("#submit_comm").click(function(){
@@ -73,12 +74,12 @@
         </div>
          <br>
 
-    <p class="normalTextStyle">
+    <p style="margin-left:1.5em">
       ##question##
     </p>
     <br/>
     <form id='answer_form' action=$form_action method='POST'>
-      <ul style ='list-style-type:none;word-wrap:break-word'>
+      <ul>
         ##answers##
       </ul>
     </form>    

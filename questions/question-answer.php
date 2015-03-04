@@ -28,32 +28,6 @@
       // $countdown = $question_row-> countdown; // in seconds, not needed for now
       $endtime = $question_row-> endtime; // in mySql string format
 
-      /*
-      //auto jump for student who has answered question
-      // [Paris] -> not needed because we still want the student to be able
-      // to try again answering the question but without recording the result to database
-      $uid = $_SESSION['uid'];
-      $check_answered = ORM::for_table('answers')
-                      ->where(array(
-                             'qid'=>$qid,
-                             'uid'=>$uid
-                       ))
-                      ->find_one();
-      if (!empty($check_answered)||!empty($endtime) && $currenttime > $endtime)
-      {
-        $answers = "<input name='qid' type='hidden' value='$qid' />
-                    <input name='seq' type='hidden' value='$seq' />
-                    <input name='answer' type='hidden' value='' />
-                    <input type='submit' value='Submit' />
-                    <script>document.getElementById('answer_form').submit()</script>";
-        $placeholder = array("##reload##", "##question##", "##answers##"
-          ,"##timer_script##","##courseName##","##date##","##qnumber##","##name##");
-        $replace = array("", "", $answers, ""
-                       ,$courseName,$date,$seq,"");
-        echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
-      }
-      else {
-      */
 
       $cuid = $question_row->id_cu;
       $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
@@ -88,7 +62,7 @@
       {
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started
-        $reload_button = "<input class='btn_shadow_animate_green' type='button' value='Reload Question' onClick='history.go(0)'>";
+        $reload_button = "<button class='btn_shadow_animate_green' type='button' onClick='history.go(0)'>Reload Question</button>";
         $info = "Please reload when the lecturer starts the timer.
                 <br />" .
                 $reload_button;
@@ -98,8 +72,7 @@
       }
       else // if countdown has started
       {
-        // transform from mysql time string to php unix timestamp
-        // $starttime = strtotime($starttime); // for startime not needed as not used afterwards
+
         $endtime = strtotime($endtime);
 
         // build the question string placeholders
@@ -116,7 +89,6 @@
           $time_left = $endtime - time(); // until countdown ends
           // the action to be performed when countdown ends -> submit the form
           $timer_action = "document.getElementById('answer_form').submit()";
-          // $answers = $answers."<input name='answer' type='hidden' value='' />"; // ????
 
           // timer.php creates the $timer placeholder using $time_left and $timer_action as args
           // $timer also contains the timer javascript script
