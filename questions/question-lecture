@@ -3,17 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>Answer Question | Clicker2GO</title>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="../style.css">
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script language="javascript">
+<script type="text/javascript" >
     $(document).ready(function(){
        changepage(1,##qid##);
-      $("#button").click(function(){
+      $("#submit_comm").click(function(){
         var comment = document.getElementById("comment").value;
         $.post("saveComment.php",{comment:comment,qid:"##qid##"},function(){
         changepage(1,##qid##);
         $("#comment").val("");
+        });
+      });
+      $("#start_timer").click(function(){
+        var countdown = document.getElementById("countdown").value;
+        $.post("setTimer.php",{start_timer:countdown,qid:"##qid##"},function(data){
+        clearTimeout(counter);
+        $("#timer_place").html(data);
+        });
+      });
+      $("#stop_timer").click(function(){
+        $.post("setTimer.php",{stop_timer:"1",qid:"##qid##"},function(data){
+        $("#timer_place").html(data);
+        });
+      });
+      $("#reset_timer").click(function(){
+        $.post("setTimer.php",{reset_timer:"1",qid:"##qid##"},function(data){
+        clearTimeout(counter);
+        $("#timer_place").html(data);
+        });
+      });
+      $("#extend_timer").click(function(){
+        var countdown = document.getElementById("countdown").value;
+        $.post("setTimer.php",{extend_timer:countdown,qid:"##qid##"},function(data){
+        clearTimeout(counter);
+        $("#timer_place").html(data);
         });
       });
     });
@@ -23,8 +48,6 @@
             $("#comment_list").html(data);
         });
     }
-
-
 </script>
   </head>
 
@@ -40,7 +63,7 @@
 
         <h4>QUESTION ##qnumber##</h4>
         <br>
-        <div class="form-wrapper">
+   <div class="form-wrapper">
         <br>
         <div  class="normalTextStyle">
            <span><a href='../index.php'>Home</a></span>>
@@ -48,7 +71,7 @@
            <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
            <span>Question ##qnumber## </span>
         </div>
-     <br>
+         <br>
 
     <p class="normalTextStyle">
       ##question##
@@ -59,23 +82,32 @@
         ##answers##
       </ul>
     </form>    
-    <br>
-     <div style="text-align:left;margin-left:2em">
-      ##setTime##
+    <br><br>
+    
+     <div style="text-align:left;margin-left:2em" class="timer_ctrl">
+     <span>Timer <span id="timer_place">##timer##</span></span>
+     &nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="button" id="stop_timer" >Stop timer</button>
+       <button type="button" id="reset_timer" >Reset timer</button><br>
+       <input type="text" value ="##default##" id="countdown" style="width:40px"/>s
+       <button type="button" id="start_timer" >Start timer</button>
+       <button type="button" id="extend_timer" >Extend timer</button>
     </div><br/>
+    
     <div class="normalTextStyle">
       ##graph##
     </div><br/>
+    
     <div class="normalTextStyle">
      <div style="text-align:left;margin-left:3em">Comments:</div>
      <div class="comm_input">
      <textarea placeholder="Your comments here" rows="3" cols="57" name="comment"
      id="comment"  ></textarea>
-     <div>
-     <div class="button-panel">
-     <button type="button" class="button" id="button" >Submit</button>
-     </div><br>
      </div>
+     <div class="button-panel">
+     <button type="button" class="button" id="submit_comm" >Submit</button>
+     </div><br>
+    </div>
      
      <div id="comment_list"></div>
   </div>

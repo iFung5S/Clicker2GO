@@ -1,14 +1,14 @@
-<span onLoad='timer();' id='timer'></span>
-<script>
+<span id="timer" ></span>
+<script type="text/javascript">
   var count = ##time_left##;
-  var counter = setInterval(timer, 1000);
+  var counter;
   var message = '';
+  timer();
   function timer()
   {
-    count -= 1;
     if (count < 0)
     {
-      clearInterval(counter);
+      clearTimeout(counter);
       message = 'Ended.';
       document.getElementById('timer').innerHTML = message;
       ##timer_action##
@@ -31,8 +31,9 @@
           hours = '0' + hours;
         message = hours + ':' + message; // Print hours only if > 0
       }
+     counter = setTimeout("timer()", 1000);
     }
   document.getElementById('timer').innerHTML = message;
+  count -= 1;
   }
 </script>
-

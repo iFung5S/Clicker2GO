@@ -67,13 +67,25 @@
       }
 
     include('graph.php');
-    include('setTimer.php');
+    
+  if ($question_row->starttime != NULL)
+  {
+    if (strtotime($question_row->endtime) <= time())
+      $time_left = -1; 
+    else
+      $time_left = strtotime($question_row->endtime) - time(); 
+    $timer_action = "document.getElementById('correct').style.color='green'";
+    include('timer.php');
+  }
+  else
+    $timer ="not start"; 
+  $default = $question_row->countdown;
     
 
-    $placeholder = array("##graph##", "##question##", "##answers##","##setTime##",
-                   "##qid##","##courseName##","##date##","##qnumber##","##name##");
-    $replace = array($graph, $question, $answers,$set_timer,$qid,$courseName,$date
-                       ,$seq,$_SESSION['name']);
+    $placeholder = array("##graph##", "##question##", "##answers##","##timer##",
+      "##default##","##qid##","##courseName##","##date##","##qnumber##","##name##");
+    $replace = array($graph, $question, $answers,$timer,$default
+                ,$qid,$courseName,$date,$seq,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 
   //for errors
