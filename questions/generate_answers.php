@@ -89,9 +89,10 @@
     $N = $numbering_characters[$i-1];
     $answers = $answers .
                 "<li  id='$current_answer' style='margin-bottom:0.5em'>
-                  <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled />
-                  <label for=$N>$N. $answer </label>
-                </li> $chosen_style $correct ";
+                 <span style='float:left'>
+                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></span>
+                <div style='margin-left:2.8em'><label for=$N>$answer</label>
+                </div></li> $chosen_style $correct ";
   }
 
   // create a form submit button at the end and close the list and form tags
