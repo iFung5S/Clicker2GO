@@ -88,8 +88,8 @@
     $N = $numbering_characters[$i-1];
     $answers = $answers .
                 "<div  id='$current_answer' style='margin-bottom:0.5em'>
-                 <span style='float:left' id='$i'>
-                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></span>
+                 <p style='float:left' id='$i'>
+                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></p>
                 <div style='margin-left:2.8em'><label for=$N>$answer</label>
                 </div></div> $chosen_style $correct ";
   }
