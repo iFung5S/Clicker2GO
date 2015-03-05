@@ -261,7 +261,6 @@ form {
 }
 /*end*/
 
-
 .textMiddle
 {
    text-align: center;
@@ -280,8 +279,7 @@ div
 #message_box
 {
   border: 3px solid #666666;
-  background-color:	#FFDD55;
-  cursor:pointer;
+  background-color: #FFDD55;
   font-size: 1em;
   text-align: center;
   width:80%;

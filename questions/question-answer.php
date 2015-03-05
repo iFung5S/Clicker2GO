@@ -100,7 +100,7 @@
         {
           // go directly to answered questions. No need to try to record the answer
           $form_action = "'question-answered.php'";
-          $info = "Browse and simulate answers - No record";
+          $info = "Question has ended. Your answer will not be recorded.";
           $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Show Answers' /></div>";
         }
 
@@ -120,16 +120,15 @@
     }
     else // if question_row is empty
     {
-      $information = "The question with id '$qid' does not exist.";
+      $information = "Question ID '$qid' does not exist.";
       $placeholder = array("##information##","##name##");
       $replace = array($information,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('error'));
     }
-
   }
   else // if $_GET['qid'] is not set
   {
-    $information = "The question id is empty. Please provide a question id (?qid=)";
+    $information = "No question ID set. Please provide a question ID (?qid=).";
     $placeholder = array("##information##","##name##");
     $replace = array($information,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('error'));
