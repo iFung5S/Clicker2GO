@@ -88,8 +88,8 @@
     $N = $numbering_characters[$i-1];
     $answers = $answers .
                 "<div  id='$current_answer' style='margin-bottom:0.5em'>
-                 <p style='float:left' id='$i'>
-                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></p>
+                 <span style='float:left' id='$i'>
+                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></span>
                 <div style='margin-left:2.8em'><label for=$N>$answer</label>
                 </div></div> $chosen_style $correct ";
   }
@@ -101,7 +101,7 @@
   { 
     $answers = "<div class='normalTextStyle'>".$answers."</div><script>";  
     for ($i=1; $i<=$num_answers; $i++)
-      $answers = $answers."document.getElementById('$i').style.float='none';";
+      $answers = $answers."document.getElementById('$i').style.cssFloat='none';";
     $answers = $answers."</script>"; 
   }
   
