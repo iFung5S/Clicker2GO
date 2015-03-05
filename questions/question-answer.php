@@ -58,7 +58,7 @@
       $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit'></div>";
 
 
-      if (is_null($starttime))  // countdown has not been started yet by the lecturer
+      if (is_null($starttime) || time() < strtotime($starttime))  // countdown has not been started yet by the lecturer
       {
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started

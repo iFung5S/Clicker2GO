@@ -89,7 +89,7 @@
     $N = $numbering_characters[$i-1];
     $answers = $answers .
                 "<li  id='$current_answer' style='margin-bottom:0.5em'>
-                 <span style='float:left'>
+                 <span style='float:left' name='label'>
                  <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></span>
                 <div style='margin-left:2.8em'><label for=$N>$answer</label>
                 </div></li> $chosen_style $correct ";
@@ -98,6 +98,12 @@
   // create a form submit button at the end and close the list and form tags
   $answers = $answers . $empty_value . $submit_button . "</ul> </form>";
   
-  if (!$visible) { $answers = "<div class='normalTextStyle'>".$answers."</div>"; }
+  if (!$visible) 
+  { 
+    $answers = "<div class='normalTextStyle'>".$answers."</div>
+                <script>var label = document.getElementsByName('label');
+                        for(var i=0;i<label.length;i++){
+                          label[i].style.float='none'; }</script>"; 
+  }
   
 ?>

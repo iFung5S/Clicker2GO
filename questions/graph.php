@@ -1,5 +1,14 @@
 <?php
 
+  session_start();
+  if (!isset($_SESSION['uid']))
+  {
+          header('Location: ../');
+  }
+
+  include_once ('../lib/dbCon.php');
+
+  $qid = $_POST['qid'];
   $counts = array();
   $correct = array();
   $labels =array("answer1"=>"A",
@@ -42,7 +51,7 @@
   $table = json_encode($counts);
 
   $place = array("##table##", "##correct##");
-  $change = array($table, $correct);
-  $graph = str_replace($place, $change, file_get_contents('graph'));
+  $change = array($table, $correct); $graph="";
+  echo str_replace($place, $change, file_get_contents('graph'));
 
  ?>

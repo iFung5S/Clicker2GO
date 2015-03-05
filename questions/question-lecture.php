@@ -68,8 +68,7 @@
         }
       }
 
-    include('graph.php');
-    
+
   if ($question_row->starttime != NULL)
   {
     if (strtotime($question_row->endtime) <= time())
@@ -86,9 +85,9 @@
   $default = $question_row->countdown;
     
 
-    $placeholder = array("##graph##", "##question##", "##answers##","##timer##",
+    $placeholder = array("##question##", "##answers##","##timer##",
       "##default##","##qid##","##courseName##","##date##","##qnumber##","##name##");
-    $replace = array($graph, $question, $answers,$timer,$default
+    $replace = array($question, $answers,$timer,$default
                 ,$qid,$courseName,$date,$seq,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 

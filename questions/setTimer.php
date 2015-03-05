@@ -6,19 +6,9 @@
   {
           header('Location: ../');
   }
-  else
-  {
-    $uid = $_SESSION['uid'];
 
-    include_once ('../lib/dbCon.php');
-    // check if user is a lecturer (user type = 2)
-    $is_lecturer = ORM::for_table('u_type')
-                        ->where(array(
-                               'uid'=>$uid,
-                               'id_t'=>2
-                         ))
-                        ->find_one();
-  }
+  include_once ('../lib/dbCon.php');
+
   $qid = $_POST['qid'];
   $question_row = ORM::for_table('questions')-> find_one($qid);
 

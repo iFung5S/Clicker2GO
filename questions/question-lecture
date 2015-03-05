@@ -6,50 +6,8 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="../style.css">
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" >
-    var counter;
-    $(document).ready(function(){
-       changepage(1,##qid##);
-      $("#submit_comm").click(function(){
-        var comment = document.getElementById("comment").value;
-        $.post("saveComment.php",{comment:comment,qid:"##qid##"},function(){
-        changepage(1,##qid##);
-        $("#comment").val("");
-        });
-      });
-      $("#start_timer").click(function(){
-        var countdown = document.getElementById("countdown").value;
-        $.post("setTimer.php",{start_timer:countdown,qid:"##qid##"},function(data){
-        clearTimeout(counter);
-        $("#timer_place").html(data);
-        });
-      });
-      $("#stop_timer").click(function(){
-        $.post("setTimer.php",{stop_timer:"1",qid:"##qid##"},function(data){
-        $("#timer_place").html(data);
-        });
-      });
-      $("#reset_timer").click(function(){
-        $.post("setTimer.php",{reset_timer:"1",qid:"##qid##"},function(data){
-        clearTimeout(counter);
-        $("#timer_place").html(data);
-        });
-      });
-      $("#extend_timer").click(function(){
-        var countdown = document.getElementById("countdown").value;
-        $.post("setTimer.php",{extend_timer:countdown,qid:"##qid##"},function(data){
-        clearTimeout(counter);
-        $("#timer_place").html(data);
-        });
-      });
-    });
-
-    function changepage(page,qid){
-        $.post("comment.php",{page:page,qid:qid},function(data){
-            $("#comment_list").html(data);
-        });
-    }
-</script>
+<script type="text/javascript">qid = ##qid##;</script>
+<script type="text/javascript" src="plugin.js"></script>
   </head>
 
   <body class="homepage" >
@@ -78,7 +36,7 @@
       ##question##
     </p>
     <br/>
-    <form id='answer_form' action=$form_action method='POST'>
+    <form id='answer_form' action="" method='POST'>
       <ul>
         ##answers##
       </ul>
@@ -95,8 +53,8 @@
        <button type="button" id="extend_timer" >Extend timer</button>
     </div><br/>
     
-    <div class="normalTextStyle">
-      ##graph##
+    <div class="normalTextStyle" id="graph">
+      Graph will be load after timer ended
     </div><br/>
     
     <div class="normalTextStyle">
