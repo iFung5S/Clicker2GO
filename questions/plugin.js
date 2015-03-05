@@ -1,5 +1,4 @@
     var counter;
-    var started;
     $(document).ready(function(){
        changepage(1,qid);
       $("#submit_comm").click(function(){
@@ -15,7 +14,6 @@
         clearTimeout(counter);
         $("#timer_place").html(data);
         });
-        started == 1;
         clearTimeout(graph);
         graph = setTimeout("loadGraph()",countdown*1000+1000);
       });
@@ -44,8 +42,13 @@
         graph = setTimeout("loadGraph()",count*1000+2000);
         });
       });
-      if (count < 0)
+      if (!(typeof(student) == "undefined"))
         loadGraph();
+      else if (count > 0)
+        graph = setTimeout("loadGraph()",count*1000+2000);
+      else
+        loadGraph();
+
     });
 
     function changepage(page,qid){

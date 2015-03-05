@@ -95,14 +95,13 @@
             $reload = " Wrong. <br>";
         }
 
-        include('graph.php');
       } // if $current_time > $endtime
 
 
 
-      $placeholder = array("##reload##", "##question##", "##answers##","##graph##"
+      $placeholder = array("##reload##", "##question##", "##answers##"
                   ,"##qid##","##courseName##","##date##","##qnumber##","##name##");
-      $replace = array($reload, $question, $answers, $graph, $qid,
+      $replace = array($reload, $question, $answers, $qid,
                         $courseName,$date,$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
 
