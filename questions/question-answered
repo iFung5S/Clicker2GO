@@ -54,7 +54,7 @@
      <textarea placeholder="Your comments here" rows="3" cols="57" name="comment" id="comment"></textarea>
      </div>
      <div class="button-panel">
-     <button type="button" class="button" id="button" >Submit</button>
+     <button type="button" class="button" id="submit_comm" >Submit</button>
      </div>
      <br />
      </div>
