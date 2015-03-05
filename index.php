@@ -77,9 +77,14 @@ if (!isset($_SESSION['uid'])) {
     $add_course = $add_course . "</select><br />";
   }
   else {
-    $add_course = $add_course . "<input type='text' name='courseName' required/><br />";
-    if(isset($_GET['err']) && $_GET['err'] == 1) {
-      $add_course = $add_course . "<p><span class='error'>Course Name must be alphanumeric.</span></p>"; }
+    $add_course = $add_course . "<div class='form-item'><input type='text' id='courseName' name='courseName' placeholder='New Course Name' required/></div>";
+    if(isset($_GET['err']) && $_GET['err'] == 1)
+    {
+      $add_course = $add_course . "<p><span class='error'>Course Name must be alphanumeric.</span></p>";
+      $selected = "<script>document.getElementById('courseName').select();</script>";
+    }
+   else
+      $selected = "";
   }
 
 if ($type == 'Administrator')
@@ -89,7 +94,7 @@ else
 
 
 $placeholder = array("##name##", "##list_course##", "##add_course##", "##admin_panel##");
-$replace = array($name, $list_course, $add_course, $admin);
+$replace = array($name, $list_course, $add_course.$selected, $admin);
 
 echo str_replace($placeholder, $replace, file_get_contents('index'));
 

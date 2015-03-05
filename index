@@ -24,25 +24,20 @@
      <br>
 
        <div class="form-wrapper">
-
+          <br />
           <p class="textMiddle">##admin_panel##</p>
-
-          <br>
-          <br>
-
+          <br />
           <!-- LIST OF ALL COURSES -->
           <ul class='list'>##list_course##</ul>
-          <br/>
+          <br />
           <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
-
-             <br>
-
+             <br />
              <!-- FOR STUDENT: SELECT COURSE -->
              ##add_course##
 
              <!-- ADD COURSE BUTTON -->
              <div class="button-panel">
-                <input type="submit" class="button" value="Add Course"/>
+                <input type="submit" class="button" value="Add Course" />
              </div>
 
           </form>

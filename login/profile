@@ -34,7 +34,7 @@
 </tr>
 <tr>
 <td>Password:</td>
-<td style="align:left;"><button onClick="window.open('password.php','_blank','location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');">Change Password</button></td>
+<td style="align:left;"><button class="btn_shadow_animate_orange" onClick="window.open('password.php','_blank','location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');">Change Password</button></td>
 </tr>
 <tr>
 <td>Account Type:</td>
