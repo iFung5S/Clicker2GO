@@ -44,8 +44,7 @@
 
   // create the form, add the hidden_post_vars add start a list for the answers
   $answers = "<form id='answer_form' action=$form_action method='POST'>
-                $hidden_post_vars
-                <ul>";
+                $hidden_post_vars";
 
 
   $numbering_characters="ABCDEF"; // a string of answers numbering
@@ -88,22 +87,22 @@
 
     $N = $numbering_characters[$i-1];
     $answers = $answers .
-                "<li  id='$current_answer' style='margin-bottom:0.5em'>
-                 <span style='float:left' name='label'>
+                "<div  id='$current_answer' style='margin-bottom:0.5em'>
+                 <span style='float:left' id='$i'>
                  <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></span>
                 <div style='margin-left:2.8em'><label for=$N>$answer</label>
-                </div></li> $chosen_style $correct ";
+                </div></div> $chosen_style $correct ";
   }
 
   // create a form submit button at the end and close the list and form tags
-  $answers = $answers . $empty_value . $submit_button . "</ul> </form>";
+  $answers = $answers . $empty_value . $submit_button . "</form>";
   
   if (!$visible) 
   { 
-    $answers = "<div class='normalTextStyle'>".$answers."</div>
-                <script>var label = document.getElementsByName('label');
-                        for(var i=0;i<label.length;i++){
-                          label[i].style.float='none'; }</script>"; 
+    $answers = "<div class='normalTextStyle'>".$answers."</div><script>";  
+    for ($i=1; $i<=$num_answers; $i++)
+      $answers = $answers."document.getElementById('$i').style.float='none';";
+    $answers = $answers."</script>"; 
   }
   
 ?>
