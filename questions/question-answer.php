@@ -60,7 +60,7 @@
       {
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started
-        $reload_button = "<span class='button-panel'><button class='button' type='button' onClick='history.go(0)'>Reload Question</button></span>";
+        $reload_button = "<span class='button-panel'><button class='btn_shadow_animate_orange' type='button' onClick='history.go(0)'>Reload Question</button></span>";
         $info = "Question has not started yet. Please reload when the timer starts.
                 <br />" . $reload_button;
         $question = "";

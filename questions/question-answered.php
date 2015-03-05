@@ -90,7 +90,7 @@
           if ($is_user_correct)
             $reload = " You answered correctly. <br />";
           else
-            $reload = " Answer incorrect. <br />";
+            $reload = " Answers incorrect. <br />";
         }
       } // if $current_time > $endtime
 
