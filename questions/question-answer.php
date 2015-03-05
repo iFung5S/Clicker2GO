@@ -55,20 +55,18 @@
                            <input name='seq' type='hidden' value='$seq' />
                            <input name='num_answers' type='hidden' value='$num_answers' />
                            <input name='num_to_select' type='hidden' value='$num_to_select' />";
-      $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit'></div>";
-
 
       if (is_null($starttime) || time() < strtotime($starttime))  // countdown has not been started yet by the lecturer
       {
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started
-        $reload_button = "<button class='btn_shadow_animate_green' type='button' onClick='history.go(0)'>Reload Question</button>";
-        $info = "Please reload when the lecturer starts the timer.
-                <br />" .
-                $reload_button;
+        $reload_button = "<span class='button-panel'><button class='button' type='button' onClick='history.go(0)'>Reload Question</button></span>";
+        $info = "Question has not started yet. Please reload when the timer starts.
+                <br />" . $reload_button;
         $question = "";
         $form_action = "'record_answer.php'";
         $visible = false;
+        $submit_button = "<div class='button-panel'><input class='btn_shadow_animate_grey_disabled' type='submit' value='Submit' disabled></div>";
       }
       else // if countdown has started
       {
@@ -94,7 +92,7 @@
           // $timer also contains the timer javascript script
           include('timer.php');
           $info = $timer;
-
+          $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit'></div>";
         }
         else // if currenttime > endttime, i.e revisiting already answered questions
         {
@@ -128,7 +126,7 @@
   }
   else // if $_GET['qid'] is not set
   {
-    $information = "No question ID set. Please provide a question ID (?qid=).";
+    $information = "No question ID set. Please provide a question ID.";
     $placeholder = array("##information##","##name##");
     $replace = array($information,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('error'));

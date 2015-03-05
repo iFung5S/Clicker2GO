@@ -67,7 +67,6 @@
         $show_correct_answers = true;
         $submit_button = '';
 
-
         include('generate_answers.php');
 
         // code to decide if the user's answer is taken as correct
@@ -75,7 +74,7 @@
         // maybe add question types feature in the future
         $num_given_answers = count($given_answer);
         if ($num_given_answers == 0 || empty($submitted_answer))
-          $reload = " No answer submitted <br>";
+          $reload = " No answers submitted. <br />";
         else
         {
           $num_correct_answers = count($correct_answer);
@@ -88,38 +87,30 @@
           else
             $is_user_correct = false;
 
-
           if ($is_user_correct)
-            $reload = " Correct! <br>";
+            $reload = " You answered correctly. <br />";
           else
-            $reload = " Wrong. <br>";
+            $reload = " Answer incorrect. <br />";
         }
-
       } // if $current_time > $endtime
-
-
 
       $placeholder = array("##reload##", "##question##", "##answers##"
                   ,"##qid##","##courseName##","##date##","##qnumber##","##name##");
       $replace = array($reload, $question, $answers, $qid,
                         $courseName,$date,$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
-
-
     }
     else // if question_row is empty
     {
-      $information = "The question with id '$qid' does not exist.";
+      $information = "Question ID '$qid' does not exist.";
       $placeholder = array("##information##","##name##");
       $replace = array($information,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('error'));
     }
-
-
   }
   else // if $_POST['qid'] is not set
   {
-    $information = "The question id has not been provided.";
+    $information = "No question ID is set. Please provided a question ID.";
     $placeholder = array("##information##","##name##");
     $replace = array($information,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('error'));

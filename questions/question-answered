@@ -38,7 +38,7 @@
         <br>
         <div id="message_box" onclick="message_box.style.display='none'">
            ##reload##
-        <p style='font-size:12px;color:grey;font-style:italic'>---Click to hide---</p></div>
+        <p style='font-size:12px;color:grey;font-style:italic'>---Click here to close.---</p></div>
         <p style="margin-left:1.5em">
            ##question##
         </p>
@@ -52,12 +52,12 @@
     <div class="normalTextStyle">
      <div style="text-align:left;margin-left:3em">Comments:</div>
      <div class="comm_input">
-     <textarea placeholder="Your comments here" rows="3" cols="57" name="comment"
-     id="comment"  ></textarea>
+     <textarea placeholder="Your comments here" rows="3" cols="57" name="comment" id="comment"></textarea>
      </div>
      <div class="button-panel">
      <button type="button" class="button" id="button" >Submit</button>
-     </div><br>
+     </div>
+     <br />
      </div>
      
      <div id="comment_list"></div>
