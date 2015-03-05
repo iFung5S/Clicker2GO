@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Home | Clicker2GO</title>
 
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="style.css" />
 
   </head>
@@ -25,10 +25,10 @@
 
        <div class="form-wrapper">
           <br />
-          <p class="textMiddle">##admin_panel##</p>
+          <div>##admin_panel##</div>
           <br />
           <!-- LIST OF ALL COURSES -->
-          <ul class='list'>##list_course##</ul>
+          <div class='list'>##list_course##</div>
           <br />
           <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
              <br />

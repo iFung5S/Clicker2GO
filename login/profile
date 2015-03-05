@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>Profile | Clicker2GO</title>
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
 <link rel="stylesheet" href="../style.css" />
 </head>
 <body class="homepage">

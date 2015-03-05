@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Answers | Clicker2GO</title>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="../style.css">
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script type="text/javascript">qid = ##qid##; student=1;</script>

@@ -230,7 +230,7 @@ form {
   border-bottom: 1px dotted #8c8c8c;
 }
 
-#rectangle {
+.rectangle {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 92px;
@@ -261,14 +261,10 @@ form {
 }
 /*end*/
 
-.textMiddle
-{
-   text-align: center;
-}
 
-li
+.chg_p
 {
-   list-style-type: none;
+   width:100%;
 }
 
 div
@@ -287,12 +283,17 @@ div
   margin-right: auto;
 }
 
+#submit_comm
+{
+  width:60%;
+}
+
+
 .list
 {
    font-weight: bolder;
    text-indent: 27%; /* WAS 17 */
    font-size: 40px;
-   list-style-type: none;
    font-family: Ubuntu, sans-serif;
 }
 

@@ -51,12 +51,13 @@ if(isset($_GET['courseName'])){
   foreach ($questions_id as $each_qid) {
     $qid = $each_qid->id;
     if ($_SESSION['type'] == 'Student'){
-    $questions_list = $questions_list."<li><a href='question-answer.php?seq=$i&qid=$qid'>Question $i</a></li> <div id=rectangle> </div>";}
+    $questions_list = $questions_list."<div style='margin-bottom:0'><a href='question-answer.php?seq=$i&amp;qid=$qid'>Question $i</a></div> 
+    <div class=rectangle> </div>";}
     else {
      $confirm = "javascript:if(confirm('Do you want to remove this question $i? (Rest questions will be re-rodered)'))location='removeQuestion.php?qid=$qid'";
 
-    $questions_list = $questions_list."<li><a href='question-lecture.php?seq=$i&qid=$qid'>Question $i</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li>
-                                         <div id=rectangle> </div>"; }
+    $questions_list = $questions_list."<div style='margin-bottom:0'><a href='question-lecture.php?seq=$i&amp;qid=$qid'>Question $i</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></div><div class=rectangle> </div>"; 
+    }
     $i++;
     }}
   else {
@@ -65,7 +66,7 @@ if(isset($_GET['courseName'])){
       $errorCheck = true;
     }
 
-    $questions_list = "<li>No Questions.<br/>(This page will not be saved if no question are added.)</li>"; 
+    $questions_list = "<div>No Questions.<br/>(This page will not be saved if no question are added.)</div>"; 
   } 
   
   $create_button = "<form method='GET' action='createQuestion.php'>

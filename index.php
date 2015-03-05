@@ -23,7 +23,7 @@ if (!isset($_SESSION['uid'])) {
   $list_course = "";
   $exist = $courses->count();
   if ($exist == 0){
-   $list_course = '<li>No courses now.</li>';
+   $list_course = '<div>No courses now.</div>';
   }
   else {
 
@@ -46,7 +46,7 @@ if (!isset($_SESSION['uid'])) {
         }
       }
 
-      $list_course = $list_course . "<li><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <span class='redCross'><a href='#' onClick=\"$confirm\">x</a></span></li> <div id=rectangle> </div>";
+      $list_course = $list_course . "<div style='margin-bottom:0'><a href='questions/datePage.php?courseName=$courseName'>$courseName</a> <span class='redCross'><a href='#' onClick=\"$confirm\">x</a></span></div> <div class=rectangle> </div>";
       }
   }
 
@@ -75,6 +75,7 @@ if (!isset($_SESSION['uid'])) {
       $add_course = $add_course . ">$courseName</option>";
     }
     $add_course = $add_course . "</select><br />";
+    $selected = "";
   }
   else {
     $add_course = $add_course . "<div class='form-item'><input type='text' id='courseName' name='courseName' placeholder='New Course Name' required/></div>";

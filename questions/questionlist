@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Questions | Clicker2GO</title>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="../style.css">
 
   </head>
@@ -32,7 +32,7 @@
   
          <br/>
 
-         <ol class='list'>##questions_list##</ol>
+         <div class='list'>##questions_list##</div>
          <div class="normalTextStyle">##create_question##</div>
          <br/>
       </div>

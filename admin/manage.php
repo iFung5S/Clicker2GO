@@ -17,7 +17,7 @@
 
   if (!empty($users))
   {
-    $table = $table . "<table border='1' width='100%'>";
+    $table = $table . "<table border='1' class='chg_p'>";
     $table = $table . "<tr><th>Username</th><th>Name</th><th>Account Type</th><th>Courses</th></tr>";
   }
 

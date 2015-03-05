@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8">
   <title>Dates | Clicker2GO</title>
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
   <link rel="stylesheet" href="../style.css">
 
  </head>
@@ -29,7 +29,7 @@
 
         <br>
 
-        <ul class='list'>##date_list##</ul> 
+        <div class='list'>##date_list##</div> 
          <div class="normalTextStyle"> ##add_date## </div>
       <br/>
      </div>

@@ -44,7 +44,7 @@ if (!isset($_SESSION['uid'])) {
            
            
 if ($pages == 0)
-  $comment=$comment."<div style='text-align:center;'>No comments found.</div>";
+  $comment=$comment."<div style='text-align:center;'>No comments found.</div><br>";
 else {
 
   $bar =" <div style='text-align:center;'>";
@@ -86,7 +86,7 @@ else {
 
     //comments table -- edit style here
     $comment = $comment.
-              "<table style='width:98%'>
+              "<table style='width:90%;margin-left:auto;margin-right: auto;'>
               <tr>
               <td bgcolor='#E0E0E0' style='vertical-align:top;width:25%'>$name</td>
               <td bgcolor='#E0E0E0' style='text-align:left;width:75%'>$content</td>
@@ -96,7 +96,7 @@ else {
               </tr></table><br/>";
   }
 
-  $comment = $comment.$bar;
+  $comment = $comment.$bar."<br>";
 }
 echo $comment;
 ?>
