@@ -29,7 +29,7 @@ if(isset($_GET['courseName'])){
               ->find_many();
   $date_list = "";
 
-  if ($all_date->count() != 0) 
+  if ($all_date->count() != 0)
   {
     foreach ($all_date as $each_date)
     {
@@ -39,7 +39,7 @@ if(isset($_GET['courseName'])){
 
       //for remove date
       if ($_SESSION['type'] != 'Student') {
-        $confirm = "javascript:if(confirm('Do you want to remove date $date? (Also related questions)'))location='removeQuestion.php?courseName=$courseName&date=$date'";
+        $confirm = "javascript:if(confirm('Do you want to remove date $date and associated questions?'))location='removeQuestion.php?courseName=$courseName&date=$date'";
         $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></li>
                                  <div id=rectangle> </div>";
       }
@@ -50,12 +50,12 @@ if(isset($_GET['courseName'])){
       else
       {
         $date_list = $date_list."<li><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a></li><div id=rectangle> </div>";
-      }    
-    } 
+      }
+    }
   }
-  else 
+  else
   {
-    $date_list = "<li>No content</li>";
+    $date_list = "<li>No content.</li>";
   }
 
   $button = "<form method='GET' action='questionlist.php'>
@@ -63,8 +63,8 @@ if(isset($_GET['courseName'])){
              <input type='text' name='date' placeholder='YYYY-MM-DD' required/>
              <input type='submit' class='button' value='Add Date'/></form>";
 
-  if(isset($_GET['err']) && $_GET['err'] == 1) { 
-    $button = $button."<p><span class='error'>wrong date format</span></p>"; 
+  if(isset($_GET['err']) && $_GET['err'] == 1) {
+    $button = $button."<p><span class='error'>Incorrect date format.</span></p>";
   }
 
 $placeholder = array("##courseName##","##date_list##", "##add_date##","##name##");
@@ -72,14 +72,14 @@ $replace = array($courseName,$date_list, "",$_SESSION['name']);
 
   if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date_list,$button,$_SESSION['name']);
-  } 
+  }
 
   echo str_replace($placeholder, $replace, file_get_contents('datePage'));
 
 //for errors
  }
  else {
-  $information = "The course '$courseName' is not exist.";
+  $information = "The course '$courseName' does not exist.";
   $placeholder = array("##information##","##name##");
   $replace = array($information,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('error'));
