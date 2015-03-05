@@ -58,7 +58,7 @@
         {
           $isCorrect = "";
           if (in_array('answer'.$i, $correct_answer))
-            $isCorrect = "name='correct'";
+            $isCorrect = "id='answer'.$i";
           $N=$numbering_characters[$i-1];
 
           $answers = $answers .
@@ -74,10 +74,10 @@
     if (strtotime($question_row->endtime) <= time())
       $time_left = -1; 
     else
-      $time_left = strtotime($question_row->endtime) - time(); 
-    $timer_action = "var correct = document.getElementsByName('correct');
-                     for(var i=0;i<correct.length;i++){
-                       correct[i].style.color='green'; }";
+      $time_left = strtotime($question_row->endtime) - time();
+    $timer_action = ""; 
+    foreach ($correct_answer as $id)
+      $timer_action = $timer_action."document.getElementById('$id').style.color='green';";
     include('timer.php');
   }
   else
