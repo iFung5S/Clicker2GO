@@ -62,9 +62,9 @@
           $N=$numbering_characters[$i-1];
 
           $answers = $answers .
-                      "<li $isCorrect style='margin-bottom:0.5em'>
+                      "<div $isCorrect style='margin-bottom:0.5em'>
                       <span style='float:left'>$N. </span>
-                      <div style='margin-left:1.8em'>$answer</div></li>";
+                      <div style='margin-left:1.8em'>$answer</div></div>";
         }
       }
 

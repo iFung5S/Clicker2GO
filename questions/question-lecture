@@ -37,9 +37,7 @@
     </p>
     <br/>
     <form id='answer_form' action="" method='POST'>
-      <ul>
         ##answers##
-      </ul>
     </form>    
     <br><br>
     
