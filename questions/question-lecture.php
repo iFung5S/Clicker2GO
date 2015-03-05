@@ -58,7 +58,7 @@
         {
           $isCorrect = "";
           if (in_array('answer'.$i, $correct_answer))
-            $isCorrect = "id='answer'.$i";
+            $isCorrect = "id='answer$i'";
           $N=$numbering_characters[$i-1];
 
           $answers = $answers .
