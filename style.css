@@ -43,6 +43,14 @@ body.homepage
   box-shadow: -8px 8px 5px #8b8b8b;
 }
 
+us {
+  font-family: Ubuntu, sans-serif;
+}
+
+padding4 {
+  padding-right: 4px;
+}
+
 h1 {
   text-align: center;
   padding: 25px 0;
@@ -414,6 +422,27 @@ a:active {
 }
 
 .btn_shadow_animate_orange:hover {
+  background: #E18700;
+}
+
+.btn_shadow_animate_orange_small {
+  padding-right: 25px;
+  padding-left: 25px;
+  background: #FFA500;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn_shadow_animate_orange_small:hover {
   background: #E18700;
 }
 
