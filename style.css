@@ -351,6 +351,13 @@ a:active {
   margin-left:0.5em;
 }
 
+.rightStyleHome {
+  font-size: 50px;
+  float: right;
+  margin-top:0.15em;
+  margin-right:0.5em;
+}
+
 #banner
 {
   position: fixed;

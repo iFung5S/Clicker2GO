@@ -15,6 +15,8 @@
         <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
         <h3 class="leftStyle"> CLICKER2GO </h3> </a>
         <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a>  <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button></p> 
+        <a href="index.php">
+           <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px">
      </div>
 
      <h4>##courseName##</h4>
