@@ -1,0 +1,446 @@
+/* BACKGROUND FOR HOMEPAGE */
+body.homepage
+{  
+  background: url('images/studentsBg.png') no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}
+
+/* RED COLOR */
+.error
+{
+   color: #FF0000;
+}
+
+/* GREEN COLOR */
+.correct
+{
+   color: #009900;
+}
+
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Form Layout */
+.form-wrapper {
+  background: #fafafa;
+  margin: 0em auto; /* WAS margin: 10em auto; */
+  padding: 0 1em;
+  max-width: 580px; /* WAS 370px */
+  box-shadow: -8px 8px 5px #8b8b8b;
+}
+
+us {
+  font-family: Ubuntu, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  padding: 25px 0;
+  font-size: 35px;
+  color: #1c1c1c;
+  font-weight: 900;
+  font-family: Ubuntu, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 900;
+  font-family: Ubuntu, sans-serif;
+}
+
+h3 {
+  text-align: center;
+  font-size: 35px;
+  color: #1c1c1c;
+  font-weight: 900;
+  font-family: Ubuntu, sans-serif;
+}
+
+h4 {
+  margin-top: 110px;
+  font-size: 43px;
+  text-align: center;
+  font-weight: 900;
+  font-family: Ubuntu, sans-serif;
+  /*font-family: 'Ubuntu', Helvetica, Arial, sans-serif;*/
+  /*font-family: "Arial"*/
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("http://fonts.gstatic.com/s/ubuntu/v7/trnbTfqisuuhRVI3i45C5w.woff"), format("woff");
+}
+
+form {
+  padding: 0 2em;
+}
+
+.form-item {
+  margin-bottom: 0.8em;
+  width: 100%;
+}
+
+.form-item input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  height: 40px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+/*register*/
+.r_button-panel {
+  margin: 1em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #61eb68;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+/*register just use login change color*/
+.btn_shadow_animate_grey {
+  background: #AAAAAA;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn_shadow_animate_grey_disabled {
+  background: #AAAAAA;
+  border: none;
+  color: #fff;
+  cursor: default;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.btn_shadow_animate_green {
+  background: #61eb68;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+/*end*/
+
+.button:hover {
+  background: #3acc45;
+}
+
+/*register*/
+.r_button-panel1 { 
+  margin: 1em 0 0;
+  width: 20%;
+}
+
+.logoutButton {
+  background: #FFA500;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  font-size:20px;
+  width:200px;
+  vertical-align:middle;
+}
+.logoutButton:hover {
+  background: #E18700;
+}
+
+.button1:hover {
+  background: #3acc45;
+}
+
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
+}
+
+.rectangle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 92px;
+  width: 350px;
+  height: 2px;
+  background: #e4e4e4;
+}
+
+/*graph content style*/
+.bar {
+  fill: #AA0000;
+}
+
+
+.axis {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis line {
+  display: none;
+}
+/*end*/
+
+
+.chg_p
+{
+   width:100%;
+}
+
+div
+{
+   margin-bottom:0.5em;
+}
+
+#message_box
+{
+  border: 3px solid #666666;
+  background-color: #FFDD55;
+  font-size: 1em;
+  text-align: center;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#submit_comm
+{
+  width:60%;
+}
+
+
+.list
+{
+   font-weight: bolder;
+   text-indent: 27%; /* WAS 17 */
+   font-size: 40px;
+   font-family: Ubuntu, sans-serif;
+}
+
+/*@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
+}*/
+
+.normalTextStyle {
+  font-size: 1em;
+  text-align: center;
+}
+
+.rightStyle {
+  font-size: 50px;
+  float: right;
+  margin-right:0.5em;
+  margin-top:0.1em;
+  font-family: Ubuntu, sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #555555;  
+}
+
+a:active {
+  text-decoration: none;
+  color: #555555;
+}
+
+.leftStyle {
+  font-size: 50px;
+  float: left;
+  margin-top:0.2em;
+  margin-left:0.5em;
+}
+
+.leftStyleLogo {
+  font-size: 50px;
+  float: left;
+  margin-top:0.2em;
+  margin-left:0.5em;
+}
+
+.rightStyleHome {
+  float: right;
+  margin-top:0.15em;
+  margin-right:0.5em;
+}
+
+#banner
+{
+  position: fixed;
+  top: 0px;
+  min-width: 100%;
+  height: 80px;
+  background: #ffffff;
+  box-shadow: -8px 8px 5px #8b8b8b;
+}
+
+.normalSize {
+  font-size: 38px;
+}
+
+.redCross {
+  font-size: 28px;
+  color: #FF0000;
+  text-decoration: none;
+}
+
+.redCross a:link {
+  text-decoration: none;
+  color: #FF0000;
+}
+
+.redCross a:visited {
+  text-decoration: none;
+  color: #FF0000;
+}
+
+.redCross a:hover {
+  text-decoration: none;
+  color: #C00000;  
+}
+
+.redCross a:active {
+  text-decoration: none;
+  color: #C00000;
+}
+
+.btn_shadow_animate_orange {
+  background: #FFA500;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn_shadow_animate_orange:hover {
+  background: #E18700;
+}
+
+.btn_shadow_animate_orange_small {
+  padding-right: 25px;
+  padding-left: 25px;
+  background: #FFA500;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn_shadow_animate_orange_small:hover {
+  background: #E18700;
+}
+
+.btn_shadow_animate_grey:hover {
+  background: #888888;
+}

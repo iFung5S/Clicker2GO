@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Answer Question | Clicker2GO</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
+    <link rel="stylesheet" href="../style.css">
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">qid = ##qid##;</script>
+<script type="text/javascript" src="plugin.js"></script>
+  </head>
+
+  <body class="homepage" >
+       <!-- WHITE BANNER -->
+       <div id=banner>
+             <a href="../index.php">
+       <img class="leftStyle" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+       <h3 class="leftStyle"> CLICKER2GO </h3> </a>
+       <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button></p>
+       </div>
+
+
+        <h4>QUESTION ##qnumber##</h4>
+        <br>
+   <div class="form-wrapper">
+        <br>
+        <div  class="normalTextStyle">
+           <span><a href='../index.php'>Home</a></span>>
+           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
+           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
+           <span>Question ##qnumber## </span>
+        </div>
+         <br>
+
+    <p style="margin-left:1.5em">
+      ##question##
+    </p>
+    <br/>
+    <form id='answer_form' action="#" method='POST'>
+        ##answers##
+    </form>    
+    <br><br>
+    
+     <div style="text-align:left;margin-left:2em" class="timer_ctrl">
+     <span>Timer <span id="timer_place">##timer##</span></span>
+     &nbsp;&nbsp;&nbsp;&nbsp;
+     <div>
+       <button type="button" class="btn_shadow_animate_orange" style="width:30%;" id="start_timer" onClick="start_timer();">Start timer</button>
+       <button type="button" class="btn_shadow_animate_grey_disabled" style="width:30%;" id="stop_timer" onClick="stop_timer();" disabled>Stop timer</button>
+       <button type="button" class="btn_shadow_animate_grey" style="width:30%;" id="reset_timer">Reset timer</button><br />
+     </div>
+     <div>
+       <button type="button" class="btn_shadow_animate_grey_disabled" style="width:30%;vertical-align:middle;" id="extend_timer" disabled>Extend timer</button> by:
+       <input type="text" value ="##default##" id="countdown" style="width:40px"/> seconds.
+    </div>
+    <br />
+    <div class="normalTextStyle" id="graph">
+      Graph will be load after timer ended
+    </div><br/>
+    
+    <div class="normalTextStyle">
+     <div style="text-align:left;margin-left:3em">Comments:</div>
+     <div class="comm_input">
+     <textarea placeholder="Your comments here" rows="3" cols="57" name="comment" id="comment"></textarea>
+     </div>
+      <div class="button-panel">
+       <button type="button" class="button" id="submit_comm">Submit</button>
+      </div>
+     </div>
+     <br />
+    </div>
+     
+     <div id="comment_list"></div>
+  </div>
+  </body>
+<script>
+  function start_timer() {
+    document.getElementById("start_timer").disabled = true;
+    document.getElementById("start_timer").className="btn_shadow_animate_grey_disabled";
+    document.getElementById("stop_timer").disabled = false;
+    document.getElementById("stop_timer").className="btn_shadow_animate_orange";
+    document.getElementById("extend_timer").disabled = false;
+    document.getElementById("extend_timer").className="btn_shadow_animate_orange";
+  }
+  function stop_timer() {
+    document.getElementById("start_timer").disabled = false;
+    document.getElementById("start_timer").className="btn_shadow_animate_orange";
+    document.getElementById("stop_timer").disabled = true;
+    document.getElementById("stop_timer").className="btn_shadow_animate_grey_disabled";
+    document.getElementById("extend_timer").disabled = true;
+    document.getElementById("extend_timer").className="btn_shadow_animate_grey_disabled";
+  }
+</script>
+</html>
