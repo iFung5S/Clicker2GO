@@ -50,7 +50,7 @@
        <button type="button" class="btn_shadow_animate_grey" style="width:30%;" id="reset_timer">Reset timer</button><br />
      </div>
      <div>
-       <button type="button" class="btn_shadow_animate_orange" style="width:30%;vertical-align:middle;" id="extend_timer">Extend timer</button> by:
+       <button type="button" class="btn_shadow_animate_grey_disabled" style="width:30%;vertical-align:middle;" id="extend_timer" disabled>Extend timer</button> by:
        <input type="text" value ="##default##" id="countdown" style="width:40px"/> seconds.
     </div>
     <br />
@@ -79,12 +79,16 @@
     document.getElementById("start_timer").className="btn_shadow_animate_grey_disabled";
     document.getElementById("stop_timer").disabled = false;
     document.getElementById("stop_timer").className="btn_shadow_animate_orange";
+    document.getElementById("extend_timer").disabled = false;
+    document.getElementById("extend_timer").className="btn_shadow_animate_orange";
   }
   function stop_timer() {
     document.getElementById("start_timer").disabled = false;
     document.getElementById("start_timer").className="btn_shadow_animate_orange";
     document.getElementById("stop_timer").disabled = true;
     document.getElementById("stop_timer").className="btn_shadow_animate_grey_disabled";
+    document.getElementById("extend_timer").disabled = true;
+    document.getElementById("extend_timer").className="btn_shadow_animate_grey_disabled";
   }
 </script>
 </html>
