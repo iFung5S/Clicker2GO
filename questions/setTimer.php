@@ -16,7 +16,7 @@
   {
     $countdown = (int) ($_POST['start_timer']);
     $question_row->countdown = $countdown;
-    
+
     // set the starttime in the database to time=now
     $question_row->starttime = date("Y-m-d H:i:s", time());
     $question_row->endtime = date("Y-m-d H:i:s", time() + $countdown);
@@ -35,28 +35,27 @@
     // set the starttime in the database to NULL
     $question_row->endtime = $question_row->starttime;
     $question_row->save();
-  }      
-      
+  }
+
   else if (isset($_POST['extend_timer']))
   {
     $question_row->endtime = date("Y-m-d H:i:s"
                         ,strtotime($question_row->endtime) + $_POST['extend_timer']);
     $question_row->save();
   }
-        
 
   if ($question_row->starttime != NULL)
   {
     if (strtotime($question_row->endtime) <= time())
-      $time_left = -1; 
+      $time_left = -1;
     else
-      $time_left = strtotime($question_row->endtime) - time(); 
+      $time_left = strtotime($question_row->endtime) - time();
     $timer_action = "document.getElementById('correct').style.color='green'";
     include('timer.php');
   }
   else
-    $timer ="not start"; 
-  
+    $timer ="has not start yet.";
+
   echo $timer;
 
 

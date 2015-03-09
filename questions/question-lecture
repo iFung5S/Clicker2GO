@@ -45,12 +45,12 @@
      <span>Timer <span id="timer_place">##timer##</span></span>
      &nbsp;&nbsp;&nbsp;&nbsp;
      <div>
-       <button type="button" id="start_timer">Start timer</button>
-       <button type="button" id="stop_timer">Stop timer</button>
-       <button type="button" id="reset_timer">Reset timer</button><br />
+       <button type="button" class="btn_shadow_animate_orange" style="width:30%;" id="start_timer" onClick="start_timer();">Start timer</button>
+       <button type="button" class="btn_shadow_animate_grey_disabled" style="width:30%;" id="stop_timer" onClick="stop_timer();" disabled>Stop timer</button>
+       <button type="button" class="btn_shadow_animate_grey" style="width:30%;" id="reset_timer">Reset timer</button><br />
      </div>
      <div>
-       <button type="button" id="extend_timer">Extend timer</button> by:
+       <button type="button" class="btn_shadow_animate_orange" style="width:30%;vertical-align:middle;" id="extend_timer">Extend timer</button> by:
        <input type="text" value ="##default##" id="countdown" style="width:40px"/> seconds.
     </div>
     <br />
@@ -63,12 +63,28 @@
      <div class="comm_input">
      <textarea placeholder="Your comments here" rows="3" cols="57" name="comment" id="comment"></textarea>
      </div>
-     <div class="button-panel">
-     <button type="button" class="button" id="submit_comm" >Submit</button>
-     </div><br>
+      <div class="button-panel">
+       <button type="button" class="button" id="submit_comm">Submit</button>
+      </div>
+     </div>
+     <br />
     </div>
      
      <div id="comment_list"></div>
   </div>
   </body>
+<script>
+  function start_timer() {
+    document.getElementById("start_timer").disabled = true;
+    document.getElementById("start_timer").className="btn_shadow_animate_grey_disabled";
+    document.getElementById("stop_timer").disabled = false;
+    document.getElementById("stop_timer").className="btn_shadow_animate_orange";
+  }
+  function stop_timer() {
+    document.getElementById("start_timer").disabled = false;
+    document.getElementById("start_timer").className="btn_shadow_animate_orange";
+    document.getElementById("stop_timer").disabled = true;
+    document.getElementById("stop_timer").className="btn_shadow_animate_grey_disabled";
+  }
+</script>
 </html>

@@ -9,7 +9,7 @@
     if (count < 0)
     {
       clearTimeout(counter);
-      message = 'Ended.';
+      message = 'has ended.';
       document.getElementById('timer').innerHTML = message;
       ##timer_action##
     }
