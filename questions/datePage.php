@@ -59,9 +59,9 @@ if(isset($_GET['courseName'])){
   }
 
   $button = "<form method='GET' action='questionlist.php'>
-             <input type='hidden' name='courseName' value='$courseName'/><br/>
-             <input type='text' name='date' placeholder='YYYY-MM-DD' required/>
-             <input type='submit' class='button' value='Add Date'/></form>";
+             <input type='hidden' name='courseName' value='$courseName' /><br />
+             <div class='form-item'><input type='text' name='date' placeholder='New Date in YYYY-MM-DD' required /></div>
+             <div class='button-panel'><input type='submit' class='button' value='Add Date' /></div></form>";
 
   if(isset($_GET['err']) && $_GET['err'] == 1) {
     $button = $button."<p><span class='error'>Incorrect date format.</span></p>";
