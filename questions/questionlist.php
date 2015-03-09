@@ -56,7 +56,7 @@ if(isset($_GET['courseName'])){
     else {
      $confirm = "javascript:if(confirm('Do you want to remove this question $i? (Rest questions will be re-rodered)'))location='removeQuestion.php?qid=$qid'";
 
-    $questions_list = $questions_list."<div style='margin-bottom:0'><a href='question-lecture.php?seq=$i&amp;qid=$qid'>Question $i</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></div><div class=rectangle> </div>"; 
+    $questions_list = $questions_list."<div style='margin-bottom:0'><a href='question-lecture.php?seq=$i&amp;qid=$qid'>Question $i</a> <span class='redCross'><a href='#' style='' onclick=\"$confirm\">x</a></div><div class=rectangle></span></div>";
     }
     $i++;
     }}
@@ -66,27 +66,27 @@ if(isset($_GET['courseName'])){
       $errorCheck = true;
     }
 
-    $questions_list = "<div>No Questions.<br/>(This page will not be saved if no question are added.)</div>"; 
-  } 
-  
+    $questions_list = "<div>No Questions.<br/>(This page will not be saved if no question are added.)</div>";
+  }
+
   $create_button = "<form method='GET' action='createQuestion.php'>
-                    <input type='text' name='courseName' style='display:none' value='$courseName'/>
-                    <input type='text' name='date' style='display:none' value='$date'/><br/>
-                    <input type='submit' class='button' value='Create New Question'/></form>";
+                    <input type='text' name='courseName' style='display:none' value='$courseName '/>
+                    <input type='text' name='date' style='display:none' value='$date'/>
+                    <div class='button-panel'><input type='submit' class='button' value='Create New Question'/></div></form>";
 
   $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##","##name##");
   $replace = array($courseName,$date,$questions_list, "",$_SESSION['name']);
 
   if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date,$questions_list,$create_button,$_SESSION['name']);
-  } 
+  }
   if ($errorCheck) {
     $information = "The date '$date' is not exist for '$courseName'.";
 
     $placeholder = array("##information##","##name##");
     $replace = array($information,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('error'));
-  } 
+  }
   else {
     echo str_replace($placeholder, $replace, file_get_contents('questionlist'));
   }

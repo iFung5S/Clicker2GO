@@ -55,7 +55,7 @@ if(isset($_GET['courseName'])){
   }
   else
   {
-    $date_list = "<li>No content.</li>";
+    $date_list = "No content.";
   }
 
   $button = "<form method='GET' action='questionlist.php'>

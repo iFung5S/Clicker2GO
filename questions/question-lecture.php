@@ -72,18 +72,18 @@
   if ($question_row->starttime != NULL)
   {
     if (strtotime($question_row->endtime) <= time())
-      $time_left = -1; 
+      $time_left = -1;
     else
       $time_left = strtotime($question_row->endtime) - time();
-    $timer_action = ""; 
+    $timer_action = "";
     foreach ($correct_answer as $id)
       $timer_action = $timer_action."document.getElementById('$id').style.color='green';";
     include('timer.php');
   }
   else
-    $timer ="not start"; 
+    $timer ="has not started yet.";
   $default = $question_row->countdown;
-    
+
 
     $placeholder = array("##question##", "##answers##","##timer##",
       "##default##","##qid##","##courseName##","##date##","##qnumber##","##name##");

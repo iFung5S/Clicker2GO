@@ -13,9 +13,9 @@
   if(isset($_GET['err']))
   {
     if($_GET['err'] == 1)
-      $message =  "Question cannot only have space.";
+      $message =  "Question cannot consist of space only.";
     else if ($_GET['err'] == 2)
-      $message =  "Answer cannot only have space.";
+      $message =  "Answer cannot consist of space only.";
   }
   else
   $message = "<br/>";
