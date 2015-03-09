@@ -20,6 +20,7 @@
        <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button></p>
         <a href="index.php">
            <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px">
+        </a>
      </div>
 
      <h4>ANSWERS</h4>
