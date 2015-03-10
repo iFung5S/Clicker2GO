@@ -24,7 +24,7 @@
 <div class="form-wrapper">
   <br />
   <div class="normalTextStyle"> 
-  <us><p><span><a href='../index.php'>Home</a></span> > <span>Profile</span></p></us>
+  <us><p><span><a href='../index.php'>Home</a></span> > <span><a href="profile.php">Profile</a></span></p></us>
   </div>
 <div id=rectangle></div><br/>
 <table>
