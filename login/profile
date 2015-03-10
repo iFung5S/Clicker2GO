@@ -10,9 +10,9 @@
 
      <!-- WHITE BANNER -->
      <div id=banner>
-        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('logout.php')">Logout</button></p>
+        <p class="rightStyle"> <a href="profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('logout.php')">Logout</button></us></p>
 
-        <a href="index.php">
+        <a href="../index.php">
            <img class="leftStyleLogo" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
            <h3 class="leftStyle"> CLICKER2GO </h3>
            <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px">
@@ -24,7 +24,7 @@
 <div class="form-wrapper">
   <br />
   <div class="normalTextStyle"> 
-  <p><span><a href='../index.php'>Home</a></span> > <span>Profile</span></p>
+  <us><p><span><a href='../index.php'>Home</a></span> > <span>Profile</span></p></us>
   </div>
 <div id=rectangle></div><br/>
 <table>
@@ -41,7 +41,7 @@
 <td style="align:left;"><us><button class="btn_shadow_animate_orange_small" onClick="window.open('password.php','_blank','location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');">Change Password</us></button></td>
 </tr>
 <tr>
-<td><us>Account Type:</us></td>
+<td width=130px><us>Account Type:</us></td>
 <td><us>##type##</us></td>
 </tr>
 <tr>
