@@ -15,14 +15,25 @@
 
   $table = "";
 
+  $edit = $_GET['edit'] == 1;
+
   if (!empty($users))
   {
     $table = $table . "<table border='1' class='chg_p'>";
-    $table = $table . "<tr><th>Username</th><th>Name</th><th>Account Type</th><th>Courses</th></tr>";
+    if ($edit)
+      $button = "<form action='?' method='post'><input type='submit' class='btn_shadow_animate_orange' value='Cancel' /></form>";
+    else
+      $button = "<form action='?edit=1' method='post'><input type='submit' class='btn_shadow_animate_orange' value='Edit' /></form>";
+    $table = $table . "<tr><th>Username</th><th>Name</th><th style='width:175px;'>Account Type<br />" . $button . "</th><th>Courses</th></tr>";
   }
 
   $type_list = "";
   $course_list = "";
+
+  if (!$edit)
+    $disable = "disabled";
+  else
+    $disable = "";
 
   foreach ($users as $user)
   {
@@ -30,21 +41,23 @@
     $table = $table . "<td>" . $user->username . "</td>";
     $table = $table . "<td>" . $user->name . "</td>";
 
-    $types = ORM::for_table('u_type')->where('uid', $user->id)->find_many();
-    $i = 1;
-    foreach ($types as $type)
+    $list_types = ORM::for_table('type')->find_many();
+    foreach ($list_types as $list_type)
     {
-      $type_name = ORM::for_table('type')->find_one($type->id_t);
-      if ($i != 1)
-        $type_list = $type_list . ", ";
-      $type_list = $type_list . $type_name->type;
-      $i++;
+      $types = ORM::for_table('u_type')->where('uid', $user->id)->find_many();
+      $check = "";
+      foreach ($types as $type)
+        if ($type->id_t == $list_type->id)
+          $check = "checked='checked'";
+      $type_list = $type_list . "<input type='checkbox' name='types[]' value='$list_type->id' $check $disable onChange='this.form.submit();'> " . $list_type->type . "<br />";
     }
-    $table = $table . "<td>" . $type_list . "</td>";
+
+    $table = $table . "<td><form action='updatetype.php' method='post'><input type='hidden' name='user' value='$user->username' />" . $type_list . "</form></td>";
     $type_list = "";
 
     $courses = ORM::for_table('user_courses')->where('uid', $user->id)->find_many();
     $i = 1;
+    $course_list = " ";
     foreach ($courses as $course)
     {
       $course_name = ORM::for_table('course_units')->where('id', $course->id_cu)->find_one();

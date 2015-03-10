@@ -49,10 +49,10 @@
         // define variables to pass to next page through post
         $num_answers = $_POST['num_answers']; // from POST or database
         $num_to_select = $_POST['num_to_select']; // from POST or database
-        $hidden_post_vars = "<input name='qid' type='hidden' value=$qid />
-                             <input name='seq' type='hidden' value=$seq />
-                             <input name='num_answers' type='hidden' value=$num_answers />
-                             <input name='num_to_select' type='hidden' value=$num_to_select />";
+        $hidden_post_vars = "<input name='qid' type='hidden' value='$qid' />
+                             <input name='seq' type='hidden' value='$seq' />
+                             <input name='num_answers' type='hidden' value='$num_answers' />
+                             <input name='num_to_select' type='hidden' value='$num_to_select' />";
         $submit_button = '';
 
         // javascript to redirect to question-answered.php after 3 seconds timout
@@ -90,7 +90,7 @@
           //if only 'no_answer' has been set
           if (isset($_POST['no_answer']) && !isset($_POST['answer']))
           {
-            $info = "Time up, you didn't choose answer";
+            $info = "Time is up, you didn't choose any answer.";
             $submitted_answer = "";
           }
           else if(empty($check_repeat))
@@ -110,12 +110,12 @@
 
             $answer_row->save();      // to correct
 
-            $info = "Answer has been recorded";
+            $info = "Answer has been recorded.";
           }
           else
           {
             $info = "You have already answered on time for this question.
-                    <br>
+                    <br />
                     Recorded answer cannot be changed now.";
             // update the submitted_answers variable to the one previously recorded in the database
             $submitted_answer = explode('|', $check_repeat->answer); // transform to array
@@ -160,9 +160,9 @@
 
             // show message if the answer has been recorded or not and redirect after 5s timeout
             $info = $info .
-                    "<br>
+                    "<br />
                      Please wait a moment. Redirecting to Answers ...
-                     <br>";
+                     <br />";
 
             // define the variables required by generate_answers.php
             $visible = true;
@@ -186,12 +186,12 @@
         else if (current_time > $endtime + 2)
         {
           $info = "Submission after deadline.
-                   <br>
+                   <br />
                    Submitted answer will not be recorded and
                    not be taken into account for the statistics.
-                   <br>
+                   <br />
                    Please wait a moment. Redirecting to Answers ...
-                   <br>" ;
+                   <br />" ;
 
           // don't record answer (is like the user has not attended the lecture)
           // don't start timer
