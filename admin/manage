@@ -23,10 +23,10 @@
     <br />
     <div class="form-wrapper" style="max-width:1000px">
        <br />
-         <div class="normalTextStyle"><us>
+         <us><div class="normalTextStyle">
             <p> <span><a href='../index.php'>Home</a></span> >
-            <span><a href='manage.php'>Administrator Management Page</a></span></us>
-         </div>
+            <span><a href='manage.php'>Administrator Management Page</a></span>
+         </div></us>
        <br />
     <us>##table##</us>
     <br />

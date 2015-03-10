@@ -14,9 +14,11 @@
   $users = ORM::for_table('users')->find_many();
 
   $table = "";
-
-  $edit = $_GET['edit'] == 1;
-
+  
+  $edit ="";
+  if (isset($_GET['edit']))
+    $edit = $_GET['edit'] == 1;
+   
   if (!empty($users))
   {
     $table = $table . "<table border='1' class='chg_p'>";

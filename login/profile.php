@@ -38,7 +38,9 @@
   foreach ($_SESSION['type'] as $u_type)
     $type = $type.$u_type['type']."<br>";
     
-  if (count($_SESSION['type']) > 2)
+  if (count($_SESSION['type']) > 2
+      || (count($_SESSION['type']) == 2
+          && !in_array(array("type"=>"Administrator"),$_SESSION['type'])))
   {
     $type = $type."<button type='button' class='btn_shadow_animate_orange_small'
                      onclick='switchType()' >Switch type</button>";
