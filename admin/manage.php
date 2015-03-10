@@ -24,7 +24,7 @@
       $button = "<form action='?' method='post'><input type='submit' class='btn_shadow_animate_orange' value='Cancel' /></form>";
     else
       $button = "<form action='?edit=1' method='post'><input type='submit' class='btn_shadow_animate_orange' value='Edit' /></form>";
-    $table = $table . "<tr><th>Username</th><th>Name</th><th style='width:175px;'>Account Type<br />" . $button . "</th><th>Courses</th></tr>";
+    $table = $table . "<tr><th>Username</th><th>Name</th><th style='width:190px;'>Account Type<br />" . $button . "</th><th>Courses</th></tr>";
   }
 
   $type_list = "";

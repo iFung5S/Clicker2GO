@@ -58,7 +58,7 @@
     </div>
     <br />
     <div class="normalTextStyle" id="graph">
-      <us>Graph will be loaded when the timer will have ended.</us>
+      <us>Graph will be loaded afer the timer has ended.</us>
     </div><br/>
     
     <div class="normalTextStyle">

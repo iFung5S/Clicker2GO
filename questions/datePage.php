@@ -40,12 +40,12 @@ if(isset($_GET['courseName'])){
       //for remove date
       if ($_SESSION['type'] != 'Student') {
         $confirm = "javascript:if(confirm('Do you want to remove date $date and associated questions?'))location='removeQuestion.php?courseName=$courseName&date=$date'";
-        $date_list = $date_list."<div style='margin-bottom:0'><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a>  <a href='javascript:void(0)' style='font-size:18px;color:red;text-decoration:none;' onclick=\"$confirm\">x</a></div>
+        $date_list = $date_list."<div style='margin-bottom:0'><a href='questionlist.php?date=$date&amp;courseName=$courseName'>$date</a>  <span class='redCross'><a href='#' onclick=\"$confirm\">x</a></span></div>
                                  <div class=rectangle> </div>";
       }
       else if ($_SESSION['type'] == 'Student' && time()<strtotime($min_time))
       {
-        $date_list = $date_list."<div style='margin-bottom:0'><a href='#'>$date</a><span style='font-size:12px;color:grey;'>  (Not Start)</span></div><div class=rectangle> </div>"; 
+        $date_list = $date_list."<div style='margin-bottom:0'><a href='#'>$date</a><span style='font-size:12px;color:grey;'>  (Not Started)</span></div><div class=rectangle> </div>";
       }
       else
       {
