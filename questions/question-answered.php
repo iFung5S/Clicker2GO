@@ -88,9 +88,9 @@
             $is_user_correct = false;
 
           if ($is_user_correct)
-            $reload = " <br> You answered correctly. <br />";
+            $reload = " You answered correctly. <br />";
           else
-            $reload = " <br> Answer is incorrect. <br />";
+            $reload = " Answer is incorrect. <br />";
         }
       } // if $current_time > $endtime
 
