@@ -110,9 +110,9 @@
 
 
       $placeholder = array("##info##", "##question##", "##answers##",
-                        "##courseName##","##date##","##qnumber##","##name##", "##refresh##");
+                        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##");
       $replace = array($info, $question, $answers,
-                       $courseName, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], $refresh);
+                       $courseName, $date, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], $refresh);
       echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 
     }

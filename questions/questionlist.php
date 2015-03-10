@@ -74,8 +74,8 @@ if(isset($_GET['courseName'])){
                     <input type='text' name='date' style='display:none' value='$date'/>
                     <div class='button-panel'><input type='submit' class='button' value='Create New Question'/></div></form>";
 
-  $placeholder = array("##courseName##","##date##","##questions_list##", "##create_question##","##name##");
-  $replace = array($courseName,date("d M Y",strtotime($date)),$questions_list, "",$_SESSION['name']);
+  $placeholder = array("##courseName##","##date##","##date_long##","##questions_list##", "##create_question##","##name##");
+  $replace = array($courseName,$date,date("d M Y",strtotime($date)),$questions_list, "",$_SESSION['name']);
 
   if($_SESSION['type'] != 'Student') {
     $replace = array($courseName,$date,$questions_list,$create_button,$_SESSION['name']);

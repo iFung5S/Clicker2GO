@@ -20,7 +20,7 @@
         </a>
      </div>
 
-       <h4>##date##</h4>
+       <h4>##date_long##</h4>
        <br>
 
        <div class="form-wrapper">
@@ -30,7 +30,7 @@
          <div class="normalTextStyle"><us>
             <p> <span><a href='../index.php'>Home</a></span> >
             <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
-            <span>##date## </span></p> </us>
+            <span><a href="questionlist.php?date=##date##&courseName=##courseName##">##date_long## </span></p> </us>
          </div>
   
          <br/>

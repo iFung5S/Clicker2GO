@@ -91,9 +91,9 @@
       } // if $current_time > $endtime
 
       $placeholder = array("##reload##", "##question##", "##answers##"
-                  ,"##qid##","##courseName##","##date##","##qnumber##","##name##");
+                  ,"##qid##","##courseName##","##date##","##date_long##","##qnumber##","##name##");
       $replace = array($reload, $question, $answers, $qid,
-                        $courseName,date("d M Y",strtotime($date)),$seq,$_SESSION['name']);
+                        $courseName,$date,date("d M Y",strtotime($date)),$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
     }
     else // if question_row is empty
