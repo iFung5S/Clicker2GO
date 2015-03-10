@@ -43,14 +43,13 @@
 
 
   // create the form, add the hidden_post_vars add start a list for the answers
-  $answers = "<form id='answer_form' action=$form_action method='POST'>
-                $hidden_post_vars";
+  $answers = "<form id='answer_form' action=$form_action method='POST'> $hidden_post_vars";
 
 
   $numbering_characters="ABCDEF"; // a string of answers numbering
 
 
-  for ($i=1; $i<=$num_answers; $i++)
+  for ($i = 1; $i <= $num_answers; $i++)
   {
     $correct = '';
     $checked = '';
@@ -66,7 +65,7 @@
           $is_given_answer = in_array($current_answer, $given_answer);
         else
           $is_given_answer = false;
-          
+
         if ($is_given_answer)
         {
           $checked = "checked";
@@ -86,23 +85,23 @@
 
 
     $N = $numbering_characters[$i-1];
-    $answers = $answers .
-                "<div  id='$current_answer' style='margin-bottom:0.5em'>
+    $answers .=
+                "<div id='$current_answer' style='margin-bottom:0.5em'>
                  <span style='float:left' id='$i'>
-                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for=$N> $N. </label></span>
-                <div style='margin-left:2.8em'><label for=$N>$answer</label>
+                 <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for='$N'> $N. </label></span>
+                <div style='margin-left:2.8em'><label for='$N'>$answer</label>
                 </div></div> $chosen_style $correct ";
   }
 
   // create a form submit button at the end and close the list and form tags
-  $answers = $answers . $empty_value . $submit_button . "</form>";
-  
-  if (!$visible) 
-  { 
-    $answers = "<div class='normalTextStyle'>".$answers."</div><script>";  
-    for ($i=1; $i<=$num_answers; $i++)
+  $answers .= $empty_value . $submit_button . "</form>";
+
+  if (!$visible)
+  {
+    $answers = "<div class='normalTextStyle'>".$answers."</div><script>";
+    for ($i = 1; $i <= $num_answers; $i++)
       $answers = $answers."document.getElementById('$i').style.cssFloat='none';";
-    $answers = $answers."</script>"; 
+    $answers .= "</script>";
   }
-  
+
 ?>
