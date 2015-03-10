@@ -60,8 +60,9 @@
       {
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started
-        $reload_button = "<span class='button-panel'><button class='btn_shadow_animate_orange' type='button' onClick='history.go(0)'>Reload Question</button></span>";
-        $info = "Question has not started yet. Please reload when the timer starts.<br />" . $reload_button;
+        $reload_button = "<span class='button-panel'></span>";
+        $info = "Question has not started yet.<br />" . $reload_button;
+        $refresh  = "<meta http-equiv='refresh' content='5' />";
         $question = "";
         $form_action = "'record_answer.php'";
         $visible = false;
@@ -109,25 +110,25 @@
 
 
       $placeholder = array("##info##", "##question##", "##answers##",
-                        "##courseName##","##date##","##qnumber##","##name##");
+                        "##courseName##","##date##","##qnumber##","##name##", "##refresh##");
       $replace = array($info, $question, $answers,
-                       $courseName, date("d M Y",strtotime($date)), $seq, $_SESSION['name']);
+                       $courseName, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], $refresh);
       echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 
     }
     else // if question_row is empty
     {
       $information = "Question ID '$qid' does not exist.";
-      $placeholder = array("##information##","##name##");
-      $replace = array($information,$_SESSION['name']);
+      $placeholder = array("##information##","##name##", "##refresh##");
+      $replace = array($information,$_SESSION['name'], $refresh);
       echo str_replace($placeholder, $replace, file_get_contents('error'));
     }
   }
   else // if $_GET['qid'] is not set
   {
     $information = "No question ID set. Please provide a question ID.";
-    $placeholder = array("##information##","##name##");
-    $replace = array($information,$_SESSION['name']);
+    $placeholder = array("##information##","##name##", "##refresh##");
+    $replace = array($information,$_SESSION['name'], $refresh);
     echo str_replace($placeholder, $replace, file_get_contents('error'));
   }
 ?>
