@@ -93,7 +93,7 @@
       $placeholder = array("##reload##", "##question##", "##answers##"
                   ,"##qid##","##courseName##","##date##","##qnumber##","##name##");
       $replace = array($reload, $question, $answers, $qid,
-                        $courseName,$date,$seq,$_SESSION['name']);
+                        $courseName,date("d M Y",strtotime($date)),$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
     }
     else // if question_row is empty
