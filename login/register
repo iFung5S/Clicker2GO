@@ -12,7 +12,7 @@
     <br />
      <div class="form-wrapper">
      <br />
-           <div class="normalTextStyle"><a href='login.php'>&lt; Back to Login</a></div>
+           <div class="normalTextStyle"><us><a href='login.php'>Go back to Login</a></us></div>
           <div id=rectangle> </div><br/>
 
          <form class="white" action="register_check.php" method="POST">
@@ -23,7 +23,7 @@
            <input type="password" name="password" id="password1" placeholder="Password" class="email" onKeyUp="validate();" required /><br/>
            <input type="password" name="password2" id="password2" placeholder="Re-type Password" class="email" onKeyUp="validate();" required />
          </div>
-            <div id="check" class="error">##message##</div>
+            <div id="check" class="error"><us>##message##</us></div>
          <div class="button-panel">
             <input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled />
          </div>

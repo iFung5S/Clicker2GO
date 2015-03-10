@@ -12,9 +12,9 @@
 
      <!-- WHITE BANNER -->
      <div id=banner>
-        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('login/logout.php')">Logout</button></p>
+        <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button></p>
 
-        <a href="index.php">
+        <a href="../index.php">
            <img class="leftStyleLogo" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
            <h3 class="leftStyle"> CLICKER2GO </h3>
            <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px">
@@ -29,24 +29,24 @@
 
         <br>
 
-        <div class="normalTextStyle">
+        <div class="normalTextStyle"><us>
            <span><a href='../index.php'>Home</a></span> >
            <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
            <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span> >
-           <span>Question ##qnumber## </span>
+           <span>Question ##qnumber## </span></us>
         </div>
 
         <p id="message_box">
-          ##info##
+          <us>##info##</us>
         </p><br>
 
         <p style="margin-left:1.5em">
-          ##question##
+          <us>##question##</us>
         </p>
         <br>
 
         <div>
-          ##answers##
+          <us>##answers##</us>
         </div>
 
         <br>

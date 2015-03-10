@@ -26,14 +26,14 @@
      <div class="form-wrapper">
         <br>
        
-        <div class="normalTextStyle"> <p> <span><a href='../index.php'> Home </a></span> >
-          <span>##courseName## </span></p> 
+        <div class="normalTextStyle"> <p> <us><span><a href='../index.php'> Home </a></span> >
+          <span>##courseName## </span></us></p> 
         </div>
 
         <br>
 
         <div class='list'>##date_list##</div> 
-         <div class="normalTextStyle"> ##add_date## </div>
+         <div class="normalTextStyle"> <us>##add_date## </us></div>
       <br/>
      </div>
      

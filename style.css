@@ -311,6 +311,9 @@ div
   font-weight: 700;
   src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
 }*/
+.textMiddle {
+  text-align: center;
+}
 
 .normalTextStyle {
   font-size: 1em;

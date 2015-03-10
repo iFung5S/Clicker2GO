@@ -88,9 +88,9 @@
             $is_user_correct = false;
 
           if ($is_user_correct)
-            $reload = " You answered correctly. <br />";
+            $reload = " <br> You answered correctly. <br />";
           else
-            $reload = " Answers incorrect. <br />";
+            $reload = " <br> Answer is incorrect. <br />";
         }
       } // if $current_time > $endtime
 
@@ -110,7 +110,7 @@
   }
   else // if $_POST['qid'] is not set
   {
-    $information = "No question ID is set. Please provided a question ID.";
+    $information = "No question ID is set. Please provide a question ID.";
     $placeholder = array("##information##","##name##");
     $replace = array($information,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('error'));

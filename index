@@ -28,7 +28,7 @@
 
        <div class="form-wrapper">
           <br />
-          <div>##admin_panel##</div>
+          <div><us>##admin_panel##</us></div>
           <br />
           <!-- LIST OF ALL COURSES -->
           <div class='list'>##list_course##</div>
@@ -36,7 +36,7 @@
           <form class="textMiddle" method="POST" action="questions/addCourseTaken.php">
              <br />
              <!-- FOR STUDENT: SELECT COURSE -->
-             ##add_course##
+             <us>##add_course##</us>
 
              <!-- ADD COURSE BUTTON -->
              <div class="button-panel">

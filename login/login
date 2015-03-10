@@ -28,16 +28,16 @@
            <input type="password" name="password" id="password" required="required" placeholder="Password" />
          </div>
 
-         ##message##
+         <div class="textMiddle"><us>##message##</us></div>
 
          <div class="button-panel">
            <input type="submit" class="button" title="Login" value="Login" />
          </div>
        </form>
 
-       <div class="form-footer">
+       <div class="form-footer"> <us>
          <p><a href="register.php">Register</a></p>
-         <p><a href="#">Forgot password?</a></p>
+         <p><a href="#">Forgot password?</a></p> </us>
        </div>
      </div>
 
