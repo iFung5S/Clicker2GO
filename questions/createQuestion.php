@@ -18,7 +18,7 @@
       $message =  "Answer cannot consist of space only.";
   }
   else
-  $message = "<br/>";
+  $message = "<br />";
 
   $placeholder = array("##courseName##","##date##","##message##","##name##");
   $replace = array($courseName,$date,$message,$_SESSION['name']);

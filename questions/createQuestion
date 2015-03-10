@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css' />
     <title>Create Question | Clicker2GO</title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body class="homepage">
@@ -15,67 +15,67 @@
         <p class="rightStyle"> <a href="../login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('../login/logout.php')">Logout</button></p>
 
         <a href="../index.php">
-           <img class="leftStyleLogo" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+           <img class="leftStyleLogo" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px" />
            <h3 class="leftStyle"> CLICKER2GO </h3>
-           <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px">
+           <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px" />
         </a>
      </div>
       
          <h4>CREATE QUESTION</h4>
-   <br>
+   <br />
    <div class="form-wrapper">
-         <br>
+         <br />
       <div class="normalTextStyle"> <us>
       <span><a href='../index.php'>Home</a></span>>
       <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
       <span><a href="questionlist.php?date=##date##&amp;courseName=##courseName##">##date##</a></span>>
       <span>Create Question</span> </us>
       </div>
-    <br>
-    <form method="POST" action="saveQuestion.php" style="margin-left:2em;" >
+    <br />
+    <form method="POST" action="saveQuestion.php" style="margin-left:2em;">
       <div class="textMiddle"><us>Question:</us></div>
       <textarea rows="4" cols="60" name="question" id="question" autofocus required></textarea>
-      <br>
-      <br>
+      <br />
+      <br />
       <div><us>Answer 1:</div>
-      <input type="text" name="answer1" size="35" required>
+      <input type="text" name="answer1" size="35" required />
       <label for="answer1" style="float:right; padding-right:45px; margin-top:3px;"><us>Correct</label>
-      <input type="checkbox" name="correct[]" value="answer1" id="answer1" style="float:right; margin-right:15px; margin-top:5px;"/>
-      <br>
-      <br>
+      <input type="checkbox" name="correct[]" value="answer1" id="answer1" style="float:right; margin-right:15px; margin-top:5px;" />
+      <br />
+      <br />
       <div><us>Answer 2:</div>
-      <input type="text" name="answer2" size="35">
+      <input type="text" name="answer2" size="35" />
       <label for="answer2" style="float:right; padding-right:45px; margin-top:3px;"><us>Correct</label>
-      <input type="checkbox" name="correct[]" value="answer2" id="answer2" style="float:right; margin-right:15px; margin-top:5px;"/>
-      <br>
-      <br>
+      <input type="checkbox" name="correct[]" value="answer2" id="answer2" style="float:right; margin-right:15px; margin-top:5px;" />
+      <br />
+      <br />
       <div><us>Answer 3:</div>
-      <input type="text" name="answer3" size="35">
+      <input type="text" name="answer3" size="35" />
       <label for="answer3" style="float:right; padding-right:45px; margin-top:3px;"><us>Correct</label>
-      <input type="checkbox" name="correct[]" value="answer3" id="answer3" style="float:right; margin-right:15px; margin-top:5px;"/>
-      <br>
-      <br>
+      <input type="checkbox" name="correct[]" value="answer3" id="answer3" style="float:right; margin-right:15px; margin-top:5px;" />
+      <br />
+      <br />
       <div><us>Answer 4:</div>
-      <input type="text" name="answer4" size="35">
+      <input type="text" name="answer4" size="35" />
       <label for="answer4"style="float:right; padding-right:45px; margin-top:3px;"><us>Correct</label>
-      <input type="checkbox" name="correct[]" value="answer4" id="answer4" style="float:right; margin-right:15px; margin-top:5px;"/>
-      <br>
-      <br>
+      <input type="checkbox" name="correct[]" value="answer4" id="answer4" style="float:right; margin-right:15px; margin-top:5px;" />
+      <br />
+      <br />
       <div><us>Answer 5:</div>
-      <input type="text" name="answer5" size="35">
+      <input type="text" name="answer5" size="35" />
       <label for="answer5"style="float:right; padding-right:45px; margin-top:3px;"><us>Correct</label>
-      <input type="checkbox" name="correct[]" value="answer5" id="answer5" style="float:right; margin-right:15px; margin-top:5px;"/>
-      <br>
-      <br>
+      <input type="checkbox" name="correct[]" value="answer5" id="answer5" style="float:right; margin-right:15px; margin-top:5px;" />
+      <br />
+      <br />
       <div><us>Answer 6:</div>
-      <input type="text" name="answer6" size="35">
+      <input type="text" name="answer6" size="35" />
       <label for="answer6"style="float:right; padding-right:45px; margin-top:3px;"><us>Correct</label>
-      <input type="checkbox" name="correct[]" value="answer6" id="answer6" style="float:right; margin-right:15px; margin-top:5px;"/>
+      <input type="checkbox" name="correct[]" value="answer6" id="answer6" style="float:right; margin-right:15px; margin-top:5px;" />
       <div class="error">##message##</div>
       <div class="button-panel"><input type="submit" class="button" value="Create Question" /></div>
       <br />
-      <input type="hidden" name="courseName" value="##courseName##"/>
-      <input type="hidden" name="date" value="##date##"/><br/>
+      <input type="hidden" name="courseName" value="##courseName##" />
+      <input type="hidden" name="date" value="##date##" /><br />
     </form>
   </div>
   </body>
