@@ -74,7 +74,7 @@ if (!isset($_SESSION['uid'])) {
     else if (date("Y-m-d",$time) == date("Y-m-d",strtotime("-1 day")))
       $time = "Yesterday ".date("H:i",$time);
     else
-      $time = date("Y-m-d H:i",$time);
+      $time = date("d M Y H:i",$time);
 
     //comments table -- edit style here
     $comment .=
