@@ -1,14 +1,11 @@
 <?php
 
-
   // Initialize session
   session_start();
 
   // Jump to login page if uid not set
   if (!isset($_SESSION['uid']))
-  {
           header('Location: ../');
-  }
   else
   {
     $uid = $_SESSION['uid'];
@@ -50,7 +47,7 @@
       $numbering_characters="ABCDEF";
       $answers = "";
 
-      for ($i=1; $i<=6; $i++)
+      for ($i = 1; $i <= 6; $i++)
       {
 
         $answer = $question_row->get('answer'.$i);
@@ -61,13 +58,11 @@
             $isCorrect = "id='answer$i'";
           $N=$numbering_characters[$i-1];
 
-          $answers = $answers .
-                      "<div $isCorrect style='margin-bottom:0.5em'>
+          $answers .= "<div $isCorrect style='margin-bottom:0.5em'>
                       <span style='float:left'>$N. </span>
                       <div style='margin-left:1.8em'>$answer</div></div>";
         }
       }
-
 
   if ($question_row->starttime != NULL)
   {
@@ -77,7 +72,7 @@
       $time_left = strtotime($question_row->endtime) - time();
     $timer_action = "";
     foreach ($correct_answer as $id)
-      $timer_action = $timer_action."document.getElementById('$id').style.color='green';";
+      $timer_action .= "document.getElementById('$id').style.color='green';";
     include('timer.php');
   }
   else

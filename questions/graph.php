@@ -11,12 +11,12 @@
   $qid = $_POST['qid'];
   $counts = array();
   $correct = array();
-  $labels =array("answer1"=>"A",
-                 "answer2"=>"B",
-                 "answer3"=>"C",
-                 "answer4"=>"D",
-                 "answer5"=>"E",
-                 "answer6"=>"F");
+  $labels = array("answer1"=>"A",
+                  "answer2"=>"B",
+                  "answer3"=>"C",
+                  "answer4"=>"D",
+                  "answer5"=>"E",
+                  "answer6"=>"F");
 
   $question_row = ORM::for_table('questions')->find_one($qid);
 
@@ -27,21 +27,20 @@
     if(!empty($answer))         //check if answer-i exists
     {
       $count = ORM::for_table('answers')
-              ->where(array(
-               'qid' => $qid,
-               'answer' => 'answer'.$i
-                  ))
-             ->count();
+               ->where(array(
+                   'qid' => $qid,
+                   'answer' => 'answer'.$i
+                   ))
+               ->count();
 
       $correct_A = explode("|",$question_row->correct);
 
       if (in_array('answer'.$i,$correct_A))
-      {  array_push($correct,$labels['answer'.$i].' : '.$count);
-      }
+        array_push($correct,$labels['answer'.$i].' : '.$count);
 
      array_push($counts,array(
                 "label" => $labels['answer'.$i].' : '.$count,
-                "count" => $count 
+                "count" => $count
                 ));
      }
   }

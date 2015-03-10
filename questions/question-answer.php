@@ -36,7 +36,7 @@
       // count the number of answers. Or get it from database if
       // we decide to add it as a column(calculated at question creation)
       $num_answers = 0;
-      for ($i=1; $i<=6; $i++)
+      for ($i = 1; $i <= 6; $i++)
         if (!is_null($question_row->get('answer'.$i)))
           $num_answers++;
 
@@ -61,12 +61,11 @@
         // display a Reload Question button so the user can reload the page when
         // told by the lecturer that countdown has started
         $reload_button = "<span class='button-panel'><button class='btn_shadow_animate_orange' type='button' onClick='history.go(0)'>Reload Question</button></span>";
-        $info = "Question has not started yet. Please reload when the timer starts.
-                <br />" . $reload_button;
+        $info = "Question has not started yet. Please reload when the timer starts.<br />" . $reload_button;
         $question = "";
         $form_action = "'record_answer.php'";
         $visible = false;
-        $submit_button = "<div class='button-panel'><input class='btn_shadow_animate_grey_disabled' type='submit' value='Submit' disabled></div>";
+        $submit_button = "<div class='button-panel'><input class='btn_shadow_animate_grey_disabled' type='submit' value='Submit' disabled /></div>";
       }
       else // if countdown has started
       {
@@ -92,7 +91,7 @@
           // $timer also contains the timer javascript script
           include('timer.php');
           $info = $timer;
-          $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit'></div>";
+          $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit' /></div>";
         }
         else // if currenttime > endttime, i.e revisiting already answered questions
         {

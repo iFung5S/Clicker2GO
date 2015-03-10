@@ -3,14 +3,12 @@
   session_start();
 
   if (!isset($_SESSION['uid']))
-  {
           header('Location: ../');
-  }
 
   include_once ('../lib/dbCon.php');
 
   $qid = $_POST['qid'];
-  $question_row = ORM::for_table('questions')-> find_one($qid);
+  $question_row = ORM::for_table('questions')->find_one($qid);
 
   if (isset($_POST['start_timer']))
   {
@@ -39,8 +37,7 @@
 
   else if (isset($_POST['extend_timer']))
   {
-    $question_row->endtime = date("Y-m-d H:i:s"
-                        ,strtotime($question_row->endtime) + $_POST['extend_timer']);
+    $question_row->endtime = date("Y-m-d H:i:s",strtotime($question_row->endtime) + $_POST['extend_timer']);
     $question_row->save();
   }
 
@@ -54,7 +51,7 @@
     include('timer.php');
   }
   else
-    $timer ="has not start yet.";
+    $timer ="has not started yet.";
 
   echo $timer;
 

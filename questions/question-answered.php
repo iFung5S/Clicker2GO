@@ -5,13 +5,9 @@
 
   // Jump to login page if uid not set
   if (!isset($_SESSION['uid']))
-  {
     header('Location: ../');
-  }
   else
-  {
     $uid = $_SESSION['uid'];
-  }
 
 
   if(isset($_POST['qid']))
