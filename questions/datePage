@@ -27,7 +27,7 @@
         <br />
        
         <div class="normalTextStyle"> <p> <us><span><a href='../index.php'> Home </a></span> >
-          <span>##courseName## </span></us></p> 
+          <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span></us></p> 
         </div>
 
         <br />
