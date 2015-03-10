@@ -13,7 +13,7 @@
   if (in_array(array("type"=>"Student"),$_SESSION['type']))
     echo "<script>window.alert('You do not have permission to view.');
     window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>"; 
-    
+  else {
   if(isset($_GET['err']))
   {
     if($_GET['err'] == 1)
@@ -27,5 +27,5 @@
   $placeholder = array("##courseName##","##date##","##message##","##name##");
   $replace = array($courseName,$date,$message,$_SESSION['name']);
   echo str_replace($placeholder, $replace, file_get_contents('createQuestion'));
+  }
 ?>
-
