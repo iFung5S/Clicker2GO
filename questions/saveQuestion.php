@@ -9,7 +9,7 @@
   if (in_array(array("type"=>"Student"),$_SESSION['type']))
     echo "<script>window.alert('You do not have permission for this operation.');
     window.location.assign('../');</script>"; 
-    
+  else {    
   $courseName = $_POST['courseName'];
   $date = $_POST['date'];
 
@@ -57,8 +57,8 @@
     $questions -> save();
  
     $redirect = "<script>window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
+    }
   }
-}
   echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));
-
+  }
 ?>
