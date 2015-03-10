@@ -52,7 +52,7 @@
                       });
                     }
                     </script>";
-  } else { $switch_js == ""; }
+  } else { $switch_js = ""; }
   $placeholder = array("##name##", "##username##", "##type##", "##course##","##js##");
   $replace = array($user->name, $username, $type, $list_course, $switch_js);
 
