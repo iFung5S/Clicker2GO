@@ -38,37 +38,29 @@ if (!isset($_SESSION['uid'])) {
               ->limit($pagesize)
               ->offset($offset)
               ->find_many();
-              
+
   //form for write comment
   $comment="";
-           
-           
-if ($pages == 0)
-  $comment=$comment."<div style='text-align:center;'>No comments found.</div><br>";
-else {
+
+  if ($pages == 0)
+    $comment .= "<div style='text-align:center;'>No comments found.</div><br />";
+  else
+  {
 
   $bar =" <div style='text-align:center;'>";
   $bar = $bar. "Page $page of $pages<br />";
   if ($page > 1)
-  {
-    $bar = $bar.
-            "<a href='javascript:void(0)' onclick=changepage($first,$qid)>First</a> 
-             <a href='javascript:void(0)' onclick=changepage($prev,$qid)>Prev</a> ";
-  }
-    for ($i=1;$i< $page;$i++)
-      $bar = $bar. "<a href='javascript:void(0)' onclick=changepage($i,$qid)>[$i]</a> ";
-    $bar = $bar."[$page]";
-    for ($i=$page+1;$i<= $pages;$i++)
-      $bar = $bar. " <a href='javascript:void(0)' onclick=changepage($i,$qid)>[$i]</a> ";
+    $bar .= "<a href='#' onclick='changepage($first,$qid)'>First</a> <a href='#' onclick='changepage($prev,$qid)'>Prev</a> ";
+  for ($i = 1; $i < $page; $i++)
+    $bar .= "<a href='#' onclick='changepage($i,$qid)'>[$i]</a> ";
+  $bar .= "[$page]";
+  for ($i = $page + 1; $i <= $pages; $i++)
+    $bar .= " <a href='#' onclick='changepage($i,$qid)'>[$i]</a> ";
   if ($page < $pages)
-  {
-    $bar = $bar.
-             "<a href='javascript:void(0)' onclick=changepage($next,$qid)>Next</a>
-              <a href='javascript:void(0)' onclick=changepage($last,$qid)>Last</a> ";
-  }
-   $bar = $bar. "</div>";
+    $bar .= "<a href='#' onclick='changepage($next,$qid)'>Next</a> <a href='#' onclick='changepage($last,$qid)'>Last</a> ";
+  $bar = $bar. "</div>";
 
-  $comment = $comment.$bar;
+  $comment .= $bar;
 
   foreach ($comments as $each_comment)
   {
@@ -85,15 +77,15 @@ else {
       $time = date("Y-m-d H:i",$time);
 
     //comments table -- edit style here
-    $comment = $comment.
+    $comment .=
               "<table style='width:90%;margin-left:auto;margin-right: auto;'>
               <tr>
-              <td bgcolor='#E0E0E0' style='vertical-align:top;width:25%'>$name</td>
-              <td bgcolor='#E0E0E0' style='text-align:left;width:75%'>$content</td>
+              <td style='background-color:#E0E0E0;vertical-align:top;width:25%;'>$name</td>
+              <td style='background-color:#E0E0E0;text-align:left;width:75%;'>$content</td>
               </tr>
               <tr><td style='width:25%'></td>
-              <td align='right' style='font-size:12px;width:75%'>$time</td>
-              </tr></table><br/>";
+              <td style='text-align:right;font-size:12px;width:75%'>$time</td>
+              </tr></table><br />";
   }
 
   $comment = $comment.$bar."<br>";
