@@ -9,13 +9,13 @@
 <body class="homepage">
 
      <!-- WHITE BANNER -->
-     <div id=banner>
+     <div id="banner">
         <p class="rightStyle"> <a href="profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('logout.php')">Logout</button></us></p>
 
         <a href="../index.php">
-           <img class="leftStyleLogo" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+           <img class="leftStyleLogo" src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px" />
            <h3 class="leftStyle"> CLICKER2GO </h3>
-           <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px">
+           <img class="rightStyleHome" src="../images/home.png" alt="Unable to load image" style="width:60px; height:60px" />
         </a>
      </div>
 

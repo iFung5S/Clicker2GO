@@ -31,7 +31,7 @@
   else {
    foreach ($courses as $course) {
      $courseName = $course->course;
-     $list_course = $list_course . "$courseName<br/>";
+     $list_course = $list_course . "<a href='../questions/datePage.php?courseName=$courseName'>$courseName</a><br />";
      }
   }
 
