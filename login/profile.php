@@ -37,9 +37,22 @@
   $type = "";
   foreach ($_SESSION['type'] as $u_type)
     $type = $type.$u_type['type']."<br>";
-
-  $placeholder = array("##name##", "##username##", "##type##", "##course##");
-  $replace = array($user->name, $username, $type, $list_course);
+    
+  if (count($_SESSION['type']) > 2)
+  {
+    $type = $type."<button type='button' class='btn_shadow_animate_orange_small'
+                     onclick='switchType()' >Switch type</button>";
+    $switch_js = "<script src='//code.jquery.com/jquery-1.11.2.min.js'></script>
+                  <script type='text/javascript'>
+                    function switchType() {
+                      $.post('switch_type.php',{ready:'1'},function(data){
+                        $('#type').html(data);
+                      });
+                    }
+                    </script>";
+  } else { $switch_js == ""; }
+  $placeholder = array("##name##", "##username##", "##type##", "##course##","##js##");
+  $replace = array($user->name, $username, $type, $list_course, $switch_js);
 
   echo str_replace($placeholder, $replace, file_get_contents('profile'));
 

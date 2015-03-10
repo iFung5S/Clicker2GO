@@ -20,8 +20,13 @@
                     'type.id','=','u_type.id_t'))
               ->where('u_type.uid',$user->id)
               ->find_array();
-      $_SESSION['type'] = $type;
 
+      $_SESSION['type'] = $type;
+      
+      if (in_array(array("type"=>"Student"),$type)
+          && in_array(array("type"=>"Lecturer"),$type))
+          { $_SESSION['type'][0]['type'] = "Student (inactive)"; }
+          
       $redirect = "<script>window.location.assign('../');</script>";
 
     }
