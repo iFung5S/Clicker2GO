@@ -6,21 +6,11 @@
   // Jump to login page if uid not set
   if (!isset($_SESSION['uid']))
           header('Location: ../');
-  else
-  {
+
     $uid = $_SESSION['uid'];
     // connect to mysql
     include_once ('../lib/dbCon.php');
-    // check if user is a lecturer (user type = 2)
-    $is_lecturer = ORM::for_table('u_type')
-                        ->where(array(
-                               'uid'=>$uid,
-                               'id_t'=>2
-                         ))
-                        ->find_one();
-    // check if he is the onwer of the question(when we make changes to database)
-    // $is_owner
-  }
+
 
   if(isset($_GET['qid']))
   {
@@ -31,7 +21,8 @@
       $seq = "";
 
     $qid = $_GET['qid'];
-    if (empty($is_lecturer))
+      // check if user is a lecturer 
+    if (!in_array(array("type"=>"Lecturer"),$_SESSION['type']))
       header("Location: question-answer.php?seq=$seq&qid=$qid");
 
     $question_row = ORM::for_table('questions')-> find_one($qid);

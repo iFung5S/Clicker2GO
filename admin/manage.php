@@ -6,7 +6,7 @@
   include ('../lib/dbCon.php');
 
   // Redirect if not administrator
-  if ($_SESSION['type'] != 'Administrator')
+  if (!in_array(array("type"=>"Administrator"),$_SESSION['type']))
     echo "<script>window.alert('You do not have permission to view.'); window.location.assign('../');</script>";
 
   $username = $_SESSION['uid'];

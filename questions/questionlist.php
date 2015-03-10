@@ -50,11 +50,11 @@ if(isset($_GET['courseName'])){
   if ($questions_count != 0) {
   foreach ($questions_id as $each_qid) {
     $qid = $each_qid->id;
-    if ($_SESSION['type'] == 'Student'){
+    if (in_array(array("type"=>"Student"),$_SESSION['type'])){
     $questions_list = $questions_list."<div style='margin-bottom:0'><a href='question-answer.php?seq=$i&amp;qid=$qid'>Question $i</a></div>
     <div class=rectangle> </div>";}
     else {
-     $confirm = "javascript:if(confirm('Do you want to remove this question $i? (Rest questions will be re-rodered)'))location='removeQuestion.php?qid=$qid'";
+     $confirm = "javascript:if(confirm('Do you want to remove this question $i? (Rest questions will be re-ordered)'))location='removeQuestion.php?qid=$qid'";
 
     $questions_list = $questions_list."<div style='margin-bottom:0'><a href='question-lecture.php?seq=$i&amp;qid=$qid'>Question $i</a> <span class='redCross'><a href='#' style='' onclick=\"$confirm\">x</a></div><div class=rectangle></span></div>";
     }
@@ -62,7 +62,7 @@ if(isset($_GET['courseName'])){
     }}
   else {
     //error for student if date not exist
-    if ($_SESSION['type'] == 'Student') {
+    if (in_array(array("type"=>"Student"),$_SESSION['type'])) {
       $errorCheck = true;
     }
 
@@ -77,8 +77,8 @@ if(isset($_GET['courseName'])){
   $placeholder = array("##courseName##","##date##","##date_long##","##questions_list##", "##create_question##","##name##");
   $replace = array($courseName,$date,date("d M Y",strtotime($date)),$questions_list, "",$_SESSION['name']);
 
-  if($_SESSION['type'] != 'Student') {
-    $replace = array($courseName,$date,$questions_list,$create_button,$_SESSION['name']);
+  if(!in_array(array("type"=>"Student"),$_SESSION['type'])) {
+    $replace = array($courseName,$date,date("d M Y",strtotime($date)),$questions_list,$create_button,$_SESSION['name']);
   }
   if ($errorCheck) {
     $information = "The date '" . date("d M Y",strtotime($date)) . "' is not exist for '$courseName'.";

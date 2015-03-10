@@ -15,7 +15,8 @@ if (!isset($_SESSION['uid'])) {
             ->where('course',$courseName)
             ->find_one();
 
-    if ($_SESSION['type'] != 'Student' && $cuid->owner_uid == $uid){
+    if (!in_array(array("type"=>"Student"),$_SESSION['type'])
+            && $cuid->owner_uid == $uid){
 
       $cuid = $cuid->delete();
     }

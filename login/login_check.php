@@ -15,11 +15,12 @@
       $_SESSION['uid'] = $user->id;
       $_SESSION['name'] = $user->name;
       $type = ORM::for_table('type')
+              ->select('type')
               ->join('u_type',array(
                     'type.id','=','u_type.id_t'))
               ->where('u_type.uid',$user->id)
-              ->find_one();
-      $_SESSION['type'] = $type->type;
+              ->find_array();
+      $_SESSION['type'] = $type;
 
       $redirect = "<script>window.location.assign('../');</script>";
 

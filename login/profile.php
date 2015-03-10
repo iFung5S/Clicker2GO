@@ -34,8 +34,9 @@
      $list_course = $list_course . "<a href='../questions/datePage.php?courseName=$courseName'>$courseName</a><br />";
      }
   }
-
-  $type = $_SESSION['type'];
+  $type = "";
+  foreach ($_SESSION['type'] as $u_type)
+    $type = $type.$u_type['type']."<br>";
 
   $placeholder = array("##name##", "##username##", "##type##", "##course##");
   $replace = array($user->name, $username, $type, $list_course);

@@ -41,8 +41,8 @@
 <td style="align:left;"><us><button class="btn_shadow_animate_orange_small" onClick="window.open('password.php','_blank','location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');">Change Password</us></button></td>
 </tr>
 <tr>
-<td width=130px><us>Account Type:</us></td>
-<td><us>##type##</us></td>
+<td width=130px style='vertical-align:top;'><us>Account Type:</us></td>
+<td ><us>##type##</us></td>
 </tr>
 <tr>
 <td style='vertical-align:top;'><us>Courses:</us></td>

@@ -6,7 +6,7 @@
   if (!isset($_SESSION['uid'])) {
         header('Location: ../');
   }
-if($_SESSION['type'] != 'Student') {
+if(!in_array(array("type"=>"Student"),$_SESSION['type'])) {
     include_once ('../lib/dbCon.php');
   if (isset($_GET['courseName']) && isset($_GET['date']))
   {

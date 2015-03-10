@@ -38,11 +38,12 @@ if(isset($_GET['courseName'])){
       $min_time = implode(' ', array($date,'09:00:00'));
 
       // for remove date
-      if ($_SESSION['type'] != 'Student') {
+      if (!in_array(array("type"=>"Student"),$_SESSION['type'])) {
         $confirm = "javascript:if(confirm('Do you want to remove date " . date("d M Y",strtotime($date)) . " and associated questions?'))location='removeQuestion.php?courseName=$courseName&date=$date'";
         $date_list .= "<div style='margin-bottom:0'><a href='questionlist.php?date=$date&amp;courseName=$courseName'>" . date("d M Y",strtotime($date)) . "</a>  <span class='redCross'><a href='#' onclick=\"$confirm\">x</a></span></div><div class='rectangle'> </div>";
       }
-      else if ($_SESSION['type'] == 'Student' && time()<strtotime($min_time))
+      else if (in_array(array("type"=>"Student"),$_SESSION['type'])
+                && time()<strtotime($min_time))
         $date_list .= "<div style='margin-bottom:0'><a href='#'>" . date("d M Y",strtotime($date)) . "</a><span style='font-size:12px;color:grey;'>  (Not Started)</span></div><div class='rectangle'> </div>";
       else
         $date_list .= "<div style='margin-bottom:0'><a href='questionlist.php?date=$date&amp;courseName=$courseName'>" . date("d M Y",strtotime($date)) . "</a></div><div class='rectangle'> </div>";
@@ -62,7 +63,7 @@ if(isset($_GET['courseName'])){
   $placeholder = array("##courseName##","##date_list##", "##add_date##","##name##");
   $replace = array($courseName,$date_list, "",$_SESSION['name']);
 
-  if($_SESSION['type'] != 'Student')
+  if(!in_array(array("type"=>"Student"),$_SESSION['type']))
     $replace = array($courseName,$date_list,$button,$_SESSION['name']);
 
   echo str_replace($placeholder, $replace, file_get_contents('datePage'));

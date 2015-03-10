@@ -30,7 +30,7 @@ if (!isset($_SESSION['uid'])) {
     foreach ($courses as $course) {
       $courseName = $course->course;
       //for remove course
-      if ($_SESSION['type'] == 'Student') {
+      if (in_array(array("type"=>"Student"),$type)) {
         $confirm = "javascript:if(confirm('Do you want to remove course unit $courseName?'))location='questions/removeCourse.php?courseName=$courseName'";
       } else {
         $owner = ORM::for_table('course_units')
@@ -52,7 +52,7 @@ if (!isset($_SESSION['uid'])) {
 
   $add_course = "";
 
-  if($_SESSION['type'] == 'Student') {
+  if(in_array(array("type"=>"Student"),$type)) {
     $add_course = $add_course . "<select class='form-item' name='courseName' required>";
     $add_course = $add_course . "<option value='' >--Select Course--</option>";
 
@@ -88,7 +88,7 @@ if (!isset($_SESSION['uid'])) {
       $selected = "";
   }
 
-if ($type == 'Administrator')
+if (in_array(array("type"=>"Administrator"),$type))
   $admin = "<p class='normalTextStyle'><a href='admin/manage.php'>Administrator Management Panel</a></p>";
 else
   $admin = "";
