@@ -10,6 +10,10 @@
   $courseName = $_GET['courseName'];
   $date = $_GET['date'];
 
+  if (in_array(array("type"=>"Student"),$_SESSION['type']))
+    echo "<script>window.alert('You do not have permission to view.');
+    window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>"; 
+    
   if(isset($_GET['err']))
   {
     if($_GET['err'] == 1)

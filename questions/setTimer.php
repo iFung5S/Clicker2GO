@@ -6,7 +6,11 @@
           header('Location: ../');
 
   include_once ('../lib/dbCon.php');
-
+  
+  if (in_array(array("type"=>"Student"),$_SESSION['type']))
+    echo "<script>window.alert('You do not have permission for this operation.');
+    window.location.assign('../');</script>"; 
+    
   $qid = $_POST['qid'];
   $question_row = ORM::for_table('questions')->find_one($qid);
 

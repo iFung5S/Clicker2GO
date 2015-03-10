@@ -40,11 +40,15 @@ if(!in_array(array("type"=>"Student"),$_SESSION['type'])) {
   }
   else {
     $information = "Something unforseen has happended.";
-    echo str_replace("##information##", $information, file_get_contents('error'));
+    $placeholder = array("##information##","##name##");
+    $replace = array($information,$_SESSION['name']);
+    echo str_replace($placeholder, $replace, file_get_contents('error'));
   }
 }
 else {
-    $information = "Sorry, you don't have permission for this action.";
-    echo str_replace("##information##", $information, file_get_contents('error'));
+  $information = "Sorry, you don't have permission for this action.";
+  $placeholder = array("##information##","##name##");
+  $replace = array($information,$_SESSION['name']);
+  echo str_replace($placeholder, $replace, file_get_contents('error'));
 }
 ?>
