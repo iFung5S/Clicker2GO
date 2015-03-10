@@ -25,9 +25,11 @@
          </div>
             <div id="check" class="error"><us>##message##</us></div>
          <div class="button-panel">
-            <input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled />
+            <input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled /><br />
          </div>
-         </form><br/><br/>
+         </form>
+        <br/>
+        <br/>
        </div>
  <script>
           function validate() {
