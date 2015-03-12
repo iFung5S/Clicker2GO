@@ -38,8 +38,7 @@
       $starttime = $question_row-> starttime; // in mySql string format
       // $countdown = $question_row-> countdown; // in seconds, not needed for now
       $endtime = $question_row-> endtime; // in mySql string format
-
-
+  
       $cuid = $question_row->id_cu;
       $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
       $date = $question_row->date;
@@ -69,10 +68,7 @@
 
       if (is_null($starttime) || time() < strtotime($starttime))  // countdown has not been started yet by the lecturer
       {
-        // display a Reload Question button so the user can reload the page when
-        // told by the lecturer that countdown has started
-        $reload_button = "<span class='button-panel'></span>";
-        $info = "Question has not started yet.<br />" . $reload_button;
+        $info = "Question has not started yet.<br />" ;
         $refresh  = "<script src='//code.jquery.com/jquery-1.11.2.min.js'></script>
     <script type='text/javascript'>
       $(document).ready(function(){
@@ -119,14 +115,33 @@
           $info = $timer;
           $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Submit' /></div>";
         }
-        else // if currenttime > endttime, i.e revisiting already answered questions
+        else // if currenttime > endttime, jump to answered page
         {
-          // go directly to answered questions. No need to try to record the answer
           $form_action = "'question-answered.php'";
-          $info = "Question has ended. Your answer will not be recorded.";
-          $submit_button = "<div class='button-panel'><input class='button' type='submit' value='Show Answers' /></div>";
+          $uid = $_SESSION['uid'];
+          //auto jump for student who has answered question
+          $check_answered = ORM::for_table('answers')
+                            ->where(array(
+                              'qid'=>$qid,
+                              'uid'=>$uid
+                             ))
+                            ->find_one();
+          if (!empty($check_answered)||!empty($endtime) && time() > $endtime)
+          {
+            $submit_button="";
+            $given_answer = explode('|', $check_answered->answer);
+            $submission_on_time = true;
+            $show_given_answers = true;
+            $visible = true;
+            include('generate_answers.php');
+            $answers = $answers."<script>document.getElementById('answer_form').submit()</script>";
+            $placeholder = array("##info##", "##question##", "##answers##",
+       "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
+            $replace = array("", "", $answers,$courseName, $date, date("d M Y",strtotime($date)), "", "", "", "");
+            echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
+            exit(0);
+          }
         }
-
       }
 
       // generate the answers_form html code
@@ -135,7 +150,7 @@
 
 
       $placeholder = array("##info##", "##question##", "##answers##",
-                        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
+       "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
       $replace = array($info, $question, $answers,
                        $courseName, $date, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], $refresh, $qid);
       echo str_replace($placeholder, $replace, file_get_contents('question-answer'));

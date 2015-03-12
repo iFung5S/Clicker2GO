@@ -35,7 +35,7 @@
            <span><a href='../index.php'>Home</a></span> >
            <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
            <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date_long##</a></span> >
-           <span><a href="question-answer.php?seq=##qnumber##&qid=##qid##">Question ##qnumber##</a></span></us>
+           <span><a href="question-answer.php?seq=##qnumber##&amp;qid=##qid##">Question ##qnumber##</a></span></us>
         </div>
 
         <p id="message_box">

@@ -69,7 +69,7 @@
         if ($is_given_answer)
         {
           $checked = "checked";
-          if ($current_time > $endtime)
+          if (time() > $endtime)
            { $chosen_style = "<script>document.getElementById('$current_answer').style.color='red';document.getElementById('$current_answer').style.fontWeight='bold'</script>"; }
         }
         if ($show_correct_answers && in_array($current_answer, $correct_answer))
