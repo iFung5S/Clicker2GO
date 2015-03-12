@@ -48,7 +48,7 @@
 </tr>
 <tr>
 <td width=130px style='vertical-align:top;'><us>Account Type:</us></td>
-<td id="type"><us>##type##</us></td>
+<td><us><span id="type">##type##</span></us></td>
 </tr>
 <tr>
 <td style='vertical-align:top;'><us>Courses:</us></td>
