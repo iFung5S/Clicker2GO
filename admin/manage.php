@@ -6,7 +6,7 @@
 if (!isset($_SESSION['uid'])) {
   header('Location: ../');
   exit(0);
-} 
+}
 else if (time() > $_SESSION['expiry'])
 {
   session_unset();
@@ -27,11 +27,11 @@ else if (time() > $_SESSION['expiry'])
   $users = ORM::for_table('users')->find_many();
 
   $table = "";
-  
+
   $edit ="";
   if (isset($_GET['edit']))
     $edit = $_GET['edit'] == 1;
-   
+
   if (!empty($users))
   {
     $table = $table . "<table border='1' class='chg_p'>";

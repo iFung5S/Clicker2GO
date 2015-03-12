@@ -21,7 +21,7 @@ else if(isset($_GET['register']) && $_GET['register'] == 1)
 }
 else if(isset($_GET['TIMEOUT']))
 {
-  $message = "<span class='error'>Your session has expired and you need to login again</span>";
+  $message = "<span class='error'>Your session has expired. Please login again.</span>";
   $select = "";
 }
 else
