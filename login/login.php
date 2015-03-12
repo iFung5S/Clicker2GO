@@ -19,6 +19,11 @@ else if(isset($_GET['register']) && $_GET['register'] == 1)
   $message = "<span class='correct'>Account created successfully.</span>";
   $select = "document.getElementById('username').select();";
 }
+else if(isset($_GET['TIMEOUT']))
+{
+  $message = "<span class='error'>Your session has expired and you need to login again</span>";
+  $select = "";
+}
 else
 {
   $message = "";

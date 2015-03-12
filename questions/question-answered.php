@@ -5,10 +5,19 @@
 
   // Jump to login page if uid not set
   if (!isset($_SESSION['uid']))
+  {
     header('Location: ../');
-  else
-    $uid = $_SESSION['uid'];
-
+    exit(0);
+  }
+  else if (time() > $_SESSION['expiry'])
+  {
+    session_unset();
+    header('Location: ../login/login.php?TIMEOUT');
+    exit(0);
+  } else 
+    $_SESSION['expiry'] = time() + 1800;
+  
+  $uid = $_SESSION['uid'];
 
   if(isset($_POST['qid']))
   {

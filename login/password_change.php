@@ -5,8 +5,16 @@
 
   // Jump to login page if uid not set
   if (!isset($_SESSION['uid'])) {
-          header('Location: ../');
+    header('Location: ../');
+    exit(0);
   }
+  else if (time() > $_SESSION['expiry'])
+  {
+    session_unset();
+    header('Location: login.php?TIMEOUT');
+    exit(0);
+  } else 
+    $_SESSION['expiry'] = time() + 1800;
 
   include_once ('../lib/dbCon.php');
 

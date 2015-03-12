@@ -7,11 +7,17 @@
   if (!isset($_SESSION['uid']))
   {
     header('Location: ../');
+    exit(0);
   }
-  else
+  else if (time() > $_SESSION['expiry'])
   {
-    $uid = $_SESSION['uid'];
-  }
+    session_unset();
+    header('Location: ../login/login.php?TIMEOUT');
+    exit(0);
+  } else 
+    $_SESSION['expiry'] = time() + 1800;
+    
+  $uid = $_SESSION['uid'];
 
   if(isset($_POST['qid']))
   {

@@ -27,7 +27,7 @@
           && in_array(array("type"=>"Lecturer"),$type))
           { $_SESSION['type'][0]['type'] = "Student (inactive)"; }
           
-      $_SESSION['expiry'] = time() + 60;
+      $_SESSION['expiry'] = time() + 1800;
       $redirect = "<script>window.location.assign('../');</script>";
 
     }
