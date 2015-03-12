@@ -3,7 +3,16 @@
 session_start();
 
 // Jump to login page if uid not set
-require_once('login/session_check.php');
+if (!isset($_SESSION['uid'])) {
+        header('Location: login/login.php');
+} 
+else if (time() > $_SESSION['expiry'])
+{
+  session_unset();
+  header('Location: login/login.php?TIMEOUT');
+} else {
+  $_SESSION['expiry'] = time() + 60;
+}
 
   include_once ('lib/dbCon.php');
   $uid = $_SESSION['uid'];
