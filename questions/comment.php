@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['uid'])) {
         header('Location: ../');
 }
+  $_SESSION['expiry'] = time() + 1800;
   $uid = $_SESSION['uid'];
   include_once ('../lib/dbCon.php');
   $qid = $_POST['qid'];

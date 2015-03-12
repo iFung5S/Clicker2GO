@@ -4,7 +4,9 @@
 
   if (!isset($_SESSION['uid']))
           header('Location: ../');
-
+          
+  $_SESSION['expiry'] = time() + 1800;
+  
   include_once ('../lib/dbCon.php');
   
   if (in_array(array("type"=>"Student"),$_SESSION['type']))
