@@ -3,9 +3,8 @@
 session_start();
 
 // Jump to login page if uid not set
-if (!isset($_SESSION['uid'])) {
-        header('Location: login/login.php');
-}
+require_once('login/session_check.php');
+
   include_once ('lib/dbCon.php');
   $uid = $_SESSION['uid'];
   $type = $_SESSION['type'];
