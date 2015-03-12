@@ -11,7 +11,11 @@ session_unset();
 
 include('page_only_title');
 
-// Jump to login page
-header('Location: login.php?logout=1');
-
+if (isset($_GET['TIMEOUT'])) {
+  header('Location: login.php?TIMEOUT');
+  exit(0);
+} else {
+  // Jump to login page
+  header('Location: login.php?logout=1');
+}
 ?>

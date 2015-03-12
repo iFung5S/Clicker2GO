@@ -6,6 +6,7 @@
     <title>Create Question | Clicker2GO</title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="logout.js"></script>
   </head>
 
   <body class="homepage">

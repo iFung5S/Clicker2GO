@@ -7,7 +7,12 @@
 
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
     <link rel="stylesheet" href="style.css" />
-
+    <script type="text/javascript">
+    var timeout = setTimeout("logout()",1800000);
+    function logout() {
+      window.location.assign('login/logout.php?TIMEOUT');
+    }
+    </script>
   </head>
 
   <body class="homepage">
