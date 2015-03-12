@@ -65,7 +65,7 @@
                            <input name='seq' type='hidden' value='$seq' />
                            <input name='num_answers' type='hidden' value='$num_answers' />
                            <input name='num_to_select' type='hidden' value='$num_to_select' />";
-
+      $refresh = "";
       if (is_null($starttime) || time() < strtotime($starttime))  // countdown has not been started yet by the lecturer
       {
         $info = "Question has not started yet.<br />" ;
@@ -137,7 +137,7 @@
             $answers = $answers."<script>document.getElementById('answer_form').submit()</script>";
             $placeholder = array("##info##", "##question##", "##answers##",
        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
-            $replace = array("", "", $answers,$courseName, $date, date("d M Y",strtotime($date)), "", "", "", "");
+            $replace = array("", "", $answers,$courseName, $date, date("d M Y",strtotime($date)), "", $_SESSION['name'], "", "");
             echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
             exit(0);
           }
