@@ -73,7 +73,21 @@
         // told by the lecturer that countdown has started
         $reload_button = "<span class='button-panel'></span>";
         $info = "Question has not started yet.<br />" . $reload_button;
-        $refresh  = "<meta http-equiv='refresh' content='5' />";
+        $refresh  = "<script src='//code.jquery.com/jquery-1.11.2.min.js'></script>
+    <script type='text/javascript'>
+      $(document).ready(function(){
+        checkstart();
+      });
+      function checkstart() {
+        $.post('check_start.php',{qid:$qid},function(data){
+          if (data) {
+            window.history.go(0);
+          } else {
+            setTimeout('checkstart()',5000);
+          }
+        });
+      }
+    </script>";
         $question = "";
         $form_action = "'record_answer.php'";
         $visible = false;

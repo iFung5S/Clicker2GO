@@ -81,8 +81,10 @@
       } // if show_given_answers
     } // if visible
     else
+    {
       $answer = "";
-
+      $disabled = 'disabled';
+    }
 
     $N = $numbering_characters[$i-1];
     $answers .=
