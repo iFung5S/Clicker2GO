@@ -10,13 +10,13 @@
 
   <body class="homepage">
      <div class="form-wrapper" style="margin-top:8%;">
-     <br>
+     <br />
        <h1><img src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px"> <br/> CLICKER2GO </h1>
        <div id="rectangle"> </div>
-
-     <br>
-     <br>
-
+       <h2>Powerful yet easy to use tool to make interactive learning possible.</h2>
+       <h5>Ready, Set, Clicker2GO.</h5>
+     <br />
+     <br />
        <form method="POST" action="login_check.php">
          <div class="form-item">
            <label for="username"></label>
