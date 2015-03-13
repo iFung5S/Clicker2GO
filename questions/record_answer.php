@@ -102,20 +102,14 @@
           else if(empty($check_repeat))
           {
             // record the answer only if user answers for the first time
-            $answer_row = ORM::for_table('answers')->create();
-            /*
-            $answer_row->set(array(
-                         'qid'=>$qid,
-                         'uid'=>$uid,
-                         'answer'=>$submitted_answer
-                      ));
-            */
-            $answer_row->qid = $qid;
-            $answer_row->uid = $uid;
-            $answer_row->answer = implode('|', $submitted_answer);
-
-            $answer_row->save();      // to correct
-
+            foreach($submitted_answer as $value)
+            {
+              $answer_row = ORM::for_table('answers')->create();
+              $answer_row->qid = $qid;
+              $answer_row->uid = $uid;
+              $answer_row->answer = $value;
+              $answer_row->save();      
+            }
             $info = "Answer has been recorded.";
           }
           else
