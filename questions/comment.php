@@ -79,14 +79,11 @@ if (!isset($_SESSION['uid'])) {
 
     //comments table -- edit style here
     $comment .=
-              "<table style='width:90%;margin-left:auto;margin-right: auto;'>
-              <tr>
-              <td style='background-color:#E0E0E0;vertical-align:top;width:25%;'>$name</td>
-              <td style='background-color:#E0E0E0;text-align:left;width:75%;'>$content</td>
-              </tr>
-              <tr><td style='width:25%'></td>
-              <td style='text-align:right;font-size:12px;width:75%'>$time</td>
-              </tr></table><br />";
+              "<us><div class='comment_div'>
+              <div>$name :</div>
+              <div class='comment_content'>$content</div>
+              <div class='comment_time'>$time</div>
+              </div></us><br>";
   }
 
   $comment = $comment.$bar."<br>";
