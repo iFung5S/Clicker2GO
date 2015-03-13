@@ -99,7 +99,7 @@
             $info = "Time is up, you didn't choose any answer.";
             $submitted_answer = "";
           }
-          else if(empty($check_repeat))
+          else if(count($check_repeat) == 0)
           {
             // record the answer only if user answers for the first time
             foreach($submitted_answer as $value)
