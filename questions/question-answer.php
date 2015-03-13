@@ -126,11 +126,11 @@
                               'uid'=>$uid
                              ))
                             ->find_many();
-          if (count($check_answered) != 0||!empty($endtime) && time() > $endtime)
+          if (!empty($endtime) && time() > $endtime)
           {
             $submit_button="";
             $given_answer = array();
-            foreach($check_repeat as $single)
+            foreach($check_answered as $single)
               array_push($given_answer,$single->answer);
             $submission_on_time = true;
             $show_given_answers = true;
