@@ -16,6 +16,7 @@
         });
         clearTimeout(graph);
         graph = setTimeout("loadGraph()",countdown*1000+1000);
+        btn_disable = setTimeout("stop_timer();",countdown*1000+1000);
       });
       $("#stop_timer").click(function(){
         $.post("setTimer.php",{stop_timer:"1",qid:qid},function(data){
@@ -39,13 +40,18 @@
         clearTimeout(counter);
         $("#timer_place").html(data);
         clearTimeout(graph);
+        clearTimeout(btn_disable);
         graph = setTimeout("loadGraph()",count*1000+2000);
+        btn_disable = setTimeout("stop_timer()",count*1000+2000);
         });
       });
       if (!(typeof(student) == "undefined"))
         loadGraph();
       else if (count > 0)
+      {
         graph = setTimeout("loadGraph()",count*1000+2000);
+        btn_disable = setTimeout("stop_timer()",count*1000+2000);
+      }
       else
         loadGraph();
 

@@ -51,14 +51,14 @@ if (!isset($_SESSION['uid'])) {
   $bar =" <div style='text-align:center;'>";
   $bar = $bar. "Page $page of $pages<br />";
   if ($page > 1)
-    $bar .= "<a href='#' onclick='changepage($first,$qid)'>First</a> <a href='#' onclick='changepage($prev,$qid)'>Prev</a> ";
+    $bar .= "<a href='javascript:void(0);' onclick='changepage($first,$qid)'>First</a> <a href='javascript:void(0);' onclick='changepage($prev,$qid)'>Prev</a> ";
   for ($i = 1; $i < $page; $i++)
-    $bar .= "<a href='#' onclick='changepage($i,$qid)'>[$i]</a> ";
+    $bar .= "<a href='javascript:void(0);' onclick='changepage($i,$qid)'>[$i]</a> ";
   $bar .= "[$page]";
   for ($i = $page + 1; $i <= $pages; $i++)
-    $bar .= " <a href='#' onclick='changepage($i,$qid)'>[$i]</a> ";
+    $bar .= " <a href='javascript:void(0);' onclick='changepage($i,$qid)'>[$i]</a> ";
   if ($page < $pages)
-    $bar .= "<a href='#' onclick='changepage($next,$qid)'>Next</a> <a href='#' onclick='changepage($last,$qid)'>Last</a> ";
+    $bar .= "<a href='javascript:void(0);' onclick='changepage($next,$qid)'>Next</a> <a href='javascript:void(0);' onclick='changepage($last,$qid)'>Last</a> ";
   $bar = $bar. "</div>";
 
   $comment .= $bar;

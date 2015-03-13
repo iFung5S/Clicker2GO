@@ -53,7 +53,10 @@
       $time_left = -1;
     else
       $time_left = strtotime($question_row->endtime) - time();
-    $timer_action = "document.getElementById('correct').style.color='green'";
+    $timer_action = "";
+    $correct_answer = explode("|",$question_row-> correct);
+    foreach ($correct_answer as $id)
+      $timer_action .= "document.getElementById('$id').style.color='green';";
     include('timer.php');
   }
   else
