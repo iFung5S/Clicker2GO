@@ -125,11 +125,13 @@
                               'qid'=>$qid,
                               'uid'=>$uid
                              ))
-                            ->find_one();
+                            ->find_many();
           if (!empty($check_answered)||!empty($endtime) && time() > $endtime)
           {
             $submit_button="";
-            $given_answer = explode('|', $check_answered->answer);
+            $given_answer = array();
+            foreach($check_repeat as $single)
+              array_push($given_answer,$single->answer);
             $submission_on_time = true;
             $show_given_answers = true;
             $visible = true;

@@ -91,7 +91,7 @@
                                'qid'=>$qid,
                                'uid'=>$uid
                          ))
-                        ->find_one();
+                        ->find_many();
 
           //if only 'no_answer' has been set
           if (isset($_POST['no_answer']) && !isset($_POST['answer']))
@@ -118,8 +118,9 @@
                     <br />
                     Recorded answer cannot be changed now.";
             // update the submitted_answers variable to the one previously recorded in the database
-            $submitted_answer = explode('|', $check_repeat->answer); // transform to array
-
+            $submitted_answer = array();
+            foreach($check_repeat as $single)
+              array_push($submitted_answer,$single->answer);
 
           }
 
