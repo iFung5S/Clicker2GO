@@ -139,7 +139,7 @@
             $answers = $answers."<script>document.getElementById('answer_form').submit()</script>";
             $placeholder = array("##info##", "##question##", "##answers##",
        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
-            $replace = array("", "", $answers,$courseName, $date, date("d M Y",strtotime($date)), "", $_SESSION['name'], "", "");
+            $replace = array("", $question, $answers,$courseName, $date, date("d M Y",strtotime($date)), "", $_SESSION['name'], "", "");
             echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
             exit(0);
           }
