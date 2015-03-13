@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION['uid'])) {
+  header('Location: ../');
+  exit(0);
+} 
 if(isset($_GET['err']) && $_GET['err'] == 1)
 {
   $message = "<span class='error'>Incorrect email or password.</span>";
