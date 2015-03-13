@@ -215,9 +215,9 @@
         }
 
         $placeholder = array("##info##", "##question##", "##answers##",
-                        "##courseName##","##date##","##qnumber##","##name##");
+        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
         $replace = array($info, $question, $answers,
-                       $courseName, $date, $seq, $_SESSION['name']);
+                       $courseName, $date, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], "", $qid);
         echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 
 
