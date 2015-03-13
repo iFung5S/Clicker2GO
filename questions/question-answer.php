@@ -126,7 +126,7 @@
                               'uid'=>$uid
                              ))
                             ->find_many();
-          if (!empty($check_answered)||!empty($endtime) && time() > $endtime)
+          if (count($check_answered) != 0||!empty($endtime) && time() > $endtime)
           {
             $submit_button="";
             $given_answer = array();
