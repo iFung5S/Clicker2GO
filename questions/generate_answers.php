@@ -74,7 +74,7 @@
         }
         if ($show_correct_answers && in_array($current_answer, $correct_answer))
         {
-          $correct = "<script>document.getElementById('$current_answer').style.color='green'</script>";
+          $chosen_style = "<script>document.getElementById('$current_answer').style.color='green';document.getElementById('$current_answer').style.fontWeight='bold'</script>";
           if ($is_given_answer)
             $num_answered_correctly++;
         }
@@ -92,7 +92,7 @@
                  <span style='float:left' id='$i'>
                  <input name='answer[]' type='$input_type' value='$current_answer' id='$N' $checked $disabled /><label for='$N'> $N. </label></span>
                 <div style='margin-left:2.8em'><label for='$N'>$answer</label>
-                </div></div> $chosen_style $correct ";
+                </div></div> $chosen_style ";
   }
 
   // create a form submit button at the end and close the list and form tags
