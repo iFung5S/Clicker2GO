@@ -477,7 +477,7 @@ a:active {
 .comment_content {
   vertical-align:top;
   margin-left:24px;
-  margin-top:4px;
+  padding-top:4px;
   margin-bottom:4px;
 }
 
