@@ -84,6 +84,12 @@ h4 {
   /*font-family: "Arial"*/
 }
 
+h5 {
+  text-align: center;
+  font-size: 18px;
+  font-family: Ubuntu, sans-serif;
+}
+
 @font-face {
   font-family: "Ubuntu";
   font-style: normal;
