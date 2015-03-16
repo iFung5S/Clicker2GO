@@ -460,6 +460,13 @@ a:active {
   margin-right: auto;
 }
 
+.comment_top {
+  background-color:#BABABA;
+  width:100%;
+  margin-left:auto;
+  margin-right: auto;
+}
+
 .comment_content {
   vertical-align:top;
   margin-left:24px;
