@@ -84,7 +84,9 @@ if (!isset($_SESSION['uid'])) {
                  <div class='comment_div'>
                     <div class='comment_content'>$content</div>
                     <div class='comment_time'>$time</div>
-                 </div></us><br>";
+                 </div>
+              </us>
+              <br>";
   }
 
   $comment = $comment.$bar."<br>";
