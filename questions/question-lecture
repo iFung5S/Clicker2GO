@@ -27,10 +27,10 @@
    <div class="form-wrapper">
         <br />
         <div  class="normalTextStyle"><us>
-           <span><a href='../index.php'>Home</a></span>>
-           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span>>
-           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span>>
-           <span>Question ##qnumber## </span></us>
+           <span><a href='../index.php'>Home</a></span> >
+           <span><a href="datePage.php?courseName=##courseName##">##courseName##</a></span> >
+           <span><a href="questionlist.php?courseName=##courseName##&amp;date=##date##">##date##</a></span> >
+           <span><a href="question-lecture.php?seq=##qnumber##&qid=##qid##">Question ##qnumber##</a></span></us>
         </div>
          <br />
 
@@ -42,8 +42,8 @@
         <us>##answers##</us>
     </form>    
     <br />
-    <br/>
-    
+    <br />
+
      <div style="text-align:center;"><us>Timer <span id="timer_place">##timer##</span></us></div>
      <div style="text-align:left;margin-left:2em" class="timer_ctrl">
      &nbsp;&nbsp;&nbsp;&nbsp;

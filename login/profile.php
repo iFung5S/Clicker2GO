@@ -49,7 +49,7 @@
   if (count($_SESSION['type']) > 2 || (count($_SESSION['type']) == 2
           && !in_array(array("type"=>"Administrator"),$_SESSION['type'])))
   {
-    $type = $type."<button type='button' class='btn_shadow_animate_orange_small' onClick='switchType();'>Switch type</button>";
+    $type = $type."<button type='button' class='btn_shadow_animate_orange_small' onClick='switchType();'>Switch Type</button>";
     $switch_js = "<script src='//code.jquery.com/jquery-1.11.2.min.js'></script>
                   <script type='text/javascript'>
                     function switchType() {
