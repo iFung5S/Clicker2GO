@@ -25,6 +25,15 @@
         </a>
      </div>
 
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="index.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="index.php"> Policy </a>
+        </us>
+     </div>
+
 <h4>MY PROFILE</h4>
 <br />
 <div class="form-wrapper">

@@ -20,6 +20,15 @@
            <h3 class="leftStyle"> CLICKER2GO </h3>
         </a>
      </div>
+
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="index.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="index.php"> Policy </a>
+        </us>
+     </div>
       
          <h4>CREATE QUESTION</h4>
    <br />
