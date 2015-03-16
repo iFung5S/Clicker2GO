@@ -11,8 +11,6 @@
     <h4>REGISTER</h4>
     <br />
      <div class="form-wrapper">
-     <br />
-           <div class="normalTextStyle"><us><a href='login.php'>Go back to Login</a></us></div>
           <div id=rectangle> </div><br/>
 
          <form class="white" action="register_check.php" method="POST">
@@ -25,7 +23,14 @@
          </div>
             <div id="check" class="error"><us>##message##</us></div>
          <div class="button-panel">
-            <input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled /><br />
+            <table width="100%" border="0">
+            <tr>
+            <td><input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled /></td>
+            </tr>
+            <tr>
+            <td><button type="button" onClick="window.location.assign('login.php');" class="btn_shadow_animate_grey">Back</button></td>
+            </tr>
+            </table>
          </div>
          </form>
         <br/>
