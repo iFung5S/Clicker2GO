@@ -48,6 +48,7 @@ us {
 }
 
 pre {
+  font-family: Ubuntu, sans-serif;
   font-size:16px;
   white-space: pre-wrap;       
   white-space: -moz-pre-wrap;  

@@ -41,14 +41,16 @@
 
        <div class="form-wrapper">
 	 <div class="about-text">
-          <p>
+          <br />
+          <us style="text-align:justify;"><p>
             Clicker2GO is a website designed to enhance the learning experience during and after lectures.
             Its aim is to make lectures interactive by allowing the lecturer to make multiple choice questions that
             the students can answer in real time through Clicker2GO on their notebooks, tablets, or mobile phones.
-	  </p>
-	  
-	  <p> Clicker2GO can be easily used in any institution without requiring the purchase of expensive hardware equipment. </p>
-	  <p>  
+	  </p></us>
+	  <br />
+	  <us><p>Clicker2GO can be easily used in any institution without requiring the purchase of expensive hardware equipment. </p></us>
+          <br />
+	  <us><p>  
 	    Supported features are:
 	    
 	    <ul>
@@ -58,18 +60,19 @@
 	      <li> Comments after each question for explanation and discussion of the question.</li>
 	    </ul>
             
-          </p>
-	  
-	  <p> Clicker2GO was developed in course unit COMP10120 "First Year Team project" at the School of Computer Science of the University of Manchester by a group of six students (Group X4).
-	  
-	  <p>The code of the project is available for free to use and modify, provided that attribution is given and that it (or any modified derivative) is not used for commercial purposes.
-	  </p>
-	  <p>
+          </p></us>
+	  <br />
+	  <us style="text-align:justify;"><p>Clicker2GO was developed in course unit COMP10120 "First Year Team project" at the School of Computer Science of the University of Manchester by a group of six students (Group X4).</p></us>
+	  <br />
+	  <us style="text-align:justify;"><p>The code of the project is available for free to use and modify, provided that attribution is given and that it (or any modified derivative) is not used for commercial purposes.</p></us>
+          <br />
+	  <us style="text-align:justify;"><p>
 	    Clicker2GO has used and included code from <a href='https://github.com/j4mie/idiorm'> Idiorm </a> library for PHP and MySQL interaction.
-	  </p>
+	  </p></us>
 	  </div>
+          <br />
       </div>
-      <br><br>
-
+      <br />
+      <br />
   </body>
 </html>

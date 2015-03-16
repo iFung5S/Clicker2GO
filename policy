@@ -37,39 +37,44 @@
      </div>
 
      <h4>Clicker2Go Policies</h4>
-     <br>
+     <br />
 
        <div class="form-wrapper">
 	 <div class="about-text">
-          <p>
+          <br />
+          <br />
+          <us><p>
             By using Clicker2GO you consent to the following terms and conditions:
-	  </p>
-	  <ul>
+	  </p></us>
+	  <ul style="list-style-type:none;">
 	    <li>
-	      <h4>Privacy</h4>
-	      <p> This website respects the privacy of its users.
+	      <h1>Privacy</h1>
+	      <us style="text-align:justify;"><p> This website respects the privacy of its users.
 	      Cookies are used for implementing login and logout functionalities only.
 	      We are not affiliated with any third parties, and none of your data are shared by any way with anyone.
-              No log data are stored. </p>
-	      
-	      <p> The lecturers only have access to the general statistics for a question. Lecturers have no access to the data and answers given by each individual student.
-                  Therefore the website as is cannot be used as a student assesment or attendance tool.</p>
+              No log data are stored. </p></us>
+	      <br />
+	      <us style="text-align:justify;"><p> The lecturers only have access to the general statistics for a question. Lecturers have no access to the data and answers given by each individual student.
+                  Therefore the website as is cannot be used as a student assesment or attendance tool.</p></us>
 	    </li>
 	    <li>  
-	      <h4>Content</h4>
-	      <p> We are not responsible for any content published by any website users.
+	      <h1>Content</h1>
+	      <us style="text-align:justify;"><p> We are not responsible for any content published by any website users.
                   We do not claim any copyright or ownership rights on any content uploaded to this website.
                   Lecturers are allowed to remove their questions and course units published at any time.
                   The terms under which course units, lectures and questions are published are controlled and are the responsibility of each individual lecturer who publishes them.
-                  Therefore if one wants to use this content, one must seek advice and information from the lecturer who published it.</p>
-	      
-	      <p>We urge users to respect each other and refrain from publishing content and comments that could be offensive to any groups or individuals.</p>
+                  Therefore if one wants to use this content, one must seek advice and information from the lecturer who published it.</p></us>
+	      <br />
+	      <us style="text-align:justify;"><p>We urge users to respect each other and refrain from publishing content and comments that could be offensive to any groups or individuals.</p></us>
 	    </li>
+           <br />
 	    <li>
-	    <p>We cannot offer any guaranttees for the expected functionality of our website and service. 
-               It is provided 'as is' for free. Anyone can use this website/service for free provided it is not for commercial purposes.</p>
+	    <us style="text-align:justify;"><p>We cannot offer any guaranttees for the expected functionality of our website and service. 
+               It is provided 'as is' for free. Anyone can use this website/service for free provided it is not for commercial purposes.</p></us>
 	    </li>
-	  </ul>  
+	  </ul> 
+          <br />
+          <br /> 
 	  </div>
       </div>
       <br><br>

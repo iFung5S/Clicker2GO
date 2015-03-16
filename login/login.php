@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['uid'])) {
   header('Location: ../');
   exit(0);
-} 
+}
 if(isset($_GET['err']) && $_GET['err'] == 1)
 {
   $message = "<span class='error'>Incorrect email or password.</span>";
@@ -16,7 +16,7 @@ else if(isset($_GET['err']) && $_GET['err'] == 2)
 }
 else if(isset($_GET['logout']) && $_GET['logout'] == 1)
 {
-  $message = "<span class='correct'>Logout successfully.</span>";
+  $message = "<span class='correct'>Logged out successfully.</span>";
   $select = "";
 }
 else if(isset($_GET['register']) && $_GET['register'] == 1)

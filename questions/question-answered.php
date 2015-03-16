@@ -14,9 +14,9 @@
     session_unset();
     header('Location: ../login/login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-  
+
   $uid = $_SESSION['uid'];
 
   if(isset($_POST['qid']))
@@ -79,7 +79,7 @@
         // maybe add question types feature in the future
         $num_given_answers = count($given_answer);
         if ($num_given_answers == 0 || empty($submitted_answer))
-          $reload = " No answers submitted. <br />";
+          $reload = " You have not submitted any answers. <br />";
         else
         {
           $num_correct_answers = count($correct_answer);
@@ -93,9 +93,9 @@
             $is_user_correct = false;
 
           if ($is_user_correct)
-            $reload = " You answered correctly. <br />";
+            $reload = " Your answer is correct. <br />";
           else
-            $reload = " Answer is incorrect. <br />";
+            $reload = " Your answer is not correct. <br />";
         }
       } // if $current_time > $endtime
 

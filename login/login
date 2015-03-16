@@ -9,7 +9,7 @@
 
 
   <body class="homepage">
-     <div class="form-wrapper" style="margin-top:8%;">
+     <div class="form-wrapper" style="margin-top:5%;">
        <h1><img src="../images/logo.png" alt="Unable to load image" style="width:60px; height:60px"> <br/> CLICKER2GO </h1>
        <div id="rectangle"> </div>
        <h2>Powerful yet easy to use tool,<br />making interactive learning possible.</h2>
