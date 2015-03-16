@@ -462,6 +462,7 @@ a:active {
 .comment_div {
   background-color:#E0E0E0;
   width:90%;
+  height: 100%;
   margin-left:auto;
   margin-right: auto;
 }
@@ -469,6 +470,7 @@ a:active {
 .comment_top {
   background-color:#C7C7C7;
   width:90%;
+  height:100%;
   margin-left:auto;
   margin-right: auto;
 }
@@ -476,8 +478,8 @@ a:active {
 .comment_content {
   vertical-align:top;
   margin-left:24px;
-  margin-top:4px;
-  margin-bottom:4px;
+  /*padding-top:4px;*/
+  padding-bottom:4px;
 }
 
 .comment_time {
