@@ -34,7 +34,7 @@
            <td><input type="submit" class="button" title="Login" value="Login" /></td>
           </tr>
           <tr>
-           <td><button onClick="window.location.assign('register.php');" class="btn_shadow_animate_orange">Register</button></td>
+           <td><input type="button" onClick="window.location.assign('register.php');" class="btn_shadow_animate_orange" value="Register" /></td>
           </tr>
           </table>
          <br />

@@ -28,7 +28,7 @@
             <td><input type="submit" name="submit" id="submit" class="btn_shadow_animate_grey_disabled" value="Register" disabled /></td>
             </tr>
             <tr>
-            <td><button type="button" onClick="window.location.assign('login.php');" class="btn_shadow_animate_grey">Back</button></td>
+            <td><input type="button" onClick="window.location.assign('login.php');" class="btn_shadow_animate_grey" value="Back" /></td>
             </tr>
             </table>
          </div>
