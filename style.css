@@ -469,16 +469,19 @@ a:active {
 
 .comment_top {
   background-color:#C7C7C7;
+  padding-top:2px;
+  padding-bottom:2px;
   width:90%;
   height:100%;
   margin-left:auto;
   margin-right: auto;
+  margin-bottom: 0px;
 }
 
 .comment_content {
   vertical-align:top;
-  margin-left:24px;
-  /*padding-top:4px;*/
+  margin-left:20px;
+  padding-top:4px;
   padding-bottom:4px;
 }
 
