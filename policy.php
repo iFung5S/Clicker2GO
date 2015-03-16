@@ -4,17 +4,17 @@ session_start();
 
 // if user logged in get the user name
 if (!isset($_SESSION['uid'])) {
-  
+
   $name = '';
-  $logbutton = "Login";
-  
+  $logbutton = "<button type='button' class='logoutButton' onclick='window.location.assign(\"login/login.php\")'>Login</button>";
+
 }
 else {
 
   include_once ('lib/dbCon.php');
   $uid = $_SESSION['uid'];
   $name =  $_SESSION['name'];
-  $logbutton = "Logout";
+  $logbutton = "<button type='button' class='logoutButton' onclick='window.location.assign(\"login/logout.php\")'>Logout</button>";
 
 }
 

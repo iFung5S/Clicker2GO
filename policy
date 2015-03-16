@@ -19,7 +19,7 @@
 
      <!-- WHITE BANNER -->
      <div id="banner">
-        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('login/logout.php')">##logbutton##</button></p>
+        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> ##logbutton##</p>
 
         <a href="index.php">
            <img class="leftStyleLogo" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
@@ -36,31 +36,38 @@
         </us>
      </div>
 
-     <h4>Clicker2Go WebSite Policy</h4>
+     <h4>Clicker2Go Policies</h4>
      <br>
 
        <div class="form-wrapper">
 	 <div class="about-text">
           <p>
-            By using Clicker2Go you consent to the following terms and conditions:
+            By using Clicker2GO you consent to the following terms and conditions:
 	  </p>
 	  <ul>
 	    <li>
 	      <h4>Privacy</h4>
 	      <p> This website respects the privacy of its users.
-	      Cookies are used to implement login/logout functionality only.
-	      We are not affiliated with any third parties, and none of your data are shared by any way with anyone. Also there are no log data stored. </p>
+	      Cookies are used for implementing login and logout functionalities only.
+	      We are not affiliated with any third parties, and none of your data are shared by any way with anyone.
+              No log data are stored. </p>
 	      
-	      <p> The lecturers only have access to the general statistics for a question. Lecturers cannot access the data and answers given by each student individually. Therefore the website as is cannot be used as a student assesment or attendance tool</p>
+	      <p> The lecturers only have access to the general statistics for a question. Lecturers have no access to the data and answers given by each individual student.
+                  Therefore the website as is cannot be used as a student assesment or attendance tool.</p>
 	    </li>
 	    <li>  
 	      <h4>Content</h4>
-	      <p> We are not responsible for any content published by the website users. We do not claim any copyright or ownership rights on any content uploaded on the website. Lecturers are allowed anytime to remove their questions and course units published. The terms under which course units, lectures and questions are published are controlled and are responsibility of each individual lecturer that publishes them. Therefore if someone wants to use this content, must seek advice and information from the lecturer who published it</p>
+	      <p> We are not responsible for any content published by any website users.
+                  We do not claim any copyright or ownership rights on any content uploaded to this website.
+                  Lecturers are allowed to remove their questions and course units published at any time.
+                  The terms under which course units, lectures and questions are published are controlled and are the responsibility of each individual lecturer who publishes them.
+                  Therefore if one wants to use this content, one must seek advice and information from the lecturer who published it.</p>
 	      
-	      <p>We urge users to respect each other and refrain from publishing content and comments that can be offending to any groups or individuals.</p>
+	      <p>We urge users to respect each other and refrain from publishing content and comments that could be offensive to any groups or individuals.</p>
 	    </li>
 	    <li>
-	    <p>We cannot offer any guaranttees for the expected functionality of our website and service. It is provided 'as is' for free. Anyone can use this website/service for free provided it is not for commercial purposes.</p>
+	    <p>We cannot offer any guaranttees for the expected functionality of our website and service. 
+               It is provided 'as is' for free. Anyone can use this website/service for free provided it is not for commercial purposes.</p>
 	    </li>
 	  </ul>  
 	  </div>
