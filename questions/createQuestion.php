@@ -12,16 +12,16 @@
     session_unset();
     header('Location: ../login/login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-  
+
 
   $courseName = $_GET['courseName'];
   $date = $_GET['date'];
 
   if (in_array(array("type"=>"Student"),$_SESSION['type']))
     echo "<script>window.alert('You do not have permission to view.');
-    window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>"; 
+    window.location.assign('questionlist.php?courseName=$courseName&date=$date');</script>";
   else {
   if(isset($_GET['err']))
   {

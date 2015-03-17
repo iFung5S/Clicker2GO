@@ -22,11 +22,11 @@
               ->find_array();
 
       $_SESSION['type'] = $type;
-      
+
       if (in_array(array("type"=>"Student"),$type)
           && in_array(array("type"=>"Lecturer"),$type))
           { $_SESSION['type'][0]['type'] = "Student (inactive)"; }
-          
+
       $_SESSION['expiry'] = time() + 1800;
       $redirect = "<script>window.location.assign('../');</script>";
 

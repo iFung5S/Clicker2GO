@@ -14,9 +14,9 @@
     session_unset();
     header('Location: ../login/login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-    
+
   $uid = $_SESSION['uid'];
 
   if(isset($_POST['qid']))
@@ -108,7 +108,7 @@
               $answer_row->qid = $qid;
               $answer_row->uid = $uid;
               $answer_row->answer = $value;
-              $answer_row->save();      
+              $answer_row->save();
             }
             $info = "Answer has been recorded.";
           }

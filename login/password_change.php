@@ -13,7 +13,7 @@
     session_unset();
     header('Location: login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
 
   include_once ('../lib/dbCon.php');

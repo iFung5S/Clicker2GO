@@ -14,10 +14,9 @@
     session_unset();
     header('Location: ../login/login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-  
-  
+
   if(isset($_GET['qid']))
   {
     // the id of the question to be displayed.
@@ -38,7 +37,7 @@
       $starttime = $question_row-> starttime; // in mySql string format
       // $countdown = $question_row-> countdown; // in seconds, not needed for now
       $endtime = $question_row-> endtime; // in mySql string format
-  
+
       $cuid = $question_row->id_cu;
       $courseName = ORM::for_table('course_units')->find_one($cuid)->course;
       $date = $question_row->date;

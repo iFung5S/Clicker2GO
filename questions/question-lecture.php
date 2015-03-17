@@ -14,9 +14,9 @@
     session_unset();
     header('Location: ../login/login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-    
+
   $uid = $_SESSION['uid'];
   // connect to mysql
   include_once ('../lib/dbCon.php');
@@ -31,7 +31,7 @@
       $seq = "";
 
     $qid = $_GET['qid'];
-      // check if user is a lecturer 
+      // check if user is a lecturer
     if (!in_array(array("type"=>"Lecturer"),$_SESSION['type']))
       header("Location: question-answer.php?seq=$seq&qid=$qid");
 

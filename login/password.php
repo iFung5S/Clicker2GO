@@ -1,7 +1,7 @@
 <?php
 
   session_start();
-  
+
   if (!isset($_SESSION['uid'])) {
     header('Location: login.php');
     exit(0);
@@ -11,9 +11,9 @@
     session_unset();
     header('Location: login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-  
+
 $message = "";
 $file = "password";
 if (isset($_GET['err']))

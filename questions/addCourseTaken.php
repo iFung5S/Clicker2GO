@@ -12,7 +12,7 @@ else if (time() > $_SESSION['expiry'])
   session_unset();
   header('Location: ../login/login.php?TIMEOUT');
   exit(0);
-} else 
+} else
   $_SESSION['expiry'] = time() + 1800;
 
 
@@ -43,7 +43,7 @@ else if (time() > $_SESSION['expiry'])
                             'id_cu' => $cuid->id
                      ))
                     ->find_one();
-   
+
     if (empty($user_courses)) {
       $u_course = ORM::for_table('user_courses')->create();
       $u_course->uid = $uid;
@@ -51,10 +51,10 @@ else if (time() > $_SESSION['expiry'])
       $u_course->save();
     }
     $redirect = "<script>window.location.assign('../index.php');</script>";
-  } 
+  }
   else {
     $redirect = "<script>window.location.assign('../index.php?err=1');</script>";
-  }  
+  }
 
   echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));
 

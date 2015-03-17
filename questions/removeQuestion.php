@@ -13,9 +13,9 @@
     session_unset();
     header('Location: ../login/login.php?TIMEOUT');
     exit(0);
-  } else 
+  } else
     $_SESSION['expiry'] = time() + 1800;
-    
+
 if(!in_array(array("type"=>"Student"),$_SESSION['type'])) {
     include_once ('../lib/dbCon.php');
   if (isset($_GET['courseName']) && isset($_GET['date']))
@@ -43,7 +43,7 @@ if(!in_array(array("type"=>"Student"),$_SESSION['type'])) {
      $delete_question = ORM::for_table('questions')
                         ->find_one($qid)
                         ->delete();
- 
+
     $redirect = "<script>javascript:history.back();</script>";
 
     echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));

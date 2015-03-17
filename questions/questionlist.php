@@ -7,12 +7,12 @@ if (!isset($_SESSION['uid'])) {
   header('Location: ../');
   exit(0);
 }
-else if (time() > $_SESSION['expiry']) 
+else if (time() > $_SESSION['expiry'])
 {
   session_unset();
   header('Location: ../login/login.php?TIMEOUT');
   exit(0);
-} else 
+} else
   $_SESSION['expiry'] = time() + 1800;
 
 if(isset($_GET['courseName'])){

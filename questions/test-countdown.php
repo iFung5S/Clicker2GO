@@ -77,13 +77,13 @@
                          ->where('qid',$qid)
                          ->delete_many();
       }
-      
+
       // set countdown in seconds for the specific question
       if (isset($_POST['set_countdown']))
       {
         $new_countdown = (int) ($_POST['set_countdown']);
         $question_row->countdown = $new_countdown;
-        $question_row->save();       
+        $question_row->save();
         if ($countdownstarted)
         {
           // set the starttime in the database to NULL
@@ -96,7 +96,7 @@
           $postaction = 'startcountdown';
         }
       }
-      
+
       // this page url to refresh
       $thispage = "test-countdown.php?qid=$qid"
     ?>
@@ -123,16 +123,16 @@
       <input name="<?php echo $postaction ?>" type='hidden' value=1 />
       <input type="submit" value="<?php echo $buttontext ?>" >
     </form>
-    
+
     <form action="<?php echo $thispage?>" method="POST">
       <input name='reset_answers' type='hidden' value=1 />
       <input type="submit" value='Reset given answers to question' >
     </form>
-    
+
     <form action="<?php echo $thispage?>" method="POST">
       <input name='set_countdown' type='text' />
       <input type="submit" value='Set question countdown' >
     </form>
-    
+
   </body>
 </html>
