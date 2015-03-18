@@ -82,7 +82,7 @@ if (!isset($_SESSION['uid'])) {
               "<us>
                  <div class='comment_top'> <b>$name :</b> </div>
                  <div class='comment_div'>
-                    <div class='comment_content'><pre style='font-size:14px'>".htmlspecialchars($content)."</pre></div>
+                    <div class='comment_content'><pre>".htmlspecialchars($content)."</pre></div>
                     <div class='comment_time'>$time</div>
                  </div>
               </us>
