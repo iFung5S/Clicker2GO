@@ -54,7 +54,7 @@
     $questions -> set(array(
                   'id_cu' => $cuid,
                   'date' => $date,
-                  'question' => $question,
+                  'question' => $_POST['question'],
                   'correct' => $correct
                  ));
     for ($i=1; $i<=6; $i++)
