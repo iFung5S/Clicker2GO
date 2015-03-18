@@ -27,8 +27,6 @@
   {
     $redirect = "<script>window.location.assign('createQuestion.php?courseName=$courseName&date=$date&err=1');</script>"; 
   }
-  else {
-    $question = str_replace("\n","<br/>",$_POST['question']);
 
     for($i = 1;$i <= 6;$i++){
 
