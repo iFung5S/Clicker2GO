@@ -47,6 +47,9 @@ us {
   font-family: Ubuntu, sans-serif;
 }
 
+pre {
+  font-size:16px;
+}
 padding4 {
   padding-right: 4px;
 }
