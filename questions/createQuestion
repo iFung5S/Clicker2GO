@@ -21,15 +21,6 @@
         </a>
      </div>
 
-     <!-- BANNER BOTTOM -->
-     <div id="bannerBottom">
-        <us>
-        <a class="rightText" href="../about.php"> About</a>
-        <span class="rightText">|</span>
-        <a class="rightText" href="../policy.php"> Policy </a>
-        </us>
-     </div>
-      
          <h4>CREATE QUESTION</h4>
    <br />
    <div class="form-wrapper">
@@ -87,6 +78,17 @@
       <input type="hidden" name="date" value="##date##" /><br />
     </form>
   </div>
+  <br><br>
+     
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="../about.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="../policy.php"> Policy </a>
+        </us>
+     </div>
+      
   </body>
 <script>
 document.getElementById("question").select();
