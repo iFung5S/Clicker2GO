@@ -22,14 +22,6 @@
         </a>
      </div>
 
-     <!-- BANNER BOTTOM -->
-     <div id="bannerBottom">
-        <us>
-        <a class="rightText" href="../about.php"> About</a>
-        <span class="rightText">|</span>
-        <a class="rightText" href="../policy.php"> Policy </a>
-        </us>
-     </div>
 
         <h4>QUESTION ##qnumber##</h4>
         <br />
@@ -84,6 +76,16 @@
      
      <div id="comment_list"></div>
   </div>
+  
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="../about.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="../policy.php"> Policy </a>
+        </us>
+     </div>
+     
   <script>
   if (count > 0)
   {

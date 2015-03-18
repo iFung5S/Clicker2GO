@@ -27,15 +27,6 @@
         </a>
      </div>
 
-     <!-- BANNER BOTTOM -->
-     <div id="bannerBottom">
-        <us>
-        <a class="rightText" href="about.php"> About</a>
-        <span class="rightText">|</span>
-        <a class="rightText" href="policy.php"> Policy </a>
-        </us>
-     </div>
-
      <h4>MY COURSES</h4>
      <br>
 
@@ -59,6 +50,15 @@
           </form>
           <br/>
       </div>
+      
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="about.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="policy.php"> Policy </a>
+        </us>
+     </div>
 
   </body>
 </html>
