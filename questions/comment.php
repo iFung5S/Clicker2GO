@@ -79,13 +79,13 @@ if (!isset($_SESSION['uid'])) {
 
     //comments table -- edit style here
     $comment .=
-              "<us><pre>
+              "<us>
                  <div class='comment_top'> <b>$name :</b> </div>
                  <div class='comment_div'>
-                    <div class='comment_content'>".htmlspecialchars($content)."</div>
+                    <div class='comment_content'><pre style='font-size:14px'>".htmlspecialchars($content)."</pre></div>
                     <div class='comment_time'>$time</div>
                  </div>
-              </pre></us>
+              </us>
               <br>";
   }
 
