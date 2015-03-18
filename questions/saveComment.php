@@ -16,7 +16,7 @@ if (!isset($_SESSION['uid'])) {
   $comments->set(array(
              'uid' => $uid,
              'qid' => $qid,
-             'comment' => $comment
+             'comment' => $_POST['comment']
              ));
   $comments->save();
  }
