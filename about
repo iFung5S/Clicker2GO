@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Home | Clicker2GO</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript">
+    var timeout = setTimeout("logout()",1800000);
+    function logout() {
+      window.location.assign('login/logout.php?TIMEOUT');
+    }
+    </script>
+  </head>
+
+  <body class="homepage">
+
+     <!-- WHITE BANNER -->
+     <div id="banner">
+        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('login/logout.php')">##logbutton##</button></p>
+
+        <a href="index.php">
+           <img class="leftStyleLogo" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+           <h3 class="leftStyle"> CLICKER2GO </h3>
+        </a>
+     </div>
+
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="about.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="policy.php"> Policy </a>
+        </us>
+     </div>
+
+     <h4>About Clicker2Go</h4>
+     <br>
+
+       <div class="form-wrapper">
+	 <div class="about-text">
+          <p>
+            Clicker2Go is a website/webapp designed to enhance the learning experience during and after lectures.
+            Its aim is to make lectures interactive by allowing the lecturer to make multiple choice questions that
+            the students can answer in real time through Clicker2Go on their laptops, tablets, or mobile phones.
+	  </p>
+	  
+	  <p> Clicker2Go can be easily used in any learning institution without requiring the purchase of expensive hardware equipment. </p>
+	  <p>  
+	    Here is a list of the supported features:
+	    
+	    <ul>
+	      <li> Create courses, lectures by date, and multiple choice questions for each lecture</li>
+	      <li> CountDown Timer for each question</li>
+	      <li> Statistics for each answered question</li>
+	      <li> Comments after each question for explanation and discussion of the question</li>
+	    </ul>
+            
+          </p>
+	  
+	  <p> Clicker2Go has been developed during course Unit COMP10120 'First Year Team project' at the School of Computer Science of the University of Manchester by a group of six students (Group X4).
+	  
+	  <p>The code of the project is available for free to use and modify, provided attribution is given and that it is not used (or any modified derivative) for commercial purposes.
+	  </p>
+	  <p>
+	    For Clicker2Go we have used and included code from <a href='https://github.com/j4mie/idiorm'> Idiorm </a> library for php and mysql interaction.
+	  </p>
+	  </div>
+      </div>
+
+  </body>
+</html>

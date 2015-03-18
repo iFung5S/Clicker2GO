@@ -24,9 +24,9 @@
      <!-- BANNER BOTTOM -->
      <div id="bannerBottom">
         <us>
-        <a class="rightText" href="index.php"> About</a>
+        <a class="rightText" href="../about.php"> About</a>
         <span class="rightText">|</span>
-        <a class="rightText" href="index.php"> Policy </a>
+        <a class="rightText" href="../policy.php"> Policy </a>
         </us>
      </div>
       

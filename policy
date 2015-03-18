@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Home | Clicker2GO</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript">
+    var timeout = setTimeout("logout()",1800000);
+    function logout() {
+      window.location.assign('login/logout.php?TIMEOUT');
+    }
+    </script>
+  </head>
+
+  <body class="homepage">
+
+     <!-- WHITE BANNER -->
+     <div id="banner">
+        <p class="rightStyle"> <a href="login/profile.php" style="text-decoration:none;vertical-align:middle"> ##name## </a> <button type="button" class="logoutButton" onclick="window.location.assign('login/logout.php')">##logbutton##</button></p>
+
+        <a href="index.php">
+           <img class="leftStyleLogo" src="images/logo.png" alt="Unable to load image" style="width:60px; height:60px">
+           <h3 class="leftStyle"> CLICKER2GO </h3>
+        </a>
+     </div>
+
+     <!-- BANNER BOTTOM -->
+     <div id="bannerBottom">
+        <us>
+        <a class="rightText" href="about.php"> About</a>
+        <span class="rightText">|</span>
+        <a class="rightText" href="policy.php"> Policy </a>
+        </us>
+     </div>
+
+     <h4>Clicker2Go WebSite Policy</h4>
+     <br>
+
+       <div class="form-wrapper">
+	 <div class="about-text">
+          <p>
+            By using Clicker2Go you consent to the following terms and conditions:
+	  </p>
+	  <ul>
+	    <li>
+	      <h4>Privacy</h4>
+	      <p> This website respects the privacy of its users.
+	      Cookies are used to implement login/logout functionality only.
+	      We are not affiliated with any third parties, and none of your data are shared by any way with anyone. Also there are no log data stored. </p>
+	      
+	      <p> The lecturers only have access to the general statistics for a question. Lecturers cannot access the data and answers given by each student individually. Therefore the website as is cannot be used as a student assesment or attendance tool</p>
+	    </li>
+	    <li>  
+	      <h4>Content</h4>
+	      <p> We are not responsible for any content published by the website users. We do not claim any copyright or ownership rights on any content uploaded on the website. Lecturers are allowed anytime to remove their questions and course units published. The terms under which course units, lectures and questions are published are controlled and are responsibility of each individual lecturer that publishes them. Therefore if someone wants to use this content, must seek advice and information from the lecturer who published it</p>
+	      
+	      <p>We urge users to respect each other and refrain from publishing content and comments that can be offending to any groups or individuals.</p>
+	    </li>
+	    <li>
+	    <p>We cannot offer any guaranttees for the expected functionality of our website and service. It is provided 'as is' for free. Anyone can use this website/service for free provided it is not for commercial purposes.</p>
+	    </li>
+	  </ul>  
+	  </div>
+      </div>
+
+  </body>
+</html>
