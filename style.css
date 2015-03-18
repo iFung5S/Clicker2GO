@@ -517,3 +517,9 @@ a:active {
 {
   padding: 10px;
 }
+
+.about-text
+{
+    margin-left:1em;
+    margin-right:1em;
+}
