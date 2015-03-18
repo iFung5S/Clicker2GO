@@ -61,7 +61,7 @@
 
           $answers .= "<div $isCorrect style='margin-bottom:0.5em'>
                       <span style='float:left'>$N. </span>
-                      <div style='margin-left:1.8em'>htmlspecialchars($answer)</div></div>";
+                      <div style='margin-left:1.8em'>".htmlspecialchars($answer)."</div></div>";
         }
       }
 
