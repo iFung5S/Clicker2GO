@@ -101,7 +101,7 @@
 
       $placeholder = array("##reload##", "##question##", "##answers##"
                   ,"##qid##","##courseName##","##date##","##date_long##","##qnumber##","##name##");
-      $replace = array($reload, $question, $answers, $qid,
+      $replace = array($reload, htmlspecialchars($question), htmlspecialchars($answers), $qid,
                         $courseName,$date,date("d M Y",strtotime($date)),$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
     }
