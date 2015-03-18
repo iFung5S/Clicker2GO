@@ -43,7 +43,8 @@
       $correct = $_POST['correct'];
       $correct = implode("|",$correct);
     }
-
+    else
+      $correct = null;
     include_once ('../lib/dbCon.php');
 
     $cuid = ORM::for_table('course_units')
