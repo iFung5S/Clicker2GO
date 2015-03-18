@@ -12,8 +12,6 @@ if (!isset($_SESSION['uid'])) {
 
   $qid = $_POST['qid'];
  if (!preg_match("/^\s*$/",$_POST['comment'])) {
-  $comment = str_replace("\n","<br/>",$_POST['comment']);
-
   $comments = ORM::for_table('comments')->create();
   $comments->set(array(
              'uid' => $uid,
