@@ -53,7 +53,7 @@
 	  <us><p>  
 	    Supported features are:
 	    
-	    <ul>
+	    <ul style="margin-left:3em;">
 	      <li> Create courses, lectures by date, and multiple choice questions for each lecture.</li>
 	      <li> Countdown Timer for each question.</li>
 	      <li> Statistics for each answered question.</li>
