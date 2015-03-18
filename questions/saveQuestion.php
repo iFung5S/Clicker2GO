@@ -68,5 +68,5 @@
     }
   }
   echo str_replace("##redirect##", $redirect, file_get_contents('../login/page_only_title'));
-  }
+  
 ?>
