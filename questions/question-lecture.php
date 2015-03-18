@@ -61,7 +61,7 @@
 
           $answers .= "<div $isCorrect style='margin-bottom:0.5em'>
                       <span style='float:left'>$N. </span>
-                      <div style='margin-left:1.8em'>$answer</div></div>";
+                      <div style='margin-left:1.8em'>htmlspecialchars($answer)</div></div>";
         }
       }
 
@@ -83,7 +83,7 @@
 
     $placeholder = array("##question##", "##answers##","##timer##",
       "##default##","##qid##","##courseName##","##date##","##qnumber##","##name##");
-    $replace = array(htmlspecialchars($question), htmlspecialchars($answers),$timer,$default
+    $replace = array(htmlspecialchars($question), $answers,$timer,$default
                 ,$qid,$courseName,$date,$seq,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 
