@@ -16,7 +16,7 @@ else if(isset($_GET['err']) && $_GET['err'] == 2)
 }
 else if(isset($_GET['logout']) && $_GET['logout'] == 1)
 {
-  $message = "<span class='correct'>Logged out successfully.</span>";
+  $message = "<span class='correct'>Successfully logged out.</span>";
   $select = "";
 }
 else if(isset($_GET['register']) && $_GET['register'] == 1)
