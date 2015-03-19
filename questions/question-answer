@@ -43,7 +43,7 @@
         </p>
         <br />
 
-      <p id="question" style="margin-left:1.5em;text-align:justify;">
+      <p id="question" style="margin-left:1.5em;margin-right:1.5em;text-align:justify;">
         <us style="text-align:justify;">##question##</us>
       </p>
         <br />
