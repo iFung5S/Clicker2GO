@@ -78,11 +78,12 @@ if (!isset($_SESSION['uid'])) {
       $time = date("d M Y H:i",$time);
 
     //comments table -- edit style here
+    $content = str_replace("\n","<br/>",htmlspecialchars($content));
     $comment .=
               "<us>
                  <div class='comment_top'> <b>$name</b></div>
                  <div class='comment_div'>
-                    <div class='comment_content'><pre>".htmlspecialchars($content)."</pre></div>
+                    <div class='comment_content'>$content</div>
                     <div class='comment_time'>$time</div>
                  </div>
               </us>

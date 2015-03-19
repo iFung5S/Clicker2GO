@@ -43,9 +43,9 @@
         </p>
         <br />
 
-      <us id="question">
-        <pre style="margin-left:1.5em">##question##</pre>
-      </us>
+      <p id="question" style="margin-left:1.5em">
+        <us>##question##</us>
+      </p>
         <br />
 
         <div>

@@ -80,10 +80,10 @@
     $timer ="has not started yet.";
   $default = $question_row->countdown;
 
-
+    $question = str_replace("\n","<br/>",htmlspecialchars($question));
     $placeholder = array("##question##", "##answers##","##timer##",
       "##default##","##qid##","##courseName##","##date##","##qnumber##","##name##");
-    $replace = array(htmlspecialchars($question), $answers,$timer,$default
+    $replace = array($question, $answers,$timer,$default
                 ,$qid,$courseName,$date,$seq,$_SESSION['name']);
     echo str_replace($placeholder, $replace, file_get_contents('question-lecture'));
 

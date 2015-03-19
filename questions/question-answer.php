@@ -136,9 +136,10 @@
             $visible = true;
             include('generate_answers.php');
             $answers = $answers."<script>document.getElementById('answer_form').submit()</script>";
+            $question = str_replace("\n","<br/>",htmlspecialchars($question));
             $placeholder = array("##info##", "##question##", "##answers##",
        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
-            $replace = array("", htmlspecialchars($question), $answers,$courseName, $date, date("d M Y",strtotime($date)), "", $_SESSION['name'], "", "");
+            $replace = array("", $question, $answers,$courseName, $date, date("d M Y",strtotime($date)), "", $_SESSION['name'], "", "");
             echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
             exit(0);
           }
@@ -149,10 +150,10 @@
       // generate_answers.php stores the generated string code to $answers
       include('generate_answers.php');
 
-
+      $question = str_replace("\n","<br/>",htmlspecialchars($question));
       $placeholder = array("##info##", "##question##", "##answers##",
        "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
-      $replace = array($info, htmlspecialchars($question), $answers,
+      $replace = array($info, $question, $answers,
                        $courseName, $date, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], $refresh, $qid);
       echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 

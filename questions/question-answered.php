@@ -99,9 +99,10 @@
         }
       } // if $current_time > $endtime
 
+      $question = str_replace("\n","<br/>",htmlspecialchars($question));
       $placeholder = array("##reload##", "##question##", "##answers##"
                   ,"##qid##","##courseName##","##date##","##date_long##","##qnumber##","##name##");
-      $replace = array($reload, htmlspecialchars($question), $answers, $qid,
+      $replace = array($reload, $question, $answers, $qid,
                         $courseName,$date,date("d M Y",strtotime($date)),$seq,$_SESSION['name']);
       echo str_replace($placeholder, $replace, file_get_contents('question-answered'));
     }

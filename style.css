@@ -47,15 +47,6 @@ us {
   font-family: Ubuntu, sans-serif;
 }
 
-pre {
-  font-family: Ubuntu, sans-serif;
-  font-size:16px;
-  white-space: pre-wrap;       
-  white-space: -moz-pre-wrap;  
-  white-space: -pre-wrap;      
-  white-space: -o-pre-wrap;    
-  word-wrap: break-word;       
-}
 
 padding4 {
   padding-right: 4px;

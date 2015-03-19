@@ -41,9 +41,9 @@
         <div id="message_box">
            <us>##reload##</us>
         </div>
-      <us id="question">
-        <pre style="margin-left:1.5em">##question##</pre>
-      </us>
+      <p id="question" style="margin-left:1.5em">
+        <us>##question##</us>
+      </p>
         <br />
         <div>
            <us>##answers##</us>
