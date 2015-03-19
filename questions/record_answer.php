@@ -208,10 +208,10 @@
           include('generate_answers.php');
           $answers = $answers . $redirection_script;
         }
-
+        $question = str_replace("\n","<br/>",htmlspecialchars($question));
         $placeholder = array("##info##", "##question##", "##answers##",
         "##courseName##","##date##","##date_long##","##qnumber##","##name##", "##refresh##","##qid##");
-        $replace = array($info, htmlspecialchars($question), htmlspecialchars($answers),
+        $replace = array($info, $question, $answers,
                        $courseName, $date, date("d M Y",strtotime($date)), $seq, $_SESSION['name'], "", $qid);
         echo str_replace($placeholder, $replace, file_get_contents('question-answer'));
 

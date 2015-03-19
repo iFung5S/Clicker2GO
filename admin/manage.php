@@ -20,7 +20,10 @@ else if (time() > $_SESSION['expiry'])
 
   // Redirect if not administrator
   if (!in_array(array("type"=>"Administrator"),$_SESSION['type']))
+  {
     echo "<script>window.alert('You do not have permission to view.'); window.location.assign('../');</script>";
+  exit(0);
+  }
 
   $username = $_SESSION['uid'];
 

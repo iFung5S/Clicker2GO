@@ -17,8 +17,11 @@
     $_SESSION['expiry'] = time() + 1800;
 
   if (in_array(array("type"=>"Student"),$_SESSION['type']))
+  {
     echo "<script>window.alert('You do not have permission for this operation.');
     window.location.assign('../');</script>";
+  exit(0);
+  }
   else {
   $courseName = $_POST['courseName'];
   $date = $_POST['date'];

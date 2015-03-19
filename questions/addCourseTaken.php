@@ -27,7 +27,7 @@ else if (time() > $_SESSION['expiry'])
             ->where('course',$courseName)
             ->find_one();
 
-    if (empty($cuid)){
+    if (empty($cuid) && !in_array(array("type"=>"Student"),$_SESSION['type']){
       $courseUnit = ORM::for_table('course_units')->create();
       $courseUnit->course = $courseName;
       $courseUnit->owner_uid = $uid;

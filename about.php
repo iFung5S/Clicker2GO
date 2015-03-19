@@ -10,7 +10,14 @@ if (!isset($_SESSION['uid'])) {
 
 }
 else {
-
+  if (time() > $_SESSION['expiry'])
+  {
+    session_unset();
+    header('Location: about.php');
+    exit(0);
+  } else {
+    $_SESSION['expiry'] = time() + 1800;
+  }
   include_once ('lib/dbCon.php');
   $uid = $_SESSION['uid'];
   $name =  $_SESSION['name'];

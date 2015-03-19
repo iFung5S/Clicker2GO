@@ -4,7 +4,7 @@
   if (!isset($_SESSION['uid'])) {
         header('Location: ../');
   }
-
+  $_SESSION['expiry'] = time() + 1800;
   include ('../lib/dbCon.php');
 
   if (isset($_POST['ready']) && $_POST['ready'] == 1)
