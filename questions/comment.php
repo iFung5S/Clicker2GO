@@ -49,7 +49,6 @@ if (!isset($_SESSION['uid'])) {
   {
 
   $bar = "<div style='text-align:center;'><us>";
-  $bar .= "Page $page of $pages<br />";
   if ($page > 1)
     $bar .= "<a href='#' onClick='changepage($first,$qid);'>[First]</a> <a href='#' onClick='changepage($prev,$qid);'>[Prev]</a> ";
   for ($i = 1; $i < $page; $i++)
@@ -59,6 +58,7 @@ if (!isset($_SESSION['uid'])) {
     $bar .= " <a href='#' onClick='changepage($i,$qid);'>[$i]</a> ";
   if ($page < $pages)
     $bar .= "<a href='#' onClick='changepage($next,$qid);'>[Next]</a> <a href='#' onClick='changepage($last,$qid);'>[Last]</a> ";
+  $bar .= "<br />Page $page of $pages";
   $bar .= "</us></div>";
 
   $comment .= $bar;
