@@ -42,7 +42,7 @@
            <us>##reload##</us>
         </div>
       <p id="question" style="margin-left:1.5em">
-        <us>##question##</us>
+        <us style="text-align:justify;">##question##</us>
       </p>
         <br />
         <div>
