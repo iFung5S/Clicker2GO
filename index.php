@@ -41,17 +41,17 @@ else if (time() > $_SESSION['expiry'])
       $courseName = $course->course;
       //for remove course
       if (in_array(array("type"=>"Student"),$type)) {
-        $confirm = "javascript:if(confirm('Do you want to remove course unit $courseName?'))location='questions/removeCourse.php?courseName=$courseName'";
+        $confirm = "javascript:if(confirm('Are you sure you want to remove the course unit $courseName?'))location='questions/removeCourse.php?courseName=$courseName'";
       } else {
         $owner = ORM::for_table('course_units')
                  ->where('course',$courseName)
                  ->find_one()
                  ->owner_uid;
         if ($owner == $uid) {
-          $confirm = "javascript:if(confirm('Do you want to delete course unit $courseName? (Also related questions)'))location='questions/removeCourse.php?courseName=$courseName'";
+          $confirm = "javascript:if(confirm('Are you sure you want to delete the course unit $courseName and all related questions?'))location='questions/removeCourse.php?courseName=$courseName'";
         } else {
           $confirm = "javascript:if(confirm
-                     ('Do you want to remove course unit $courseName?(Course unit and related questions will not be deleted as you are not the owner of this course)'))
+                     ('Are you sure you want to remove the course unit $courseName? (Course unit and related questions will not be deleted as you are not the owner of this course unit.)'))
                      location='questions/removeCourse.php?courseName=$courseName'";
         }
       }
