@@ -76,7 +76,6 @@
 
         // code to decide if the user's answer is taken as correct
         // Note: decision depends on lecturer and type of question
-        // maybe add question types feature in the future
         $num_given_answers = count($given_answer);
         if ($num_given_answers == 0 || empty($submitted_answer))
           $reload = " You have not submitted any answers. <br />";
@@ -87,11 +86,11 @@
             $is_user_correct = ($num_answered_correctly == 1);
           else if ($num_given_answers > $num_to_select)
             $is_user_correct = false;
-          else if ($num_to_select == $num_correct_answers)
+          else if ($num_given_answers == $num_to_select)
             $is_user_correct = ($num_answered_correctly == $num_given_answers);
           else
             $is_user_correct = false;
-
+	  
           if ($is_user_correct)
             $reload = " Your answer is correct. <br />";
           else

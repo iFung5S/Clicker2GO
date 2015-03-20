@@ -52,7 +52,7 @@
       {
 
         $answer = $question_row->get('answer'.$i);
-        if (!empty($answer))
+        if (!is_null($answer))
         {
           $isCorrect = "";
           if (in_array('answer'.$i, $correct_answer))
