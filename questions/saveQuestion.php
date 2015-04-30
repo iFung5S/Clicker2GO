@@ -64,7 +64,7 @@
     for ($i=1; $i<=6; $i++)
     {
       // not using !empty() because if we have an answer = 0 it is not accepted
-      if (!is_null($answer[$i]))
+      if (!empty($answer[$i]))
         $questions->set('answer'.$i,$answer[$i]);
     }
     $questions -> save();
