@@ -24,7 +24,7 @@
   {
     $answer = $question_row->get('answer'.$i);
 
-    if(!empty($answer))         //check if answer-i exists
+    if(!is_null($answer))         //check if answer-i exists
     {
       $count = ORM::for_table('answers')
                ->where(array(
