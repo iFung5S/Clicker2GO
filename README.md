@@ -10,7 +10,7 @@ Supported features are:
 - Statistics for each answered question.
 - Comments after each question for explanation and discussion of the question.
 
-Clicker2GO was developed in course unit [COMP10120 "First Year Team Project"](http://studentnet.cs.manchester.ac.uk/ugt/2014/COMP10120/syllabus) at the [School of Computer Science](http://cs.manchester.ac.uk) of the [University of Manchester](http://www.manchester.ac.uk) by a group of six students (Group X4).
+Clicker2GO was developed in course unit [COMP10120 "First Year Team Project"](http://studentnet.cs.manchester.ac.uk/ugt/2014/COMP10120/syllabus) at the [School of Computer Science](http://cs.manchester.ac.uk) of the [University of Manchester](http://www.manchester.ac.uk) by a group of six students (Group X4) in 2014-2015.
 
 The code of the project is available for free to use and modify, provided that attribution is given and that it (or any modified derivative) is not used for commercial purposes.
 
